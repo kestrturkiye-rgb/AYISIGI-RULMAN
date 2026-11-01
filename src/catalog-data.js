@@ -1,4 +1,5 @@
 import { normalizeCode } from './technical-search.js';
+import displayImages from './product-image-map.json' with { type: 'json' };
 
 const appBase = import.meta.env?.BASE_URL || '/';
 export function publicAssetPath(path, base = appBase) {
@@ -18,10 +19,11 @@ export function decodeCatalog(data, assetBase = appBase) {
  if(data.schemaVersion!==1||!Array.isArray(data.rows))throw new Error('Katalog biçimi desteklenmiyor.');
  return data.rows.map(row=>{
   const [id,code,brandId,categoryId,measurements,title,image,refs,baseCode,detailChunk,imageKind,manufacturerCode,imageReference]=row;
+  const displayImage=image?(displayImages[image.split('/').pop()]||image):null;
   const dimensions={};['inner','outer','width'].forEach((key,i)=>{if(measurements?.[i]!=null)dimensions[key]=measurements[i]});
   const category=data.categories[categoryId];const brand=data.brands[brandId];
   const sources=refs.map(([key,urlId])=>({key,name:sourceNames[key],url:data.urls[urlId]}));
-  return {id,code,brand,category,dimensions,name:title||category,image:image?publicAssetPath(image,assetBase):null,imageKind:imageKind||(image?'product':null),imageReferenceUrl:imageReference!=null?data.urls[imageReference]:null,sources,baseCode,detailChunk,manufacturerCode,codeAliases:manufacturerCode&&manufacturerCode!==code?[manufacturerCode]:[],
+  return {id,code,brand,category,dimensions,name:title||category,image:displayImage?publicAssetPath(displayImage,assetBase):null,imageKind:imageKind||(image?'product':null),imageReferenceUrl:imageReference!=null?data.urls[imageReference]:null,sources,baseCode,detailChunk,manufacturerCode,codeAliases:manufacturerCode&&manufacturerCode!==code?[manufacturerCode]:[],
    size:formatDimensions(dimensions),type:category==='Yataklı rulmanlar'?'housing':category==='Zincirler'?'chain':category.includes('Makaralı')?'roller':'steel',
    searchText:`${code} ${title||''} ${brand} ${category}`.toLocaleLowerCase('tr'),normalizedCode:normalizeCode(code),normalizedBrand:normalizeCode(brand)};
  });

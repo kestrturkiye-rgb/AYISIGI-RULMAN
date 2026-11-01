@@ -13,7 +13,8 @@ test('catalog assets work under the GitHub Pages project path',()=>{
  assert.equal(publicAssetPath('/catalog/index.json','/AYISIGI-RULMAN/'),'/AYISIGI-RULMAN/catalog/index.json');
  assert.equal(publicAssetPath('catalog/index.json','/'),'/catalog/index.json');
  const sample=decodeCatalog({...index,rows:[index.rows[0]]},'/AYISIGI-RULMAN/')[0];
- assert.ok(sample.image.startsWith('/AYISIGI-RULMAN/catalog/images/'));
+ assert.ok(sample.image.startsWith('/AYISIGI-RULMAN/catalog/'));
+ assert.ok(existsSync(new URL('../public/'+sample.image.replace('/AYISIGI-RULMAN/',''),import.meta.url)));
  assert.ok(sample.sources.every(source=>source.url.startsWith('https://')));
 });
 
@@ -57,7 +58,7 @@ test('locally retained photos and lazy technical-detail chunks exist',()=>{
  assert.equal(products.filter(p=>p.image).length,manifest.withImages);
  assert.equal(products.filter(p=>p.dimensions.inner!==undefined&&p.dimensions.outer!==undefined).length,manifest.withBothDiameters);
  for(const p of products){
-  if(p.image){assert.ok(['product','series','category'].includes(p.imageKind));assert.ok(p.image.startsWith('/catalog/images/'));assert.ok(existsSync(new URL('../public'+p.image,import.meta.url)));}
+  if(p.image){assert.ok(['product','series','category'].includes(p.imageKind));assert.ok(p.image.startsWith('/catalog/'));assert.ok(existsSync(new URL('../public'+p.image,import.meta.url)));}
   if(p.imageKind==='category')assert.ok(p.imageReferenceUrl?.startsWith('https://'));
   if(p.detailChunk!=null){const path=new URL(`../public/catalog/details-${p.detailChunk}.json`,import.meta.url);assert.ok(existsSync(path));}
  }

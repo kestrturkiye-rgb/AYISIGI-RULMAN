@@ -1,6 +1,6 @@
 # Toplu ürün görseli temizliği
 
-Bu işlem, kullanıcının Python/OpenCV ile toplu temizleme seçimi üzerine mevcut ürün fotoğraflarına uygulanır. Ürün kimlikleri, adları, kodları, ölçüleri ve katalog üyeliği değiştirilmez. Kaynak dosyalar `public/catalog/images` içinde korunur; web sitesi temizlenmiş dosyaları `src/product-image-map.json` eşlemesiyle kart, detay ve sepette gösterir.
+Bu işlem, kullanıcının Python/OpenCV ile toplu temizleme seçimi üzerine mevcut ürün fotoğraflarına uygulanır. Ürün kimlikleri, adları, kodları, ölçüleri ve katalog üyeliği değiştirilmez. Kaynak dosyalar `public/catalog/images` içinde korunur; web sitesi temizlenmiş dosyaları `src/product-image-map.json` eşlemesiyle kart, detay ve sepette gösterir. Eşleme katalog çözülürken uygulanır; ürün modelinin `image` alanı doğrudan temiz görsel adresini taşır. Kök adres ve GitHub Pages proje tabanı ayrı test edilir.
 
 ## Yöntem
 
