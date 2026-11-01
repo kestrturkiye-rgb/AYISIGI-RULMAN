@@ -107,3 +107,9 @@ Admin adresi `#/admin`; oturum sunucu tarafından doğrulanır. Teklif kaydı su
 Kurulum dosyaları, kalıcı disk, HTTPS, şifre oluşturma ve SMTP adımları: [Sunucu kurulumu](docs/SUNUCU-KURULUMU.md). Hazırlanan sistemd ve Caddy dosyaları `deploy/` altındadır. Yapılandırma örneği `.env.example`; gerçek gizli değerleri depoya eklemeyin.
 
 Testler: `npm run test:server` ve `node tests/quote.test.js`; katalog/teknik arama testleri de korunur. Testler gerçek e-posta göndermez.
+
+## Ürün sunumu ve temizlenen görseller
+
+Ürün kartı, detay ve görsel alanlarında kaynak adları/bağlantıları gösterilmez. Kaynak filtresi kaldırıldı; ham katalogdaki izlenebilirlik verisi korunur. Temsili kategori/seri ayrımı yalnızca detay açıklaması ve erişilebilir alternatif metinde korunur; fotoğraf üzerinde etiket gösterilmez.
+
+İlk dört görsel, mevcut ürün referansları kullanılarak görsel düzenleme aracıyla kaynak filigranlarından temizlendi. Düzenlenen dosyalar `public/catalog/edited-images`, eşleme `src/product-image-edits.js` içindedir. Orijinaller korunur; farklı bir ürüne ait fotoğrafla otomatik değiştirme yapılmaz. Bu işlem bütün kataloğun fotoğraflarının temizlendiği anlamına gelmez. Diğer satıcı görselleri için inceleme adayları `docs/product-image-review.json` dosyasındadır; listedeki her dosyada filigran bulunduğu iddia edilmez.

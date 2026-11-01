@@ -12,7 +12,7 @@ export function formatDimensions(dimensions) {
  const {inner,outer,width}=dimensions;
  if(inner!==undefined&&outer!==undefined&&width!==undefined)return `${format(inner)} × ${format(outer)} × ${format(width)} mm`;
  const parts=[inner!==undefined&&`İç: ${format(inner)}`,outer!==undefined&&`Dış: ${format(outer)}`,width!==undefined&&`En: ${format(width)}`].filter(Boolean);
- return parts.length?`${parts.join(' · ')} mm`:'Ölçü bilgisi kaynaktan doğrulanmalı';
+ return parts.length?`${parts.join(' · ')} mm`:'Ölçü bilgisi teklif aşamasında doğrulanır';
 }
 export function decodeCatalog(data, assetBase = appBase) {
  if(data.schemaVersion!==1||!Array.isArray(data.rows))throw new Error('Katalog biçimi desteklenmiyor.');
