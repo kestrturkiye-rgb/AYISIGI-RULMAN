@@ -5,3 +5,8 @@ dist/
 !.env.example
 *.log
 __pycache__/
+
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

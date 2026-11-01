@@ -1,0 +1,5 @@
+# Replace example.com with the domain pointing to the VPS before starting Caddy.
+example.com {
+ encode zstd gzip
+ reverse_proxy 127.0.0.1:3000
+}

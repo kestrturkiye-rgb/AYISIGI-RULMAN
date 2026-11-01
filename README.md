@@ -1,6 +1,6 @@
 # Rulman Teklif
 
-React/Vite ile Türkçe ürün kataloğu, teknik arama ve teklif listesi. Node.js 22.12+ veya 24+ gerektirir.
+React/Vite ile Türkçe ürün kataloğu, teknik arama ve teklif listesi. Node.js 24+ gerektirir (teklif sunucusunda yerleşik SQLite kullanılır).
 
 ```sh
 cd /workspace/AYISIGI-RULMAN
@@ -40,7 +40,7 @@ Tedarikçilerin fiyatları, stokları, telefonları, ödeme bağlantıları ve t
 - İç çap, dış çap ve en için milimetre cinsinden tam sayısal eşleşme. Ondalık virgül/nokta desteklenir. Birden fazla alan doldurulduğunda tüm koşullar sağlanmalıdır. Bilinmeyen ölçüler eşleşmez; gövde merkezi, zincir hatvesi veya kayış çevresi rulman çapı/en değeri olarak kullanılmaz.
 - Ürün ailesi, alt kategori, marka ve kaynak filtresi; 24 ürünlük sayfalama.
 - Detaylarda kaynak bağlantıları ve mevcut teknik tablolar. SKF'nin yalnızca dizinden alınan kayıtlarında eksik ölçüler açıkça gösterilir.
-- Kalıcı teklif sepeti, miktar düzenleme, metin dosyası indirme ve WhatsApp ile teklif talebi. Ürün kodu, marka, adet ve isteğe bağlı müşteri bilgileri mesaj taslağına eklenir; kullanıcı WhatsApp’ta kontrol edip kendisi gönderir. Uzun listeler kesilmez; dosya indirip görüşmeye ekleme yolu gösterilir. Ödeme veya sunucuda teklif kaydı yoktur.
+- Kalıcı teklif sepeti, miktar düzenleme, metin dosyası indirme ve WhatsApp ile teklif talebi. Ürün kodu, marka, adet ve isteğe bağlı müşteri bilgileri mesaj taslağına eklenir; kullanıcı WhatsApp’ta kontrol edip kendisi gönderir. Uzun listeler kesilmez; dosya indirip görüşmeye ekleme yolu gösterilir. Ayrıca sunucu kurulduğunda formdan kalıcı teklif kaydı, talep numarası, admin paneli ve info@rulmanteklif.com adresine SMTP bildirimi vardır. Ödeme bu sürümde yoktur.
 
 ## Veri dosyaları ve yeniden üretim
 
@@ -97,3 +97,13 @@ Canlı adres ancak GitHub Actions dağıtımı başarılı olduktan ve dışarı
 Hakkımızda metni ve iletişim bilgileri `https://rulmanteklif.com/` ana sayfasından 1 Kasım 2026 tarihinde doğrulandı: **0553 334 75 63**, **info@rulmanteklif.com**, İstanbul Dolapdere Sanayi Sitesi. Ortak bilgiler `src/company.js` içinde tutulur. Marka dizini mevcut katalogdan hesaplanır; marka kartları kataloğu filtreler. Teklif bağlantısı `wa.me/905533347563` adresini kullanır; hiçbir mesaj otomatik gönderilmez.
 
 Teklif doğrulaması: `node tests/quote.test.js`.
+
+## Ayrı sayfalar ve teklif sunucusu
+
+Üst menüdeki ürün grupları, Hakkımızda, Markalar, İletişim, Teklif al ve Teknik arama kendi `#/...` adreslerinde açılır. Hash rotaları GitHub Pages üzerinde doğrudan açma, yenileme ve geri/ileri gezinmeyi destekler. Anasayfadaki teknik arama korunur.
+
+Admin adresi `#/admin`; oturum sunucu tarafından doğrulanır. Teklif kaydı sunucudaki SQLite veritabanında tutulur, SMTP bildirim kuyruğu yeniden denemeleri korur. GitHub Pages API çalıştıramadığından orada form gönderimi kapalıdır; WhatsApp kullanılabilir. Sunucu ve SMTP hesabı bu çalışmada henüz sağlanmadı.
+
+Kurulum dosyaları, kalıcı disk, HTTPS, şifre oluşturma ve SMTP adımları: [Sunucu kurulumu](docs/SUNUCU-KURULUMU.md). Hazırlanan sistemd ve Caddy dosyaları `deploy/` altındadır. Yapılandırma örneği `.env.example`; gerçek gizli değerleri depoya eklemeyin.
+
+Testler: `npm run test:server` ve `node tests/quote.test.js`; katalog/teknik arama testleri de korunur. Testler gerçek e-posta göndermez.
