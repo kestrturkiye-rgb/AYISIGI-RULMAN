@@ -40,7 +40,7 @@ Tedarikçilerin fiyatları, stokları, telefonları, ödeme bağlantıları ve t
 - İç çap, dış çap ve en için milimetre cinsinden tam sayısal eşleşme. Ondalık virgül/nokta desteklenir. Birden fazla alan doldurulduğunda tüm koşullar sağlanmalıdır. Bilinmeyen ölçüler eşleşmez; gövde merkezi, zincir hatvesi veya kayış çevresi rulman çapı/en değeri olarak kullanılmaz.
 - Ürün ailesi, alt kategori, marka ve kaynak filtresi; 24 ürünlük sayfalama.
 - Detaylarda kaynak bağlantıları ve mevcut teknik tablolar. SKF'nin yalnızca dizinden alınan kayıtlarında eksik ölçüler açıkça gösterilir.
-- Kalıcı teklif sepeti, miktar düzenleme ve metin dosyası indirme. Liste firmaya gönderilmez; backend, gerçek ödeme ve firma iletişim bilgileri henüz yapılandırılmadı.
+- Kalıcı teklif sepeti, miktar düzenleme, metin dosyası indirme ve WhatsApp ile teklif talebi. Ürün kodu, marka, adet ve isteğe bağlı müşteri bilgileri mesaj taslağına eklenir; kullanıcı WhatsApp’ta kontrol edip kendisi gönderir. Uzun listeler kesilmez; dosya indirip görüşmeye ekleme yolu gösterilir. Ödeme veya sunucuda teklif kaydı yoktur.
 
 ## Veri dosyaları ve yeniden üretim
 
@@ -57,7 +57,7 @@ node tests/technical-search.test.js
 npm run build
 ```
 
-Tüm dosyalar statik çalışır; üretim sunucusunun `/catalog/` dizinini sunması gerekir. Kod veya ortam bu çalışma sırasında yayımlanmadı.
+Tüm dosyalar statik çalışır; üretim sunucusunun `/catalog/` dizinini sunması gerekir. GitHub Pages proje dizininde de katalog yolları Vite taban adresini kullanır.
 
 ## Üretici verileriyle zenginleştirme
 
@@ -91,3 +91,9 @@ npm run preview -- --port 4173 --base=/AYISIGI-RULMAN/
 ```
 
 Canlı adres ancak GitHub Actions dağıtımı başarılı olduktan ve dışarıdan HTTP/görsel/arama kontrolü yapıldıktan sonra doğrulanmış sayılmalıdır. GitHub API yönetimi ve canlı kontrol için `api.github.com` ve `kestrturkiye-rgb.github.io` erişimi gerekir.
+
+## Firma ve iletişim
+
+Hakkımızda metni ve iletişim bilgileri `https://rulmanteklif.com/` ana sayfasından 1 Kasım 2026 tarihinde doğrulandı: **0553 334 75 63**, **info@rulmanteklif.com**, İstanbul Dolapdere Sanayi Sitesi. Ortak bilgiler `src/company.js` içinde tutulur. Marka dizini mevcut katalogdan hesaplanır; marka kartları kataloğu filtreler. Teklif bağlantısı `wa.me/905533347563` adresini kullanır; hiçbir mesaj otomatik gönderilmez.
+
+Teklif doğrulaması: `node tests/quote.test.js`.

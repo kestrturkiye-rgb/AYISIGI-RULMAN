@@ -36,6 +36,7 @@ jobs:
         run: |
           node tests/catalog.test.js
           node tests/technical-search.test.js
+          node tests/quote.test.js
           python tests/test_skf_data.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
