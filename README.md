@@ -38,7 +38,7 @@ Tedarikçilerin fiyatları, stokları, telefonları, ödeme bağlantıları ve t
 
 - Tam kod veya temel rulman kodu araması; kısmi kodlar teknik aramada eşleşmez. Boşluk, tire, Unicode tire ve tam genişlikli karakter yazımları normalize edilir. Marka önde/sonda yazılabilir (örneğin `SKF 6204-2RS`). Genel arama kutusuna yazıldığında eski kategori/marka/kaynak filtreleri sıfırlanır. Genel metin araması ürün kodu, ad, marka ve kategoriyi kapsar.
 - İç çap, dış çap ve en için milimetre cinsinden tam sayısal eşleşme. Ondalık virgül/nokta desteklenir. Birden fazla alan doldurulduğunda tüm koşullar sağlanmalıdır. Bilinmeyen ölçüler eşleşmez; gövde merkezi, zincir hatvesi veya kayış çevresi rulman çapı/en değeri olarak kullanılmaz.
-- Ürün ailesi, alt kategori, marka ve kaynak filtresi; 24 ürünlük sayfalama.
+- Ürün ailesi, alt kategori ve marka filtresi; 24 ürünlük sayfalama.
 - Detaylarda kaynak bağlantıları ve mevcut teknik tablolar. SKF'nin yalnızca dizinden alınan kayıtlarında eksik ölçüler açıkça gösterilir.
 - Kalıcı teklif sepeti, miktar düzenleme, metin dosyası indirme ve WhatsApp ile teklif talebi. Ürün kodu, marka, adet ve isteğe bağlı müşteri bilgileri mesaj taslağına eklenir; kullanıcı WhatsApp’ta kontrol edip kendisi gönderir. Uzun listeler kesilmez; dosya indirip görüşmeye ekleme yolu gösterilir. Ayrıca sunucu kurulduğunda formdan kalıcı teklif kaydı, talep numarası, admin paneli ve info@rulmanteklif.com adresine SMTP bildirimi vardır. Ödeme bu sürümde yoktur.
 
@@ -110,6 +110,8 @@ Testler: `npm run test:server` ve `node tests/quote.test.js`; katalog/teknik ara
 
 ## Ürün sunumu ve temizlenen görseller
 
-Ürün kartı, detay ve görsel alanlarında kaynak adları/bağlantıları gösterilmez. Kaynak filtresi kaldırıldı; ham katalogdaki izlenebilirlik verisi korunur. Temsili kategori/seri ayrımı yalnızca detay açıklaması ve erişilebilir alternatif metinde korunur; fotoğraf üzerinde etiket gösterilmez.
+Ürün kartı, detay ve görsel alanlarında kaynak adları/bağlantıları gösterilmez. Kaynak filtresi kaldırıldı. Temsili kategori/seri ayrımı yalnızca detay açıklaması ve erişilebilir alternatif metinde korunur; fotoğraf üzerinde arayüz etiketi gösterilmez.
 
-İlk dört görsel, mevcut ürün referansları kullanılarak görsel düzenleme aracıyla kaynak filigranlarından temizlendi. Düzenlenen dosyalar `public/catalog/edited-images`, eşleme `src/product-image-edits.js` içindedir. Orijinaller korunur; farklı bir ürüne ait fotoğrafla otomatik değiştirme yapılmaz. Bu işlem bütün kataloğun fotoğraflarının temizlendiği anlamına gelmez. Diğer satıcı görselleri için inceleme adayları `docs/product-image-review.json` dosyasındadır; listedeki her dosyada filigran bulunduğu iddia edilmez.
+Kataloğun **109.417 ürününün** kullandığı **5.325 görsel dosyasının** tamamı tarandı. **2.689 dosya** temiz sürümlerine eşlenir; bu eşlemeler **27.351 ürün kaydında** kullanılır. Diğer 2.636 dosya temiz üretici görseli olarak korunur. Önceki dört düzenleme korunmuştur; yeni toplu işlem kullanıcı onayıyla Python/OpenCV üzerinden yerel olarak yapıldı. Ürün kimlikleri, kodları, ölçüleri ve orijinal dosyalar değiştirilmedi.
+
+Yeni çıktılar `public/catalog/clean-images`, önceki dört çıktı `public/catalog/edited-images` içindedir. Tüm görüntü alanları `src/product-image-map.json` eşlemesini kullanır. Kapsam ve SHA-256 doğrulaması [tam raporda](docs/product-image-cleanup-report.json), yöntem ve yeniden çalıştırma adımları [görsel temizliği rehberinde](docs/GORSEL-TEMIZLIGI.md) yer alır. `node tests/image-cleanup.test.js` tüm kayıtların tamamlandığını, orijinallerin korunduğunu ve çıktı dosyalarının varlığını kontrol eder.

@@ -1,0 +1,187 @@
+{
+  "description": "Reviewed product-specific masking and restoration; numbered product markings are not replaced.",
+  "whiteFrontMasks": [
+    "0b6a07957af4eff6dfa2c196.webp",
+    "1dbb1741be3a26c2c2f04333.webp",
+    "3aa33094c062f03ad08adb5c.webp",
+    "45394898c697b99ba495e0f4.webp",
+    "55a05e912e7fa0e5d129eea1.webp",
+    "5c4ae3ca300c6ee827e25e5b.webp",
+    "81df9e1cda9b80652c9e8041.webp",
+    "88ed53b3590112931734d942.webp",
+    "9ab98ba7837f9c83ccd7e190.webp",
+    "9b90dec94448a51cd7a34244.webp",
+    "9c68e9ee5a826a02407139ff.webp",
+    "9f27754e3bcd365761396603.webp",
+    "ae29514a57f6e11a9bbe2782.webp",
+    "b9ca55bc046d42931890a247.webp",
+    "bad51e2eac749aa58656c4d3.webp",
+    "bf5eab0f29a5b5f12a29dee4.webp",
+    "c60e0253bfbe33883f73eba1.webp",
+    "d43a3c7974b58b1ad2494c36.webp",
+    "ebbea47a38fbef0a297640d8.webp",
+    "ec41e3d06cb321062fc104a2.webp",
+    "f13b8f7092ad59d424e555dd.webp",
+    "f882150f2f2753994f622f2c.webp",
+    "fcd20bd0cffb4cb00cb6afa8.webp"
+  ],
+  "labelRestorations": {
+    "9c68e9ee5a826a02407139ff.webp": {
+      "reference": "ebbea47a38fbef0a297640d8.webp",
+      "outsideOverlayDifference": 1.906205745989253
+    },
+    "c60e0253bfbe33883f73eba1.webp": {
+      "reference": "ebbea47a38fbef0a297640d8.webp",
+      "outsideOverlayDifference": 2.3112576341074416
+    },
+    "81df9e1cda9b80652c9e8041.webp": {
+      "reference": "ebbea47a38fbef0a297640d8.webp",
+      "outsideOverlayDifference": 1.8980581582571923
+    },
+    "45394898c697b99ba495e0f4.webp": {
+      "reference": "ebbea47a38fbef0a297640d8.webp",
+      "outsideOverlayDifference": 1.8476401094104637
+    },
+    "9ab98ba7837f9c83ccd7e190.webp": {
+      "reference": "ebbea47a38fbef0a297640d8.webp",
+      "outsideOverlayDifference": 1.8735959960426003
+    },
+    "f882150f2f2753994f622f2c.webp": {
+      "reference": "bf5eab0f29a5b5f12a29dee4.webp",
+      "outsideOverlayDifference": 1.6540767037187918
+    },
+    "1dbb1741be3a26c2c2f04333.webp": {
+      "reference": "bf5eab0f29a5b5f12a29dee4.webp",
+      "outsideOverlayDifference": 1.6319679464737231
+    },
+    "f13b8f7092ad59d424e555dd.webp": {
+      "reference": "fcd20bd0cffb4cb00cb6afa8.webp",
+      "outsideOverlayDifference": 2.1876142684871827
+    },
+    "5c4ae3ca300c6ee827e25e5b.webp": {
+      "reference": "88ed53b3590112931734d942.webp",
+      "outsideOverlayDifference": 2.190478961764535
+    },
+    "9b90dec94448a51cd7a34244.webp": {
+      "reference": "bf5eab0f29a5b5f12a29dee4.webp",
+      "outsideOverlayDifference": 1.6568249893025246
+    },
+    "ae29514a57f6e11a9bbe2782.webp": {
+      "reference": "88ed53b3590112931734d942.webp",
+      "outsideOverlayDifference": 2.1898581931754255
+    },
+    "9f27754e3bcd365761396603.webp": {
+      "reference": "88ed53b3590112931734d942.webp",
+      "outsideOverlayDifference": 2.1862916715291556
+    },
+    "bad51e2eac749aa58656c4d3.webp": {
+      "reference": "bf5eab0f29a5b5f12a29dee4.webp",
+      "outsideOverlayDifference": 2.1851052242579843
+    }
+  },
+  "whiteFlangeHull": [
+    "e9812cadfcbeb20ffc1f76a5.webp"
+  ],
+  "ceramicBall": {
+    "5a2b30e9aefcd5e52b976d07.webp": {
+      "center": [
+        158,
+        169
+      ],
+      "radius": 70
+    }
+  },
+  "separateHeaders": [
+    "5116fdb15b6e2b139bff8893.webp"
+  ],
+  "whiteFrontPolygon": [
+    [
+      148,
+      67
+    ],
+    [
+      176,
+      64
+    ],
+    [
+      203,
+      70
+    ],
+    [
+      224,
+      86
+    ],
+    [
+      238,
+      110
+    ],
+    [
+      245,
+      138
+    ],
+    [
+      245,
+      165
+    ],
+    [
+      237,
+      192
+    ],
+    [
+      224,
+      216
+    ],
+    [
+      202,
+      235
+    ],
+    [
+      176,
+      246
+    ],
+    [
+      148,
+      249
+    ],
+    [
+      122,
+      246
+    ],
+    [
+      98,
+      236
+    ],
+    [
+      80,
+      219
+    ],
+    [
+      68,
+      197
+    ],
+    [
+      62,
+      173
+    ],
+    [
+      65,
+      146
+    ],
+    [
+      72,
+      120
+    ],
+    [
+      85,
+      98
+    ],
+    [
+      103,
+      80
+    ],
+    [
+      126,
+      70
+    ]
+  ]
+}

@@ -35,6 +35,7 @@ jobs:
       - name: Verify catalog and search
         run: |
           node tests/catalog.test.js
+          node tests/image-cleanup.test.js
           node tests/technical-search.test.js
           node tests/quote.test.js
           node --test tests/server.test.js
