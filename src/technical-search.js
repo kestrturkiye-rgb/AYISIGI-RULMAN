@@ -53,3 +53,27 @@ export function matchesTechnicalQuery(product, query) {
   if (query.code && !matchesProductCode(product, query.code)) return false;
   return ['inner', 'outer', 'width'].every(key => query[key] === undefined || product.dimensions?.[key] === query[key]);
 }
+
+// Normalize the query once per search rather than once per product.
+export function compileTechnicalQuery(query) {
+ if(!query)return ()=>true;
+ const code=normalizeCode(query.code);
+ return product=>{
+  if(code){
+   const brand=product.brand==='Belirtilmemiş'?'':product.normalizedBrand||normalizeCode(product.brand);
+   const codes=product.normalizedCodes||[product.code,product.baseCode,...(product.codeAliases||[])].filter(Boolean).map(normalizeCode);
+   if(!codes.some(value=>code===value||(brand&&(code===brand+value||code===value+brand))))return false;
+  }
+  return ['inner','outer','width'].every(key=>query[key]===undefined||product.dimensions?.[key]===query[key]);
+ };
+}
+export function compileTextQuery(value) {
+ const query=value.trim().toLocaleLowerCase('tr');if(!query)return ()=>true;
+ const normalized=normalizeCode(query);
+ return product=>{
+  if(product.searchText.includes(query))return true;
+  const brand=product.normalizedBrand||normalizeCode(product.brand);
+  const codes=product.normalizedCodes||[product.code,product.baseCode,...(product.codeAliases||[])].filter(Boolean).map(normalizeCode);
+  return codes.some(code=>code.includes(normalized)||(brand+code).includes(normalized)||(code+brand).includes(normalized));
+ };
+}

@@ -1,17 +1,18 @@
 import React,{useState,useEffect} from 'react';
 import { LockKeyhole,LogOut,RefreshCw,ChevronRight,Mail,Package,ArrowLeft,Search } from 'lucide-react';
-import {api} from './api';
+import {api,staticHost} from './api';
 import './admin.css';
 const states={new:'Yeni',in_progress:'İnceleniyor',quoted:'Teklif verildi',closed:'Tamamlandı'};
 const mailStates={queued:'Bildirim sırada',sent:'E-posta sunucusuna iletildi',failed:'E-posta gönderilemedi'};
 export default function AdminPage(){
  const [session,setSession]=useState(null),[password,setPassword]=useState(''),[error,setError]=useState(''),[busy,setBusy]=useState(false),[data,setData]=useState({quotes:[],total:0}),[selected,setSelected]=useState(null),[status,setStatus]=useState(''),[search,setSearch]=useState(''),[query,setQuery]=useState(''),[page,setPage]=useState(1),[refresh,setRefresh]=useState(0);
- useEffect(()=>{api('/admin/session').then(()=>setSession(true)).catch(e=>{setSession(false);if(e.status!==401)setError(e.message)})},[]);
+ useEffect(()=>{if(staticHost){setSession(false);return}api('/admin/session').then(()=>setSession(true)).catch(e=>{setSession(false);if(e.status!==401)setError(e.message)})},[]);
  useEffect(()=>{if(!session)return;let active=true;setBusy(true);setError('');api(`/admin/quotes?${new URLSearchParams({status,q:query,page})}`).then(result=>{if(active)setData(result)}).catch(e=>{if(active){setError(e.message);if(e.status===401)setSession(false)}}).finally(()=>{if(active)setBusy(false)});return()=>{active=false}},[session,status,query,page,refresh]);
  async function login(event){event.preventDefault();setBusy(true);setError('');try{await api('/admin/login',{method:'POST',body:JSON.stringify({password})});setPassword('');setSession(true)}catch(e){setError(e.message)}finally{setBusy(false)}}
  async function logout(){setBusy(true);try{await api('/admin/logout',{method:'POST',body:'{}'});setSession(false);setData({quotes:[],total:0});setSelected(null)}catch(e){setError(e.message)}finally{setBusy(false)}}
  async function update(next){setBusy(true);setError('');try{const result=await api(`/admin/quotes/${selected.id}`,{method:'PATCH',body:JSON.stringify({status:next})});setSelected(result);setRefresh(r=>r+1)}catch(e){setError(e.message);if(e.status===401)setSession(false)}finally{setBusy(false)}}
  async function retry(){setBusy(true);setError('');try{await api(`/admin/quotes/${selected.id}/retry-email`,{method:'POST',body:'{}'});setSelected({...selected,emailStatus:'queued'});setRefresh(r=>r+1)}catch(e){setError(e.message)}finally{setBusy(false)}}
+ if(staticHost)return <section className="container admin-page"><h1>Yönetim hizmeti henüz açılmadı</h1><p>Teklif kayıtları ve yönetici oturumu sunucu hizmeti açıldığında kullanılabilecek.</p><a className="primary" href="#/iletisim">İletişime geç</a></section>;
  if(session===null)return <div className="container admin-page" role="status">Yönetici oturumu kontrol ediliyor…</div>;
  if(!session)return <section className="admin-login container"><div><LockKeyhole size={30}/><span className="section-tag">RULMAN TEKLİF</span><h1>Yönetici girişi</h1><p>Müşterilerinizin teklif taleplerini güvenli panelden yönetin.</p><form onSubmit={login}><label>Yönetici şifresi<input type="password" autoComplete="current-password" required maxLength={256} value={password} onChange={e=>setPassword(e.target.value)}/></label>{error&&<p className="quote-error" role="alert">{error}</p>}<button className="primary" disabled={busy}>{busy?'Kontrol ediliyor…':'Giriş yap'} <ChevronRight size={17}/></button></form><a href="#/">Ana sayfaya dön</a></div></section>;
  return <section className="admin-page container"><div className="admin-heading"><div><span className="section-tag">YÖNETİM PANELİ</span><h1>Teklif talepleri</h1><p>{data.total} talep</p></div><div><button onClick={()=>{setRefresh(r=>r+1);setSelected(null)}} disabled={busy}><RefreshCw size={16}/> Yenile</button><button onClick={logout} disabled={busy}><LogOut size={16}/> Çıkış yap</button></div></div>{error&&<p className="quote-error" role="alert">{error}</p>}

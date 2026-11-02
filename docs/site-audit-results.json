@@ -1,0 +1,268 @@
+{
+  "environment": "Local production preview; Chromium on the same executor; Lighthouse runs performed separately from browser tests. Values are lab results, not live user telemetry.",
+  "baselineRevision": "d0a1cc1",
+  "baselineMobile": {
+    "lighthouseVersion": "13.6.0",
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate",
+    "scores": {
+      "performance": 44,
+      "accessibility": 89,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 796.4786999999999,
+        "display": "0.8 s"
+      },
+      "largest-contentful-paint": {
+        "value": 22673.337724999998,
+        "display": "22.7 s"
+      },
+      "total-blocking-time": {
+        "value": 15723,
+        "display": "15,720 ms"
+      },
+      "cumulative-layout-shift": {
+        "value": 0.0001836518307375743,
+        "display": "0"
+      },
+      "speed-index": {
+        "value": 3414.922216380961,
+        "display": "3.4 s"
+      }
+    }
+  },
+  "releaseMobile": {
+    "lighthouseVersion": "13.6.0",
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate",
+    "scores": {
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 757.9282000000001,
+        "display": "0.8 s"
+      },
+      "largest-contentful-paint": {
+        "value": 757.9282000000001,
+        "display": "0.8 s"
+      },
+      "total-blocking-time": {
+        "value": 178.53589999999997,
+        "display": "180 ms"
+      },
+      "cumulative-layout-shift": {
+        "value": 0.008346766905821836,
+        "display": "0.008"
+      },
+      "speed-index": {
+        "value": 799.3460330429464,
+        "display": "0.8 s"
+      }
+    }
+  },
+  "releaseDesktop": {
+    "lighthouseVersion": "13.6.0",
+    "formFactor": "desktop",
+    "throttlingMethod": "simulate",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 212.53109999999998,
+        "display": "0.2 s"
+      },
+      "largest-contentful-paint": {
+        "value": 598.79665,
+        "display": "0.6 s"
+      },
+      "total-blocking-time": {
+        "value": 1,
+        "display": "0 ms"
+      },
+      "cumulative-layout-shift": {
+        "value": 0.007438703960251096,
+        "display": "0.007"
+      },
+      "speed-index": {
+        "value": 422.37083618069653,
+        "display": "0.4 s"
+      }
+    }
+  },
+  "browser": {
+    "base": "http://127.0.0.1:4173/AYISIGI-RULMAN/",
+    "viewportWidths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "checks": [
+      "All ten article routes, no catalog dependency, five viewport widths",
+      "Core routes accessibility and responsive layouts",
+      "All seven product groups, pagination, code aliases, exact diameters, filter URLs and invalid input",
+      "Responsive product photo, modal focus trap, cart quantities and reload, mocked WhatsApp, quote download",
+      "Unknown routes, denied browser storage, no-Worker fallback and failed catalog recovery",
+      "Transient product detail fetch can be retried"
+    ],
+    "a11y": [
+      {
+        "route": "/",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "violations": []
+      },
+      {
+        "route": "/hakkimizda",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/hakkimizda",
+        "width": 1440,
+        "violations": []
+      },
+      {
+        "route": "/markalar",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/markalar",
+        "width": 1440,
+        "violations": []
+      },
+      {
+        "route": "/iletisim",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/iletisim",
+        "width": 1440,
+        "violations": []
+      },
+      {
+        "route": "/teklif",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/teklif",
+        "width": 1440,
+        "violations": []
+      },
+      {
+        "route": "/akademi",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/akademi",
+        "width": 1440,
+        "violations": []
+      },
+      {
+        "route": "/teknik-arama",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/teknik-arama",
+        "width": 1440,
+        "violations": []
+      },
+      {
+        "route": "/admin",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/admin",
+        "width": 1440,
+        "violations": []
+      },
+      {
+        "route": "/akademi/rulman-yaglama-gres-secimi",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/akademi/rulman-yaglama-gres-secimi",
+        "width": 1440,
+        "violations": []
+      },
+      {
+        "route": "/urunler?kod=6204",
+        "width": 390,
+        "violations": []
+      },
+      {
+        "route": "/urunler?kod=6204",
+        "width": 1440,
+        "violations": []
+      }
+    ],
+    "runtimeErrors": [],
+    "failedAssets": []
+  },
+  "unitAndDataChecks": {
+    "passed": 52,
+    "nodeTests": 47,
+    "pythonTests": 5
+  },
+  "productionDependencyAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "buildAssets": [
+    {
+      "name": "AdminPage-ADAuCraS.js",
+      "bytes": 1640
+    },
+    {
+      "name": "AdminPage-NLKsdpmk.css",
+      "bytes": 4280
+    },
+    {
+      "name": "NotoSans-Turkish-DnMJtjlv.woff2",
+      "bytes": 211900
+    },
+    {
+      "name": "catalog-decode-Oy7urc7s.js",
+      "bytes": 229465
+    },
+    {
+      "name": "catalog.worker-B5AIAwd3.js",
+      "bytes": 231050
+    },
+    {
+      "name": "index-B0UGQnCO.css",
+      "bytes": 62849
+    },
+    {
+      "name": "index-DHldDRav.js",
+      "bytes": 317757
+    }
+  ]
+}

@@ -1,10 +1,11 @@
+import {additionalArticles} from './academy-additions.js';
 // Original technical guides. These are editorial learning material, not peer-reviewed research.
 export const articles = [
  {
   slug:'rulman-secimi-yuk-hiz-ve-omur', category:'Rulman seçimi', minutes:5,
   title:'Rulman seçiminde yük, hız ve ömür nasıl birlikte değerlendirilir?',
   description:'Dinamik yük kapasitesi, devir ve çalışma koşulları arasındaki ilişkiyi anlayın; aynı ölçüdeki rulmanları doğru kriterlerle karşılaştırın.',
-  image:'catalog/images/4dc9f3a6c6adfd73ac2b7021.png', alt:'Bilyalı rulmanın iç yapısını gösteren kesit',
+  image:'catalog/thumbnails/images_4dc9f3a6c6adfd73ac2b7021.png-full.webp', alt:'Bilyalı rulmanın iç yapısını gösteren kesit',
   intro:'İç çap, dış çap ve genişlik bir rulmanın yerine oturacağını gösterir. Uygun çalışacağını belirlemek içinse yükün yönü, devir sayısı, yağlama, sıcaklık ve montaj koşulları birlikte değerlendirilmelidir. Aynı ölçüdeki iki ürünün kafesi, iç boşluğu veya sızdırmazlığı farklı olabilir.',
   sections:[
    {title:'Önce uygulamanın yükünü tanımlayın',paragraphs:['Radyal yük mile dik, eksenel yük mil doğrultusunda etki eder. Derin oluklu bilyalı rulmanlar birçok genel uygulamada kullanılır; yüksek eksenel yük, darbe veya hizasızlık söz konusu olduğunda farklı rulman düzenleri gerekebilir. Yalnızca dış görünüşe bakarak eşdeğerlik kararı verilmemelidir.','Üretici kataloglarında yer alan eşdeğer dinamik yük P, uygulamaya uygun katsayılarla hesaplanır. Birleşik yük altında kullanılan X ve Y katsayıları her rulmanda aynı değildir. Statik yük kontrolü de dinamik ömür hesabından ayrı yapılır.']},
@@ -17,7 +18,7 @@ export const articles = [
   slug:'haddehane-rulmanlari-sicaklik-ve-sok-yuk', category:'Bakım ve uygulama', minutes:5,
   title:'Haddehane rulmanlarında yüksek sıcaklık ve şok yük yönetimi',
   description:'Ağır hizmet koşullarında yağlama, sızdırmazlık ve montajın rulman performansına etkisi; bakım için uygulanabilir kontrol adımları.',
-  image:'catalog/images/396aa49799f72e8af4aecb24.png', alt:'Oynak makaralı rulmanın kesit görünümü',
+  image:'catalog/thumbnails/images_396aa49799f72e8af4aecb24.png-full.webp', alt:'Oynak makaralı rulmanın kesit görünümü',
   intro:'Haddehanelerde yüksek yük, darbe, su ve tufal aynı anda etkili olabilir. Bu koşullarda rulman seçimi yalnızca katalog yük kapasitesiyle sınırlı değildir. Yağlama düzeni, sızdırmazlık ve bakım uygulamaları bütün sistemin güvenilirliğini belirler.',
   sections:[
    {title:'Isıyı tek bir nedene bağlamayın',paragraphs:['Yükselen sıcaklık; fazla veya yetersiz yağlama, yanlış viskozite, kirlenme, aşırı ön yük, uygun olmayan geçme veya hasarın belirtisi olabilir. Her rulman için geçerli tek bir güvenli sıcaklık değeri yoktur. Conta, kafes, yağlayıcı ve malzemenin izin verdiği sınırlar üretici verilerinden değerlendirilmelidir.','Ölçüm noktasını ve ölçüm yöntemini sabit tutarak sıcaklığın zaman içindeki eğilimini izleyin. Devir, yük veya yağlama uygulaması değiştiğinde kayda alın. Tek bir ölçümü başka bir makinenin değeriyle karşılaştırmak yanıltıcı olabilir.']},
@@ -30,7 +31,7 @@ export const articles = [
   slug:'lineer-kizak-secimi-hassasiyet-ve-montaj', category:'Lineer hareket', minutes:4,
   title:'Lineer kızak sistemlerinde doğru seçim, hassasiyet ve montaj',
   description:'Yük ve momentten ön yüke, ray paralelliğinden yağlamaya: lineer hareket sistemi seçerken göz önünde bulundurmanız gerekenler.',
-  image:'catalog/clean-images/de7c5b385b8b8ddcdcc8897d.webp', alt:'Lineer kızak arabası',
+  image:'catalog/thumbnails/clean-images_de7c5b385b8b8ddcdcc8897d.webp-full.webp', alt:'Lineer kızak arabası',
   intro:'Lineer kızaklarda arabayı ve rayı yalnızca nominal genişlikle seçmek yeterli değildir. Taşınan yükün ağırlık merkezi, ivmelenme, çalışma mesafesi, ortam ve istenen konumlama hassasiyeti sistem tasarımını birlikte etkiler.',
   sections:[
    {title:'Yükün yanında momentleri hesaplayın',paragraphs:['Yükün ray düzleminden uzakta olması veya yanal ofseti, arabalarda moment oluşturur. İvmelenme ve yavaşlama kuvvetleri de hesaba katılmalıdır. Araba sayısı ve aralarındaki mesafe yük paylaşımını değiştirir; tüm arabalara eşit yük geldiği varsayımı her düzen için geçerli değildir.','Üreticinin yük ve moment kapasiteleri ile statik emniyet kontrolünü birlikte inceleyin. Dinamik ömür verilerinde kullanılan referans mesafesi kataloglar arasında farklı olabilir. Aynı birimde görünseler de farklı referans mesafesine göre verilen kapasiteler doğrudan karşılaştırılmamalıdır.']},
@@ -39,4 +40,5 @@ export const articles = [
   ], takeaway:'Ray genişliğinin yanında yük momentlerini, ön yükü ve montaj toleranslarını da tanımlayın.',
   references:['ISO 14728-1 — Rolling bearings — Linear motion rolling bearings — Dynamic load ratings and rating life.','ISO 14728-2 — Statik yük kapasiteleri.','İlgili lineer kılavuz üreticisinin seri seçimi ve montaj kılavuzu.'],
  },
+ ...additionalArticles,
 ];

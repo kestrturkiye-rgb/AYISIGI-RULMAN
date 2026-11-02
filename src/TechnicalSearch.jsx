@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Search, Flame, Ruler, Database, FileText } from 'lucide-react';
 import { emptyTechnicalQuery, parseTechnicalQuery } from './technical-search';
 import './technical-search.css';
-import {formatCount} from './catalog-data';
+import {formatCount} from './catalog-utils';
 
 const popularCodes = ['6204', '6205', '30206', '6306', '22210', '6001'];
 
-export default function TechnicalSearch({ onSearch, productCount }) {
+export default function TechnicalSearch({ onSearch, productCount, standalone=false }) {
   const [fields, setFields] = useState({ ...emptyTechnicalQuery });
   const [error, setError] = useState('');
   function submit(event) {
@@ -20,10 +20,11 @@ export default function TechnicalSearch({ onSearch, productCount }) {
     setError('');
     onSearch({ code });
   }
+  const Heading=standalone?'h1':'h2';
   return <section className="technical-section" aria-labelledby="technical-title">
     <div className="container">
       <div className="technical-card">
-        <h2 id="technical-title">TEKNİK <span>ARAMA</span></h2>
+        <Heading id="technical-title">TEKNİK <span>ARAMA</span></Heading>
         <p className="technical-subtitle">KATALOGDA TAM KOD VEYA ÖLÇÜYE GÖRE SORGULAYIN</p>
         <form onSubmit={submit} noValidate aria-label="Teknik rulman arama">
           <div className="technical-fields">

@@ -4,5 +4,9 @@ export async function api(path,options={}) {
  if(!response.headers.get('content-type')?.includes('application/json'))throw Error('Teklif hizmeti henüz kullanıma açılmadı. WhatsApp veya telefonla bize ulaşabilirsiniz.');
  const body=await response.json();if(!response.ok){const error=Error(body.error||'İşlem tamamlanamadı.');error.status=response.status;throw error}return body;
 }
+export const staticHost=import.meta.env?.VITE_STATIC_HOST==='true';
 let status;
-export function quoteServiceStatus(){return status ||= api('/status').catch(()=>({quotesEnabled:false}))}
+export function quoteServiceStatus(){
+ if(staticHost)return Promise.resolve({quotesEnabled:false});
+ return status ||= api('/status').catch(()=>{status=undefined;return {quotesEnabled:false}});
+}
