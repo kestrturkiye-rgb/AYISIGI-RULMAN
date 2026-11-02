@@ -183,5 +183,35 @@
       126,
       70
     ]
-  ]
+  ],
+  "sourceTextMasks": {
+    "49e763904ecaec45047043f7.webp": [
+      {
+        "text": "http://www.hiwin.com.tw",
+        "points": [
+          [
+            97.5,
+            228.0
+          ],
+          [
+            166.0,
+            221.5
+          ],
+          [
+            167.0,
+            231.5
+          ],
+          [
+            98.5,
+            238.0
+          ]
+        ],
+        "originalSha256": "ddc5d82bc4a2aa73c3e8b5091f0328d894d8dffc869617632c4d92db612d2a2e",
+        "baseProcessor": "cv-clean-v5"
+      }
+    ]
+  },
+  "legacyCleanAliases": {
+    "catalog/clean-images/c8d7735ba1dcdf881bca35c1.webp": "49e763904ecaec45047043f7.webp"
+  }
 }

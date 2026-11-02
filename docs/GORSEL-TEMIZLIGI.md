@@ -38,3 +38,19 @@ npm run build -- --base=/AYISIGI-RULMAN/
 ```
 
 Tarayıcı kontrolünde özellikle kullanıcının paylaştığı `SNR 6001 ZZ C3` görseli, çapraz filigranlı çizimler, beyaz malzemeler, mobil detay penceresi ve sepet incelenir. Otomatik maskeleme sınırda çok hafif kenar gölgelerini etkileyebilir; model/ürün uygunluğu mevcut sipariş öncesi teknik teyitle korunur. Dosyaların kaynak SHA-256 değerleri ayrı testle kontrol edilir; orijinaller silinmez.
+
+## Son metin ve piksel taraması
+
+`docs/product-image-text-audit.json`, sitede gösterilen 4.750 farklı dosyanın tamamına uygulanan yerel RapidOCR PP-OCRv4 taramasını içerir. Her kayıt dosyanın SHA-256 değerine bağlıdır; değişen görüntü eski denetim sonucunu kullanamaz. Bilinen adres içeren bir orijinal fotoğraf pozitif kontrol olarak okunur. Son taramada nitelikli web adresi veya satıcı kaynak adı adayı kalmamıştır. OCR küçük veya bozulmuş metinleri kaçırabileceğinden bu sonuç görsellerdeki her işaret için kesinlik iddiası değildir.
+
+Bu kontrol, sekiz üründe ortak kullanılan HIWIN kutu fotoğrafına basılmış küçük bir web adresini buldu. Yalnızca adres alanına OpenCV inpaint uygulanır; ürün şekli, marka ve model yazıları korunur. Maske orijinal SHA-256 ve işlem sürümüne bağlıdır. Önceden kullanılan temiz dosya adresi de düzeltilmiş pikselleri sunar. Orijinal kaynak fotoğraf değişmez.
+
+Çapraz filigranlı 924 çıktıda ayrıca 398.621 yalnız-filigran pikseli incelendi; kalan piksel bulunmadı. Metin denetiminin yeniden çalıştırılması:
+
+```sh
+python -m pip install -r scripts/image-audit-requirements.txt
+python scripts/audit-product-image-text.py
+node tests/image-cleanup.test.js
+```
+
+OCR modelleri Python paketine dahildir; görseller uzak bir servise gönderilmez. Ara tanıma kayıtları `/workspace/shared/image-text-audit` içinde tutulur. Testler, raporun bütün güncel dosyaları kapsadığını ve rapordaki SHA-256 değerlerinin sunulan dosyalarla aynı olduğunu doğrular.

@@ -1,0 +1,5 @@
+-r image-cleanup-requirements.txt
+rapidocr-onnxruntime==1.4.4
+pyclipper==1.4.0
+shapely==2.2.0
+PyYAML==6.0.3

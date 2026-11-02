@@ -43,3 +43,35 @@ test('catalog models use the audited display URL for every image at both base pa
   }
  }
 });
+
+test('previous clean URLs serve the same corrected pixels as their canonical URL',()=>{
+ for(const alias of report.legacyAliases||[]){
+  const original=fs.readFileSync(path.join(root,'public',alias.path));
+  const canonical=fs.readFileSync(path.join(root,'public',alias.canonical));
+  assert.deepEqual(original,canonical,alias.path);
+  assert.equal(createHash('sha256').update(original).digest('hex'),alias.sha256);
+ }
+});
+
+test('text audit covers the exact bytes of every currently displayed image',()=>{
+ const audit=JSON.parse(fs.readFileSync(path.join(root,'docs/product-image-text-audit.json')));
+ const displayed=new Set(catalog.rows.map(row=>(mapping[path.basename(row[6])]||row[6]).replace(/^\//,'')));
+ assert.equal(audit.totalProducts,catalog.rows.length);
+ assert.equal(audit.displayAssets,displayed.size);
+ assert.equal(audit.checked,displayed.size);
+ assert.equal(Object.keys(audit.files).length,displayed.size);
+ assert.equal(audit.calibration.knownSourceDetected,true);
+ assert.deepEqual(audit.errors,[]);
+ assert.deepEqual(audit.unresolvedCandidates,[]);
+ assert.equal(audit.candidateImages,0);
+ for(const filename of displayed){
+  const result=audit.files[filename];
+  assert.ok(result,filename);
+  assert.equal(result.status,'checked',filename);
+  assert.equal(result.candidateCount,0,filename);
+  assert.equal(createHash('sha256').update(fs.readFileSync(path.join(root,'public',filename))).digest('hex'),result.sha256,filename);
+ }
+ assert.ok(audit.diagonalPixelCheck.checkedFiles>0);
+ assert.ok(audit.diagonalPixelCheck.testedPixels>0);
+ assert.deepEqual(audit.diagonalPixelCheck.filesWithResidualPixels,[]);
+});

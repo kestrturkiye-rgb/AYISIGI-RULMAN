@@ -11,6 +11,7 @@ import concurrent.futures
 import hashlib
 import json
 import os
+import shutil
 from pathlib import Path
 import time
 
@@ -207,16 +208,27 @@ def main():
  if args.limit:classified=classified[:args.limit]
  def process(entry):
   file,item,kind=entry;path=PUBLIC/file.lstrip('/');filename=path.name;original_hash=digest(path)
-  base={'file':filename,'records':item['records'],'examples':item['examples'],'inputSha256':original_hash,'processor':VERSION,'kind':kind}
+  text_masks=OVERRIDES.get('sourceTextMasks',{}).get(filename,[])
+  mask_hash=hashlib.sha256(json.dumps(text_masks,sort_keys=True).encode()).hexdigest() if text_masks else ''
+  base={'sourceTextMaskHash':mask_hash,'file':filename,'records':item['records'],'examples':item['examples'],'inputSha256':original_hash,'processor':VERSION,'kind':kind}
   if filename in PREVIOUS:return filename,{**base,'action':'previously_edited','output':PREVIOUS[filename]}
   if kind=='clean':return filename,{**base,'action':'verified_clean'}
   saved=progress.get(filename)
-  if saved and saved.get('inputSha256')==original_hash and saved.get('processor')==VERSION and saved.get('output') and (PUBLIC/saved['output']).exists():return filename,saved
+  if saved and saved.get('inputSha256')==original_hash and saved.get('processor')==VERSION and saved.get('sourceTextMaskHash','')==mask_hash and saved.get('output') and (PUBLIC/saved['output']).exists():return filename,saved
   image=Image.open(path)
   try:
    if kind=='diagonal':cleaned,metrics=deblend(image,template)
    else:cleaned,metrics=foreground(image,session,filename)
-   output_name=hashlib.sha256((original_hash+VERSION).encode()).hexdigest()[:24]+'.webp';output=args.output/output_name
+   if text_masks:
+    rgba=np.array(cleaned.convert('RGBA'));mask=np.zeros(rgba.shape[:2],np.uint8)
+    for text_mask in text_masks:
+     if text_mask['originalSha256']!=original_hash or text_mask['baseProcessor']!=VERSION:raise ValueError('Source-text mask needs alignment review')
+     cv2.fillConvexPoly(mask,np.round(text_mask['points']).astype(np.int32),255)
+    mask=cv2.dilate(mask,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3)))
+    rgba[:,:,:3]=cv2.inpaint(rgba[:,:,:3].copy(),mask,3,cv2.INPAINT_TELEA)
+    cleaned=Image.fromarray(rgba)
+    metrics['redactedSourceText']=[m['text'] for m in text_masks]
+   output_name=hashlib.sha256((original_hash+VERSION+mask_hash).encode()).hexdigest()[:24]+'.webp';output=args.output/output_name
    import uuid
    temporary=output.with_suffix('.'+uuid.uuid4().hex+'.tmp');cleaned.save(temporary,'WEBP',lossless=True,method=4);os.replace(temporary,output)
    relative=str(output.relative_to(PUBLIC)) if output.is_relative_to(PUBLIC) else str(output)
@@ -229,8 +241,14 @@ def main():
    if completed%25==0 or completed==len(classified):
     atomic_json(checkpoint,progress);print(f'{completed}/{len(classified)} checked; {time.time()-start:.0f}s; {dict(collections.Counter(x["action"] for x in progress.values()))}',flush=True)
  if not args.sample and not args.limit:
-  report=ROOT/'docs/product-image-cleanup-report.json';atomic_json(report,{'processor':VERSION,'totalImages':len(inventory),'totalProducts':sum(x['records'] for x in inventory.values()),'counts':dict(collections.Counter(x['action'] for x in progress.values())),'images':list(progress.values())})
   mapping={name:entry['output'] for name,entry in progress.items() if entry.get('output')}
+  aliases=[]
+  for legacy,original in OVERRIDES.get('legacyCleanAliases',{}).items():
+   if not legacy.startswith('catalog/clean-images/') or '..' in Path(legacy).parts:raise ValueError('Legacy alias must be a derived clean image')
+   canonical=mapping[original];shutil.copyfile(PUBLIC/canonical,PUBLIC/legacy)
+   aliases.append({'path':legacy,'canonical':canonical,'sha256':digest(PUBLIC/canonical)})
+  report=ROOT/'docs/product-image-cleanup-report.json'
+  atomic_json(report,{'processor':VERSION,'totalImages':len(inventory),'totalProducts':sum(x['records'] for x in inventory.values()),'counts':dict(collections.Counter(x['action'] for x in progress.values())),'legacyAliases':aliases,'images':list(progress.values())})
   atomic_json(ROOT/'src/product-image-map.json',dict(sorted(mapping.items())))
  print('Complete',flush=True)
 
