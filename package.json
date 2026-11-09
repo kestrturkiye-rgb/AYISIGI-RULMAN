@@ -5,13 +5,22 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "build": "node scripts/build-site.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "start": "node --env-file-if-exists=.env server/index.js",
     "admin:password": "node scripts/admin-password.js",
     "test:server": "node --test tests/server.test.js",
     "test:browser": "node tests/browser-audit.mjs",
-    "test:site": "node tests/site.test.js"
+    "test:site": "node tests/site.test.js",
+    "prebuild": "node scripts/check-public-env.mjs",
+    "dev:admin": "npm run dev --workspace=@rt/admin",
+    "build:admin": "npm run build --workspace=@rt/admin",
+    "dev:admin:local": "node scripts/admin-local-test.mjs",
+    "test:admin": "node --test tests/admin/contracts.test.mjs",
+    "test:admin:db": "node --test tests/admin/security-db.test.mjs",
+    "test:admin:browser": "node tests/admin/auth.browser.mjs",
+    "supabase:migrate": "node --env-file-if-exists=.env.local scripts/supabase/migrate.mjs",
+    "supabase:bootstrap": "node --env-file-if-exists=.env.local scripts/supabase/bootstrap-admin.mjs"
   },
   "dependencies": {
     "express": "^5.3.0",
@@ -19,7 +28,9 @@
     "lucide-react": "^0.577.0",
     "nodemailer": "^10.3.1",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "@supabase/supabase-js": "^2.118.0",
+    "pg": "^8.23.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
@@ -29,5 +40,9 @@
   },
   "engines": {
     "node": ">=24"
-  }
+  },
+  "workspaces": [
+    "apps/admin",
+    "packages/contracts"
+  ]
 }
