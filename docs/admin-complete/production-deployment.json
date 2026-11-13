@@ -3,7 +3,7 @@
   "teamId": "team_GtWrfFOm7vyzSGmgM9a66VNs",
   "deploymentId": "dpl_AxtvZADAYNWE8tVcbDBX1UZk9obS",
   "target": "production",
-  "readyState": "INITIALIZING",
+  "readyState": "READY",
   "url": "https://rulman-teklif-admin-6khxrncko-furkansahinn77-cryptos-projects.vercel.app/admin/#/",
   "productionUrl": "https://rulman-teklif-admin.vercel.app/admin/#/",
   "previousProductionDeployment": "dpl_2rDuQNE3A1BGAnPP3epSoVEEi8jG",
@@ -207,5 +207,9 @@
   ],
   "requestedAtUtc": "2026-11-13T18:09:09.426420+00:00",
   "otherProjectsChanged": false,
-  "schemaReapplied": false
+  "schemaReapplied": false,
+  "aliases": [
+    "rulman-teklif-admin.vercel.app",
+    "rulman-teklif-admin-furkansahinn77-cryptos-projects.vercel.app"
+  ]
 }

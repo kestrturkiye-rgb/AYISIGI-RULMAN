@@ -1,0 +1,69 @@
+{
+  "checkedAtUtc": "2026-11-13T18:13:02.147143+00:00",
+  "finalContractsAndSecurity": {
+    "tests": 56,
+    "failures": 0
+  },
+  "catalogDashboardMediaRegression": {
+    "tests": 32,
+    "failures": 0
+  },
+  "fullCatalogImport": {
+    "tests": 6,
+    "failures": 0
+  },
+  "browser": {
+    "checks": [
+      "CSV preview and confirmation save through real atomic PostgreSQL import",
+      "Every formerly disabled module has an accessible real route and real PostgreSQL data",
+      "Content drawer validates and persists edits with no redeploy",
+      "Create staff through real Deno Auth Admin + transactional role assignment",
+      "Create customer member without staff privileges",
+      "Campaign selection and member-only pricing editable by admin",
+      "Anonymous campaign UI has no price, direct member-price API denied by RLS",
+      "Verified member login reveals campaign price from authenticated server RPC",
+      "Member quote travels through Node gateway, HMAC-verified Deno and PostgreSQL",
+      "Consent-gated gateway records masked network and trusted test geolocation"
+    ],
+    "scans": 6,
+    "errors": [],
+    "database": "Real PostgreSQL",
+    "edge": "Real Deno",
+    "AuthStorage": "Local emulation"
+  },
+  "liveSupabase": {
+    "passed": true,
+    "checks": [
+      "Existing admin authenticated using real Supabase Auth",
+      "Public bootstrap reads imported catalog: 111952 products (1.4 seconds)",
+      "Existing imported product opens in protected admin detail without modification",
+      "Live Edge creates real staff and customer accounts; customer has no staff role",
+      "Real anonymous price access denied; active ordinary customer sees price via authenticated RPC",
+      "Editor creates draft page while public site excludes draft",
+      "Editor cannot change general settings; unsigned event ingestion denied",
+      "Shared Auth configuration inspected without changes"
+    ],
+    "catalogProducts": 111952,
+    "publicBootstrapSeconds": 1.4,
+    "auth": {
+      "emailAutoconfirm": false,
+      "customSmtpConfigured": false
+    },
+    "backend": "Real Supabase Auth, Edge and PostgreSQL",
+    "credentialsStored": false,
+    "temporaryRecordsCleaned": true
+  },
+  "originalCatalogSHA256": "f3c13e29cebc0f724fdd030bc6358cdc4b9d5e5f8122781335f398d3615ce162",
+  "liveProductCount": 111952,
+  "indexedProductCount": 111952,
+  "liveSearchSeconds": {
+    "unfiltered": 0.6,
+    "text6204": 0.64,
+    "exactSKF6204": 0.37,
+    "dimensions20x47": 0.34
+  },
+  "emailProviderConfigured": false,
+  "vercelHTTPSProbe": "Blocked by environment hostname allowlist; provider reports READY with canonical production alias. Domain addition saved as unapplied environment draft.",
+  "publicAndAdminHTTPS": "GitHub Pages HTTP 200; real authenticated module routes checked",
+  "secretsWrittenToSources": false
+}
