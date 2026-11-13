@@ -120,3 +120,20 @@ test('public media API excludes private originals and published prices require e
 test('server text search preserves Turkish I and İ case matching independently of DB locale',async()=>{
  await db.query('begin');try{await db.query("update public.products set name='KAYIŞ ISITICI İÇ' where id='live'");await db.query('set local role anon');for(const query of ['kayış','ısıtıcı','iç'])assert.equal((await db.query('select public.search_public_catalog(p_query=>$1) data',[query])).rows[0].data.totalCount,1,query)}finally{await db.query('rollback')}
 });
+
+
+test('derived search index follows code, alias, brand and category edits in the same transaction',async()=>{
+ await db.query('begin');try{
+  await db.query("update public.products set sku='SPECIAL-777',base_code='BASE-888',manufacturer_code='OEM-999' where id='live'");
+  for(const code of ['SPECIAL777','BASE888','OEM999'])assert.equal((await db.query('select public.search_public_catalog(p_code=>$1) d',[code])).rows[0].d.items[0].id,'live');
+  await db.query("insert into public.product_aliases(id,product_id,code,kind) values('cross-test','live','CROSS-555','reference')");
+  assert.equal((await db.query("select public.search_public_catalog(p_code=>'CROSS555') d")).rows[0].d.totalCount,1);
+  await db.query("update public.brands set name='NEWBRAND' where id='b'");
+  assert.equal((await db.query("select public.search_public_catalog(p_code=>'NEWBRANDSPECIAL777') d")).rows[0].d.totalCount,1);
+  assert.equal((await db.query("select public.search_public_catalog(p_code=>'SKFSPECIAL777') d")).rows[0].d.totalCount,0);
+  await db.query("update public.categories set name='Özel kategori' where id='leaf'");
+  assert.equal((await db.query("select public.search_public_catalog(p_query=>'özel kategori') d")).rows[0].d.totalCount,1);
+  await db.query("delete from public.product_aliases where product_id='live' and code='CROSS-555'");
+  assert.equal((await db.query("select public.search_public_catalog(p_code=>'CROSS555') d")).rows[0].d.totalCount,0);
+ }finally{await db.query('rollback')}
+});

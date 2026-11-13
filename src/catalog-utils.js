@@ -1,5 +1,6 @@
 export const appBase = import.meta.env?.BASE_URL || '/';
 export function publicAssetPath(path, base = appBase) {
+ if(/^https:\/\//.test(path))return path;
  return `${base.endsWith('/') ? base : base + '/'}${path.replace(/^\/+/, '')}`;
 }
 

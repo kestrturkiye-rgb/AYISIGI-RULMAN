@@ -1,3 +1,11 @@
+# Güncel yönetim sistemi (13 Kasım 2026)
+
+Canlı yönetim: https://rulman-teklif-admin.vercel.app/admin/#/giris · alternatif: https://kestrturkiye-rgb.github.io/AYISIGI-RULMAN/admin/#/giris.
+
+Ürün/kategori/marka, teklif/müşteri, medya, tüm site içeriği/ayarları, personel ve müşteri hesapları, kampanyalar ve ziyaretçi analitiği yönetimi eklendi. GitHub Pages yayını Supabase verisini kullanır; eski yerel SQLite/static talimatları aşağıda tarihsel geliştirme seçenekleri olarak yer alır. Mevcut 111.952 ürün ve görsel referansları aktarıldı. Üye fiyatları sunucuda korunur.
+
+Kurulum, üyelik e-postası için gereken SMTP, kullanım, testler ve yayın ayrıntıları: [Tam yönetim kılavuzu](docs/admin-complete/README.md).
+
 # Rulman Teklif
 
 React/Vite ile Türkçe ürün kataloğu, teknik arama ve teklif listesi. Node.js 24+ gerektirir (teklif sunucusunda yerleşik SQLite kullanılır).

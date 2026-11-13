@@ -1,6 +1,6 @@
 {
   "applied": [
-    "202611130018_search_candidate_filter.sql"
+    "202611130021_catalog_first_page.sql"
   ],
   "previousMigrationsChanged": false
 }

@@ -1,12 +1,12 @@
 {
   "project": "prj_LNMcFN1YPhsnCLVCpiqCJo455nKD",
   "teamId": "team_GtWrfFOm7vyzSGmgM9a66VNs",
-  "deploymentId": "dpl_HaHtLvR5wJ7gUo996hixxkuDtG7c",
+  "deploymentId": "dpl_AxtvZADAYNWE8tVcbDBX1UZk9obS",
   "target": "production",
-  "readyState": "READY",
-  "url": "https://rulman-teklif-admin-q8hijgnft-furkansahinn77-cryptos-projects.vercel.app/admin/#/",
+  "readyState": "INITIALIZING",
+  "url": "https://rulman-teklif-admin-6khxrncko-furkansahinn77-cryptos-projects.vercel.app/admin/#/",
   "productionUrl": "https://rulman-teklif-admin.vercel.app/admin/#/",
-  "previousProductionDeployment": "dpl_4zihRzYRJmxHm6qYuXKcW7XXBArp",
+  "previousProductionDeployment": "dpl_2rDuQNE3A1BGAnPP3epSoVEEi8jG",
   "hashes": [
     {
       "path": "admin/assets/AnalyticsPage-BLSJtkgM.js",
@@ -121,20 +121,20 @@
       "sha256": "d77f4cecc5a542e1d431549f1d9f786acc02d5adc4cebba1e8f99f9a28dc0df4"
     },
     {
-      "path": "assets/AccountPage-BX5Subq1.js",
-      "sha256": "f2689a85898bbe7dddb66483d8b8b5f8815a57467c5b25c8b8aacfef57632e7b"
+      "path": "assets/AccountPage-DbcHTqB0.js",
+      "sha256": "b2e8fdeac84a56c59bd789793f7a106687c354e1bf32c6dab3c3f7ee09a8fa81"
     },
     {
       "path": "assets/AdminPage-WiFtYWfe.js",
       "sha256": "7078e536e369c296a514759d64f141a5c7ebc75e6cc475e9b0d4649a9ab81d74"
     },
     {
-      "path": "assets/Campaigns-DYxGrfba.js",
-      "sha256": "b3d773ee84809f9792365d4b301c0ce52501b5d36c8df87186959a1534093cd4"
+      "path": "assets/Campaigns-ea1WqVgz.js",
+      "sha256": "837435fc9da5d7406d3f7cfa1166167de4dcecaa5031846e455d893464fdfb1d"
     },
     {
-      "path": "assets/CloudApp-B3nUZ51S.js",
-      "sha256": "aa4a04b0f7e290b75883f340461836f81d06050cefa153b7797d6d89d1972f91"
+      "path": "assets/CloudApp-CZzUZ9oH.js",
+      "sha256": "021dc24bf7a6f7b378bc68322d3d22db69215cf4183accd7be4319457ed27bbf"
     },
     {
       "path": "assets/NotoSans-Turkish-DnMJtjlv.woff2",
@@ -145,24 +145,24 @@
       "sha256": "c21450cefcaccc934648b1476713592112c63f1bcb5a678c723bcac042905579"
     },
     {
-      "path": "assets/catalog-decode-B-sMKMay.js",
-      "sha256": "edc6f0afa080f25a1231c16bf39d9f0325e774aeb5b8f2b5503721f4db53c624"
+      "path": "assets/catalog-decode-7OsN2B5d.js",
+      "sha256": "691502f1d81c5841dfd4fdaece61a9b3968821e193c7e98e8c1876dc6941011c"
     },
     {
-      "path": "assets/catalog.worker-DAg3lrhN.js",
-      "sha256": "ae271cae564c821e1fec8a669a205ead60a99be4b0b7fd4d31559bb9ba55ca7b"
+      "path": "assets/catalog.worker-CVeRzDus.js",
+      "sha256": "7972c7508e726c19507566998a7be0d4ec84f884b4ade9f6093b954ed8e6c5e4"
     },
     {
-      "path": "assets/client-PHHjwvRa.js",
-      "sha256": "14a301256b5b89f5f2f754142c4ee2cad016842e29f5f6d9530c0703014b301e"
+      "path": "assets/client-BW8cpVYI.js",
+      "sha256": "b9700c9ef5998943f3a78e26db085652c5d55198ea756fc319bb77a1aff4f39e"
     },
     {
-      "path": "assets/index-C4nQm441.css",
-      "sha256": "b9bcb6ba810fa55895ef39bc869d6a2290e261e07ce1c028aa6c39797ab47824"
+      "path": "assets/index-B9dOLC6T.css",
+      "sha256": "2d940410bea760afa8c8d553f4494d3246339b6a8b963e3959a3dd9b09740302"
     },
     {
-      "path": "assets/index-WHFrH2ri.js",
-      "sha256": "0d8a3e69a3f2411f8b3906e1fc2c40114dcaaf1e5965053f3b8b895b15d988ed"
+      "path": "assets/index-V3SXM4Xs.js",
+      "sha256": "fc788549d4dd9b405e20c73830856585756e4c1e7bb90877c6d4961214c9a783"
     },
     {
       "path": "assets/react-KPuNr9iS.js",
@@ -186,7 +186,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "f53c275b7baf4d4f016407427af7de4cc6543f9c6b0aeef9af613cb684636889"
+      "sha256": "1ab7ba6ecb365637f29684c56184ae16cd694181d89ed5c95f6c55817edc8a33"
     },
     {
       "path": "api/_gateway.mjs",
@@ -205,11 +205,7 @@
       "sha256": "610e344d584bf82937f6aec4731ebb5439d04be23f4dadc0334712e11d47e06f"
     }
   ],
-  "requestedAtUtc": "2026-11-13T17:55:00.849582+00:00",
+  "requestedAtUtc": "2026-11-13T18:09:09.426420+00:00",
   "otherProjectsChanged": false,
-  "schemaReapplied": false,
-  "aliases": [
-    "rulman-teklif-admin.vercel.app",
-    "rulman-teklif-admin-furkansahinn77-cryptos-projects.vercel.app"
-  ]
+  "schemaReapplied": false
 }

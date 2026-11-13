@@ -16,3 +16,8 @@ test('legacy numeric carts hydrate using exact brand and code without mixing unr
 test('hydrated carts merge legacy quantities while preserving unavailable IDs and remaining editable',async()=>{
  const {hydrateCart}=await import('../src/cart.js');const byId=new Map([['p-old',{id:'p-old',brand:'SKF',code:'6204 2RS'}]]);assert.deepEqual(hydrateCart([{id:1,qty:2},{id:'p-old',qty:3},{id:'p-missing',qty:4},null],byId),[{id:'p-old',qty:5},{id:'p-missing',qty:4}]);assert.deepEqual(hydrateCart([{id:1,qty:2}],new Map()),[{id:1,qty:2}]);
 });
+
+
+test('cloud academy images keep their HTTPS URL while local media retains project base',async()=>{
+ const {publicAssetPath}=await import('../src/catalog-utils.js');assert.equal(publicAssetPath('https://example.supabase.co/storage/v1/object/public/media-published/a.webp','/AYISIGI-RULMAN/'),'https://example.supabase.co/storage/v1/object/public/media-published/a.webp');assert.equal(publicAssetPath('catalog/a.webp','/AYISIGI-RULMAN/'),'/AYISIGI-RULMAN/catalog/a.webp');
+});

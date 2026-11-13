@@ -34,7 +34,7 @@
     "test:admin:catalog:browser": "node tests/admin/catalog.browser.mjs",
     "test:admin:edge:types": "DENO_DIR=/tmp/rt-deno deno check --node-modules-dir=manual supabase/functions/rt-catalog-media/index.ts",
     "build:complete": "node scripts/build-complete.mjs",
-    "test:workspace": "node --test --test-concurrency=1 tests/admin/workspace-db.test.mjs tests/admin/gateway.test.mjs"
+    "test:workspace": "node --test --test-concurrency=1 tests/admin/workspace-db.test.mjs tests/admin/gateway.test.mjs tests/admin/spreadsheets.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
