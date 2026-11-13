@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "checks": [
+    "Existing admin authenticated using real Supabase Auth",
+    "Public bootstrap reads imported catalog: 111952 products (1.4 seconds)",
+    "Existing imported product opens in protected admin detail without modification",
+    "Live Edge creates real staff and customer accounts; customer has no staff role",
+    "Real anonymous price access denied; active ordinary customer sees price via authenticated RPC",
+    "Editor creates draft page while public site excludes draft",
+    "Editor cannot change general settings; unsigned event ingestion denied",
+    "Shared Auth configuration inspected without changes"
+  ],
+  "catalogProducts": 111952,
+  "publicBootstrapSeconds": 1.4,
+  "auth": {
+    "emailAutoconfirm": false,
+    "customSmtpConfigured": false
+  },
+  "backend": "Real Supabase Auth, Edge and PostgreSQL",
+  "credentialsStored": false,
+  "temporaryRecordsCleaned": true
+}

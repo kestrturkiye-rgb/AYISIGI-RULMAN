@@ -1,0 +1,46 @@
+{
+  "phase": 3,
+  "deployment": "READY; production alias verified",
+  "databaseMigration": "008 and 009 applied; previously applied migrations not reapplied",
+  "tests": {
+    "passed": 84,
+    "failed": 0,
+    "source": "tests.log"
+  },
+  "browser": {
+    "catalog": "browser-results.json",
+    "dashboard": "dashboard-results.json",
+    "realLocalAuth": "auth-results.json",
+    "accessibilityScans": 21,
+    "violations": 0,
+    "widths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ]
+  },
+  "liveServices": {
+    "auth": "Existing account unchanged; real login verified",
+    "supabase": "008/009 applied; media function ACTIVE; live CRUD, Storage and conflict tests passed",
+    "vercel": "Production deployed; canonical alias verified",
+    "githubPages": "No deployment; catalog/index.json unchanged"
+  },
+  "staticCatalogSHA256": "f3c13e29cebc0f724fdd030bc6358cdc4b9d5e5f8122781335f398d3615ce162",
+  "notes": [
+    "Direct Vercel HTML access is blocked by this environment network policy (CONNECT 403).",
+    "Identical production package was verified in local Chromium with actual Supabase backend and existing real admin account.",
+    "Runtime WASM is compressed with Brotli to satisfy provider 5 MB deployment limit; it is the same pinned binary.",
+    "Statically hosted legacy catalog is not imported by this release.",
+    "HTTP PT409 is used for optimistic business conflicts to avoid server retries of SQL 40001."
+  ],
+  "deploymentId": "dpl_4zihRzYRJmxHm6qYuXKcW7XXBArp",
+  "releaseChecks": {
+    "targetedPostFixTests": 28,
+    "mediaTests": 4,
+    "liveBackendChecks": 8,
+    "liveBrowserChecks": 5,
+    "temporaryDataCleaned": true
+  }
+}

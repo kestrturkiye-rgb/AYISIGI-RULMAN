@@ -1,0 +1,45 @@
+{
+  "completed": true,
+  "sourceSha256": "320571aca7458d5ea61f8ffd6b20da83fc973e4ba1cfcf2b514327c0204248df",
+  "expected": {
+    "public.media_assets": 4716,
+    "public.brands": 103,
+    "public.categories": 83,
+    "public.products": 111952,
+    "public.product_aliases": 15375,
+    "public.product_media": 109417,
+    "private.product_import_metadata": 111952,
+    "public.articles": 10,
+    "public.pages": 4,
+    "public.home_sections": 6,
+    "public.menus": 2,
+    "public.menu_items": 29,
+    "public.site_settings": 11,
+    "public.ui_texts": 192,
+    "public.spec_templates": 1
+  },
+  "insertedThisRun": {
+    "public.products": 42652,
+    "public.product_aliases": 15375,
+    "public.product_media": 109417,
+    "private.product_import_metadata": 111952,
+    "public.articles": 10,
+    "public.pages": 4,
+    "public.home_sections": 6,
+    "public.menus": 2,
+    "public.menu_items": 29,
+    "public.site_settings": 11,
+    "public.ui_texts": 192,
+    "public.spec_templates": 1
+  },
+  "counts": [
+    {
+      "products": 111952,
+      "importedmetadata": 111952,
+      "legacyimages": 4716,
+      "articles": 10
+    }
+  ],
+  "existingValuesOverwritten": false,
+  "originalImagesPreserved": true
+}

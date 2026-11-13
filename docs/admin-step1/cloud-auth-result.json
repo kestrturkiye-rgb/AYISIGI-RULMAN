@@ -1,0 +1,16 @@
+{
+  "projectRef": "lptosaejlowasrbcyqnu",
+  "username": "MuratKoyunbakan",
+  "authUserCreated": true,
+  "accountOperation": "created",
+  "role": "admin",
+  "realPasswordLogin": "passed",
+  "realRoleRpc": "passed",
+  "testSessionLoggedOut": true,
+  "migrationsReapplied": false,
+  "serviceCredentialPersisted": false,
+  "passwordPersisted": false,
+  "frontendPublished": true,
+  "frontendProvider": "Vercel",
+  "frontendUrl": "https://rulman-teklif-admin.vercel.app/admin/#/giris"
+}

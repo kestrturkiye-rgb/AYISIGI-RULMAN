@@ -115,3 +115,40 @@ Testler: `npm run test:server` ve `node tests/quote.test.js`; katalog/teknik ara
 Kataloğun **109.417 ürününün** kullandığı **5.325 görsel dosyasının** tamamı tarandı. **2.689 dosya** temiz sürümlerine eşlenir; bu eşlemeler **27.351 ürün kaydında** kullanılır. Diğer 2.636 dosya temiz üretici görseli olarak korunur. Önceki dört düzenleme korunmuştur; yeni toplu işlem kullanıcı onayıyla Python/OpenCV üzerinden yerel olarak yapıldı. Ürün kimlikleri, kodları, ölçüleri ve orijinal dosyalar değiştirilmedi.
 
 Yeni çıktılar `public/catalog/clean-images`, önceki dört çıktı `public/catalog/edited-images` içindedir. Tüm görüntü alanları `src/product-image-map.json` eşlemesini kullanır. Kapsam ve SHA-256 doğrulaması [tam raporda](docs/product-image-cleanup-report.json), yöntem ve yeniden çalıştırma adımları [görsel temizliği rehberinde](docs/GORSEL-TEMIZLIGI.md) yer alır. `node tests/image-cleanup.test.js` tüm kayıtların tamamlandığını, orijinallerin korunduğunu ve çıktı dosyalarının varlığını kontrol eder.
+
+## Supabase yönetim paneli — Faz 1
+
+Supabase Postgres/Auth/Storage için şema, RLS, e-posta/şifre giriş ekranı ve bir kerelik katalog aktarım araçları hazırlandı. Ziyaretçi sitesi bu fazda statik katalogdan okumaya devam eder. Ürün ve içerik düzenleme ekranları sonraki onaylı fazlarda eklenecektir.
+
+Kurulum, `.env.local`, ilk admin, migration, dry-run ve yerel test adımları: [Supabase Faz 1 kılavuzu](docs/SUPABASE-FAZ-1.md).
+
+```sh
+npm run test:supabase
+npm run supabase:dry-run
+```
+
+Gerçek DB işlemleri yalnızca `--apply --confirm-project PROJECT_REF` ile yapılır. Public publishable/anon anahtar dışında hiçbir sunucu sırrı `VITE_` değişkenine konmaz; build öncesi kontrol buna karşı koruma sağlar. Gerçek bir Supabase projesi olmadan canlı Auth/Storage testi yapılmış sayılmaz.
+
+## Supabase ziyaretçi verisi — Faz 2
+
+Mevcut statik mod varsayılan olarak korunur. `VITE_DATA_SOURCE=supabase` açıkça seçildiğinde katalog, sayfalar, makaleler ve temel site ayarları public okuma API'sinden gelir. Ürün araması sunucuda sayfalanır; sepet ürünleri ayrı yüklenir. Veritabanı değişiklikleri Realtime, periyodik kontrol ve pencereye dönüşte yenilenir. Bağlantı hataları yeniden deneme ekranı gösterir.
+
+Kurulum, migration 004, iki veri modunun testi ve sınırlar: [Supabase Faz 2 kılavuzu](docs/SUPABASE-FAZ-2.md). Gerçek Supabase projesi ve canlı doğrulama henüz yoktur; admin düzenleme ekranları sonraki fazlardadır.
+
+## 9 Kasım 2026 ürün ve kategori genişletmesi
+
+Mevcut katalog korunarak 2.535 ürün/varyant ayrı ek katalog dosyasına alındı. Toplam 111.952 ürüne, beş yeni ürün grubunun ayrı sayfalarına ve ek alt kategorilerine erişilebilir. RT referansları satıcı/üretici kodu bilinmeyen fakat ürün tanımı doğrulanabilen kayıtlarda kullanılır. Yeni ürün fotoğrafları görsel sunucularına erişim sağlanana kadar eklenmedi; kartlarda başka ürünlerin resmi kullanılmaz.
+
+Kimlik kontrolleri, kapsam, yeniden üretme ve test adımları: [Katalog genişletme notları](docs/catalog-expansion/README.md).
+
+### Ayrı admin uygulaması — 1. adım
+
+React + TypeScript + Tailwind + HashRouter admin uygulaması `apps/admin/` altındadır. Yerel gerçek Auth testi: `npm run dev:admin:local`; test hesapları yalnızca `/tmp/rt-admin-local-test/accounts.json` dosyasında üretilir. Normal geliştirme: `npm run dev:admin`. İki uygulamayı birlikte derleme: `npm run build:pages -- --base=/AYISIGI-RULMAN/`. Mevcut `#/admin` yeni admin uygulamasına yönlenir. Ayrıntılı kurulum, test ve sınırlar: [Admin 1. adım](docs/admin-step1/README.md). Henüz dashboard/CRUD yoktur; bu aşama giriş ve şema altyapısıdır.
+
+### Admin 2. aşama
+
+Panel düzeni ve rol bazlı dashboard hazırdır. SQL migration 007 yeni okuma RPC'sini ekler. Testler: npm run test:admin, npm run test:admin:db ve npm run test:admin:dashboard:browser. Tam kapsam ve yayın onayı durumu docs/admin-step2/README.md içindedir.
+
+### Admin — aşama 3
+
+Ürün/kategori/marka yönetimi, çoklu görsel ve PDF yükleme, kişisel taslak, sürüm çakışması ve soft delete hazırlandı. Ayrıntılı kurulum, güvenlik sınırları, testler ve **onay sonrası** yayın adımları: [docs/admin-step3/README.md](docs/admin-step3/README.md). Kullanıcı yayın onayıyla bu aşama [mevcut yönetim adresinde](https://rulman-teklif-admin.vercel.app/admin/#/giris) yayınlandı. Büyük statik kataloğun aktarımı ve public entegrasyon sonraki çalışmadır.

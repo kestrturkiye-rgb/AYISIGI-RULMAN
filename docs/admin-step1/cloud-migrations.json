@@ -1,0 +1,230 @@
+{
+  "project": "lptosaejlowasrbcyqnu",
+  "applied": [
+    "202611020001_core.sql",
+    "202611020002_security.sql",
+    "202611020003_storage.sql",
+    "202611020004_public_read.sql",
+    "202611090005_roles.sql",
+    "202611090006_commercial.sql"
+  ],
+  "journal": [
+    {
+      "version": "202611020001_core.sql",
+      "sha256": "88a3a53c67e7da0e345adeba3bc8723792ef0d8c226e10f0304cdcbe56a6cbed"
+    },
+    {
+      "version": "202611020002_security.sql",
+      "sha256": "96f24ca9530071acbb648b6750801f3de83d279de44c6b8c0db02f810c048bc3"
+    },
+    {
+      "version": "202611020003_storage.sql",
+      "sha256": "48a986077f5b515395351cf891de2e961cdc5617d7e91c2ff178d2bf69ee140a"
+    },
+    {
+      "version": "202611020004_public_read.sql",
+      "sha256": "beea37ce7a4bdfea8a74d7151cba3ed247e25b65886a0029bee3bab2bd022134"
+    },
+    {
+      "version": "202611090005_roles.sql",
+      "sha256": "9fd45ae54ec44c6b824c85f1ec462ee3d78bbbf257d00d2bbb1dd1e6ec2565ad"
+    },
+    {
+      "version": "202611090006_commercial.sql",
+      "sha256": "45586749a948703858cf13a3648b974b0a38d95a335772113676b53ed6b65c66"
+    }
+  ],
+  "existingCmsTablesUnchanged": true,
+  "rls": [
+    {
+      "schema": "private",
+      "name": "audit_log",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "content_drafts",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "customers",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "import_runs",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "integration_settings",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "inventory_levels",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "media_usages",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "notification_outbox",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "product_import_metadata",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "product_prices",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "quote_documents",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "quote_items",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "quote_notes",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "quote_rate_limits",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "quote_status_history",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "quotes",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "schema_migrations",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "staff_members",
+      "rls": true
+    },
+    {
+      "schema": "private",
+      "name": "staff_notifications",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "articles",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "brands",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "categories",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "cms_rate_limits",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "cms_records",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "content_version",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "home_sections",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "media_assets",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "media_variants",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "menu_items",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "menus",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "pages",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "product_aliases",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "product_media",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "product_relations",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "products",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "site_settings",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "spec_templates",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "ui_texts",
+      "rls": true
+    }
+  ]
+}

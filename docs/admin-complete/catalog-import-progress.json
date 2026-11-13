@@ -1,0 +1,10 @@
+{
+  "completedChunks": 1148,
+  "totalChunks": 1191,
+  "inserted": {
+    "public.products": 42652,
+    "public.product_aliases": 15375,
+    "public.product_media": 109417,
+    "private.product_import_metadata": 101700
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "notice": "Tam dosya içerikleri; önceki SQL önkoşulları da dahil. Gerçek .env/hesap/anahtar yoktur.",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "910e27341d04fe5e15e7502e267b061471f7fed278b5bccfcc55e61b829894c9",
+      "bytes": 1571
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "sha256": "ba8e34d4a51b442ada911474fb32802c2c33f7617c744fb76c068c1ba85c9e3d",
+      "bytes": 1872
+    },
+    {
+      "path": ".github/workflows/verify-supabase.yml",
+      "sha256": "7e04414a50043fa54a67675b6d9a4553f0d924c2111742ab7a6ebad1ede2edf5",
+      "bytes": 1053
+    },
+    {
+      "path": "README.md",
+      "sha256": "d4a78e02af3d8c0eeabf9509908175ef9f65ced5d3129993a728f4cf60e6b34e",
+      "bytes": 15167
+    },
+    {
+      "path": "apps/admin/index.html",
+      "sha256": "17e3f15093fe1c16376fdb0fc2e45408ebdf451e0acef1a3840efa533c6ffbaf",
+      "bytes": 468
+    },
+    {
+      "path": "apps/admin/package.json",
+      "sha256": "d24583ebd3980fb260851bba2a0afb79baec8db82972d6e407d2cd9d78b27ccd",
+      "bytes": 834
+    },
+    {
+      "path": "apps/admin/src/app/permissions.ts",
+      "sha256": "9025fbe8a541fa7088d9925a10933f2a168834ff28acf7e85c7c188173ebb7cb",
+      "bytes": 409
+    },
+    {
+      "path": "apps/admin/src/app/router.tsx",
+      "sha256": "c1c4cf20cd331285a555fcb3633751cd022041a7e3438670128149192ddf5423",
+      "bytes": 742
+    },
+    {
+      "path": "apps/admin/src/features/auth/AuthProvider.tsx",
+      "sha256": "d0801a0fb02d45c65d2247f64dccdbb7835c2f084f7729edf4608708f9be0425",
+      "bytes": 3895
+    },
+    {
+      "path": "apps/admin/src/features/auth/LoginPage.tsx",
+      "sha256": "7b6774121eccafa985aafa5bea784222c37ae09caa20559cdf6bb930563cef08",
+      "bytes": 8926
+    },
+    {
+      "path": "apps/admin/src/lib/callback.ts",
+      "sha256": "c2f8739c73e9fa4d630c7462d8cfbc2c17270680b5cd5242569211de25f7ce9e",
+      "bytes": 1689
+    },
+    {
+      "path": "apps/admin/src/lib/config.ts",
+      "sha256": "b1c447d65e464c9e1f4d2bab6fa8c6875d14c41c93ac5dd6f5a0faa7eef71a84",
+      "bytes": 1154
+    },
+    {
+      "path": "apps/admin/src/lib/errors.ts",
+      "sha256": "8070a8978b9db1eb8801ad660e691df411f4e64fa90b5eaf1a078d324ff0a962",
+      "bytes": 653
+    },
+    {
+      "path": "apps/admin/src/main.tsx",
+      "sha256": "223ccdc70fa75d0c2e559ae393e5edb13b89dd9d1c4c6fec3d962a0fe1c80118",
+      "bytes": 614
+    },
+    {
+      "path": "apps/admin/src/styles.css",
+      "sha256": "4d96ff40fb83b3424ee3e7ac608e2afbf528041fb8875feca87d0dbca79ea7a2",
+      "bytes": 5801
+    },
+    {
+      "path": "apps/admin/tsconfig.json",
+      "sha256": "80148ce93f00b79d7af6ff3c2950ce85e217bcbcd647584eb9e92239fca70ab3",
+      "bytes": 431
+    },
+    {
+      "path": "apps/admin/vite.config.ts",
+      "sha256": "df64ce592a2796a52445f9bb370e4b6223bce6bd3d51b14e219efa42e07ad85d",
+      "bytes": 846
+    },
+    {
+      "path": "docs/admin-step1/README.md",
+      "sha256": "717dca2cc2e3392549007b167a34d803d0679d847c233da5861d73877b24f26e",
+      "bytes": 8707
+    },
+    {
+      "path": "docs/admin-step1/login-desktop.png",
+      "sha256": "9be606cd17c77f3b1e061a7f45dc0841563df58cc94fdb0f412d75b02483ef05",
+      "bytes": 72775
+    },
+    {
+      "path": "docs/admin-step1/login-mobile.png",
+      "sha256": "c9631d0e83065f1cf2505ef13dcb26917f70713837152428a9e1e30ef0699085",
+      "bytes": 38342
+    },
+    {
+      "path": "docs/admin-step1/validation.json",
+      "sha256": "d637d37aaef3e040d3d6f1e3b6dad77060108722637db07d49940b86b7096519",
+      "bytes": 4853
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e6fc2aaa66c43df45536a7ae280ba2f89dad13616220f511f8dbd0437821ab32",
+      "bytes": 160673
+    },
+    {
+      "path": "package.json",
+      "sha256": "7d68b35e8b848bc533e85339fa580f684c984d33ad76500ff73131359bf11b1f",
+      "bytes": 2179
+    },
+    {
+      "path": "packages/contracts/package.json",
+      "sha256": "c54521311d94130b7751cdde9729df6573f22ff8b7a150a34f195eb8bdb2c911",
+      "bytes": 139
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "1954a35bea62cad4bb94e5ec8d9bfd9ac05ba48cf22fbdb67b0557ddbe0058be",
+      "bytes": 873
+    },
+    {
+      "path": "scripts/admin-local-test.mjs",
+      "sha256": "13db8e99d4f21299d3f405a951a642e2f4b8f7727090718b6b5a765ea3165254",
+      "bytes": 8799
+    },
+    {
+      "path": "scripts/build-pages.mjs",
+      "sha256": "d3396c3770c7cb4bf843a3e477a4840d7a9365696a1ba67aa841e20d787f031a",
+      "bytes": 485
+    },
+    {
+      "path": "scripts/check-public-env.mjs",
+      "sha256": "2de15ab7e631244fec8ae3a4eac1c704932d904546ece6af8030a8ba23ab3eae",
+      "bytes": 618
+    },
+    {
+      "path": "scripts/supabase/set-staff-role.mjs",
+      "sha256": "eb975e60a102b7c1b6f5a429017c50860e386245004ddfb644e6b322ba7c467a",
+      "bytes": 1842
+    },
+    {
+      "path": "src/AdminPage.jsx",
+      "sha256": "49647f3ae99a798445ad2d69143a25c1b02c9cb947052bdc8e1d3ffda8fd1d20",
+      "bytes": 673
+    },
+    {
+      "path": "src/supabase/auth-service.js",
+      "sha256": "d26b3957595d1e5989860d254bc27dd022116f6ddf62a282fbd5eb05ef71d35f",
+      "bytes": 2188
+    },
+    {
+      "path": "supabase/migrations/202611020001_core.sql",
+      "sha256": "88a3a53c67e7da0e345adeba3bc8723792ef0d8c226e10f0304cdcbe56a6cbed",
+      "bytes": 16807
+    },
+    {
+      "path": "supabase/migrations/202611020002_security.sql",
+      "sha256": "96f24ca9530071acbb648b6750801f3de83d279de44c6b8c0db02f810c048bc3",
+      "bytes": 14815
+    },
+    {
+      "path": "supabase/migrations/202611020003_storage.sql",
+      "sha256": "48a986077f5b515395351cf891de2e961cdc5617d7e91c2ff178d2bf69ee140a",
+      "bytes": 1603
+    },
+    {
+      "path": "supabase/migrations/202611020004_public_read.sql",
+      "sha256": "beea37ce7a4bdfea8a74d7151cba3ed247e25b65886a0029bee3bab2bd022134",
+      "bytes": 10622
+    },
+    {
+      "path": "supabase/migrations/202611090005_roles.sql",
+      "sha256": "9fd45ae54ec44c6b824c85f1ec462ee3d78bbbf257d00d2bbb1dd1e6ec2565ad",
+      "bytes": 267
+    },
+    {
+      "path": "supabase/migrations/202611090006_commercial.sql",
+      "sha256": "45586749a948703858cf13a3648b974b0a38d95a335772113676b53ed6b65c66",
+      "bytes": 9621
+    },
+    {
+      "path": "tests/admin/auth-failure.browser.mjs",
+      "sha256": "b49a2305688dccf2457c40db62512be224c76dfd8982496df2cc87d749e8b448",
+      "bytes": 3785
+    },
+    {
+      "path": "tests/admin/auth.browser.mjs",
+      "sha256": "f6216b338e5f8003c85c703e49e3517c5d5b417dee0e84aa07e1be8096f7addd",
+      "bytes": 5276
+    },
+    {
+      "path": "tests/admin/contracts.test.mjs",
+      "sha256": "e8c41382d0c96ef3450a8d2eee69e28c4bfc6e8ec48cf78c4f1ae7ec230c9ef7",
+      "bytes": 1566
+    },
+    {
+      "path": "tests/admin/recovery.browser.mjs",
+      "sha256": "a1493862f2f4fed51a15ebefe2f20427e3929e1e490e002b5b7c66c9e05805cb",
+      "bytes": 3257
+    },
+    {
+      "path": "tests/admin/security-db.test.mjs",
+      "sha256": "3507aab69b0243714b05f88949212284b3678b76485ae4f26d7d4e9e2c26c87e",
+      "bytes": 7342
+    },
+    {
+      "path": "tests/browser-audit.mjs",
+      "sha256": "9a36d142709b96a76ad9391ba5542378db7bdd1ab91aa674d2849b92b4961147",
+      "bytes": 10901
+    },
+    {
+      "path": "tests/supabase-auth.browser.mjs",
+      "sha256": "48c25d17603562ba0faa34beb22f62da4b9b57101d059e83953d42a11fc3acaa",
+      "bytes": 210
+    },
+    {
+      "path": "tests/supabase-db.test.mjs",
+      "sha256": "ce3b9adcb311ccca786b7bb4820d708a3c5e483ac1573f825bb89847f1455f3c",
+      "bytes": 14771
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "project": "lptosaejlowasrbcyqnu",
+  "migration": "202611130007_dashboard.sql",
+  "sha256": "102f19cdfca85d7f40c192edca7b25068d78d32890bb6f479ab100a4ab707dcc",
+  "previousMigrationsReapplied": false,
+  "existingCmsTablesModified": false,
+  "mutationTables": "none; new read RPC and quote date index only"
+}

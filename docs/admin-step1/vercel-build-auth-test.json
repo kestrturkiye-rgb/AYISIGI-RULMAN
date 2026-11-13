@@ -1,0 +1,12 @@
+{
+  "compiledProductionBuild": true,
+  "realSupabaseLogin": "passed",
+  "username": "MuratKoyunbakan",
+  "role": "admin",
+  "reload": "passed",
+  "mainSiteReturnLink": "passed",
+  "testSessionLocallyLoggedOut": true,
+  "runtimeErrors": [],
+  "publicUrlDirectlyTested": false,
+  "publicUrlBlockedByEnvironmentNetwork": true
+}

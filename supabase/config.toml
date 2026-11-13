@@ -1,0 +1,31 @@
+project_id = "rulman-teklif"
+
+[api]
+enabled = true
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+major_version = 17
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173/"
+additional_redirect_urls = ["http://localhost:5173/", "http://127.0.0.1:5173/"]
+enable_signup = false
+
+[auth.email]
+enable_signup = false
+enable_confirmations = true
+
+[storage]
+enabled = true
+file_size_limit = "25MiB"
+
+[functions.rt-catalog-media]
+verify_jwt = false # JWT is verified by Auth.getUser and staff role is checked on every request.
+static_files = ["./functions/rt-catalog-media/magick.wasm.br"]
+
+[functions.rt-admin-operations]
+verify_jwt = false # Signed gateway requests OR verified Auth JWT and DB staff role are required inside.

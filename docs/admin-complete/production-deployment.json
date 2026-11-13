@@ -1,0 +1,215 @@
+{
+  "project": "prj_LNMcFN1YPhsnCLVCpiqCJo455nKD",
+  "teamId": "team_GtWrfFOm7vyzSGmgM9a66VNs",
+  "deploymentId": "dpl_HaHtLvR5wJ7gUo996hixxkuDtG7c",
+  "target": "production",
+  "readyState": "READY",
+  "url": "https://rulman-teklif-admin-q8hijgnft-furkansahinn77-cryptos-projects.vercel.app/admin/#/",
+  "productionUrl": "https://rulman-teklif-admin.vercel.app/admin/#/",
+  "previousProductionDeployment": "dpl_4zihRzYRJmxHm6qYuXKcW7XXBArp",
+  "hashes": [
+    {
+      "path": "admin/assets/AnalyticsPage-BLSJtkgM.js",
+      "sha256": "9bd3423dd32573824fb800cac38fb64f06860e380351c5ef3ca738c425b21e90"
+    },
+    {
+      "path": "admin/assets/BulkTools-BbtSpdKS.js",
+      "sha256": "0106e21bad5e961f447a50b77875ea908168d38daa3c8591d28cd7f7455c1dde"
+    },
+    {
+      "path": "admin/assets/CampaignsPage-UV_JI7NG.js",
+      "sha256": "0ab729d6685d50f2f7e5650d568d4a52f46a2b59e57776fee232d71a05922ae1"
+    },
+    {
+      "path": "admin/assets/ContentPage-QvMqjIBt.js",
+      "sha256": "99e38ffc224d1734a7439ec6faf9038364715e449a842fb787cd50ab9358833e"
+    },
+    {
+      "path": "admin/assets/CustomersPage-8O6XSQ2H.js",
+      "sha256": "4262ccb83c5f6a3a47dc6a385b3afa9cd5af80fa7a30459461eb01e9b6447c58"
+    },
+    {
+      "path": "admin/assets/MediaPage-DwN-Jx8L.js",
+      "sha256": "8bfa04cf630d240839d25189975d714bdd5256bcfb64336fcb59a66e9d25132f"
+    },
+    {
+      "path": "admin/assets/NotoSans-Turkish-DnMJtjlv.woff2",
+      "sha256": "2c26a61d853e8831789a312d1439f09c00c7c6d8badee6c307fd1b0349c822a1"
+    },
+    {
+      "path": "admin/assets/ProductEditor-Bk8Zm9bG.js",
+      "sha256": "b8326523480975aa6f10f7237e77481bbe3ae61f3ebadab1cd040e509955f3f4"
+    },
+    {
+      "path": "admin/assets/ProductList-CBebxG6n.js",
+      "sha256": "84c94ec3900e5518c0f158761ed839d8dc6f19e3c111170e411bbc397c53d0f6"
+    },
+    {
+      "path": "admin/assets/QuotesPage-Bj1k7xKB.js",
+      "sha256": "87f8fbded32464d2fc09b65243376ed264cda1d0bd10d0bf5595439a77e5ac17"
+    },
+    {
+      "path": "admin/assets/RichEditor-Cuzka18P.js",
+      "sha256": "8895c137211bf471880aa399b03b18e12b7564b27cadc5da761ea6e7a7894a1c"
+    },
+    {
+      "path": "admin/assets/SettingsPage-DFTOQxHj.js",
+      "sha256": "6a47bebae394332f8738ca475c080df8ccadb6ad8e8be15a958b800bc4fd969e"
+    },
+    {
+      "path": "admin/assets/TaxonomyPage-DWFp2WS2.js",
+      "sha256": "19726c25c592a7fe0051fd80aa823af5b00729f7d8568e87b17c211aa7b56162"
+    },
+    {
+      "path": "admin/assets/UsersPage-BIT6XIiW.js",
+      "sha256": "c42d8cad5b96f0dae03caf0d0ede8974ccf7c4358aebeed719ba43ec344ded35"
+    },
+    {
+      "path": "admin/assets/api-CDmCmVcb.js",
+      "sha256": "4dfd24387fd344de057034cdf62e3bc3487459ba684651a65e0d16b7c27d854e"
+    },
+    {
+      "path": "admin/assets/catalog-D6sfic_l.js",
+      "sha256": "61c17d46917fcc3c6c682d9be6d03c4be3b0f58dfd7ed20880c149c1033d3623"
+    },
+    {
+      "path": "admin/assets/catalog-FO4xi5K7.css",
+      "sha256": "86f3d008a1f06bdb5c426a5021ee19a235cab2314672f3805117ea5e6d32085a"
+    },
+    {
+      "path": "admin/assets/common-BVSukrGt.js",
+      "sha256": "aa2ee75a7a272a3f0cf3f092ee794bdea5301e01dabd88c9defeebc4051ed5d7"
+    },
+    {
+      "path": "admin/assets/common-CxCS4pxV.css",
+      "sha256": "85f2ff1da091a0703fbe0c88a5cc04b615abd010d5240dc9e0127c0c92bae843"
+    },
+    {
+      "path": "admin/assets/exceljs.min-tdmMIeWm.js",
+      "sha256": "858250f1aff38d1bae7a88755d86b6162e163e91e89561545de1c445ce765c63"
+    },
+    {
+      "path": "admin/assets/index-1m3VuamM.js",
+      "sha256": "3d4638c87a42c322b13c6b8283263f505b6b59a6b3e19dff841059136ffca195"
+    },
+    {
+      "path": "admin/assets/index-BptTWznF.css",
+      "sha256": "d68f3580dc66792643bfb2ca40316a7ac9238ef6a2386dbd46a6090517c66da1"
+    },
+    {
+      "path": "admin/assets/react-CEmNNgT9.js",
+      "sha256": "0c2189350ab5326b90d30627401cf7d39b526a38eae70b317f90ac1495c4bbbb"
+    },
+    {
+      "path": "admin/assets/rolldown-runtime-pP25SEvz.js",
+      "sha256": "c7d5a9b5d4023712538018b5b2ca9c285054e9b3ad27dc9f9189d24e73ce8395"
+    },
+    {
+      "path": "admin/assets/rulman-teklif-BNn9ftgq.webp",
+      "sha256": "d05ad6482909a9168dc1586788c23abc5c8b1343af8316c25b4048a628f34615"
+    },
+    {
+      "path": "admin/assets/supabase-DzUOT4m4.js",
+      "sha256": "3209f62b68a73318719ed2debd8625b5b008e17ee18b1f2ff8c9a8864f23ef3f"
+    },
+    {
+      "path": "admin/assets/validation-BLmG2wVR.js",
+      "sha256": "8474c119843fdd28e6bdf5df2483b4fd596e0dbc494c0ed4550ef4d436eaf6c8"
+    },
+    {
+      "path": "admin/index.html",
+      "sha256": "d77f4cecc5a542e1d431549f1d9f786acc02d5adc4cebba1e8f99f9a28dc0df4"
+    },
+    {
+      "path": "assets/AccountPage-BX5Subq1.js",
+      "sha256": "f2689a85898bbe7dddb66483d8b8b5f8815a57467c5b25c8b8aacfef57632e7b"
+    },
+    {
+      "path": "assets/AdminPage-WiFtYWfe.js",
+      "sha256": "7078e536e369c296a514759d64f141a5c7ebc75e6cc475e9b0d4649a9ab81d74"
+    },
+    {
+      "path": "assets/Campaigns-DYxGrfba.js",
+      "sha256": "b3d773ee84809f9792365d4b301c0ce52501b5d36c8df87186959a1534093cd4"
+    },
+    {
+      "path": "assets/CloudApp-B3nUZ51S.js",
+      "sha256": "aa4a04b0f7e290b75883f340461836f81d06050cefa153b7797d6d89d1972f91"
+    },
+    {
+      "path": "assets/NotoSans-Turkish-DnMJtjlv.woff2",
+      "sha256": "2c26a61d853e8831789a312d1439f09c00c7c6d8badee6c307fd1b0349c822a1"
+    },
+    {
+      "path": "assets/auth-service-CyQxT6un.js",
+      "sha256": "c21450cefcaccc934648b1476713592112c63f1bcb5a678c723bcac042905579"
+    },
+    {
+      "path": "assets/catalog-decode-B-sMKMay.js",
+      "sha256": "edc6f0afa080f25a1231c16bf39d9f0325e774aeb5b8f2b5503721f4db53c624"
+    },
+    {
+      "path": "assets/catalog.worker-DAg3lrhN.js",
+      "sha256": "ae271cae564c821e1fec8a669a205ead60a99be4b0b7fd4d31559bb9ba55ca7b"
+    },
+    {
+      "path": "assets/client-PHHjwvRa.js",
+      "sha256": "14a301256b5b89f5f2f754142c4ee2cad016842e29f5f6d9530c0703014b301e"
+    },
+    {
+      "path": "assets/index-C4nQm441.css",
+      "sha256": "b9bcb6ba810fa55895ef39bc869d6a2290e261e07ce1c028aa6c39797ab47824"
+    },
+    {
+      "path": "assets/index-WHFrH2ri.js",
+      "sha256": "0d8a3e69a3f2411f8b3906e1fc2c40114dcaaf1e5965053f3b8b895b15d988ed"
+    },
+    {
+      "path": "assets/react-KPuNr9iS.js",
+      "sha256": "f016c4c895bc9bb14a28217b34a00e75d7523062173aecef91a67ef7ed2fd297"
+    },
+    {
+      "path": "assets/rolldown-runtime-XKyaHtl9.js",
+      "sha256": "548d1dbf321e7d2ae804fcc158b588706a7c52f8ca175de1490c6ccb4dbe55b7"
+    },
+    {
+      "path": "assets/supabase-DzUOT4m4.js",
+      "sha256": "3209f62b68a73318719ed2debd8625b5b008e17ee18b1f2ff8c9a8864f23ef3f"
+    },
+    {
+      "path": "brand/rulman-teklif.webp",
+      "sha256": "d05ad6482909a9168dc1586788c23abc5c8b1343af8316c25b4048a628f34615"
+    },
+    {
+      "path": "fonts/NotoSans-Turkish.woff2",
+      "sha256": "2c26a61d853e8831789a312d1439f09c00c7c6d8badee6c307fd1b0349c822a1"
+    },
+    {
+      "path": "index.html",
+      "sha256": "f53c275b7baf4d4f016407427af7de4cc6543f9c6b0aeef9af613cb684636889"
+    },
+    {
+      "path": "api/_gateway.mjs",
+      "sha256": "eeb0f659c1d3dfa25cfe1461bf975ce3935e83e88336f2d077465836c187058d"
+    },
+    {
+      "path": "api/collect.mjs",
+      "sha256": "2d9a83859028052020f0c4902080ddcf900d99c8946a6a8939fc5b3611bc3f63"
+    },
+    {
+      "path": "api/quote.mjs",
+      "sha256": "205403c4ffd21adce0ce931daebe6bbf50507a6afc68aa3858c4af0338c73f61"
+    },
+    {
+      "path": "api/retention.mjs",
+      "sha256": "610e344d584bf82937f6aec4731ebb5439d04be23f4dadc0334712e11d47e06f"
+    }
+  ],
+  "requestedAtUtc": "2026-11-13T17:55:00.849582+00:00",
+  "otherProjectsChanged": false,
+  "schemaReapplied": false,
+  "aliases": [
+    "rulman-teklif-admin.vercel.app",
+    "rulman-teklif-admin-furkansahinn77-cryptos-projects.vercel.app"
+  ]
+}

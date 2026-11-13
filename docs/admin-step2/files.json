@@ -1,0 +1,124 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "bf701247431932662f8bad1f3169a55064423b87ec6edb7f7af7d42660df38db"
+    },
+    {
+      "path": "apps/admin/src/app/router.tsx",
+      "sha256": "5b7c6e3223fcfb6e82a45d459a1476fa38c0481151e311dc351b0b598f5c610c"
+    },
+    {
+      "path": "apps/admin/src/components/layout/AdminLayout.tsx",
+      "sha256": "3a65b7c7dde7eb1cb7b083fd410eda652f50b6acad7f80b2a7265453ddccade5"
+    },
+    {
+      "path": "apps/admin/src/components/layout/layout.css",
+      "sha256": "2d7d288331f11c7b2b44c375efb4f9dfee980b38b2e2cfc02c36d4880b4a4b41"
+    },
+    {
+      "path": "apps/admin/src/features/auth/AuthProvider.tsx",
+      "sha256": "52d26aa545b423095e8e8254a9bfc8fdbab6c40edd2cc4d7f3f7d896b31bbd72"
+    },
+    {
+      "path": "apps/admin/src/features/dashboard/DashboardPage.tsx",
+      "sha256": "98443b96a1fc2f13ec8e1ac029dfbf6bf42b30ab9e88f46dfdca87f99d508651"
+    },
+    {
+      "path": "apps/admin/src/features/dashboard/api.ts",
+      "sha256": "9dc7c11749df6d61a2188f55b2db0733940d46f71990a9da6b982ecdf6b95cd3"
+    },
+    {
+      "path": "apps/admin/src/features/dashboard/useDashboard.ts",
+      "sha256": "bbf36d91a031718c4e8995c14ae77d838d880fa1e113c08047815080ddc14a5d"
+    },
+    {
+      "path": "docs/admin-step2/README.md",
+      "sha256": "d7dbab0144105a28ec7ea62c6169c057864d454b2f14952985bc00b915874668"
+    },
+    {
+      "path": "docs/admin-step2/auth-regression.json",
+      "sha256": "25db43de69129dfe3bd00b76f9d47889a2decc0de302cf6bae430d936c675502"
+    },
+    {
+      "path": "docs/admin-step2/browser-test.json",
+      "sha256": "38c8cb15318603f49d8403607425541797ec51c81d9908941437c238e9cc62ba"
+    },
+    {
+      "path": "docs/admin-step2/fixtures/fixture-desktop.png",
+      "sha256": "cdcf61e7079d8fb15a644bdf48479880d2a6f83fd36bdb337d5ccef803fc626e"
+    },
+    {
+      "path": "docs/admin-step2/fixtures/fixture-mobile.png",
+      "sha256": "cb18fcbf364ac48de0822d0ed32090d67d6a3fb9996eb62e80b15c95c209ccfe"
+    },
+    {
+      "path": "docs/admin-step2/live-read-result.json",
+      "sha256": "0ad67e26fe1204f906371c99448ab92abc877105eeb59d990e59a7c44c81d672"
+    },
+    {
+      "path": "docs/admin-step2/migration-result.json",
+      "sha256": "d529f04747ee137962834dcaac91a3c32f3f316fcd9d17fc80e140dfa1b50bc9"
+    },
+    {
+      "path": "docs/admin-step2/production-deployment.json",
+      "sha256": "1988663919daa8c8601d4afcff4fdd26d7179add74f6fd730057e118ca71608c"
+    },
+    {
+      "path": "docs/admin-step2/real-dashboard-desktop.png",
+      "sha256": "4f799bff82cc09dfe6e46f51f02f990f62f20c380fb20d51d5e72d3315a3af77"
+    },
+    {
+      "path": "docs/admin-step2/real-dashboard-mobile.png",
+      "sha256": "bd8cca110f21124f702ac3d3cc2f97c3ebe2e4c27feda2e8a23b4d858d3c6144"
+    },
+    {
+      "path": "docs/admin-step2/validation.json",
+      "sha256": "4c66482f6b2914289fa47946d449df08e8c4fc3525c032577872899993d3ac5e"
+    },
+    {
+      "path": "package.json",
+      "sha256": "835864c441bc21564b36e97fd02b72d6dad94c73db11fde6c97dce3177e4b4b6"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "fed68d0c7138225bd66673939b5d3128b9fab244ef64a6b89c8bf8436e88d7f4"
+    },
+    {
+      "path": "scripts/admin-local-test.mjs",
+      "sha256": "364b729e4ba354fb9bf891b488d04c3540b9c5aa42cf06b3958c89f47c7bd20e"
+    },
+    {
+      "path": "supabase/migrations/202611130007_dashboard.sql",
+      "sha256": "102f19cdfca85d7f40c192edca7b25068d78d32890bb6f479ab100a4ab707dcc"
+    },
+    {
+      "path": "tests/admin/auth-failure.browser.mjs",
+      "sha256": "07bb750cc66a19046bbf9fb091e00018b1c5cf212ed83c81ff53d3329ac908bf"
+    },
+    {
+      "path": "tests/admin/auth.browser.mjs",
+      "sha256": "22a3af12acf727d573216dd03fbfa4e78d5d18405fb606f518e932e4877c537f"
+    },
+    {
+      "path": "tests/admin/dashboard-contracts.test.mjs",
+      "sha256": "d46277a6f58c21015fe1b5ea713b726450633beb1064ec8a685d03fb5f8931ba"
+    },
+    {
+      "path": "tests/admin/dashboard-db.test.mjs",
+      "sha256": "a6735c0e30c5dfb6a7b327f95d6903cc0988f36660728e9f2c44b08cb7be0408"
+    },
+    {
+      "path": "tests/admin/dashboard.browser.mjs",
+      "sha256": "bcdfec3a09190621e90d616e8fa0d6a3f31ef32f463ee123c9a5a699077584a6"
+    },
+    {
+      "path": "tests/admin/recovery.browser.mjs",
+      "sha256": "9527ed6a83e9b8b2360efd356344eeffa0d291fb48ce82d6c5d65a8c019888b1"
+    },
+    {
+      "path": "tests/admin/security-db.test.mjs",
+      "sha256": "ed22dd828fcda34133b7d182c4103bafbf8c643e47ffa9279d6dbe8e084e1288"
+    }
+  ]
+}

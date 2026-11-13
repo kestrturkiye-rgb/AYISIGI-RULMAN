@@ -35,9 +35,14 @@ jobs:
       - name: Verify catalog and search
         run: |
           node tests/catalog.test.js
+          node --test tests/catalog-additions.test.js
+          python tests/test_catalog_additions.py
           node tests/image-cleanup.test.js
           node tests/technical-search.test.js
           node tests/site.test.js
+          node --test tests/supabase-auth.test.mjs
+          npm run test:admin
+          node --test tests/admin/gateway.test.mjs
           node tests/quote.test.js
           node --test tests/server.test.js
           python tests/test_skf_data.py
@@ -46,7 +51,10 @@ jobs:
       - name: Build for the project address
         env:
           VITE_STATIC_HOST: 'true'
-        run: npm run build -- --base="/${{ github.event.repository.name }}/"
+          VITE_DATA_SOURCE: ${{ vars.VITE_DATA_SOURCE || 'supabase' }}
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: npm run build:pages -- --base="/${{ github.event.repository.name }}/"
       - name: Upload the built site
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1,0 +1,129 @@
+{
+  "description": "Phase 3 new/modified files; every file is included in full in the ZIP.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "d06c851e1739c9733dd5c75718e99dfca3216c488272b5451794c7585758d1d2"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f1946eb6241723479011a5da34030c03d6df43a184d612aab418e1c5f5daebab"
+    },
+    {
+      "path": "apps/admin/src/app/router.tsx",
+      "sha256": "f6cb093f02737aee07b3c42db10ec85718295ce8d212fb3af6f4490929dad7a7"
+    },
+    {
+      "path": "apps/admin/src/components/layout/AdminLayout.tsx",
+      "sha256": "7010c68a0c44f6e013e99e1e55cdf99ab9ba911fa371b9a3ac20c72e932f39a6"
+    },
+    {
+      "path": "apps/admin/src/features/catalog/ProductEditor.tsx",
+      "sha256": "3b4decf9e8770e4df5c8fd967a436ada0dc3521391a29f0be04f45d5bccef686"
+    },
+    {
+      "path": "apps/admin/src/features/catalog/ProductList.tsx",
+      "sha256": "eaa37b28aef8ba39d72c8088b1bbec2cfdff183be5ead609143c92706d41f740"
+    },
+    {
+      "path": "apps/admin/src/features/catalog/RichEditor.tsx",
+      "sha256": "5240a1cddc9fb5bfbf86e7930855f1f959902aa2b31b9e9f453f24c6cce68cff"
+    },
+    {
+      "path": "apps/admin/src/features/catalog/TaxonomyPage.tsx",
+      "sha256": "90d75a7406151adbc7cd74acaf5c4c8ec767fceb7fa9318828e188d37a05572d"
+    },
+    {
+      "path": "apps/admin/src/features/catalog/api.ts",
+      "sha256": "424ddbfd635e2dca074e60b015334a18837f2a0a0b86f0986e09187d04395ecf"
+    },
+    {
+      "path": "apps/admin/src/features/catalog/catalog.css",
+      "sha256": "c51420dd3a86db0f683700f0c4f6b11cc7aacac7b2743652be384f7bf642af21"
+    },
+    {
+      "path": "apps/admin/src/features/catalog/components.tsx",
+      "sha256": "0ace128a422f8199fd36cf8c4efc4d55733ad4cfb073d83ecf2d8cf82c93d199"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "9aa2b9dc03b50c0941c0e9227dcc000101ec03b949d80e67377ee44103a6ad7f"
+    },
+    {
+      "path": "package.json",
+      "sha256": "dc983aeffc08c2dd3df36287aa1b6edf8b2e1bfcc6d62c707c3b5b0a1e20e80a"
+    },
+    {
+      "path": "packages/contracts/src/catalog.ts",
+      "sha256": "6777f8946e538e54172962588e0dcb3f1d8b551a40a4eb1712139ec68871f539"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "685340dc2e5905c326f7d821a06d39904a3f8735f211ab8d33170a15b4cdcda6"
+    },
+    {
+      "path": "scripts/admin-deploy-step3.py",
+      "sha256": "5d67cc676580f1b80bd3c63665b161dfe53b0d37ec814571e3294afd01842899"
+    },
+    {
+      "path": "scripts/admin-local-test.mjs",
+      "sha256": "b932e735e6031ac1c7d7e1c68f334f9757cac675a49b0cbb5de8aa516f750433"
+    },
+    {
+      "path": "scripts/admin-prepare-media.mjs",
+      "sha256": "cbe97b3b6b7971bf7ca3e6524fa959fe117ab08c6a37b6db7b5726c7ddc9edbe"
+    },
+    {
+      "path": "supabase/config.toml",
+      "sha256": "c46e4b13ff2951182b5b39fad6dd1cfee4408bc3898047515822909c4b0962ab"
+    },
+    {
+      "path": "supabase/functions/rt-catalog-media/index.ts",
+      "sha256": "bae1d1778be39d1044f52c474463a770ab89aa3965e78294689bdb9e96af0ca7"
+    },
+    {
+      "path": "supabase/functions/rt-catalog-media/processor.mjs",
+      "sha256": "a6f6cbd481e51d54b671febac80f048c37975952ee30347113e4e31e10410cf0"
+    },
+    {
+      "path": "supabase/migrations/202611130008_catalog_admin.sql",
+      "sha256": "ba90ec6d2b4bf93b0a9c1e2405c3841a751ddd0547bc264f9aed6bbd3cdc5267"
+    },
+    {
+      "path": "supabase/migrations/202611130009_catalog_conflict_response.sql",
+      "sha256": "97e6d5fa1c1ea60051a0d407e09beb10b0dc192886e2bcb40edca486089d13d1"
+    },
+    {
+      "path": "tests/admin/auth.browser.mjs",
+      "sha256": "441d2e7b646502ef21c544aabb7d61e262bc5b57e9e21aa814eb4fac97aab455"
+    },
+    {
+      "path": "tests/admin/catalog-contracts.test.mjs",
+      "sha256": "d7b0e54636ee63799128e38e5c2b81c02175b01f71c1e59d0664bdeb4e6bfea2"
+    },
+    {
+      "path": "tests/admin/catalog-db.test.mjs",
+      "sha256": "847a8aa20c637c7f168bcfc2d0b9b7bd5e5d5b06de70dd001ed8812c4c1706ea"
+    },
+    {
+      "path": "tests/admin/catalog-media.test.mjs",
+      "sha256": "b02c68638dfbfc576a8f1f01d8632c641685c0e6463b2accb76fbdf1a0fad6f6"
+    },
+    {
+      "path": "tests/admin/catalog.browser.mjs",
+      "sha256": "2fd43856457fd89d0035a79705374bf7bb25de7556b5b7331f1dda708cea8aa2"
+    },
+    {
+      "path": "tests/admin/dashboard.browser.mjs",
+      "sha256": "8193b298c80b364bfd4d33ea16169f0121606108cf05bf962ab8660e3f721272"
+    },
+    {
+      "path": "tests/admin/helpers/catalog-server.mjs",
+      "sha256": "23300a1fdf0a325ce55a28e7fecfb9a673a3ffe9a345715c3d12c57ba3250e1a"
+    },
+    {
+      "path": "tests/admin/security-db.test.mjs",
+      "sha256": "3751c15876f674d1c3057e226ccbc4761ab5fa095e5ced59c13b91716af2f4d0"
+    }
+  ]
+}

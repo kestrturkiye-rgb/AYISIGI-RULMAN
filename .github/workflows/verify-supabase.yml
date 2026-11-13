@@ -1,0 +1,39 @@
+name: Verify Supabase
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  security-and-import:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 55432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run test:supabase
+      - run: npm run test:supabase:read
+      - run: npm run test:admin
+      - run: npm run test:admin:db
+      - run: npm run test:supabase:db
+      - run: npm run test:catalog:additions
+      - run: python tests/test_catalog_additions.py
+      - run: npm run test:site
+      - run: npm run build:pages -- --base=/AYISIGI-RULMAN/
+        env:
+          VITE_STATIC_HOST: 'true'

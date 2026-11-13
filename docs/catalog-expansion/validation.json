@@ -1,0 +1,127 @@
+{
+  "verifiedAtUtc": "2026-11-09T07:20:40.255699+00:00",
+  "addedProducts": 2535,
+  "totalProducts": 111952,
+  "newGroups": 5,
+  "newSubcategories": 45,
+  "heldSourceRows": 260,
+  "mergedSourceDuplicates": 1,
+  "pendingPhotos": 2535,
+  "baselineSha256": "f3c13e29cebc0f724fdd030bc6358cdc4b9d5e5f8122781335f398d3615ce162",
+  "technicalSpecs": {
+    "baseline": 342504,
+    "added": 3658,
+    "total": 346162
+  },
+  "automatedTests": {
+    "javascript": 79,
+    "postgresql": 28,
+    "python": 13,
+    "total": 120
+  },
+  "builds": {
+    "static": "passed",
+    "supabaseConfiguration": "passed"
+  },
+  "browserReports": {
+    "newCatalog": {
+      "checks": [
+        "All five new top navigation tabs have populated routes, correct counts, five viewport widths and ten accessibility scans",
+        "Reference-code and variant detail, no source links or unverified photographs, basket quantity and reload, full model in WhatsApp",
+        "New subcategory filter and reload retain the correct products",
+        "Supplement download failures are visible and retry restores the combined catalog"
+      ],
+      "audits": [
+        {
+          "group": "cutting-tools",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "group": "cutting-tools",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "group": "workshop",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "group": "workshop",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "group": "power-tools",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "group": "power-tools",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "group": "agricultural-parts",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "group": "agricultural-parts",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "group": "garden-machinery",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "group": "garden-machinery",
+          "width": 1440,
+          "violations": []
+        }
+      ],
+      "errors": [],
+      "failed": []
+    },
+    "cloudReadMock": {
+      "checks": [
+        "Server pagination, count and stable IDs",
+        "Cart hydration across pages preserves unpublished saved IDs and quantities",
+        "Remote details retry without legacy-file fallback",
+        "Rich page and lazy article content",
+        "Settings refresh without rebuilding",
+        "Five widths and accessibility scan",
+        "Errors clear results, retry works and stale responses are ignored",
+        "Anonymous-only reads, no static fallback or JavaScript errors"
+      ],
+      "requests": 26,
+      "staticCatalogRequests": 0,
+      "pageErrors": [],
+      "axeViolations": 0
+    },
+    "authMock": {
+      "provider": "Mocked Supabase Auth/REST responses; no live account or email used",
+      "checks": [
+        "wrong password",
+        "admin access",
+        "editor access",
+        "persisted session reload",
+        "logout",
+        "missing role denied",
+        "RPC failure fails closed and retry",
+        "password recovery callback and update",
+        "expired recovery link stays rejected even with existing session",
+        "no callback tokens in URL",
+        "responsive layout"
+      ],
+      "runtimeErrors": [],
+      "requestCount": 24
+    }
+  },
+  "deployed": false,
+  "liveSupabaseVerified": false,
+  "sourceCoverage": "partial; CNC and ABF blocked"
+}

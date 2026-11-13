@@ -2,7 +2,7 @@ import {useState} from 'react';
 import logo from '../../../../../public/brand/rulman-teklif.webp';
 import {useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
-import {loginSchema,passwordSchema,type LoginValues,type PasswordValues} from '@rt/contracts';
+import {loginSchema,passwordSchema,authEmailForIdentifier,isRecoveryEmail,type LoginValues,type PasswordValues} from '@rt/contracts';
 import {ArrowUpRight,Eye,EyeOff,LockKeyhole,LogOut,Mail,RefreshCw} from 'lucide-react';
 import {Navigate} from 'react-router-dom';
 import {client,config,publicUrl,returnUrl} from '../../lib/config';
@@ -18,11 +18,12 @@ export function LoginPage(){
  const busy=isSubmitting||resetting;
  async function submit(values:LoginValues){
   if(!client)return;setError('');setNotice('');
-  try{const {error}=await client.auth.signInWithPassword(values);if(error)throw error;}
+  try{const {error}=await client.auth.signInWithPassword({email:authEmailForIdentifier(values.email),password:values.password});if(error)throw error;}
   catch(e){setError(authMessage(e));}
  }
  async function reset(){
   if(!client||!await trigger('email'))return;
+  if(!isRecoveryEmail(getValues('email'))){setError('Şifre yenilemek için hesabınıza kayıtlı gerçek e-posta adresini girin. Kullanıcı adıyla açılan hesaplarda sistem yöneticisine başvurun.');return;}
   setResetting(true);setError('');setNotice('');
   try{const {error}=await client.auth.resetPasswordForEmail(getValues('email').trim(),{redirectTo:returnUrl('recovery')});if(error)throw error;setNotice('Hesap uygunsa şifre yenileme bağlantısı e-posta adresinize gönderilecektir.');}
   catch(e){setError(authMessage(e));}finally{setResetting(false);}
@@ -37,7 +38,7 @@ export function LoginPage(){
   {notice&&<p className="alert success" role="status">{notice}</p>}
   {!config.configured?<><div className="setup"><h2>Bağlantı henüz tanımlanmadı</h2><p>{config.error||'Proje yöneticisi Supabase URL ve public anahtarını .env.local dosyasına eklemeli. Şifre veya service-role anahtarı bu ekrana girilmez.'}</p><ol><li>Supabase projesini oluşturun.</li><li>Migration ve ilk admin kurulumunu çalıştırın.</li><li>Paneli proje ayarlarıyla yeniden derleyin.</li></ol></div><a className="primary" href={publicUrl()}>Siteye dön <ArrowUpRight size={17}/></a></>:auth.session?<><p className="alert">{auth.error?'Bağlantı yeniden doğrulanana kadar panel erişimi kapalı.':'Bu hesapta etkin admin, editör veya satış rolü bulunmuyor. Yöneticinizden erişim isteyin.'}</p><div className="actions"><button className="primary" onClick={auth.refresh}><RefreshCw size={17}/>Tekrar kontrol et</button><button className="secondary" onClick={()=>void auth.logout().catch(e=>setError(authMessage(e)))}><LogOut size={17}/>Çıkış yap</button></div></>:<form onSubmit={handleSubmit(submit)} noValidate>
    <fieldset disabled={busy}>
-    <label htmlFor="email">E-posta adresi</label><input id="email" type="email" autoComplete="username" placeholder="adiniz@firma.com" aria-invalid={!!errors.email} aria-describedby={errors.email?'email-error':undefined} {...register('email')}/>
+    <label htmlFor="email">Kullanıcı adı veya e-posta</label><input id="email" type="text" autoComplete="username" autoCapitalize="none" spellCheck={false} placeholder="Kullanıcı adınız" aria-invalid={!!errors.email} aria-describedby={errors.email?'email-error':undefined} {...register('email')}/>
     {errors.email&&<p className="field-error" id="email-error">{errors.email.message}</p>}
     <label htmlFor="password">Şifre</label><div className="password"><input id="password" type={visible?'text':'password'} autoComplete="current-password" aria-invalid={!!errors.password} aria-describedby={errors.password?'password-error':undefined} {...register('password')}/><button type="button" aria-label={visible?'Şifreyi gizle':'Şifreyi göster'} onClick={()=>setVisible(!visible)}>{visible?<EyeOff size={19}/>:<Eye size={19}/>}</button></div>
     {errors.password&&<p className="field-error" id="password-error">{errors.password.message}</p>}
@@ -58,5 +59,5 @@ export function PasswordPage(){
 }
 export function AccessPage(){
  const auth=useAuth();const [error,setError]=useState('');
- return <AuthFrame><span className="eyebrow">ADIM 1 / GİRİŞ VE YETKİ</span><h1>Oturumunuz doğrulandı</h1><p className="intro">Hesabınız yönetim paneline erişebilir.</p><dl className="account"><div><dt>Hesap</dt><dd>{auth.session?.user.email}</dd></div><div><dt>Yetki</dt><dd>{auth.member&&roleNames[auth.member.role]}</dd></div></dl><div className="alert success" role="status">Giriş ve güvenlik altyapısı hazır. Dashboard ve yönetim modülleri sonraki onaylı adımlarda eklenecek.</div>{error&&<p className="alert error" role="alert">{error}</p>}<div className="actions"><button className="secondary" onClick={auth.refresh}><RefreshCw size={17}/>Yetkiyi yenile</button><button className="primary" onClick={()=>void auth.logout().catch(e=>setError(authMessage(e)))}><LogOut size={17}/>Çıkış yap</button></div></AuthFrame>;
+ return <AuthFrame><span className="eyebrow">ADIM 1 / GİRİŞ VE YETKİ</span><h1>Oturumunuz doğrulandı</h1><p className="intro">Hesabınız yönetim paneline erişebilir.</p><dl className="account"><div><dt>Hesap</dt><dd>{auth.session?.user.user_metadata?.username || auth.session?.user.email}</dd></div><div><dt>Yetki</dt><dd>{auth.member&&roleNames[auth.member.role]}</dd></div></dl><div className="alert success" role="status">Giriş ve güvenlik altyapısı hazır. Dashboard ve yönetim modülleri sonraki onaylı adımlarda eklenecek.</div>{error&&<p className="alert error" role="alert">{error}</p>}<div className="actions"><button className="secondary" onClick={auth.refresh}><RefreshCw size={17}/>Yetkiyi yenile</button><button className="primary" onClick={()=>void auth.logout().catch(e=>setError(authMessage(e)))}><LogOut size={17}/>Çıkış yap</button></div></AuthFrame>;
 }

@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "Existing real admin login and role RPC",
+    "Catalog list and lookups use real database and real authenticated JWT",
+    "Create category, brand and draft product through protected live RPCs",
+    "Real Edge cold start, Brotli WASM, decode/WebP and private Storage upload",
+    "Anonymous access to draft original denied",
+    "Explicit media publication and public derivative SHA-256 match",
+    "Publish product with linked media using real JWT",
+    "Live optimistic conflict, soft delete and restore"
+  ],
+  "passed": true,
+  "cloudBackend": true,
+  "credentialsStored": false,
+  "checkedAtUtc": "2026-11-13T14:07:09.803433+00:00",
+  "temporaryRecordIds": {
+    "category": "f0dbd292-08c5-4644-8ee9-945c8af51382",
+    "brand": "85daba6b-27bf-4fd7-b5b5-82640abe28b6",
+    "product": "ed683b38-e2d2-4afe-8487-7b39a0f42466",
+    "media": "16d3a675-6a52-4ba7-99df-e7cdce3a2c86"
+  },
+  "cleanupComplete": true,
+  "cleanupError": null
+}

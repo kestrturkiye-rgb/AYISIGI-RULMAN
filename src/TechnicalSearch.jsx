@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { Search, Flame, Ruler, Database, FileText } from 'lucide-react';
 import { emptyTechnicalQuery, parseTechnicalQuery } from './technical-search';
 import './technical-search.css';
+import {useSite} from './data/SiteContext';
 import {formatCount} from './catalog-utils';
 
 const popularCodes = ['6204', '6205', '30206', '6306', '22210', '6001'];
 
 export default function TechnicalSearch({ onSearch, productCount, standalone=false }) {
+  const site=useSite();const popularCodes=site.remote?(site.settings.search?.popularCodes||[]):['6204','6205','30206','6306','22210','6001'];
+  const content=site.home.find(s=>s.kind==='technical_search')?.content;
   const [fields, setFields] = useState({ ...emptyTechnicalQuery });
   const [error, setError] = useState('');
   function submit(event) {
@@ -24,8 +27,8 @@ export default function TechnicalSearch({ onSearch, productCount, standalone=fal
   return <section className="technical-section" aria-labelledby="technical-title">
     <div className="container">
       <div className="technical-card">
-        <Heading id="technical-title">TEKNİK <span>ARAMA</span></Heading>
-        <p className="technical-subtitle">KATALOGDA TAM KOD VEYA ÖLÇÜYE GÖRE SORGULAYIN</p>
+        <Heading id="technical-title">{site.remote?(content?.title||'TEKNİK ARAMA'):<>TEKNİK <span>ARAMA</span></>}</Heading>
+        <p className="technical-subtitle">{site.remote?(content?.subtitle||'KATALOGDA TAM KOD VEYA ÖLÇÜYE GÖRE SORGULAYIN'):'KATALOGDA TAM KOD VEYA ÖLÇÜYE GÖRE SORGULAYIN'}</p>
         <form onSubmit={submit} noValidate aria-label="Teknik rulman arama">
           <div className="technical-fields">
             <label className="technical-code">TAM RULMAN NO<input value={fields.code} onChange={e=>setFields({...fields,code:e.target.value})} placeholder="Örn: 6204" autoComplete="off" aria-describedby="technical-help technical-error"/></label>

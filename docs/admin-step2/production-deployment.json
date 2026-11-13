@@ -1,0 +1,63 @@
+{
+  "project": "prj_LNMcFN1YPhsnCLVCpiqCJo455nKD",
+  "teamId": "team_GtWrfFOm7vyzSGmgM9a66VNs",
+  "deploymentId": "dpl_EVYS1NtD2uMWCwy1czTYnPZsVwuC",
+  "target": "production",
+  "readyState": "READY",
+  "url": "https://rulman-teklif-admin-jzhbpzqom-furkansahinn77-cryptos-projects.vercel.app/admin/#/",
+  "productionUrl": "https://rulman-teklif-admin.vercel.app/admin/#/",
+  "previousProductionDeployment": "dpl_Dkrey6SLGXzzE8yM5WdjFKuZhMfu",
+  "hashes": [
+    {
+      "path": "admin/assets/NotoSans-Turkish-DnMJtjlv.woff2",
+      "sha256": "2c26a61d853e8831789a312d1439f09c00c7c6d8badee6c307fd1b0349c822a1"
+    },
+    {
+      "path": "admin/assets/index-C7LWzTVh.js",
+      "sha256": "63e50c91f5124f538dd44ffc18c83b2c8de4b79d032c63e29772480080e59f0b"
+    },
+    {
+      "path": "admin/assets/index-DPVevtWe.css",
+      "sha256": "adfb559c77eee63797a77e298e6e18620aa57259530b134ea7e006afe80baabe"
+    },
+    {
+      "path": "admin/assets/react-BrxpPGH8.js",
+      "sha256": "8cc8212bf1fe8b5cec78102d1e7e8f80f385d4bf2b464252da76efa01ccdc585"
+    },
+    {
+      "path": "admin/assets/rolldown-runtime-WkwZ5CU-.js",
+      "sha256": "2629f2ad3cb75a57d98de697127f5af7d777ef572bbcdfa6e3ce8f438cd4527e"
+    },
+    {
+      "path": "admin/assets/rulman-teklif-BNn9ftgq.webp",
+      "sha256": "d05ad6482909a9168dc1586788c23abc5c8b1343af8316c25b4048a628f34615"
+    },
+    {
+      "path": "admin/assets/supabase-DzUOT4m4.js",
+      "sha256": "3209f62b68a73318719ed2debd8625b5b008e17ee18b1f2ff8c9a8864f23ef3f"
+    },
+    {
+      "path": "admin/assets/validation-FCGzPKYq.js",
+      "sha256": "389fee6708cf91ee8b33b9de2fe2201895f64279927442637a54cfffd0cc06b5"
+    },
+    {
+      "path": "admin/index.html",
+      "sha256": "6201c3e6217053fcc0f7ad374dec5e10ac5a78d34c8ebacd20ed1508f9426f49"
+    }
+  ],
+  "requestedAtUtc": "2026-11-13T13:03:08.479548+00:00",
+  "otherProjectsChanged": false,
+  "schemaReapplied": false,
+  "aliases": [
+    "rulman-teklif-admin.vercel.app",
+    "rulman-teklif-admin-furkansahinn77-cryptos-projects.vercel.app"
+  ],
+  "errorCode": null,
+  "errorMessage": null,
+  "aliasDeploymentId": "dpl_EVYS1NtD2uMWCwy1czTYnPZsVwuC",
+  "verifiedAtUtc": "2026-11-13T13:05:05.441668+00:00",
+  "providerVerified": true,
+  "publicUrlDirectCheck": "blocked by environment proxy CONNECT 403",
+  "sameProductionPackageAuthTest": "passed in previous validation",
+  "userApproval": "evet onaylıyorum"
+}

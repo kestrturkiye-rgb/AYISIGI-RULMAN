@@ -6,10 +6,10 @@ export const companyPages = [
 ];
 export const groupPath = id => `/urunler/${id}`;
 export const pageHref = path => `#${path}`;
-export function selectionPath(selection) {
+export function selectionPath(selection, groups=productGroups) {
  if (selection === 'Tüm ürünler') return '/urunler';
  if (selection.startsWith('group:')) return groupPath(selection.slice(6));
- const group = productGroups.find(group => group.categories.includes(selection));
+ const group = groups.find(group => group.categories.includes(selection)||group.categoryRecords?.some(c=>selection===`category:${c.id}`));
  return `${group ? groupPath(group.id) : '/urunler'}?kategori=${encodeURIComponent(selection)}`;
 }
 export function readRoute() {

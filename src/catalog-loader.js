@@ -1,9 +1,10 @@
 import {publicAssetPath} from './catalog-utils.js';
 import {readIndex} from './catalog-fetch.js';
 import {catalogStats} from './catalog-stats.js';
+import {mergeManifest} from './catalog-merge.js';
 
 async function readManifest(){const response=await fetch(publicAssetPath('catalog/manifest.json'));if(!response.ok)throw Error('Katalog yüklenemedi.');return response.json()}
-async function loadOnMainThread(){const [{decodeCatalog},data,manifest]=await Promise.all([import('./catalog-decode.js'),readIndex(),readManifest()]);const products=decodeCatalog(data,undefined,{sourceLinks:false});return {products,manifest,productIndex:new Map(products.map(p=>[p.id,p])),stats:catalogStats(products)}}
+async function loadOnMainThread(){const [{decodeCatalog},data,manifest]=await Promise.all([import('./catalog-decode.js'),readIndex(),readManifest()]);const products=decodeCatalog(data,undefined,{sourceLinks:false});return {products,manifest:mergeManifest(manifest,data.additionManifest),productIndex:new Map(products.map(p=>[p.id,p])),stats:catalogStats(products)}}
 function loadInWorker(){
  return new Promise((resolve,reject)=>{
   const worker=new Worker(new URL('./catalog.worker.js',import.meta.url),{type:'module'});

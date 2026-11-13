@@ -6,7 +6,10 @@ dist/
 *.log
 __pycache__/
 
-data/
+/data/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
+
+
+/supabase/functions/rt-catalog-media/magick.wasm.br

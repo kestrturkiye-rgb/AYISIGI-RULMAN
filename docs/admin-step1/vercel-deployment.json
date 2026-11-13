@@ -1,0 +1,21 @@
+{
+  "project": "prj_LNMcFN1YPhsnCLVCpiqCJo455nKD",
+  "name": "rulman-teklif-admin",
+  "teamId": "team_GtWrfFOm7vyzSGmgM9a66VNs",
+  "deploymentId": "dpl_Dkrey6SLGXzzE8yM5WdjFKuZhMfu",
+  "url": "rulman-teklif-admin-myshnhpk9-furkansahinn77-cryptos-projects.vercel.app",
+  "readyState": "READY",
+  "alias": [
+    "rulman-teklif-admin.vercel.app",
+    "rulman-teklif-admin-furkansahinn77-cryptos-projects.vercel.app"
+  ],
+  "errorCode": null,
+  "errorMessage": null,
+  "productionUrl": "https://rulman-teklif-admin.vercel.app/admin/#/giris",
+  "existingProjectsModified": false,
+  "passwordInBundle": false,
+  "providerState": "READY",
+  "liveUrlBrowserCheck": "blocked by environment network",
+  "productionBuildAuthTest": "passed",
+  "publishedAtUtc": "2026-11-13T12:12:06.272962+00:00"
+}

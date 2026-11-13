@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/collect.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/quote.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/retention.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "admin/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "fonts/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "brand/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/collect",
+      "dest": "/api/collect.mjs"
+    },
+    {
+      "src": "/api/quote",
+      "dest": "/api/quote.mjs"
+    },
+    {
+      "src": "/api/retention",
+      "dest": "/api/retention.mjs"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/admin/?",
+      "dest": "/admin/index.html"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/retention",
+      "schedule": "17 2 * * *"
+    }
+  ]
+}

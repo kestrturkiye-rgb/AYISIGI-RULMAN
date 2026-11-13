@@ -1,0 +1,219 @@
+{
+  "phase": 1,
+  "date": "2026-11-02",
+  "status": "locally_verified_not_connected_to_cloud",
+  "cloudProjectCreated": false,
+  "cloudMigrationsApplied": false,
+  "liveSiteDeployed": false,
+  "phase2Started": false,
+  "postgresql": "17 (temporary local Docker database)",
+  "tests": {
+    "authUnitPassed": 11,
+    "postgresSecurityPassed": 16,
+    "postgresImportPassed": 6,
+    "existingRegressionPassed": 52,
+    "authBrowser": {
+      "provider": "Mocked Supabase Auth/REST responses; no live account or email used",
+      "checks": [
+        "wrong password",
+        "admin access",
+        "editor access",
+        "persisted session reload",
+        "logout",
+        "missing role denied",
+        "RPC failure fails closed and retry",
+        "password recovery callback and update",
+        "expired recovery link stays rejected even with existing session",
+        "no callback tokens in URL",
+        "responsive layout"
+      ],
+      "runtimeErrors": [],
+      "requestCount": 24
+    },
+    "existingSiteBrowser": {
+      "base": "http://127.0.0.1:4173/AYISIGI-RULMAN/",
+      "viewportWidths": [
+        320,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "checks": [
+        "All ten article routes, no catalog dependency, five viewport widths",
+        "Core routes accessibility and responsive layouts",
+        "All seven product groups, pagination, code aliases, exact diameters, filter URLs and invalid input",
+        "Responsive product photo, modal focus trap, cart quantities and reload, mocked WhatsApp, quote download",
+        "Unknown routes, denied browser storage, no-Worker fallback and failed catalog recovery",
+        "Transient product detail fetch can be retried"
+      ],
+      "a11y": [
+        {
+          "route": "/",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/hakkimizda",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/hakkimizda",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/markalar",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/markalar",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/iletisim",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/iletisim",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/teklif",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/teklif",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/akademi",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/akademi",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/teknik-arama",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/teknik-arama",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/urunler?kod=6204",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/urunler?kod=6204",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/admin",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/admin",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/akademi/rulman-yaglama-gres-secimi",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/akademi/rulman-yaglama-gres-secimi",
+          "width": 1440,
+          "violations": []
+        }
+      ],
+      "runtimeErrors": [],
+      "failedAssets": []
+    }
+  },
+  "dryRun": {
+    "mode": "dry-run",
+    "sourceSha256": "d64e8bcef559176e4e238008cf20526628c7cfbca7d709551d007e467a3fbd12",
+    "counts": {
+      "public.media_assets": 4716,
+      "public.media_variants": 9420,
+      "public.brands": 32,
+      "public.categories": 33,
+      "public.products": 109417,
+      "public.product_aliases": 15316,
+      "public.product_media": 109417,
+      "private.product_import_metadata": 109417,
+      "public.articles": 10,
+      "public.pages": 3,
+      "public.home_sections": 5,
+      "public.menus": 2,
+      "public.menu_items": 21,
+      "public.site_settings": 9,
+      "public.ui_texts": 233,
+      "public.spec_templates": 1
+    },
+    "products": 109417,
+    "originalIdsPreserved": true,
+    "specifications": 342504,
+    "mediaObjects": 12000,
+    "mediaBytes": 382430077,
+    "warnings": {
+      "unknownBrandProducts": 26564,
+      "brandValuesToReview": [
+        "‎DW 40 DEWIN PAS SÖKÜCÜ /400 ML",
+        "‎WD-40"
+      ],
+      "repeatedBrandCodeRows": 751,
+      "note": "Kodlar birleştirilmez; belirsiz özellik birimleri tahmin edilmez. Stok/fiyat doğrulanmış sayılmaz."
+    }
+  },
+  "productionDependencyVulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "migrations": [
+    {
+      "file": "202611020001_core.sql",
+      "sha256": "88a3a53c67e7da0e345adeba3bc8723792ef0d8c226e10f0304cdcbe56a6cbed"
+    },
+    {
+      "file": "202611020002_security.sql",
+      "sha256": "96f24ca9530071acbb648b6750801f3de83d279de44c6b8c0db02f810c048bc3"
+    },
+    {
+      "file": "202611020003_storage.sql",
+      "sha256": "48a986077f5b515395351cf891de2e961cdc5617d7e91c2ff178d2bf69ee140a"
+    }
+  ],
+  "limits": [
+    "Supabase Auth HTTP responses were mocked in browser tests; no live email or account was used.",
+    "PostgreSQL tests use minimal Auth/Storage SQL fixtures; live GoTrue and Storage require a real project.",
+    "Public visitor data source remains the existing static catalog until Phase 2 approval."
+  ]
+}

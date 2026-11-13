@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "Actual admin login through browser, Auth JWT verified by real Supabase",
+    "Actual product list RPC and empty catalog state",
+    "Live category and brand pages read real Supabase",
+    "Production product editor and rich text module load without runtime error",
+    "Mobile layout with real authenticated account"
+  ],
+  "errors": [],
+  "sameProductionPackageLocal": true,
+  "actualSupabaseBackend": true,
+  "directVercelHost": "Environment network policy blocks CONNECT 403; production readiness and alias verified through Vercel API separately"
+}

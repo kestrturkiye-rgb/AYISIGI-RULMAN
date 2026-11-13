@@ -15,7 +15,7 @@ page.on('pageerror',e=>errors.push(e.message));
 context.on('request',r=>{if(/catalog\/index\.json/.test(r.url()))catalogRequests++});
 context.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)failedAssets.push({url:r.url(),status:r.status()})});
 const ready=async selector=>page.locator(selector).first().waitFor({timeout:60000});
-const go=async route=>{await page.goto(base+'#'+route);await ready('header .logo');await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))))};
+const go=async route=>{await page.goto(base+'#'+route);if(route==='/admin'){await page.waitForURL('**/admin/#/giris');await ready('.auth-card')}else await ready('header .logo');await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))))};
 const checkLayout=async()=>{for(const width of [320,390,768,1024,1440]){await page.setViewportSize({width,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'horizontal overflow at '+width+' '+page.url())}await page.setViewportSize({width:390,height:844})};
 try{
  await go('/akademi');await ready('.article-card');assert.equal(await page.locator('.article-card').count(),10);assert.equal(catalogRequests,0,'academy should not download product catalog');

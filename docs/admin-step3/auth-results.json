@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "Korumalı rota, Türkçe doğrulama ve yanlış parola reddi",
+    "Gerçek Supabase Auth admin girişi, yenilemede oturum, sekmeler arası çıkış",
+    "Beş ekran genişliği, taşma ve WCAG erişilebilirlik taramaları",
+    "Editör/satış rolü ve rol atanmamış gerçek hesap",
+    "Rol iptali gerçek DB üzerinden erişimi kapatır",
+    "Geçersiz auth callback reddi ve URL temizliği"
+  ],
+  "accessibilityScans": 5,
+  "runtimeErrors": [],
+  "auth": "real-local-gotrue",
+  "database": "real-local-postgres"
+}

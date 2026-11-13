@@ -1,0 +1,14 @@
+{
+  "rulman-teklif-admin": {
+    "id": "prj_LNMcFN1YPhsnCLVCpiqCJo455nKD",
+    "latestProductionDeployment": "dpl_4zihRzYRJmxHm6qYuXKcW7XXBArp"
+  },
+  "kivancgroup-deneme": {
+    "id": "prj_BZm23uFfwfSCT2Iw7JTKYsKgSZzS",
+    "latestProductionDeployment": "dpl_6DCx6aXtfam6LFTrSxJ2G8kNc8Re"
+  },
+  "industrial-cms": {
+    "id": "prj_qeDRb8KUuBg54VTVideziv4ewAYv",
+    "latestProductionDeployment": "dpl_MvFimk7mc3DrQdtDZm9sP4fAZwns"
+  }
+}

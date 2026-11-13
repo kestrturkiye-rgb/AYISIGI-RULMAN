@@ -1,0 +1,29 @@
+import {useEffect,useRef,useState,type ReactNode} from 'react';
+import {useBlocker} from 'react-router-dom';
+import type {Media} from '@rt/contracts';
+import {mediaUrl,uploadMedia} from './api';
+export function useUnsaved(dirty:boolean){
+ const skip=useRef(false);const blocker=useBlocker(()=>dirty&&!skip.current);
+ useEffect(()=>{if(blocker.state==='blocked'){if(window.confirm('Kaydedilmemiş değişiklikler var. Sayfadan ayrılmak istiyor musunuz?'))blocker.proceed();else blocker.reset();}},[blocker]);
+ useEffect(()=>{const before=(e:BeforeUnloadEvent)=>{if(dirty&&!skip.current){e.preventDefault();e.returnValue='';}};window.addEventListener('beforeunload',before);return()=>window.removeEventListener('beforeunload',before);},[dirty]);return skip;
+}
+export function Confirm({title,children,onConfirm,onCancel,busy=false}:{title:string,children:ReactNode,onConfirm:()=>void,onCancel:()=>void,busy?:boolean}){
+ const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{ref.current?.showModal();},[]);
+ return <dialog className="catalog-dialog" ref={ref} onCancel={e=>{e.preventDefault();if(!busy)onCancel();}} aria-labelledby="confirm-title"><h2 id="confirm-title">{title}</h2><p>{children}</p><div className="catalog-actions"><button className="secondary" disabled={busy} autoFocus onClick={onCancel}>Vazgeç</button><button className="primary" disabled={busy} onClick={onConfirm}>{busy?'İşleniyor…':'Onayla'}</button></div></dialog>;
+}
+export function Notice({error,children}:{error?:boolean,children:ReactNode}){return <div className={`alert ${error?'error':'success'}`} role={error?'alert':'status'}>{children}</div>;}
+function Preview({item}:{item:Media}){
+ const [url,setUrl]=useState(''),[error,setError]=useState(false);
+ useEffect(()=>{let active=true;mediaUrl(item).then(u=>{if(active)setUrl(u);}).catch(()=>{if(active)setError(true);});return()=>{active=false;};},[item.bucket_id,item.object_path]);
+ return item.mime_type==='application/pdf'?<span className="pdf-preview">{url?<a href={url} target="_blank" rel="noopener noreferrer">PDF’yi aç ↗</a>:'PDF yükleniyor…'}</span>:url?<img src={url} alt={item.alt_text||'Ürün görseli önizlemesi'} loading="lazy"/>:<span className="pdf-preview">{error?'Önizleme alınamadı':'Yükleniyor…'}</span>;
+}
+export function MediaEditor({value,onChange,disabled=false,single=false,onBusyChange}:{value:Media[],onChange:(m:Media[])=>void,disabled?:boolean,single?:boolean,onBusyChange?:(busy:boolean)=>void}){
+ const [busy,setBusy]=useState(false),[error,setError]=useState('');const dragged=useRef<number|null>(null),input=useRef<HTMLInputElement>(null),filesBusy=useRef(false);
+ useEffect(()=>{onBusyChange?.(busy);},[busy,onBusyChange]);
+ async function files(list:FileList|null){if(!list||filesBusy.current||disabled)return;filesBusy.current=true;setBusy(true);setError('');const items=[...value];try{if(items.length+list.length>(single?1:30))throw Error(single?'Önce mevcut görseli kaldırın.':'En fazla 30 dosya eklenebilir.');for(const file of Array.from(list)){if(single&&file.type==='application/pdf')throw Error('Logo/kategori için görsel seçin.');const item=await uploadMedia(file);item.is_primary=!items.some(m=>m.is_primary)&&item.mime_type!=='application/pdf';items.push(item);onChange([...items]);}}catch(e){setError(e instanceof Error?e.message:'Yükleme başarısız.');}finally{filesBusy.current=false;setBusy(false);if(input.current)input.current.value='';}}
+ function move(from:number,to:number){if(disabled||busy||to<0||to>=value.length)return;const next=[...value];next.splice(to,0,next.splice(from,1)[0]);onChange(next);}
+ return <section className="media-editor" aria-label="Görseller ve belgeler"><div className="upload-zone" onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();void files(e.dataTransfer.files);}}><p>Dosyaları buraya sürükleyin veya seçin</p><span>JPEG, PNG, WebP{single?'':' ve PDF'} · dosya başına 10 MB · görseller otomatik WebP / en fazla 1600 px</span><label className="secondary upload-button">{busy?'Dosya işleniyor…':'Dosya seç'}<input ref={input} type="file" accept={single?'image/jpeg,image/png,image/webp':'image/jpeg,image/png,image/webp,application/pdf'} multiple={!single} disabled={disabled||busy} onChange={e=>void files(e.target.files)}/></label></div>
+ {error&&<Notice error>{error}</Notice>}<p className="help">Orijinal dosyalar özel depoda korunur. Taslak kaydetmek dosyaları yayınlamaz. Yayınlamayı onaylamak yeni dosyaları herkese açar. Daha önce yayınlanmış dosyanın adresi taslağa alınsa da erişilebilir kalır.</p>
+ <div className="media-list">{value.map((m,i)=><article key={m.media_id} className="media-item" draggable={!disabled&&!busy} onDragStart={e=>{dragged.current=i;e.dataTransfer.setData('text/plain',String(i));}} onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();e.stopPropagation();if(dragged.current!==null)move(dragged.current,i);dragged.current=null;}}><Preview item={m}/><div><label>Alternatif metin<input disabled={disabled||busy} value={m.alt_text} maxLength={500} onChange={e=>onChange(value.map((a,j)=>j===i?{...a,alt_text:e.target.value}:a))}/></label><span className="help">{m.status==='published'?'Yayınlanmış dosya':'Özel taslak dosya'}</span><div className="row-actions">{m.mime_type!=='application/pdf'&&!single&&<label><input type="radio" name="primary-image" checked={m.is_primary} disabled={disabled||busy} onChange={()=>onChange(value.map((a,j)=>({...a,is_primary:j===i})))}/> Ana görsel</label>}<button type="button" disabled={disabled||busy||i===0} onClick={()=>move(i,i-1)} aria-label={`${i+1}. dosyayı yukarı taşı`}>↑</button><button type="button" disabled={disabled||busy||i===value.length-1} onClick={()=>move(i,i+1)} aria-label={`${i+1}. dosyayı aşağı taşı`}>↓</button><button type="button" disabled={disabled||busy} onClick={()=>onChange(value.filter((_,j)=>j!==i))}>Listeden kaldır</button></div></div></article>)}</div>
+ </section>;
+}

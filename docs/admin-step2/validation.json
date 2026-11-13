@@ -1,0 +1,27 @@
+{
+  "verifiedAtUtc": "2026-11-13T13:00:13.055421+00:00",
+  "phase": 2,
+  "unitTests": 10,
+  "localPostgresTests": 24,
+  "existingAuthPublicTests": 19,
+  "totalUniqueAutomatedTests": 53,
+  "responsiveWidths": [
+    320,
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "wcagScans": 5,
+  "browserChecks": 8,
+  "runtimeErrors": 0,
+  "realSupabaseReadVerified": true,
+  "productionFrontendUpdated": true,
+  "previewDeploymentCreated": false,
+  "previewDeniedByAutomaticReview": "Prior explicit no-publish instruction; requires explicit publication approval",
+  "nextPhaseStarted": false,
+  "productionUrl": "https://rulman-teklif-admin.vercel.app/admin/#/",
+  "productionDeploymentId": "dpl_EVYS1NtD2uMWCwy1czTYnPZsVwuC",
+  "providerReady": true,
+  "productionAliasVerified": true
+}

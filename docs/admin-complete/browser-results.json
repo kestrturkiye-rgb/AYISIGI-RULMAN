@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "CSV preview and confirmation save through real atomic PostgreSQL import",
+    "Every formerly disabled module has an accessible real route and real PostgreSQL data",
+    "Content drawer validates and persists edits with no redeploy",
+    "Create staff through real Deno Auth Admin + transactional role assignment",
+    "Create customer member without staff privileges",
+    "Campaign selection and member-only pricing editable by admin",
+    "Anonymous campaign UI has no price, direct member-price API denied by RLS",
+    "Verified member login reveals campaign price from authenticated server RPC",
+    "Member quote travels through Node gateway, HMAC-verified Deno and PostgreSQL",
+    "Consent-gated gateway records masked network and trusted test geolocation"
+  ],
+  "scans": 6,
+  "errors": [],
+  "database": "Real PostgreSQL",
+  "edge": "Real Deno",
+  "AuthStorage": "Local emulation"
+}

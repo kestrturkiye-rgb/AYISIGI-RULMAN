@@ -1,6 +1,6 @@
 import test,{before,after} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
+import {readFile,readdir} from 'node:fs/promises';
 import {connect,applyMigrations} from '../../scripts/supabase/database.mjs';
 const base=process.env.TEST_POSTGRES_URL||'postgresql://postgres@127.0.0.1:55432/postgres';
 const name='rt_admin_step1_'+process.pid;let owner,db;
@@ -15,7 +15,7 @@ before(async()=>{owner=await connect(base,{localOnly:true});await owner.query('c
 after(async()=>{await db?.end();if(owner){await owner.query('drop database if exists '+name+' with (force)');await owner.end();}});
 async function as(role,id,fn){await db.query('begin');try{await db.query('set local role '+role);await db.query("select set_config('request.jwt.claim.sub',$1,true)",[id||'']);return await fn();}finally{await db.query('rollback');}}
 const denied=sql=>assert.rejects(db.query(sql),e=>e.code==='42501');
-test('migration reapplication is safe and every new table uses RLS',async()=>{await applyMigrations(db);const rows=await db.query("select relname,relrowsecurity from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname in ('public','private') and c.relkind='r'");assert.ok(rows.rows.every(r=>r.relrowsecurity));assert.equal((await db.query('select * from private.schema_migrations')).rowCount,6);});
+test('migration reapplication is safe and every new table uses RLS',async()=>{await applyMigrations(db);const rows=await db.query("select relname,relrowsecurity from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname in ('public','private') and c.relkind='r'");assert.ok(rows.rows.every(r=>r.relrowsecurity));assert.equal((await db.query('select * from private.schema_migrations')).rowCount,(await readdir('supabase/migrations')).filter(n=>n.endsWith('.sql')).length);});
 test('anonymous reads only live products and cannot inspect customers or quote data',()=>as('anon',null,async()=>{assert.equal((await db.query('select * from public.products')).rowCount,1);await denied('select * from private.customers');}));
 test('anonymous cannot create quotes directly or execute role checks for sales',async()=>{await as('anon',null,()=>denied("insert into private.quotes(request_key,fingerprint,customer) values(gen_random_uuid(),'x','{}')"));await as('anon',null,()=>denied('select private.is_sales_staff()'));});
 test('sales has verified DB role and only live catalog visibility',()=>as('authenticated',ids.sales,async()=>{assert.equal((await db.query('select * from public.get_staff_access()')).rows[0].role,'sales');assert.equal((await db.query('select * from public.products')).rowCount,1);assert.equal((await db.query('select private.is_staff() value')).rows[0].value,false);}));

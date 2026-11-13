@@ -1,0 +1,23 @@
+{
+  "projectRef": "lptosaejlowasrbcyqnu",
+  "projectName": "kivancgroup-deneme",
+  "username": "MuratKoyunbakan",
+  "migrationCount": 6,
+  "existingCmsTablesUnchanged": true,
+  "usernameSupported": true,
+  "authUserCreated": true,
+  "passwordStoredInSourceOrFiles": false,
+  "productionFrontendPublished": true,
+  "networkBlocker": null,
+  "privateServiceKeyUsed": true,
+  "checks": {
+    "unitTests": 5,
+    "typescriptBuild": "passed",
+    "realAuthPasswordAndRole": "passed",
+    "realBrowser": "passed",
+    "accessibilityAudits": 2
+  },
+  "serviceKeyPersisted": false,
+  "frontendProvider": "Vercel",
+  "frontendUrl": "https://rulman-teklif-admin.vercel.app/admin/#/giris"
+}

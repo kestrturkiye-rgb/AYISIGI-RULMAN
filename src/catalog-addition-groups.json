@@ -1,0 +1,82 @@
+[
+  {
+    "id": "cutting-tools",
+    "name": "Kesici takımlar",
+    "description": "Tornalama, frezeleme ve delik işleme takımları",
+    "categories": [
+      "Tornalama ve kanal uçları",
+      "Frezeleme uçları",
+      "Diş açma takımları",
+      "Karbür frezeler",
+      "Delik işleme takımları",
+      "Matkap ve keski uçları",
+      "Çapak alma frezeleri",
+      "Karbür çubuklar"
+    ]
+  },
+  {
+    "id": "workshop",
+    "name": "Atölye ekipmanları",
+    "description": "Bağlama, ölçüm, kalıp ve el aleti çözümleri",
+    "categories": [
+      "Takım tutucular",
+      "Mengeneler ve bağlama",
+      "Ölçüm aletleri",
+      "Kalıp yayları",
+      "Eğeler ve testereler",
+      "El aleti takımları",
+      "El aletleri",
+      "İş güvenliği ekipmanları",
+      "Kaldırma ve taşıma ekipmanları",
+      "El aleti aksesuarları",
+      "Havalı el aletleri",
+      "Atölye tezgâhları",
+      "Seramik kesme ekipmanları",
+      "Atölye aksesuarları"
+    ]
+  },
+  {
+    "id": "power-tools",
+    "name": "Elektrikli el aletleri",
+    "description": "Akülü, elektrikli, kesme ve taşlama aletleri",
+    "categories": [
+      "Akülü el aletleri",
+      "Elektrikli el aletleri",
+      "El aleti setleri",
+      "Kesme ve taşlama makineleri"
+    ]
+  },
+  {
+    "id": "agricultural-parts",
+    "name": "Tarım yedek parçaları",
+    "description": "Toprak işleme, ekim, hasat ve ilaçlama parçaları",
+    "categories": [
+      "Pulluk parçaları",
+      "Toprak işleme parçaları",
+      "Biçme ve hasat parçaları",
+      "Ekim makinesi parçaları",
+      "İlaçlama parçaları",
+      "Gübreleme parçaları",
+      "Traktör parçaları",
+      "Motor yedek parçaları",
+      "Tarım bağlantı elemanları",
+      "Yem hazırlama parçaları",
+      "Sağım ve hayvancılık parçaları",
+      "Diğer tarım yedek parçaları"
+    ]
+  },
+  {
+    "id": "garden-machinery",
+    "name": "Bahçe ve yardımcı makineler",
+    "description": "Budama, pompa, temizlik ve yardımcı makineler",
+    "categories": [
+      "Budama ve hasat makineleri",
+      "Bahçe bakım makineleri",
+      "İlaçlama makineleri",
+      "Su ve hava pompaları",
+      "Yıkama ve temizlik makineleri",
+      "Kaynak makineleri",
+      "Yardımcı makineler"
+    ]
+  }
+]

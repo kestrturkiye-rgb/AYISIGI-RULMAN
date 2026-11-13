@@ -1,0 +1,79 @@
+{
+  "commit": "0144c39c7fffce72e94a2c3a54138ffddf005b90",
+  "parent": "9daff193343b2a37e308b9c5f52af9ed48b00823",
+  "adminUrl": "https://kestrturkiye-rgb.github.io/AYISIGI-RULMAN/admin/",
+  "workflowRun": 43385061085,
+  "scope": "Only admin application and secure build; existing live public catalog preserved.",
+  "sourceCheckout": "/tmp/rt-admin-release",
+  "workspaceNote": "Main shared checkout retains earlier unpublished catalog/Supabase changes. Release was isolated from live HEAD to avoid publishing those changes. Do not blindly push shared checkout over release.",
+  "supabaseConfigured": false,
+  "files": [
+    ".env.example",
+    "apps/admin/index.html",
+    "apps/admin/package.json",
+    "apps/admin/src/app/permissions.ts",
+    "apps/admin/src/app/router.tsx",
+    "apps/admin/src/features/auth/AuthProvider.tsx",
+    "apps/admin/src/features/auth/LoginPage.tsx",
+    "apps/admin/src/lib/callback.ts",
+    "apps/admin/src/lib/config.ts",
+    "apps/admin/src/lib/errors.ts",
+    "apps/admin/src/main.tsx",
+    "apps/admin/src/styles.css",
+    "apps/admin/tsconfig.json",
+    "apps/admin/vite.config.ts",
+    "docs/ADMIN-YAYIN.md",
+    "package-lock.json",
+    "package.json",
+    "packages/contracts/package.json",
+    "packages/contracts/src/index.ts",
+    "scripts/admin-local-test.mjs",
+    "scripts/build-site.mjs",
+    "scripts/check-public-env.mjs",
+    "scripts/supabase/bootstrap-admin.mjs",
+    "scripts/supabase/database.mjs",
+    "scripts/supabase/migrate.mjs",
+    "scripts/supabase/set-staff-role.mjs",
+    "src/AdminPage.jsx",
+    "src/admin/LegacyAdminPage.jsx",
+    "src/supabase/config.js",
+    "src/supabase/env-guard.js",
+    "supabase/migrations/202611020001_core.sql",
+    "supabase/migrations/202611020002_security.sql",
+    "supabase/migrations/202611020003_storage.sql",
+    "supabase/migrations/202611020004_public_read.sql",
+    "supabase/migrations/202611090005_roles.sql",
+    "supabase/migrations/202611090006_commercial.sql",
+    "supabase/tests/bootstrap.sql",
+    "tests/admin/auth-failure.browser.mjs",
+    "tests/admin/auth.browser.mjs",
+    "tests/admin/contracts.test.mjs",
+    "tests/admin/recovery.browser.mjs",
+    "tests/admin/security-db.test.mjs"
+  ],
+  "previousRun": 42604815771,
+  "deploymentStatus": "success",
+  "lastHttpStatus": 200,
+  "attempts": [
+    {
+      "run": 42604815771,
+      "attempt": 1,
+      "result": "Pages publish timeout; tests/build passed"
+    },
+    {
+      "run": 42604815771,
+      "attempt": 2,
+      "result": "Duplicate github-pages artifacts; tests/build passed"
+    },
+    {
+      "run": 42606640738,
+      "attempt": 1,
+      "result": "Fresh workflow; waiting at finished_file_sync"
+    },
+    {
+      "run": 43385061085,
+      "result": "Success on 2026-11-13; public admin URL HTTP 200"
+    }
+  ],
+  "verifiedAtUtc": "2026-11-13T07:22:44.836308+00:00"
+}

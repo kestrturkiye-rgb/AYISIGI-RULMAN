@@ -13,10 +13,10 @@ export function AuthProvider({children}:{children:React.ReactNode}) {
   const [session,setSession]=useState<Session|null>(null),[member,setMember]=useState<StaffMember|null>(null);
   const [loading,setLoading]=useState(true),[error,setError]=useState(''),[passwordRequired,setPasswordRequired]=useState(false);
   const generation=useRef(0),alive=useRef(true),sessionRef=useRef<Session|null>(null);
-  const verify=useCallback(async(next:Session|null)=>{
-    const version=++generation.current;sessionRef.current=next;setSession(next);setMember(null);setError('');
+  const verify=useCallback(async(next:Session|null,background=false)=>{
+    const version=++generation.current;const silent=background&&next?.user.id===sessionRef.current?.user.id;sessionRef.current=next;setSession(next);if(!silent)setMember(null);setError('');
     if(!next || !client){setLoading(false);return;}
-    setLoading(true);
+    if(!silent)setLoading(true);
     try {
       // getUser verifies the token with Auth; cached storage is not authority.
       const {data:user,error:userError}=await client.auth.getUser();
@@ -36,7 +36,7 @@ export function AuthProvider({children}:{children:React.ReactNode}) {
     const {data}=client.auth.onAuthStateChange((event,next)=>{
       if(event==='PASSWORD_RECOVERY')setPasswordRequired(true);
       // No awaited Supabase operation inside the Auth callback (avoids SDK lock).
-      if(ready)queueMicrotask(()=>{if(alive.current)void verify(next);});
+      if(ready)queueMicrotask(()=>{if(alive.current)void verify(next,event==='TOKEN_REFRESHED');});
     });
     void (async()=>{
       const callback=await completeCallback();if(!alive.current)return;
@@ -46,7 +46,7 @@ export function AuthProvider({children}:{children:React.ReactNode}) {
       if(callback.error)setError(callback.error);
       else if(error)setError('Oturum yüklenemedi. Tekrar giriş yapın.');
     })().catch(()=>{if(alive.current){setLoading(false);setError('Giriş sistemi başlatılamadı. Tekrar deneyin.');}});
-    const refresh=()=>{if(document.visibilityState==='visible')void verify(sessionRef.current);};
+    const refresh=()=>{if(document.visibilityState==='visible')void verify(sessionRef.current,true);};
     const interval=window.setInterval(refresh,60000);
     window.addEventListener('focus',refresh);document.addEventListener('visibilitychange',refresh);
     return()=>{alive.current=false;generation.current++;data.subscription.unsubscribe();clearInterval(interval);window.removeEventListener('focus',refresh);document.removeEventListener('visibilitychange',refresh);};

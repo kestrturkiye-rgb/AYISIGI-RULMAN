@@ -1,0 +1,10 @@
+{
+  "provider": "mocked HTTP; no email delivered",
+  "checks": [
+    "Şifre yenileme hesap ifşa etmeyen yanıt",
+    "Rol servisi hatasında erişim kapanır",
+    "Yeniden deneme erişimi geri getirir",
+    "Mevcut oturumda süresi dolmuş recovery reddi",
+    "Davet callback parola belirleme ve URL temizliği"
+  ]
+}

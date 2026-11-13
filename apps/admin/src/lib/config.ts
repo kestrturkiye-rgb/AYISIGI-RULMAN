@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
+import projectConfig from '../project-config.json';
 // Reuse the public-key guard; never trust a VITE_ value just because it is configured.
 // @ts-expect-error Existing public helper is plain JavaScript.
 import { supabaseConfiguration } from '../../../../src/supabase/config.js';
-export const config = supabaseConfiguration(import.meta.env) as {
+export const config = supabaseConfiguration({...import.meta.env, VITE_SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL || projectConfig.url, VITE_SUPABASE_PUBLISHABLE_KEY: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY || projectConfig.publicKey}) as {
   configured: boolean; error?: string; url?: string; key?: string;
 };
 export const client = config.configured ? createClient(config.url!, config.key!, {
@@ -16,5 +17,5 @@ export function returnUrl(action?: string) {
   return url.href;
 }
 export function publicUrl() {
-  return new URL('../', new URL(import.meta.env.BASE_URL, window.location.origin)).pathname + '#/';
+  return import.meta.env.VITE_PUBLIC_SITE_URL || new URL('../', new URL(import.meta.env.BASE_URL, window.location.origin)).pathname + '#/';
 }

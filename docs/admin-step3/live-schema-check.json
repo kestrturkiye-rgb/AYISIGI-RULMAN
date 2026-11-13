@@ -1,0 +1,11 @@
+[
+  {
+    "products": 0,
+    "categories": 0,
+    "brands": 0,
+    "tables_without_rls": 0,
+    "anon_can_edit": false,
+    "client_can_register_media": false,
+    "client_can_publish_media": false
+  }
+]

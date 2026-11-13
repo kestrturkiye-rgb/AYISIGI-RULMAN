@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "Mobil/masaüstü giriş ekranı ve iki erişilebilirlik taraması",
+    "Yanlış şifre gerçek Auth tarafından reddedildi",
+    "Kullanıcı adıyla gerçek Supabase girişi ve admin rolü",
+    "Sayfa yenilemede gerçek oturum korundu",
+    "Gerçek oturumdan çıkış"
+  ],
+  "audits": 2,
+  "runtimeErrors": [],
+  "provider": "Gerçek Supabase Auth; HTTP fixture kullanılmadı",
+  "pagePublished": false
+}

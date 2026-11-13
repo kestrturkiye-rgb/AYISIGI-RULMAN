@@ -1,0 +1,93 @@
+{
+  "purpose": "Kullanıcı adı ve gerçek Supabase Auth bağlantısı; canlı frontend henüz yayımlanmadı.",
+  "files": [
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "cfd69444aee73164599adca941af0951a13c92c8188c3a976857c8127615c364"
+    },
+    {
+      "path": "apps/admin/src/features/auth/LoginPage.tsx",
+      "sha256": "31d8b504f69136dc63617a34562201f535d7a402c40411d6584f68a51b743f07"
+    },
+    {
+      "path": "apps/admin/src/lib/config.ts",
+      "sha256": "0fbe263a8767b56c5016e96756187497ba28b23fadda9a283a2084d3c6eb3ad4"
+    },
+    {
+      "path": "apps/admin/src/lib/errors.ts",
+      "sha256": "326c36e08541aba4083198c152ddc6592b450b84991017c006649c7374f30fbb"
+    },
+    {
+      "path": "apps/admin/src/project-config.json",
+      "sha256": "94a87f4a15b193ce459d9bc53d3135d95f667c456d873b2d65cb68564d762f3e"
+    },
+    {
+      "path": "tests/admin/contracts.test.mjs",
+      "sha256": "c84eb4a0092101166e4bbef76642f9e4b2b0a356dd62b86b5a1c587e0e26fbd9"
+    },
+    {
+      "path": "tests/admin/auth.browser.mjs",
+      "sha256": "093a517bbb4019c97691168f387cfafc5e720f32106662ce38f17e57b9a1c24d"
+    },
+    {
+      "path": "tests/admin/recovery.browser.mjs",
+      "sha256": "1b4403c76fd75ea0bb865e5a61baaa66c0a2021a6c046ee114a37473139b0886"
+    },
+    {
+      "path": "tests/admin/auth-failure.browser.mjs",
+      "sha256": "45531576ba6c374ed61083a2abbce6df601191e6ef64db17107d484a7adc2722"
+    },
+    {
+      "path": "docs/admin-step1/supabase-connection-status.json",
+      "sha256": "7d8167fdc9a90afcdc2c5e5aac4b5b87c54193337c0b26228464ab8a6d636e1f"
+    },
+    {
+      "path": "docs/admin-step1/cloud-migrations.json",
+      "sha256": "9b82ff19c63686fdc722f3e3964a7bbcea6594d52ee3bc900e0792cf985ce528"
+    },
+    {
+      "path": "docs/admin-step1/cloud-auth-result.json",
+      "sha256": "347b06573c54ebf968957d9b26642864c06270762fc64aafa15437f11f2972b5"
+    },
+    {
+      "path": "docs/admin-step1/cloud-auth-browser-result.json",
+      "sha256": "68c50fa2b164f8f77c5aad299149e393d7bb1d441b5516094b70b7822c4b85d3"
+    },
+    {
+      "path": "dist/admin/assets/NotoSans-Turkish-DnMJtjlv.woff2",
+      "sha256": "2c26a61d853e8831789a312d1439f09c00c7c6d8badee6c307fd1b0349c822a1"
+    },
+    {
+      "path": "dist/admin/assets/index-DEVkhG1z.css",
+      "sha256": "8e3c8a88d31354616981b8055c16f08f88ee1731930dd6f8853c8758b6a7734c"
+    },
+    {
+      "path": "dist/admin/assets/index-sOfvdNa1.js",
+      "sha256": "22d572c02183e0f8562ca7c506e86390154d6aa14cbdeb5f3e9a42360c1f503c"
+    },
+    {
+      "path": "dist/admin/assets/react-BZYBGql9.js",
+      "sha256": "963d9cf519548b8d00f038642a24f42527eb18a276097366858c3989baf73fcc"
+    },
+    {
+      "path": "dist/admin/assets/rolldown-runtime-WkwZ5CU-.js",
+      "sha256": "2629f2ad3cb75a57d98de697127f5af7d777ef572bbcdfa6e3ce8f438cd4527e"
+    },
+    {
+      "path": "dist/admin/assets/rulman-teklif-BNn9ftgq.webp",
+      "sha256": "d05ad6482909a9168dc1586788c23abc5c8b1343af8316c25b4048a628f34615"
+    },
+    {
+      "path": "dist/admin/assets/supabase-DzUOT4m4.js",
+      "sha256": "3209f62b68a73318719ed2debd8625b5b008e17ee18b1f2ff8c9a8864f23ef3f"
+    },
+    {
+      "path": "dist/admin/assets/validation-DLNShtOC.js",
+      "sha256": "511904ff05138d88188da5eac86a2db66ba03e09271da803e547c915866f8339"
+    },
+    {
+      "path": "dist/admin/index.html",
+      "sha256": "d552b38913a3835282abd523c229b75424e8cdde927676fbac7311b381d6bd20"
+    }
+  ]
+}

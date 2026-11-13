@@ -1,0 +1,16 @@
+{
+  "gatewayConfigured": true,
+  "authRedirectsAdded": [
+    "https://rulman-teklif-admin.vercel.app/**",
+    "https://kestrturkiye-rgb.github.io/AYISIGI-RULMAN/**"
+  ],
+  "sharedAuthSiteUrlChanged": false,
+  "function": {
+    "id": "46106ee8-8fe9-4c39-87f9-d4c2ecea1e80",
+    "name": "rt-admin-operations",
+    "slug": "rt-admin-operations",
+    "status": "ACTIVE",
+    "version": 1
+  },
+  "functionSHA256": "64f81cdcbde74a7d2e4b7683d02de95973685eca3003f28779718cae4e86207c"
+}

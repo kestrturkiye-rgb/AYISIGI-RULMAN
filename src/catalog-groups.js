@@ -1,3 +1,4 @@
+import additionGroups from './catalog-addition-groups.json' with {type:'json'};
 // Turkish product families mapped from the three retained public catalogs.
 export const productGroups = [
   {id:'bearings',name:'Rulmanlar',description:'Bilyalı, makaralı, iğneli ve hassas rulmanlar',categories:['Bilyalı rulmanlar','Makaralı rulmanlar','İğneli rulmanlar','Eksenel rulmanlar','Hassas rulmanlar','Özel rulmanlar']},
@@ -6,6 +7,7 @@ export const productGroups = [
   {id:'maintenance',name:'Bakım ve aksesuarlar',description:'Montaj, yağlama ve durum izleme çözümleri',categories:['Montaj ve demontaj','Yağlama','Durum izleme','Aksesuarlar']},
   {id:'transmission',name:'Güç aktarım',description:'Kayış, kasnak, zincir, dişli ve kaplin ürünleri',categories:['Kayışlar','Kasnaklar','Zincirler','Dişliler','Kaplinler','Güç aktarım']},
   {id:'seals',name:'Sızdırmazlık',description:'Endüstriyel sızdırmazlık çözümleri',categories:['Sızdırmazlık elemanları']},
+  ...additionGroups,
   {id:'other',name:'Diğer ürünler',description:'Kaynak kataloglardaki diğer ürünler',categories:['Diğer ürünler']},
 ];
 

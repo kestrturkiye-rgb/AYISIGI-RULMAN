@@ -1,0 +1,82 @@
+{
+  "project": "prj_LNMcFN1YPhsnCLVCpiqCJo455nKD",
+  "teamId": "team_GtWrfFOm7vyzSGmgM9a66VNs",
+  "deploymentId": "dpl_4zihRzYRJmxHm6qYuXKcW7XXBArp",
+  "target": "production",
+  "readyState": "READY",
+  "url": "https://rulman-teklif-admin-qh8y5tjck-furkansahinn77-cryptos-projects.vercel.app/admin/#/",
+  "productionUrl": "https://rulman-teklif-admin.vercel.app/admin/#/",
+  "previousProductionDeployment": "dpl_EVYS1NtD2uMWCwy1czTYnPZsVwuC",
+  "hashes": [
+    {
+      "path": "admin/assets/NotoSans-Turkish-DnMJtjlv.woff2",
+      "sha256": "2c26a61d853e8831789a312d1439f09c00c7c6d8badee6c307fd1b0349c822a1"
+    },
+    {
+      "path": "admin/assets/ProductEditor-BIP4lRbn.js",
+      "sha256": "3637777ba9ae2794d7decced3d6243d34fa73298e59bd5bc2d14e189177b0681"
+    },
+    {
+      "path": "admin/assets/ProductList-D_WnHcv8.js",
+      "sha256": "4c4d7cb1acc4feb139693da3464e1ab85b4729256dae0deca49dd1e096fb039a"
+    },
+    {
+      "path": "admin/assets/TaxonomyPage-CPFzSOHC.js",
+      "sha256": "a6b45186187904144dd8af80b3c6fde67370fd03d20f2c4571a24548db0bb256"
+    },
+    {
+      "path": "admin/assets/catalog-CCYIIEQc.js",
+      "sha256": "0034fa8f2321d11d2e8d74ceb3bf8323e1335758988ff1a14be980b2fb6ceab4"
+    },
+    {
+      "path": "admin/assets/catalog-O4cSBTaB.css",
+      "sha256": "19643b58253c43e7955c54308bbd02088bacf86ce9cd976b3b4ed1138efd0860"
+    },
+    {
+      "path": "admin/assets/index-BptTWznF.css",
+      "sha256": "d68f3580dc66792643bfb2ca40316a7ac9238ef6a2386dbd46a6090517c66da1"
+    },
+    {
+      "path": "admin/assets/index-n1fkIcQi.js",
+      "sha256": "648b555bb8891630c91d658688b61c878f52b296cdd1a218fe471a411bff6e9c"
+    },
+    {
+      "path": "admin/assets/react-BQQRt5b4.js",
+      "sha256": "a7fbea63b34fc056fe41a7f23310661ecce526a9eacab91c84a2bc5294cb7ec6"
+    },
+    {
+      "path": "admin/assets/rolldown-runtime-WkwZ5CU-.js",
+      "sha256": "2629f2ad3cb75a57d98de697127f5af7d777ef572bbcdfa6e3ce8f438cd4527e"
+    },
+    {
+      "path": "admin/assets/rulman-teklif-BNn9ftgq.webp",
+      "sha256": "d05ad6482909a9168dc1586788c23abc5c8b1343af8316c25b4048a628f34615"
+    },
+    {
+      "path": "admin/assets/supabase-DzUOT4m4.js",
+      "sha256": "3209f62b68a73318719ed2debd8625b5b008e17ee18b1f2ff8c9a8864f23ef3f"
+    },
+    {
+      "path": "admin/assets/validation-DcqLuhCf.js",
+      "sha256": "1ca02861b955470b49f80041f2c7f3e997a2c7a98459fc64368bf2ed754fb0fa"
+    },
+    {
+      "path": "admin/index.html",
+      "sha256": "efeba1418407fb3eb7fc6055309880345902aaae7b970f684a40a0ae6d8108a7"
+    }
+  ],
+  "requestedAtUtc": "2026-11-13T14:08:01.554137+00:00",
+  "otherProjectsChanged": false,
+  "schemaReapplied": false,
+  "aliases": [
+    "rulman-teklif-admin.vercel.app",
+    "rulman-teklif-admin-furkansahinn77-cryptos-projects.vercel.app"
+  ],
+  "errorCode": null,
+  "errorMessage": null,
+  "aliasDeploymentId": "dpl_4zihRzYRJmxHm6qYuXKcW7XXBArp",
+  "providerVerified": true,
+  "verifiedAtUtc": "2026-11-13T14:09:06.584527+00:00",
+  "publicUrlDirectCheck": "Environment network policy blocks direct CONNECT with HTTP 403",
+  "userApproval": "Onayl\u0131yorum."
+}

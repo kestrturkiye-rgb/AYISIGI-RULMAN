@@ -1,0 +1,180 @@
+{
+  "date": "2026-11-09",
+  "phase": "1-schema-auth",
+  "status": "local-verified-not-deployed",
+  "automatedTests": {
+    "contractsAuthPublicReads": 23,
+    "site": 7,
+    "newDatabaseSecurity": 14,
+    "existingDatabaseAndImport": 28,
+    "totalUnique": 72
+  },
+  "builds": {
+    "typescript": "passed",
+    "publicAndAdminPages": "passed",
+    "productionRejectsLocalTestMode": true
+  },
+  "browser": {
+    "auth": {
+      "checks": [
+        "Korumalı rota, Türkçe doğrulama ve yanlış parola reddi",
+        "Gerçek Supabase Auth admin girişi, yenilemede oturum, sekmeler arası çıkış",
+        "Beş ekran genişliği, taşma ve WCAG erişilebilirlik taramaları",
+        "Editör/satış rolü ve rol atanmamış gerçek hesap",
+        "Rol iptali gerçek DB üzerinden erişimi kapatır",
+        "Geçersiz auth callback reddi ve URL temizliği"
+      ],
+      "accessibilityScans": 5,
+      "runtimeErrors": [],
+      "auth": "real-local-gotrue",
+      "database": "real-local-postgres"
+    },
+    "recovery": {
+      "checks": [
+        "Gerçek Auth recovery token doğrulaması",
+        "URL token temizliği",
+        "Türkçe parola uzunluk/eşleşme hataları",
+        "Parola kaydetme ve yeni parolayla giriş",
+        "Kullanılmış tek seferlik token reddi"
+      ],
+      "emailDeliveryTested": false
+    },
+    "failures": {
+      "provider": "mocked HTTP; no email delivered",
+      "checks": [
+        "Şifre yenileme hesap ifşa etmeyen yanıt",
+        "Rol servisi hatasında erişim kapanır",
+        "Yeniden deneme erişimi geri getirir",
+        "Mevcut oturumda süresi dolmuş recovery reddi",
+        "Davet callback parola belirleme ve URL temizliği"
+      ]
+    },
+    "public": {
+      "base": "http://127.0.0.1:4173/AYISIGI-RULMAN/",
+      "viewportWidths": [
+        320,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "checks": [
+        "All ten article routes, no catalog dependency, five viewport widths",
+        "Core routes accessibility and responsive layouts",
+        "All seven product groups, pagination, code aliases, exact diameters, filter URLs and invalid input",
+        "Responsive product photo, modal focus trap, cart quantities and reload, mocked WhatsApp, quote download",
+        "Unknown routes, denied browser storage, no-Worker fallback and failed catalog recovery",
+        "Transient product detail fetch can be retried"
+      ],
+      "a11y": [
+        {
+          "route": "/",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/hakkimizda",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/hakkimizda",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/markalar",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/markalar",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/iletisim",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/iletisim",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/teklif",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/teklif",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/akademi",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/akademi",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/teknik-arama",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/teknik-arama",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/urunler?kod=6204",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/urunler?kod=6204",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/admin",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/admin",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "/akademi/rulman-yaglama-gres-secimi",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "/akademi/rulman-yaglama-gres-secimi",
+          "width": 1440,
+          "violations": []
+        }
+      ],
+      "runtimeErrors": [],
+      "failedAssets": []
+    }
+  },
+  "cloudSupabaseTested": false,
+  "emailDeliveryTested": false,
+  "newMigrationsAppliedToLiveDatabase": false,
+  "deployed": false,
+  "nextStepRequiresApproval": "2-layout-dashboard"
+}

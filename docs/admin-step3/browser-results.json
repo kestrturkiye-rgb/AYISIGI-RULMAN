@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "Catalog navigation loads real PostgreSQL product",
+    "Required validation, Turkish slug generation, rich text, technical template and personal server autosave",
+    "Deno image upload decodes/re-encodes WebP, preserves original, draft is private and product saves media atomically",
+    "Explicit product publication opens derivative, keeps original private",
+    "Product editor at five widths, no horizontal overflow and WCAG scans",
+    "Server search, duplication, soft delete and restore through confirmation dialogs",
+    "Category hierarchy/template and brand creation persist in PostgreSQL",
+    "Unsaved navigation confirmation, personal draft recovery and stale-save protection preserve current server data",
+    "Sales role denied on direct catalog route and sidebar",
+    "Edge function rejects unauthenticated, invalid JWT and sales"
+  ],
+  "scans": 11,
+  "errors": [],
+  "auth": "Local emulation only",
+  "storage": "Local emulation only",
+  "database": "Real PostgreSQL 17 with all migrations/RLS",
+  "media": "Real Deno 2.5.6 and ImageMagick WASM"
+}

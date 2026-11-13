@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "Protected dashboard and real-shaped bounded data, active catalog navigation",
+    "Persistent collapsed sidebar, five widths/WCAG scans, mobile dialog focus and Escape",
+    "Period filtering, dashboard row search and notifications popover",
+    "Editor and sales layouts do not expose forbidden modules or data",
+    "Network errors and mismatched-role payload fail closed; retry recovers",
+    "Late response from old period cannot overwrite the current period",
+    "Unknown routes show a real not-found page without a false active menu",
+    "Background role verification failure removes dashboard access"
+  ],
+  "scans": 5,
+  "runtimeErrors": [],
+  "provider": "Mock HTTP responses; local PostgreSQL tests separately verify SQL"
+}
