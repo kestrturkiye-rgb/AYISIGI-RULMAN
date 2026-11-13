@@ -23,7 +23,7 @@ export async function startCatalogServer({port=4199}={}){
  if(path==='/auth/v1/user')return actor.role?res.json(user(actor.role)):res.status(401).json({message:'Invalid test token'});
  if(path==='/auth/v1/logout')return res.status(204).end();
  if(path.startsWith('/rest/v1/rpc/')){
- const name=path.split('/').at(-1);if(!/^(admin_|get_admin_dashboard|get_staff_access|register_catalog_media|publish_catalog_media|get_public_|get_member_|my_account|ingest_site_event|submit_site_quote|lease_quote_notification|finish_quote_notification|pending_quote_notifications|prune_site_events)/.test(name))return res.status(404).end();
+ const name=path.split('/').at(-1);if(!/^(admin_|get_admin_dashboard|get_staff_access|register_catalog_media|publish_catalog_media|get_public_|search_public_catalog|get_member_|my_account|ingest_site_event|submit_site_quote|lease_quote_notification|finish_quote_notification|pending_quote_notifications|prune_site_events)/.test(name))return res.status(404).end();
  const body=json(req);const args=(await pool.query("select proargnames from pg_proc p join pg_namespace n on p.pronamespace=n.oid where n.nspname='public' and p.proname=$1",[name])).rows[0]?.proargnames||[];
  const input=args.filter(k=>Object.hasOwn(body,k));
  if(name==='get_staff_access'){const result=await sql(req,db=>db.query('select * from public.get_staff_access()'));return res.json(result.rows);}
