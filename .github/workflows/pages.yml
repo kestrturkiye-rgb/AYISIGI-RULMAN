@@ -43,6 +43,8 @@ jobs:
           node --test tests/supabase-auth.test.mjs
           npm run test:admin
           node --test tests/admin/gateway.test.mjs
+          node --test tests/privacy/consent.test.mjs tests/privacy/discovery.test.mjs tests/security/auth.test.mjs
+          node --test tests/admin/spreadsheets.test.mjs
           node tests/quote.test.js
           node --test tests/server.test.js
           python tests/test_skf_data.py

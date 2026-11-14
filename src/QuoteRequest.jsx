@@ -54,6 +54,7 @@ export default function QuoteRequest({ lines, details, onChange, onDownload, onO
   {!available && <p className="quote-service-note">{available===null?'Teklif hizmeti kontrol ediliyor…':'Formla teklif gönderimi henüz açılmadı. WhatsApp veya telefonla bize ulaşabilirsiniz.'}</p>}
   {(!site.remote||site.settings.quote_ui?.whatsappEnabled!==false)&&<button className="primary whatsapp-action" type="submit" value="whatsapp"><MessageCircle size={19}/> WhatsApp ile teklif iste <ArrowUpRight size={17}/></button>}
   <div className="quote-secondary">{(!site.remote||site.settings.quote_ui?.downloadEnabled!==false)&&<button type="button" onClick={onDownload}><Download size={15}/> Teklif listesini indir</button>}{overflow && <a href={makeWhatsAppUrl('Merhaba, fiyat teklifi için ürün listemi dosya olarak paylaşmak istiyorum.',company)} target="_blank" rel="noopener noreferrer">WhatsApp’ı aç <ArrowUpRight size={14}/></a>}</div>
+  <p className="quote-privacy-notice">Teklif talebiniz için ilettiğiniz bilgiler, talebi yanıtlamak amacıyla işlenir. <a href="#/kvkk">KVKK aydınlatma metni</a> · <a href="#/gizlilik">Gizlilik politikası</a>. Teklif istemek pazarlama veya ziyaretçi analizi izni sayılmaz.</p>
   <p className="quote-explanation">Mesaj WhatsApp’ta açılır; kontrol edip siz gönderirsiniz.{overflow && ' İndirdiğiniz dosyayı görüşmeye kendiniz eklemelisiniz.'}</p>
  </fieldset></form>;
 }

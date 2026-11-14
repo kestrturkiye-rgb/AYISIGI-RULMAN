@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "api/auth/[action].mjs",
+      "use": "@vercel/node"
+    },
+    {
       "src": "api/collect.mjs",
       "use": "@vercel/node"
     },
@@ -42,9 +46,14 @@
         "X-Frame-Options": "DENY",
         "Referrer-Policy": "strict-origin-when-cross-origin",
         "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
-        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "Content-Security-Policy": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://kestrturkiye-rgb.github.io https://lptosaejlowasrbcyqnu.supabase.co; font-src 'self'; connect-src 'self' https://lptosaejlowasrbcyqnu.supabase.co wss://lptosaejlowasrbcyqnu.supabase.co https://rulman-teklif-admin.vercel.app; worker-src 'self' blob:; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
       },
       "continue": true
+    },
+    {
+      "src": "/api/auth/(session|login|logout|signup|recover|callback|password|delete-account)",
+      "dest": "/api/auth/[action].mjs?action=$1"
     },
     {
       "src": "/api/collect",

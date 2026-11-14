@@ -40,9 +40,9 @@ export function AuthProvider({children}:{children:React.ReactNode}) {
     });
     void (async()=>{
       const callback=await completeCallback();if(!alive.current)return;
-      setPasswordRequired(callback.password);
+
       const {data,error}=await client.auth.getSession();if(!alive.current)return;
-      ready=true;await verify(data.session);
+      setPasswordRequired(callback.password||(data.session as (Session&{recovery?:boolean})|null)?.recovery===true);ready=true;await verify(data.session);
       if(callback.error)setError(callback.error);
       else if(error)setError('Oturum yüklenemedi. Tekrar giriş yapın.');
     })().catch(()=>{if(alive.current){setLoading(false);setError('Giriş sistemi başlatılamadı. Tekrar deneyin.');}});

@@ -59,6 +59,12 @@ export function createRepository(client,projectUrl){
    const q=filters.technicalQuery||{};const result=await rpc('search_public_catalog',{p_query:filters.search||'',p_code:q.code||null,p_inner:q.inner??null,p_outer:q.outer??null,p_width:q.width??null,p_category:category,p_brand:brand,p_page:page,p_page_size:pageSize});
    return {products:result.items.map(row=>adaptProduct(row,projectUrl)),totalCount:Number(result.totalCount),page:result.page,pageSize:result.pageSize};
   },
+  async discovery(seed){
+   const {data,error}=await client.rpc('get_public_discovery',{p_seed:seed,p_size:24});
+   if(error&&['PGRST202','42883'].includes(error.code))return null;
+   if(error)throw Error('Ürün seçkisi yüklenemedi. Yeniden deneyin.');
+   return {products:data.items.map(row=>adaptProduct(row,projectUrl)),totalCount:data.items.length,page:1,pageSize:24,discovery:true};
+  },
   async products(ids,details=false){const unique=[...new Set(ids.filter(id=>typeof id==='string'||typeof id==='number').map(String))],legacy=[...new Set(ids.filter(id=>typeof id==='number'&&legacyCartCodes[id]))],result=[];for(let i=0;i<unique.length;i+=200)result.push(...await rpc('get_public_products',{product_ids:unique.slice(i,i+200),include_details:details}));for(const id of legacy){const [brand,code]=legacyCartCodes[id];const matches=await rpc('search_public_catalog',{p_code:brand+code,p_page_size:100});const match=matches.items.find(row=>row.brand===brand&&normalizeCode(row.sku)===normalizeCode(code));if(match&&!result.some(row=>row.id===match.id))result.push(match)}return result.map(row=>adaptProduct(row,projectUrl))},
   async article(slug,site){const row=await rpc('get_public_article',{article_slug:slug});if(!row)return null;const summary=site.articles.find(a=>a.slug===slug)||{};return {...summary,...row.body,title:row.title,slug:row.slug,category:row.topic,description:row.summary,minutes:row.reading_minutes,seo:row.seo}},
   subscribe(onChange){const channel=client.channel('public-content-version').on('postgres_changes',{event:'UPDATE',schema:'public',table:'content_version'},onChange).subscribe();return ()=>client.removeChannel(channel)},

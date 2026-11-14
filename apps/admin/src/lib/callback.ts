@@ -11,6 +11,7 @@ async function run(): Promise<CallbackResult> {
     ['access_token','refresh_token','error'].some(k=>fragment.has(k));
   if (!present) return { password: false, error: '' };
   const kind = query.get('type') || fragment.get('type') || query.get('auth_action');
+  history.replaceState(null,'',import.meta.env.BASE_URL + '#/giris');
   try {
     if (!client || query.has('error') || fragment.has('error')) throw Error('callback');
     let error;

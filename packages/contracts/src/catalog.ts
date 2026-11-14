@@ -1,4 +1,4 @@
-import {z} from 'zod';
+import {z} from './zod.ts';
 export const stateSchema=z.enum(['draft','published']);
 const slug=z.string().trim().min(1,'Adres adı gerekli.').max(300).regex(/^[a-z0-9]+(-[a-z0-9]+)*$/,'Küçük harf, rakam ve tire kullanın.');
 const id=z.string().min(1).max(160);

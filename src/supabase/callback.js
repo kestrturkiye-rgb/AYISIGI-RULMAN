@@ -5,11 +5,13 @@ export async function initializeAuthCallback(){
  if(!hasAuthCallback(window.location))return;
  const params=new URLSearchParams(location.search),fragment=new URLSearchParams(location.hash.slice(1));
  const kind=params.get('type')||fragment.get('type')||params.get('auth_action');
- callbackState.kind=['invite','recovery'].includes(kind)?kind:null;
+ callbackState.kind=['invite','recovery','member_recovery'].includes(kind)?kind:null;
+ const callbackLocation={search:location.search,hash:location.hash};
+ history.replaceState(null,'',import.meta.env.BASE_URL+(String(params.get('auth_action')||'').startsWith('member_')?'#/hesabim':'#/admin'));
  try{
   const [{getSupabaseClient},{completeAuthCallback}]=await Promise.all([import('./client.js'),import('./auth-service.js')]);
   const client=getSupabaseClient();if(!client)throw Error('Supabase bağlantısı tanımlanmadan giriş bağlantısı kullanılamaz.');
-  await completeAuthCallback(client,window.location);
+  await completeAuthCallback(client,callbackLocation);
  }catch{callbackState.error='Giriş bağlantısı doğrulanamadı. Proje bağlantısını kontrol edin veya yeni bir şifre bağlantısı isteyin.'}
  finally{history.replaceState(null,'',import.meta.env.BASE_URL+(String(params.get('auth_action')||'').startsWith('member_')?'#/hesabim'+(params.get('auth_action')==='member_recovery'?'?sifre=1':''):'#/admin'))}
 }

@@ -35,3 +35,5 @@ h1,h2,h3,h4,.about-monogram{font-family:var(--site-font,'Noto Sans',Arial,sans-s
 
 .product-grid.product-grid-text{grid-template-columns:repeat(3,minmax(0,1fr))}.product-grid-text .product-text{min-height:230px}.product-grid-text .product-info>p{min-height:0;font-size:12px;margin-bottom:14px}
 @media(max-width:760px){.product-grid.product-grid-text{grid-template-columns:1fr}.product-grid-text .product-text{min-height:220px}.product-grid-text .product-text-head{flex-direction:row;align-items:center}.product-grid-text .product-title{font-size:17px}.product-grid-text .product-info>p{font-size:12px;min-height:0}.product-grid-text .product-info>small{font-size:10px}}
+
+.member-erasure-dialog{width:min(32rem,calc(100vw - 2rem));max-height:calc(100dvh - 2rem);overflow:auto;margin:auto}.member-erasure-dialog::backdrop{background:rgb(15 35 25 / 60%)}

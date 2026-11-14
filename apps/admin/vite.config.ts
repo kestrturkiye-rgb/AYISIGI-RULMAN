@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
+import {cspPlugin} from '../../scripts/security/csp.mjs';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'node:path';
 export default defineConfig(({mode}) => {
@@ -6,12 +7,12 @@ export default defineConfig(({mode}) => {
   return {
     base: env.VITE_ADMIN_BASE || '/admin/',
     envDir: path.resolve(import.meta.dirname, '../..'),
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(),cspPlugin()],
     build: { outDir: '../../dist/admin', emptyOutDir: true, rolldownOptions: { output: { codeSplitting: { groups: [
       {name:'supabase',test:/node_modules\/@supabase\//},
       {name:'validation',test:/node_modules\/(zod|react-hook-form|@hookform)\//},
       {name:'react',test:/node_modules\/(react|react-dom|react-router|react-router-dom|scheduler)\//},
     ] } } } },
-    server: { fs: { allow: [path.resolve(import.meta.dirname, '../..')] } },
+    server: { proxy: {'/api/auth':{target:'http://127.0.0.1:4187'}}, fs: { allow: [path.resolve(import.meta.dirname, '../..')] } },
   };
 });

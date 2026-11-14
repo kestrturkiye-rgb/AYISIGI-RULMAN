@@ -12,15 +12,25 @@ async function notifyQuote(id:string){
  const leased=checked(await service.rpc('lease_quote_notification',{p_quote:id}));if(!leased)return;
  try{const response=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json','Idempotency-Key':'rt-quote-'+id},body:JSON.stringify({from,to:[leased.recipient],subject:'Yeni teklif talebi · Rulman Teklif',text:'Yeni bir teklif talebi alındı. Yönetim paneli: https://rulman-teklif-admin.vercel.app/admin/#/teklifler/'+id}),signal:AbortSignal.timeout(12000)});if(!response.ok)throw Error('Email provider rejected');const result=await response.json();checked(await service.rpc('finish_quote_notification',{p_quote:id,p_success:true,p_message:result.id||null}));}catch{await service.rpc('finish_quote_notification',{p_quote:id,p_success:false,p_message:null});}
 }
+type ErasureJob={user_id:string;documents:string[];can_delete_auth:boolean;identity_retained:boolean|null;state:string};
+async function finishErasure(job:ErasureJob){
+ if(job.state==='done')return {deleted:true,sharedIdentityRetained:job.identity_retained??!job.can_delete_auth};
+ if(job.documents.length)checked(await service.storage.from('quote-documents').remove(job.documents));
+ let retained=!job.can_delete_auth;
+ if(job.can_delete_auth){const result=await service.auth.admin.deleteUser(job.user_id);if(result.error){if(result.error.status===404){}else if(result.error.message.includes('Database error')){retained=true;}else throw Error('auth_erasure_pending');}}
+ checked(await service.rpc('complete_member_erasure',{p_user_id:job.user_id,p_identity_retained:retained}));return {deleted:true,sharedIdentityRetained:retained};
+}
 Deno.serve(async request=>{
  const origin=request.headers.get('origin'),headers={'Access-Control-Allow-Origin':origin&&allowed.has(origin)?origin:'https://rulman-teklif-admin.vercel.app','Access-Control-Allow-Methods':'POST,OPTIONS','Access-Control-Allow-Headers':'authorization,apikey,content-type,x-client-info','Vary':'Origin','Cache-Control':'no-store'};
  const reply=(data:unknown,status=200)=>new Response(JSON.stringify(data),{status,headers:{...headers,'Content-Type':'application/json'}});
  if(origin&&!allowed.has(origin))return reply({error:'Bu kaynağa izin verilmedi.'},403);if(request.method==='OPTIONS')return new Response(null,{status:204,headers});if(request.method!=='POST')return reply({error:'Yalnızca POST kullanılabilir.'},405);
  try{
   const text=await body(request);const data=JSON.parse(text);
-  if(data.action==='collect'||data.action==='quote'||data.action==='maintenance'){
+  if(['collect','quote','maintenance','auth_guard','delete_member','register_member'].includes(data.action)){
    if(!await verifiedGateway(request,text))return reply({error:'Geçersiz sunucu imzası.'},403);
-   if(data.action==='maintenance'){const result=checked(await service.rpc('prune_site_events'));const ids=checked(await service.rpc('pending_quote_notifications'));for(const id of ids)await notifyQuote(id);return reply(result);}
+   if(data.action==='auth_guard'){const allowed=checked(await service.rpc('auth_request_guard',{p_scope:data.scope,p_ip_hash:data.ipHash,p_account_hash:data.accountHash||null}));return reply({allowed},allowed?200:429);}
+   if(data.action==='delete_member'||data.action==='register_member'){const {data:{user},error}=await service.auth.getUser(data.memberToken||'');if(error||!user)return reply({error:'Üye oturumu geçersiz.'},401);if(data.action==='register_member'){checked(await service.rpc('register_owned_auth_account',{p_user_id:user.id}));return reply({registered:true});}const job=checked(await service.rpc('prepare_member_erasure',{p_user_id:user.id}));try{return reply(await finishErasure(job));}catch{return reply({pending:true},202);}}
+   if(data.action==='maintenance'){const jobs=checked(await service.rpc('pending_member_erasures'));for(const job of jobs){try{await finishErasure(job);}catch{console.error('rt.erasure_retry_pending');}}const result=checked(await service.rpc('prune_site_events'));const ids=checked(await service.rpc('pending_quote_notifications'));for(const id of ids)await notifyQuote(id);return reply(result);}
    if(data.action==='collect'){const accepted=checked(await service.rpc('ingest_site_event',{p_data:data.event}));return reply({accepted},202);}
    let member:string|null=null;if(data.memberToken){const {data:{user},error}=await service.auth.getUser(data.memberToken);if(error||!user)return reply({error:'Üye oturumu geçersiz; yeniden giriş yapın.'},401);member=user.id;}
    const result=checked(await service.rpc('submit_site_quote',{p_data:data.quote,p_ip_hash:data.ipHash,p_fingerprint:await digest(JSON.stringify({items:data.quote.items,details:data.quote.details})),p_member_id:member}));
@@ -37,7 +47,7 @@ Deno.serve(async request=>{
   if(data.action==='create_staff'||data.action==='create_member'){
    if(typeof data.email!=='string'||!/^\S+@\S+\.\S+$/.test(data.email)||data.email.length>254||typeof data.password!=='string'||data.password.length<12||data.password.length>128||typeof data.full_name!=='string'||!data.full_name.trim()||data.full_name.length>160||(data.action==='create_staff'&&!['admin','editor','sales'].includes(data.role)))return reply({error:'E-posta, ad, rol ve en az 12 karakterli parolayı kontrol edin.'},400);
    const created=await service.auth.admin.createUser({email:data.email.trim().toLowerCase(),password:data.password,email_confirm:true,user_metadata:{full_name:data.full_name.trim()}});data.password='';if(created.error)return reply({error:created.error.message.includes('already')?'Bu e-posta zaten kayıtlı. Var olan bir hesabın üzerine yazılmadı.':'Hesap oluşturulamadı; e-posta adresini kontrol edin.'},409);
-   const id=created.data.user.id;const assigned=data.action==='create_staff'?await caller.rpc('admin_set_staff',{p_user_id:id,p_role:data.role,p_active:true}):await caller.rpc('admin_member_profile',{p_user_id:id,p_data:{name:data.full_name,company:'',phone:'',active:true}});if(assigned.error){await service.auth.admin.deleteUser(id);throw assigned.error;}return reply({user_id:id,created:true},201);
+   const id=created.data.user.id;if(data.action==='create_member')checked(await service.rpc('register_owned_auth_account',{p_user_id:id}));const assigned=data.action==='create_staff'?await caller.rpc('admin_set_staff',{p_user_id:id,p_role:data.role,p_active:true}):await caller.rpc('admin_member_profile',{p_user_id:id,p_data:{name:data.full_name,company:'',phone:'',active:true}});if(assigned.error){await service.auth.admin.deleteUser(id);throw assigned.error;}return reply({user_id:id,created:true},201);
   }
   if(data.action==='notification_settings'){
    const configured=!!Deno.env.get('RT_RESEND_API_KEY')&&!!Deno.env.get('RT_NOTIFY_FROM');if(data.value?.enabled&&!configured)return reply({error:'Önce sunucuda RT_RESEND_API_KEY ve RT_NOTIFY_FROM tanımlanmalıdır.'},400);
@@ -45,5 +55,5 @@ Deno.serve(async request=>{
   }
   if(data.action==='retry_notifications'){const ids=checked(await service.rpc('pending_quote_notifications'));for(const id of ids)await notifyQuote(id);return reply({processed:ids.length});}
   return reply({error:'İşlem bulunamadı.'},404);
- }catch(e){const error=e as {code?:string,message?:string};const status=error.code==='42501'?403:error.code==='PT409'?409:error.code==='PT429'?429:400;return reply({error:['23505','23514','22P02'].includes(error.code||'')?'Girdiğiniz alanları kontrol edin.':error.message||'İşlem tamamlanamadı.'},status);}
+ }catch(e){const error=e as {code?:string};const status=error.code==='42501'?403:error.code==='PT409'||error.code==='23505'?409:error.code==='PT429'?429:['23514','22P02','22023','P0002'].includes(error.code||'')?400:503;const requestId=crypto.randomUUID();console.error(JSON.stringify({event:'rt.operation_failed',requestId,code:error.code||'unexpected'}));return reply({error:status===403?'Bu işlem için yetkiniz yok.':status===409?'Kayıt değişmiş veya zaten mevcut. Listeyi yenileyin.':status===429?'Çok fazla deneme. Bir süre sonra tekrar deneyin.':status===400?'Girdiğiniz alanları kontrol edin.':'İşlem tamamlanamadı. Daha sonra tekrar deneyin.',requestId},status);}
 });

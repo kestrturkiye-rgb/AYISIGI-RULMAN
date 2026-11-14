@@ -4,6 +4,7 @@ import {SiteProvider} from './SiteContext';
 import {usePageRoute} from '../routes';
 import {readCatalogFilters,updateCatalogParams} from '../catalog-filters';
 import {readCart} from '../cart';
+import {discoverySeed,isDiscoveryRoute} from '../discovery';
 export default function CloudApp({App}){
  const [route,navigate]=usePageRoute();
  const [site,setSite]=useState(null),[error,setError]=useState(''),[revision,setRevision]=useState(0);
@@ -17,7 +18,7 @@ export default function CloudApp({App}){
  const needed=route.path==='/'||route.path.startsWith('/urunler');
  const page=Math.max(1,Math.min(1000000,Number.parseInt(route.params.get('sayfa'),10)||1));
  const queryKey=site?`${site.revision}:${revision}:${route.key}`:'';
- useEffect(()=>{if(!site||!needed)return;let active=true;setSearchError('');setResult(null);if(filters.error){setResult({key:queryKey,products:[],totalCount:0,page:1,pageSize:24});return}repository.search(filters,site,page).then(data=>{if(active){if(page>1&&page>Math.max(1,Math.ceil(data.totalCount/24))){navigate(updateCatalogParams(route,{sayfa:null}));return}setResult({...data,key:queryKey})}}).catch(e=>{if(active)setSearchError(e.message)});return()=>{active=false}},[site,needed,queryKey,repository]);
+ useEffect(()=>{if(!site||!needed)return;let active=true;setSearchError('');setResult(null);if(filters.error){setResult({key:queryKey,products:[],totalCount:0,page:1,pageSize:24});return}(async()=>{if(site.settings.search?.shuffleHome!==false&&isDiscoveryRoute(route,filters)){const chosen=await repository.discovery(discoverySeed);if(chosen)return chosen;}return repository.search(filters,site,page);})().then(data=>{if(active){if(page>1&&page>Math.max(1,Math.ceil(data.totalCount/24))){navigate(updateCatalogParams(route,{sayfa:null}));return}setResult({...data,key:queryKey})}}).catch(e=>{if(active)setSearchError(e.message)});return()=>{active=false}},[site,needed,queryKey,repository]);
  const idsKey=cartIds.join('|');
  useEffect(()=>{if(!repository)return;let active=true;setCartLoading(true);setCartError('');repository.products(cartIds).then(rows=>{if(active)setSaved(rows)}).catch(e=>{if(active){setSaved([]);setCartError(e.message)}}).finally(()=>{if(active)setCartLoading(false)});return()=>{active=false}},[repository,idsKey,revision]);
  const index=useMemo(()=>new Map([...(result?.key===queryKey?result.products:[]),...saved].map(p=>[p.id,p])),[saved,result,queryKey]);

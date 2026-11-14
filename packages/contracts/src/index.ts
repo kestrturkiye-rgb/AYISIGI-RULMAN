@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from './zod.ts';
 export const roleSchema = z.enum(['admin', 'editor', 'sales']);
 export type StaffRole = z.infer<typeof roleSchema>;
 export const staffSchema = z.object({ user_id: z.string().uuid(), role: roleSchema });
@@ -51,3 +51,5 @@ export const dashboardSchema = z.object({
 export type Dashboard = z.infer<typeof dashboardSchema>;
 export type DashboardPeriod = Dashboard['period'];
 export * from './catalog.ts';
+
+export {z} from './zod.ts';

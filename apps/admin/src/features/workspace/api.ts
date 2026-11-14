@@ -1,4 +1,4 @@
-import {z} from 'zod';import {client,config} from '../../lib/config';import {rpc} from '../catalog/api';
+import {z} from '@rt/contracts';import {client,config} from '../../lib/config';import {rpc} from '../catalog/api';
 export type Row=Record<string,any>;
 const listSchema=z.object({items:z.array(z.record(z.string(),z.unknown())),total:z.number().int().nonnegative().optional()});
 export async function list(name:string,args:Record<string,unknown>={}){return listSchema.parse(await rpc(name,args)) as {items:Row[],total?:number};}

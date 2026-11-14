@@ -13,3 +13,8 @@ __pycache__/
 
 
 /supabase/functions/rt-catalog-media/magick.wasm.br
+
+/backups/
+*.rtbackup
+*.dump
+*.sql.gz

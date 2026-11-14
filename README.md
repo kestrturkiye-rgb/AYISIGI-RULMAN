@@ -160,3 +160,11 @@ Panel düzeni ve rol bazlı dashboard hazırdır. SQL migration 007 yeni okuma R
 ### Admin — aşama 3
 
 Ürün/kategori/marka yönetimi, çoklu görsel ve PDF yükleme, kişisel taslak, sürüm çakışması ve soft delete hazırlandı. Ayrıntılı kurulum, güvenlik sınırları, testler ve **onay sonrası** yayın adımları: [docs/admin-step3/README.md](docs/admin-step3/README.md). Kullanıcı yayın onayıyla bu aşama [mevcut yönetim adresinde](https://rulman-teklif-admin.vercel.app/admin/#/giris) yayınlandı. Büyük statik kataloğun aktarımı ve public entegrasyon sonraki çalışmadır.
+
+## Güvenlik sertleştirme taslağı
+
+HttpOnly/Secure oturum, CSRF, CSP, üyelik silme ve şifreli yedek/geri yükleme araçları için [kurulum ve yayın adımları](docs/security-hardening/README.md) belgesini kullanın. Bu değişiklikler canlıya kendiliğinden uygulanmaz. `.env.example` server-only anahtarları listeler; hiçbir gizli anahtarı `VITE_` değişkenine yazmayın. `npm run test:security` yerel PostgreSQL ve PostgreSQL 17 istemci araçları gerektirir; `npm run test:security:browser` üretim build'iyle çalışır.
+
+## Karışık ana sayfa seçkisi ve gizlilik taslakları
+
+Her açılışta farklı ürün seçkisi, korunan ziyaretçi analizi, yasal metin taslakları ve Google görünürlüğü değerlendirmesi için [çalışma notları](docs/privacy-discovery/README.md) belgesine bakın. Testler: `npm run test:privacy`, `npm run test:privacy:browser`. Yeni SQL 023 ve önceki güvenlik kurulumları canlıya ayrıca uygulanmalıdır.

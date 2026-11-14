@@ -31,7 +31,7 @@ async function main(){
   'GOTRUE_SITE_URL=http://127.0.0.1:4180/admin/','GOTRUE_URI_ALLOW_LIST=http://127.0.0.1:4180/admin/**',
   'GOTRUE_DB_DRIVER=postgres','GOTRUE_DB_DATABASE_URL=postgres://postgres@'+dbIp+':5432/'+database+'?sslmode=disable',
   'GOTRUE_DB_NAMESPACE=auth','GOTRUE_JWT_SECRET='+secret,'GOTRUE_JWT_ADMIN_ROLES=service_role','GOTRUE_JWT_AUD=authenticated',
-  'GOTRUE_JWT_DEFAULT_GROUP=authenticated','GOTRUE_JWT_EXP=3600','GOTRUE_DISABLE_SIGNUP=true','GOTRUE_MAILER_AUTOCONFIRM=true','GOTRUE_SMTP_ADMIN_EMAIL=local@example.test',
+  'GOTRUE_PASSWORD_MIN_LENGTH=12','GOTRUE_JWT_DEFAULT_GROUP=authenticated','GOTRUE_JWT_EXP=3600','GOTRUE_DISABLE_SIGNUP=true','GOTRUE_MAILER_AUTOCONFIRM=true','GOTRUE_SMTP_ADMIN_EMAIL=local@example.test',
  ].join('\n')+'\n',{mode:0o600});
  docker('run','-d','--name',authContainer,'--env-file',envPath,'-p','127.0.0.1:9999:9999','supabase/gotrue:v2.177.0');started=true;
  let ready=false;for(let i=0;i<40;i++){try{if((await fetch('http://127.0.0.1:9999/health')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,500));}if(!ready)throw Error('Yerel Auth servisi başlamadı. Konteyner loglarını inceleyin.');
