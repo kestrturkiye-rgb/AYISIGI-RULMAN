@@ -51,11 +51,12 @@ function referencedMedia(raw){
 }
 export function createRepository(client,projectUrl){
 const cache=createPublicReadCache();
- async function rpc(name,args={}){return cache.read(name+JSON.stringify(args),async()=>{const {data,error,status}=await client.rpc(name,args);if(error)throw Object.assign(Error('Veriler yüklenemedi. Lütfen tekrar deneyin.'),{code:error.code||(/fetch|network/i.test(error.message||'')?'NETWORK':undefined),status:error.status||status});return data})}
+ const rpcKey=(name,args)=>name+JSON.stringify(Object.fromEntries(Object.entries(args).sort(([a],[b])=>a.localeCompare(b))));
+ async function rpc(name,args={}){return cache.read(rpcKey(name,args),async()=>{const {data,error,status}=await client.rpc(name,args);if(error)throw Object.assign(Error('Veriler yüklenemedi. Lütfen tekrar deneyin.'),{code:error.code||(/fetch|network/i.test(error.message||'')?'NETWORK':undefined),status:error.status||status});return data})}
  return {
   invalidate(){cache.clear()},
   async revision(){const {data,error}=await client.from('content_version').select('revision').eq('singleton',true).single();if(error)throw Error('Site sürümü kontrol edilemedi.');return data.revision},
-  async bootstrap(){let raw;const node=globalThis.document?.getElementById('root');const initial=node?.getAttribute('data-rt-site');if(initial){node.removeAttribute('data-rt-site');try{raw=JSON.parse(initial)}catch{}}raw??=await rpc('get_public_site');if(!raw||!Array.isArray(raw.categories)||!Array.isArray(raw.brands))throw Error('Site verisi beklenen biçimde değil.');const ids=referencedMedia(raw),media=[];for(let i=0;i<ids.length;i+=200)media.push(...await rpc('get_public_media',{media_ids:ids.slice(i,i+200)}));return adaptSite(raw,media,projectUrl)},
+  async bootstrap(){let raw;const node=globalThis.document?.getElementById('root');const initial=node?.getAttribute('data-rt-site');const catalog=node?.getAttribute('data-rt-catalog');if(catalog){node.removeAttribute('data-rt-catalog');try{const parsed=JSON.parse(catalog);if(parsed?.method==='search_public_catalog'&&Array.isArray(parsed.data?.items))cache.seed(rpcKey(parsed.method,parsed.args),parsed.data);}catch{}}if(initial){node.removeAttribute('data-rt-site');try{raw=JSON.parse(initial)}catch{}}raw??=await rpc('get_public_site');if(!raw||!Array.isArray(raw.categories)||!Array.isArray(raw.brands))throw Error('Site verisi beklenen biçimde değil.');const ids=referencedMedia(raw),media=[];for(let i=0;i<ids.length;i+=200)media.push(...await rpc('get_public_media',{media_ids:ids.slice(i,i+200)}));return adaptSite(raw,media,projectUrl)},
   async search(filters,site,page=1,pageSize=24){
    let category=null;if(filters.category?.startsWith('group:'))category=site.groups.find(g=>g.id===filters.category.slice(6))?.dbId;
    else if(filters.category?.startsWith('category:'))category=filters.category.slice(9);

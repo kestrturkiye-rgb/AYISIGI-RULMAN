@@ -15,7 +15,7 @@ Aynı örneklerin yeni API ölçümünde `rulman` 415 ms, `a` 576 ms, yataklar 1
 
 ## SEO
 
-Yeni domain üzerinde temiz kategori, makale ve `/urun/{slug}` adresleri desteklenir. Hash bağlantıları ve GitHub Pages korunur. Vercel sunucusu yayımlanmış içeriği ilk HTML'de verir; canonical, meta, Open Graph, 404/503 ve özel sayfalarda noindex/no-store uygulanır. İlk HTML'deki anonim site verisi istemcide tekrar indirilmez. HTML özel kullanıcı veya üyelere özel fiyat verisi içermez; public API sözleşmesini kullanır.
+Yeni domain üzerinde temiz kategori, makale ve `/urun/{slug}` adresleri desteklenir. Hash bağlantıları ve GitHub Pages korunur. Vercel sunucusu yayımlanmış içeriği ilk HTML'de verir; canonical, meta, Open Graph, 404/503 ve özel sayfalarda noindex/no-store uygulanır. İlk HTML'deki anonim site verisi ve sorgusuz kategori sayfası sonuçları istemcide tekrar indirilmez. Arama URL'lerinde ikinci bir filtresiz katalog sorgusu yapılmaz. HTML özel kullanıcı veya üyelere özel fiyat verisi içermez; public API sözleşmesini kullanır.
 
 - `https://rulmanteklif.com/robots.txt`
 - `https://rulmanteklif.com/sitemap.xml` — indeks
