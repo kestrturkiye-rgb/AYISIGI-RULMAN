@@ -1,5 +1,8 @@
 // Reviewed English UI copy. Product codes, brand names, customer input and dimensions are not translated.
 export const messages={
+'Doğrulama e-postası gönderilemedi. Lütfen daha sonra tekrar deneyin veya bizimle iletişime geçin.':'The verification email could not be sent. Please try again later or contact us.',
+'Parola yenileme e-postası gönderilemedi. Lütfen daha sonra tekrar deneyin veya bizimle iletişime geçin.':'The password reset email could not be sent. Please try again later or contact us.',
+
 'Bakım ve uygulama':'Maintenance and applications','Montaj ve servis':'Mounting and service','Pazartesi–Cuma 08:00–18:00':'Monday–Friday 08:00–18:00','Cumartesi 09:00–14:00':'Saturday 09:00–14:00','Dolapdere’den Türkiye’ye endüstriyel tedarik ve teknik destek.':'Industrial supply and technical support from Dolapdere across Türkiye.','Gizlilik':'Privacy',
 
 'Seçtiğiniz site dili':'Your chosen site language',
