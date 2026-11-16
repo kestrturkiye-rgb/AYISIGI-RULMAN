@@ -1,6 +1,7 @@
 import {articlesEn} from './i18n/articles-en.js';
 import {translate as t} from './i18n/core.js';
 import {publicHref} from './seo/urls.js';
+import {RelatedResources} from './seo/CatalogGuide';
 import React, {useState,useEffect} from 'react';
 import {ArrowRight, ArrowLeft, Clock, BookOpen} from 'lucide-react';
 import {useSite} from './data/SiteContext';
@@ -36,7 +37,7 @@ export default function Academy({slug}) {
   <div className="article-body">{t(article.type==='doc'&&<RichContent document={article}/>)}{t((article.sections||[]).map((section,index)=><section key={section.title}><span className="article-section-number">{t("0")}{t(index+1)}</span><h2>{t(section.title)}</h2>{t(section.paragraphs.map(p=><p key={p}>{t(p)}</p>))}</section>))}
    {t(article.type!=='doc'&&<><aside className="article-takeaway"><BookOpen size={25}/><div><h2>{t("Seçim yaparken")}</h2><p>{t(article.takeaway)}</p></div></aside>
    <section className="article-references"><h2>{t("Standartlar ve ileri okuma")}</h2><ul>{t((article.references||[]).map(reference=><li key={reference}>{t(reference)}</li>))}</ul><p>{t("Rulman Teklif teknik rehberidir; hakemli akademik yayın değildir. Hesap ve seçimlerde güncel standartların tam metni ile ilgili ürünün üretici verileri esas alınmalıdır.")}</p></section>
-   </>)}<div className="article-cta"><h2>{t("Uygulamanız için doğru ürünü bulalım.")}</h2><p>{t("Tam ürün kodu veya ölçüyle katalogda arayın; teknik bilgilerinizle teklif isteyin.")}</p><a className="primary" href="#/teknik-arama">{t("Teknik aramaya geç ")}<ArrowRight size={18}/></a></div>
+   </>)}<RelatedResources article={{slug}}/><div className="article-cta"><h2>{t("Uygulamanız için doğru ürünü bulalım.")}</h2><p>{t("Tam ürün kodu veya ölçüyle katalogda arayın; teknik bilgilerinizle teklif isteyin.")}</p><a className="primary" href="#/teknik-arama">{t("Teknik aramaya geç ")}<ArrowRight size={18}/></a></div>
   </div>
  </article>;
 }

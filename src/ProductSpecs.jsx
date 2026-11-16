@@ -15,7 +15,7 @@ export default function ProductSpecs({product,preloaded=false,expanded=false,sho
   {t(loading&&<p role="status">{t("Teknik bilgiler yükleniyor…")}</p>)}
   {t(error&&<div role="alert"><p>{t(error)}</p><button className="spec-retry" onClick={()=>setAttempt(a=>a+1)}>{t("Teknik bilgileri yeniden yükle")}</button></div>)}
   {t(warning&&<p className="source-warning" role="note">{t(warning)}</p>)}
-  {t(!loading&&!specs.length&&!error&&<p className="missing-specs">{t(Object.keys(product.dimensions).length?'Ana ölçüler aşağıda yer alıyor. Ek teknik bilgiler için bize ulaşabilirsiniz.':'Ayrıntılı ölçü ve teknik özellikler için bize ulaşabilirsiniz.')}</p>)}
+  {t(!loading&&!specs.length&&!error&&<p className="missing-specs">{t(Object.keys(product.dimensions).length?'Ana ölçüler ürün bilgilerinde yer alıyor. Ek teknik bilgiler için bize ulaşabilirsiniz.':'Ayrıntılı ölçü ve teknik özellikler için bize ulaşabilirsiniz.')}</p>)}
   {t(details?.origin&&<p>{t("Menşei: ")}{t(details.origin)}</p>)}
   {t(details?.longDescription?.type==='doc'&&<RichContent document={details.longDescription}/>)}
   {t(showGallery&&details?.gallery?.length>1&&<div className="detail-gallery">{t(details.gallery.map(image=><img key={image.src} src={image.small} alt={t(image.alt||product.name)} width="120" height="120" loading="lazy"/>))}</div>)}

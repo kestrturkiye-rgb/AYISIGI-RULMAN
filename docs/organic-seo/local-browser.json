@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "Ürün içeriği JavaScript olmadan sunucu HTML içinde",
+    "Temiz ürün adresi, teknik bilgiler ve canonical",
+    "Sunucu/istemci SEO başlıkları aynı; ürün ve sayfa yolu yapılandırılmış verisi korunuyor",
+    "Kategori rehberinden makaleye, makaleden kategoriye gerçek bağlantılar; eski ürün şeması yeni sayfaya taşınmıyor",
+    "Sunucunun getirdiği kategori sonuçları istemcide tekrar indirilmez",
+    "Geniş arama temiz URL ile sayfalanıyor; yaklaşık sayı kesinmiş gibi gösterilmiyor",
+    "Odak değişimi görünür ürünleri boşaltmıyor ve sorguyu tekrarlamıyor",
+    "Kart başlığı ürün sayfasına açılıyor; geri dönüş arama ve sayfa numarasını koruyor",
+    "Kart görseli ve Ctrl+tıklama ile yeni sekmede bağımsız ürün sayfası",
+    "Fotoğrafsız ürünün özellik bağlantısı kendi sayfasına gider",
+    "Hazır teknik bilgi ikinci kez indirilmez; galeri seçimi ana görseli değiştirir ve PDF görsel diye gösterilmez",
+    "Paylaşılabilir bağlantı, ürün sayfasından teklif sepetine ekleme ve yenilemede sepetin korunması",
+    "Kampanya kartı aynı ürün sayfasına bağlanır",
+    "İngilizce ürün kartı, kalıcı ürün URL ve canonical aynı dilde",
+    "Eski hash bağlantıları korunuyor",
+    "Mobil ürün sayfası taşmıyor",
+    "Kategori seçim rehberi Türkçe ve İngilizce 360px ekranda taşmadan okunuyor"
+  ],
+  "errors": []
+}

@@ -9,6 +9,10 @@ import {trackEvent} from '../members/Analytics';
 import {setSeo} from './Seo';
 import {productPath,publicHref,SITE_ORIGIN} from './urls.js';
 import './product-page.css';
+import {getLanguage} from '../i18n/core.js';
+import {cleanHost} from './urls.js';
+import {productContent,productStructuredData} from './content.js';
+import {RelatedResources} from './CatalogGuide';
 
 export default function PublicProduct({slug,onAdd}){
  const site=useSite();
@@ -17,12 +21,14 @@ export default function PublicProduct({slug,onAdd}){
  useEffect(()=>{
   let active=true;setProduct(null);setError('');setSelectedImage(null);setCopyStatus('');
   if(!slug){setError('Ürün adresi geçersiz.');return;}
+  setSeo({title:t('Ürün bilgileri')+' | '+site.company.name,description:'',path:productPath(slug),noindex:!cleanHost()});
   site.repository.productBySlug(slug).then(p=>{
    if(!active)return;
-   if(!p){setError('Ürün bulunamadı veya yayında değil.');return;}
+   if(!p){setError('Ürün bulunamadı veya yayında değil.');setSeo({title:t('Ürün bulunamadı veya yayında değil.'),description:'',path:productPath(slug),noindex:true});return;}
    setProduct(p);trackEvent('product_view',p);
-   setSeo({title:(t(p.seo?.title)||technicalText(p.name))+' | '+site.company.name,description:technicalText(p.seo?.description||p.shortDescription||p.name),path:productPath(slug),image:p.image});
-  }).catch(()=>{if(active)setError('Ürün bilgileri yüklenemedi. Lütfen sayfayı yeniden deneyin.');});
+   const language=getLanguage(),copy=productContent(p,{language,siteName:site.company.name,entries:site.settings.localization?.entries});
+   setSeo({title:copy.title,description:copy.description,path:productPath(slug),image:p.image,noindex:!cleanHost(),structuredData:productStructuredData(p,site,language)});
+  }).catch(()=>{if(active){setError('Ürün bilgileri yüklenemedi. Lütfen sayfayı yeniden deneyin.');setSeo({title:t('Ürün bilgileri')+' | '+site.company.name,description:'',path:productPath(slug),noindex:true});}});
   return()=>{active=false;};
  },[slug,site.revision,site.language,attempt,site.repository]);
 
@@ -34,6 +40,7 @@ export default function PublicProduct({slug,onAdd}){
  const href=publicHref(productPath(product.slug));
  const shareUrl=SITE_ORIGIN+(href.startsWith('#')?href.slice(1):href);
  const categoryHref=publicHref(selectionPath(product.categoryId?'category:'+product.categoryId:product.category,site.groups));
+ const copy=productContent(product,{language:site.language,siteName:site.company.name,entries:site.settings.localization?.entries});
  async function copyLink(){
   try{await navigator.clipboard.writeText(shareUrl);setCopyStatus('Bağlantı kopyalandı.');}
   catch{setCopyStatus('Bağlantıyı aşağıdaki alandan kopyalayabilirsiniz.');}
@@ -55,7 +62,7 @@ export default function PublicProduct({slug,onAdd}){
    <div className="detail-copy product-page-summary">
     <span className="section-tag">{product.brand!=='Belirtilmemiş'?product.brand:t(product.category)}</span>
     <h1>{product.code}</h1><p className="product-page-name">{technicalText(product.name)}</p>
-    {product.shortDescription&&product.shortDescription!==product.name&&<p>{technicalText(product.shortDescription)}</p>}
+    <p className="product-page-intro">{copy.summary}</p>
     <dl className="product-page-facts">
      <dt>{t('Ürün kodu')}</dt><dd>{product.code}</dd>
      {product.manufacturerCode&&product.manufacturerCode!==product.code&&<><dt>{t('Üretici kodu')}</dt><dd>{product.manufacturerCode}</dd></>}
@@ -70,5 +77,6 @@ export default function PublicProduct({slug,onAdd}){
    </div>
   </div>
   <section className="product-page-technical" aria-labelledby="product-technical-title"><h2 id="product-technical-title">{t('Ürün bilgileri')}</h2><ProductSpecs product={product} preloaded expanded showGallery={false}/></section>
+  <RelatedResources product={product}/>
  </section>;
 }

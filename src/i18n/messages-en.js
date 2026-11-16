@@ -1,5 +1,8 @@
 // Reviewed English UI copy. Product codes, brand names, customer input and dimensions are not translated.
 export const messages={
+'Ana ölçüler ürün bilgilerinde yer alıyor. Ek teknik bilgiler için bize ulaşabilirsiniz.':'Main dimensions are listed in the product information. Contact us for further technical details.',
+'İlgili kategoriler ve teknik rehberler':'Related categories and technical guides',
+'Kod veya ölçüyle ürün ara':'Search by product code or dimensions',
 'Marka':'Brand','Kategori':'Category',
 'Sayfa yolu':'Breadcrumb',
 'Ürün görselleri':'Product images',

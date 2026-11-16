@@ -24,10 +24,10 @@ for p in sorted(Path('dist').rglob('*')):
 assert files and any(f['file']=='admin/index.html' for f in files)
 for p in sorted(list(Path('api').rglob('*.mjs'))+[Path('api/site-shell.html')]):
  raw=p.read_bytes();files.append({'file':str(p),'data':base64.b64encode(raw).decode(),'encoding':'base64'});hashes.append({'path':str(p),'sha256':hashlib.sha256(raw).hexdigest()})
-for name in ['apps/admin/src/project-config.json','src/security/policy.mjs',*[str(p) for p in Path('src/i18n').glob('*.js')]]:
+for name in ['apps/admin/src/project-config.json','src/security/policy.mjs',*[str(p) for p in Path('src/i18n').glob('*.js')],*[str(p) for p in Path('src/seo').glob('*.js')]]:
  p=Path(name);raw=p.read_bytes();files.append({'file':name,'data':base64.b64encode(raw).decode(),'encoding':'base64'});hashes.append({'path':name,'sha256':hashlib.sha256(raw).hexdigest()})
 files.append({'file':'package.json','data':json.dumps({'private':True,'type':'module','engines':{'node':'>=24'}}),'encoding':'utf-8'})
 files.append({'file':'vercel.json','data':Path('deploy/admin-vercel/vercel.json').read_text(),'encoding':'utf-8'})
-d=api('/v13/deployments',{'name':'rulman-teklif-admin','project':PROJECT,'target':'production','files':files,'meta':{'stage':'public-english-language'},'projectSettings':{'framework':None,'buildCommand':None,'installCommand':None,'outputDirectory':None}})
+d=api('/v13/deployments',{'name':'rulman-teklif-admin','project':PROJECT,'target':'production','files':files,'meta':{'stage':'organic-product-category-seo'},'projectSettings':{'framework':None,'buildCommand':None,'installCommand':None,'outputDirectory':None}})
 report={'project':PROJECT,'teamId':TEAM,'deploymentId':d['id'],'target':'production','readyState':d.get('readyState'),'url':'https://'+d['url']+'/admin/#/','productionUrl':'https://rulman-teklif-admin.vercel.app/admin/#/','previousProductionDeployment':previous,'hashes':hashes,'requestedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'otherProjectsChanged':False,'schemaReapplied':False}
 Path('docs/admin-complete/production-deployment.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='hashes'}))
