@@ -1,6 +1,6 @@
 {
   "checks": [
-    "111952 kayıtta yalnızca adres ve olağan güncelleme alanları değişti; tüm adresler benzersiz",
+    "111952 ürün satırı tüm alanlarıyla aynen korundu; kısa adresler ayrı ve benzersiz",
     "Tam model son ekleri korunuyor; çakışan marka ve noktalama kayıtları karışmıyor",
     "Eski adres doğru ürünü döndürüyor; mevcut özel adresler ezilmiyor",
     "Taslak ve silinmiş ürünlerin eski adresleri bilgi sızdırmıyor",
@@ -9,6 +9,8 @@
     "RLS ve private izinleri anonim erişimi sınırlandırıyor"
   ],
   "productCount": 111952,
-  "migrationMs": 32838,
+  "migrationMs": 21012,
+  "growthBytes": 14024704,
+  "migrationSha256": "e1b7d031b1afb4d60c0663d9c4def462f4bc12260a2d17f9c99bf5f7ee4a5ea9",
   "localOnly": true
 }

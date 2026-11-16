@@ -1,12 +1,8 @@
--- Emergency reversal of this migration's URL values only. Never run during normal setup.
--- The WHERE condition preserves any URL explicitly edited after migration.
+-- Emergency canonical URL reversal without deleting maps or rewriting product data.
+-- New URLs remain resolvable and redirect to the preserved original addresses.
 begin;
-set local lock_timeout='8s';
-alter table public.products disable trigger preserve_product_slug;
-insert into private.product_slug_aliases(slug,product_id)
- select p.slug,p.id from public.products p join private.product_slug_snapshot m on m.product_id=p.id where p.slug=m.new_slug
- on conflict(slug) do nothing;
-update public.products p set slug=m.old_slug from private.product_slug_snapshot m
- where p.id=m.product_id and p.slug=m.new_slug;
-alter table public.products enable trigger preserve_product_slug;
+create or replace function private.canonical_product_slug(product_key text,stored_slug text)
+returns text language sql stable security definer set search_path='' as $$select stored_slug$$;
+update public.content_version set revision=revision+1,updated_at=now() where singleton;
 commit;
+-- During emergency rollback, keep URL editing paused until the canonical helper is restored.
