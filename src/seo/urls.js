@@ -6,3 +6,9 @@ export const productPath=slug=>'/urun/'+encodeURIComponent(slug);
 export function canonicalPath(route){return route.path==='/'?'/':route.path.replace(/\/$/,'');}
 
 export function decodePathSegment(value){try{return decodeURIComponent(value)}catch{return null}}
+
+export function replaceProductAddress(slug){
+ const target=publicHref(productPath(slug));
+ history.replaceState(history.state,'',cleanHost()?target:location.pathname+location.search+target);
+ window.dispatchEvent(cleanHost()?new PopStateEvent('popstate'):new HashChangeEvent('hashchange'));
+}

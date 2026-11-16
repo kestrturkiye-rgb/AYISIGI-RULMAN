@@ -4,14 +4,13 @@ import {translate as t,technicalText} from '../i18n/core.js';
 import {useSite} from '../data/SiteContext';
 import ProductImage from '../ProductImage';
 import ProductSpecs from '../ProductSpecs';
-import {selectionPath} from '../routes';
 import {trackEvent} from '../members/Analytics';
 import {setSeo} from './Seo';
-import {productPath,publicHref,SITE_ORIGIN} from './urls.js';
+import {productPath,publicHref,SITE_ORIGIN,replaceProductAddress} from './urls.js';
 import './product-page.css';
 import {getLanguage} from '../i18n/core.js';
 import {cleanHost} from './urls.js';
-import {productContent,productStructuredData} from './content.js';
+import {productContent,productStructuredData,productCategoryPath} from './content.js';
 import {RelatedResources} from './CatalogGuide';
 
 export default function PublicProduct({slug,onAdd}){
@@ -25,6 +24,7 @@ export default function PublicProduct({slug,onAdd}){
   site.repository.productBySlug(slug).then(p=>{
    if(!active)return;
    if(!p){setError('Ürün bulunamadı veya yayında değil.');setSeo({title:t('Ürün bulunamadı veya yayında değil.'),description:'',path:productPath(slug),noindex:true});return;}
+   if(p.slug!==slug){replaceProductAddress(p.slug);return;}
    setProduct(p);trackEvent('product_view',p);
    const language=getLanguage(),copy=productContent(p,{language,siteName:site.company.name,entries:site.settings.localization?.entries});
    setSeo({title:copy.title,description:copy.description,path:productPath(slug),image:p.image,noindex:!cleanHost(),structuredData:productStructuredData(p,site,language)});
@@ -39,7 +39,7 @@ export default function PublicProduct({slug,onAdd}){
  const displayProduct=selectedImage?{...product,image:selectedImage.src,remoteImage:selectedImage}:product;
  const href=publicHref(productPath(product.slug));
  const shareUrl=SITE_ORIGIN+(href.startsWith('#')?href.slice(1):href);
- const categoryHref=publicHref(selectionPath(product.categoryId?'category:'+product.categoryId:product.category,site.groups));
+ const categoryHref=publicHref(productCategoryPath(product,site));
  const copy=productContent(product,{language:site.language,siteName:site.company.name,entries:site.settings.localization?.entries});
  async function copyLink(){
   try{await navigator.clipboard.writeText(shareUrl);setCopyStatus('Bağlantı kopyalandı.');}
@@ -47,7 +47,6 @@ export default function PublicProduct({slug,onAdd}){
  }
  return <section className="container standalone-page product-page">
   <nav className="page-breadcrumb" aria-label={t('Sayfa yolu')}>
-   <a href={publicHref('/')}>{t('Ana sayfa')}</a><span aria-hidden="true">/</span>
    <a href={publicHref('/urunler')}>{t('Ürünler')}</a><span aria-hidden="true">/</span>
    {product.category&&<><a href={categoryHref}>{t(product.category)}</a><span aria-hidden="true">/</span></>}
    <span aria-current="page">{product.code}</span>

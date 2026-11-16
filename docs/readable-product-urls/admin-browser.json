@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Adres tam ürün kodundan üretilir; ürün adının değişmesi modeli değiştirmez",
+    "Elle düzenlenen adres korunur; otomatik üret düğmesi SKU modelini kullanır",
+    "Admin formundaki tam kod ve kısa adres veritabanına ayrı alanlarda doğru kaydedilir"
+  ],
+  "errors": [],
+  "localOnly": true,
+  "auth": "local-session-fixture"
+}

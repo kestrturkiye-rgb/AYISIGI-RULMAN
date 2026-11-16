@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "111952 kayıtta yalnızca adres ve olağan güncelleme alanları değişti; tüm adresler benzersiz",
+    "Tam model son ekleri korunuyor; çakışan marka ve noktalama kayıtları karışmıyor",
+    "Eski adres doğru ürünü döndürüyor; mevcut özel adresler ezilmiyor",
+    "Taslak ve silinmiş ürünlerin eski adresleri bilgi sızdırmıyor",
+    "Çoklu adres değişikliğinde geçmiş korunuyor; eski adres başka ürüne verilemiyor",
+    "Yeni kayıtlarda otomatik adres tam koddan üretilip markayla ayrılıyor",
+    "RLS ve private izinleri anonim erişimi sınırlandırıyor"
+  ],
+  "productCount": 111952,
+  "migrationMs": 32838,
+  "localOnly": true
+}

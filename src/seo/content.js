@@ -33,10 +33,15 @@ export function relatedResources({site,group,product,article,language='tr'}){
  const articles=(site.articles||[]).filter(a=>a.slug!==article?.slug&&(articleGroups[a.slug]||[]).some(id=>ids.includes(id))).slice(0,3).map(a=>({href:'/akademi/'+a.slug,label:translate(a.title,language,entries)}));
  return [...categories,...articles];
 }
+export function productCategoryPath(product,site){
+ const group=productGroup(product,site),id=product.categoryId||product.category_id;
+ if(group&&id===group.dbId)return '/urunler/'+group.id;
+ return (group?'/urunler/'+group.id:'/urunler')+'?kategori='+encodeURIComponent(id?'category:'+id:product.category||'');
+}
 export function productStructuredData(product,site,language='tr'){
  const entries=site.settings?.localization?.entries;
  const content=productContent(product,{language,entries,siteName:site.company?.name||site.settings?.identity?.name||'Rulman Teklif'}),url=ROOT+localePath('/urun/'+encodeURIComponent(product.slug),language),brand=brandName(product.brand);
- const group=productGroup(product,site),crumbs=[{name:language==='en'?'Home':'Ana sayfa',url:ROOT+localePath('/',language)},{name:language==='en'?'Products':'Ürünler',url:ROOT+localePath('/urunler',language)},...(group?[{name:translate(group.name,language,entries),url:ROOT+localePath('/urunler/'+group.id,language)}]:[]),{name:product.code||product.sku,url}];
+ const crumbs=[{name:language==='en'?'Products':'Ürünler',url:ROOT+localePath('/urunler',language)},...(product.category?[{name:translate(product.category,language,entries),url:ROOT+localePath(productCategoryPath(product,site),language)}]:[]),{name:product.code||product.sku,url}];
  const image=product.image||(product.media?.url?.startsWith('https://kestrturkiye-rgb.github.io/AYISIGI-RULMAN/')?product.media.url:null)|| (product.media?.bucket==='media-published'&&product.media.path&&!product.media.path.split('/').includes('..')?project.url+'/storage/v1/object/public/media-published/'+product.media.path.split('/').map(encodeURIComponent).join('/'):null);
  return {'@context':'https://schema.org','@graph':[{'@type':'Product','@id':url+'#product',name:content.name,sku:product.code||product.sku,...((product.manufacturerCode||product.manufacturer_code)?{mpn:product.manufacturerCode||product.manufacturer_code}:{}),url,description:content.description,...(brand?{brand:{'@type':'Brand',name:brand}}:{}),...(image?{image:[image]}:{}),...(product.category?{category:translate(product.category,language,entries)}:{}),additionalProperty:content.measurements.map(value=>({'@type':'PropertyValue',name:value.split(': ')[0],value:value.split(': ')[1]}))},{'@type':'BreadcrumbList',itemListElement:crumbs.map((c,index)=>({'@type':'ListItem',position:index+1,name:c.name,item:c.url}))}]};
 }

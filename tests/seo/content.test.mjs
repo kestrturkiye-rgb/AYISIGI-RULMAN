@@ -17,7 +17,7 @@ test('English output keeps codes and real measurements while translating catalog
  const spare=productContent({sku:'RT-123',name:'Matkap uçları',category:'Kesici takımlar',brand:'Bosch'});assert.ok(spare.title.includes('Matkap uçları'));
 });
 test('product schema includes factual data and breadcrumbs without fabricated offers, ratings or reviews',()=>{
- const schema=productStructuredData(product,site),item=schema['@graph'][0];assert.equal(item.sku,'6001');assert.equal(item.additionalProperty.length,3);for(const key of ['brand','offers','aggregateRating','review'])assert.equal(Object.hasOwn(item,key),false);assert.equal(schema['@graph'][1].itemListElement[2].item,'https://rulmanteklif.com/urunler/bearings');
+ const schema=productStructuredData(product,site),item=schema['@graph'][0];assert.equal(item.sku,'6001');assert.equal(item.additionalProperty.length,3);for(const key of ['brand','offers','aggregateRating','review'])assert.equal(Object.hasOwn(item,key),false);assert.equal(schema['@graph'][1].itemListElement[1].item,'https://rulmanteklif.com/urunler/bearings?kategori=category%3Adeep');
  const english=productStructuredData({...product,brand:'FAG',manufacturer_code:'6001-2RS'},site,'en');assert.equal(english['@graph'][0].brand.name,'FAG');assert.equal(english['@graph'][0].mpn,'6001-2RS');assert.ok(english['@graph'][0].url.includes('/en/urun/'));
 });
 test('JSON-LD safely escapes script terminators without changing the parsed product data',()=>{

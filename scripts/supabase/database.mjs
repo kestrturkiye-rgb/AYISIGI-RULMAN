@@ -10,12 +10,12 @@ export function databaseConfig(connectionString,{localOnly=false}={}){
  return {connectionString:url.toString(),ssl:local?false:{rejectUnauthorized:true},connectionTimeoutMillis:15000};
 }
 export const connect=async(value,options)=>{const client=new pg.Client(databaseConfig(value,options));await client.connect();return client};
-export async function applyMigrations(client){
+export async function applyMigrations(client,{through}={}){
  await client.query('create schema if not exists private');
  await client.query('create table if not exists private.schema_migrations(version text primary key,sha256 text not null,applied_at timestamptz not null default now())');
  await client.query('revoke all on private.schema_migrations from public,anon,authenticated');
  await client.query('alter table private.schema_migrations enable row level security');
- const files=(await readdir(new URL('../../supabase/migrations/',import.meta.url))).filter(p=>p.endsWith('.sql')).sort();
+ const files=(await readdir(new URL('../../supabase/migrations/',import.meta.url))).filter(p=>p.endsWith('.sql')&&(!through||p<=through)).sort();
  for(const name of files){
   const sql=await readFile(new URL('../../supabase/migrations/'+name,import.meta.url),'utf8');const sha=createHash('sha256').update(sql).digest('hex');
   const previous=await client.query('select sha256 from private.schema_migrations where version=$1',[name]);
