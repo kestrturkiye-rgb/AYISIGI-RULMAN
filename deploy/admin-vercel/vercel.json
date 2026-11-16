@@ -6,6 +6,10 @@
       "use": "@vercel/node"
     },
     {
+      "src": "api/public.mjs",
+      "use": "@vercel/node"
+    },
+    {
       "src": "api/collect.mjs",
       "use": "@vercel/node"
     },
@@ -47,7 +51,7 @@
         "Referrer-Policy": "strict-origin-when-cross-origin",
         "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-        "Content-Security-Policy": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://kestrturkiye-rgb.github.io https://lptosaejlowasrbcyqnu.supabase.co; font-src 'self'; connect-src 'self' https://lptosaejlowasrbcyqnu.supabase.co wss://lptosaejlowasrbcyqnu.supabase.co https://rulman-teklif-admin.vercel.app; worker-src 'self' blob:; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        "Content-Security-Policy": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://kestrturkiye-rgb.github.io https://lptosaejlowasrbcyqnu.supabase.co https://www.google-analytics.com https://www.googleadservices.com https://www.google.com https://googleads.g.doubleclick.net; font-src 'self'; connect-src 'self' https://lptosaejlowasrbcyqnu.supabase.co wss://lptosaejlowasrbcyqnu.supabase.co https://rulman-teklif-admin.vercel.app https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net; worker-src 'self' blob:; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
       },
       "continue": true
     },
@@ -68,6 +72,10 @@
       "dest": "/api/retention.mjs"
     },
     {
+      "src": "/",
+      "dest": "/api/public.mjs?path=/"
+    },
+    {
       "handle": "filesystem"
     },
     {
@@ -75,8 +83,12 @@
       "dest": "/admin/index.html"
     },
     {
-      "src": "/",
-      "dest": "/index.html"
+      "src": "/(robots[.]txt|sitemap[.]xml|sitemap-pages[.]xml|sitemap-products-[0-9]+[.]xml)",
+      "dest": "/api/public.mjs?path=/$1"
+    },
+    {
+      "src": "/(urun/[^/]+|urunler(?:/[^/]+)?|akademi(?:/[^/]+)?|[^/.]+)/?",
+      "dest": "/api/public.mjs?path=/$1"
     }
   ],
   "crons": [

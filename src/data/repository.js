@@ -1,10 +1,13 @@
+import {publicHref} from '../seo/urls.js';
+import {createPublicReadCache} from './public-read-cache.js';
 import {formatDimensions} from '../catalog-utils.js';
 import {legacyCartCodes} from '../cart.js';
 import {normalizeCode} from '../technical-search.js';
 export function dataMode(env={}){const mode=env.VITE_DATA_SOURCE||'static';if(!['static','supabase'].includes(mode))throw Error('VITE_DATA_SOURCE static veya supabase olmalı.');return mode}
 export function safeLink(value,fallback='#/'){
  if(typeof value!=='string')return fallback;
- if(/^#\/[a-z0-9/?&=%._+\-]*$/i.test(value)||/^(https:\/\/|mailto:|tel:)/i.test(value))return value;
+ if(/^#\/[a-z0-9/?&=%._+\-]*$/i.test(value))return publicHref(value.slice(1));
+ if(/^(https:\/\/|mailto:|tel:)/i.test(value))return value;
  return fallback;
 }
 export function mediaUrl(media,projectUrl){
@@ -22,7 +25,7 @@ export function adaptProduct(row,url){
  const image=adaptMedia(row.media,url);
  return {id:row.id,code:row.sku,name:row.name,slug:row.slug,brand:row.brand||'Belirtilmemiş',brandId:row.brand_id,category:row.category,categoryId:row.category_id,
   dimensions,size:formatDimensions(dimensions),image:image?.src||null,remoteImage:image,imageKind:row.image_kind||'product',sources:[],
-  baseCode:row.base_code,manufacturerCode:row.manufacturer_code,codeAliases:row.manufacturer_code?[row.manufacturer_code]:[],normalizedCode:normalizeCode(row.sku),
+  seo:row.seo,shortDescription:row.short_description,baseCode:row.base_code,manufacturerCode:row.manufacturer_code,codeAliases:row.manufacturer_code?[row.manufacturer_code]:[],normalizedCode:normalizeCode(row.sku),
   imageStatus:!image&&row.is_new?'pending':null,stockStatus:row.stock_status,priceMode:row.price_mode,price:row.price||null,remote:true,
   specs:row.specifications?.map(s=>[s.name,[s.value,s.unit].filter(v=>v!==null&&v!==undefined&&v!=='').join(' ')]),warning:row.technical_warning||null,longDescription:row.long_description,origin:row.origin,
   gallery:row.gallery?.map(media=>adaptMedia(media,url)).filter(Boolean)};
@@ -47,24 +50,26 @@ function referencedMedia(raw){
  walk(raw.settings);walk(raw.home);walk(raw.pages);return [...ids];
 }
 export function createRepository(client,projectUrl){
- async function rpc(name,args={}){const {data,error}=await client.rpc(name,args);if(error)throw Error('Veriler yüklenemedi. Bağlantınızı kontrol edip tekrar deneyin.');return data}
+const cache=createPublicReadCache();
+ async function rpc(name,args={}){return cache.read(name+JSON.stringify(args),async()=>{const {data,error,status}=await client.rpc(name,args);if(error)throw Object.assign(Error('Veriler yüklenemedi. Lütfen tekrar deneyin.'),{code:error.code||(/fetch|network/i.test(error.message||'')?'NETWORK':undefined),status:error.status||status});return data})}
  return {
-  async bootstrap(){const raw=await rpc('get_public_site');if(!raw||!Array.isArray(raw.categories)||!Array.isArray(raw.brands))throw Error('Site verisi beklenen biçimde değil.');const ids=referencedMedia(raw),media=[];for(let i=0;i<ids.length;i+=200)media.push(...await rpc('get_public_media',{media_ids:ids.slice(i,i+200)}));return adaptSite(raw,media,projectUrl)},
+  invalidate(){cache.clear()},
+  async revision(){const {data,error}=await client.from('content_version').select('revision').eq('singleton',true).single();if(error)throw Error('Site sürümü kontrol edilemedi.');return data.revision},
+  async bootstrap(){let raw;const node=globalThis.document?.getElementById('root');const initial=node?.getAttribute('data-rt-site');if(initial){node.removeAttribute('data-rt-site');try{raw=JSON.parse(initial)}catch{}}raw??=await rpc('get_public_site');if(!raw||!Array.isArray(raw.categories)||!Array.isArray(raw.brands))throw Error('Site verisi beklenen biçimde değil.');const ids=referencedMedia(raw),media=[];for(let i=0;i<ids.length;i+=200)media.push(...await rpc('get_public_media',{media_ids:ids.slice(i,i+200)}));return adaptSite(raw,media,projectUrl)},
   async search(filters,site,page=1,pageSize=24){
    let category=null;if(filters.category?.startsWith('group:'))category=site.groups.find(g=>g.id===filters.category.slice(6))?.dbId;
    else if(filters.category?.startsWith('category:'))category=filters.category.slice(9);
    else if(filters.category&&filters.category!=='Tüm ürünler')category=site.groups.flatMap(g=>g.categoryRecords).find(c=>c.name===filters.category)?.id;
    const brand=filters.brand==='Tüm markalar'?null:site.stats.brands.find(b=>b.name===filters.brand||b.id===filters.brand)?.id;
    if((filters.category!=='Tüm ürünler'&&!category)||(filters.brand!=='Tüm markalar'&&!brand))return {products:[],totalCount:0,page,pageSize};
-   const q=filters.technicalQuery||{};const result=await rpc('search_public_catalog',{p_query:filters.search||'',p_code:q.code||null,p_inner:q.inner??null,p_outer:q.outer??null,p_width:q.width??null,p_category:category,p_brand:brand,p_page:page,p_page_size:pageSize});
-   return {products:result.items.map(row=>adaptProduct(row,projectUrl)),totalCount:Number(result.totalCount),page:result.page,pageSize:result.pageSize};
+   const q=filters.technicalQuery||{};const args={p_query:filters.search||'',p_code:q.code||null,p_inner:q.inner??null,p_outer:q.outer??null,p_width:q.width??null,p_category:category,p_brand:brand,p_page:page,p_page_size:pageSize};let result;if(filters.search?.trim()){try{result=await rpc('search_public_catalog_page',args)}catch(error){if(!['PGRST202','42883'].includes(error.code))throw error;}}result??=await rpc('search_public_catalog',args);
+   return {products:result.items.map(row=>adaptProduct(row,projectUrl)),countExact:result.countExact!==false,hasMore:result.hasMore,totalCount:Number(result.totalCount),page:result.page,pageSize:result.pageSize};
   },
   async discovery(seed){
-   const {data,error}=await client.rpc('get_public_discovery',{p_seed:seed,p_size:24});
-   if(error&&['PGRST202','42883'].includes(error.code))return null;
-   if(error)throw Error('Ürün seçkisi yüklenemedi. Yeniden deneyin.');
+   let data;try{data=await rpc('get_public_discovery',{p_seed:seed,p_size:24});}catch(error){if(['PGRST202','42883'].includes(error.code))return null;throw error;}
    return {products:data.items.map(row=>adaptProduct(row,projectUrl)),totalCount:data.items.length,page:1,pageSize:24,discovery:true};
   },
+  async productBySlug(slug){const row=await rpc('get_public_product_by_slug',{p_slug:slug});return row?adaptProduct(row,projectUrl):null},
   async products(ids,details=false){const unique=[...new Set(ids.filter(id=>typeof id==='string'||typeof id==='number').map(String))],legacy=[...new Set(ids.filter(id=>typeof id==='number'&&legacyCartCodes[id]))],result=[];for(let i=0;i<unique.length;i+=200)result.push(...await rpc('get_public_products',{product_ids:unique.slice(i,i+200),include_details:details}));for(const id of legacy){const [brand,code]=legacyCartCodes[id];const matches=await rpc('search_public_catalog',{p_code:brand+code,p_page_size:100});const match=matches.items.find(row=>row.brand===brand&&normalizeCode(row.sku)===normalizeCode(code));if(match&&!result.some(row=>row.id===match.id))result.push(match)}return result.map(row=>adaptProduct(row,projectUrl))},
   async article(slug,site){const row=await rpc('get_public_article',{article_slug:slug});if(!row)return null;const summary=site.articles.find(a=>a.slug===slug)||{};return {...summary,...row.body,title:row.title,slug:row.slug,category:row.topic,description:row.summary,minutes:row.reading_minutes,seo:row.seo}},
   subscribe(onChange){const channel=client.channel('public-content-version').on('postgres_changes',{event:'UPDATE',schema:'public',table:'content_version'},onChange).subscribe();return ()=>client.removeChannel(channel)},

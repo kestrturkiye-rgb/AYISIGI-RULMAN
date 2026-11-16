@@ -40,7 +40,9 @@
     "test:security:browser": "node tests/security/browser.mjs",
     "security:backup": "node --env-file-if-exists=.env.local scripts/security/backup.mjs",
     "test:privacy": "node --test --test-concurrency=1 tests/privacy/consent.test.mjs tests/privacy/discovery.test.mjs tests/privacy/discovery-db.test.mjs",
-    "test:privacy:browser": "node tests/privacy/discovery.browser.mjs"
+    "test:privacy:browser": "node tests/privacy/discovery.browser.mjs",
+    "test:seo": "node --test tests/seo/google-tags.test.mjs tests/seo/server.test.mjs",
+    "test:performance": "node --test tests/performance/public-read-cache.test.mjs tests/performance/catalog-db.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",

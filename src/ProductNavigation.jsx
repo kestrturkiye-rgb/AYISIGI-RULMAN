@@ -12,7 +12,7 @@ const icons={bearings:CircleDot,housings:Cog,linear:MoveHorizontal,maintenance:W
 export default function ProductNavigation({stats,open,onToggle,onSelect,selected,products,path,productCount=products.length}) {
  const site=useSite();const productGroups=site.groups;
  const links=site.remote?site.menus.filter(m=>m.menu_id==='header'&&!m.parent_id&&!m.href.startsWith('#/urunler/')).map(m=>[safeLink(m.href),m.label]):[...companyPages,['/akademi','Akademi']].map(([path,label])=>[pageHref(path),label]);
- const headerGroups=site.remote?site.menus.filter(m=>m.menu_id==='header'&&!m.parent_id).map(m=>{const group=productGroups.find(g=>m.href===pageHref(groupPath(g.id)));return group?{...group,name:m.label}:null}).filter(Boolean):productGroups.slice(0,4);
+ const headerGroups=site.remote?site.menus.filter(m=>m.menu_id==='header'&&!m.parent_id).map(m=>{const group=productGroups.find(g=>[pageHref(groupPath(g.id)),'#'+groupPath(g.id)].includes(m.href));return group?{...group,name:m.label}:null}).filter(Boolean):productGroups.slice(0,4);
  const secondaryGroups=productGroups.filter(group=>!headerGroups.some(primary=>primary.id===group.id));
  const [active,setActive]=useState(null);
  const counts=useMemo(()=>{if(stats)return stats.categories;const result={};for(const p of products)result[p.category]=(result[p.category]||0)+1;return result},[products,stats]);

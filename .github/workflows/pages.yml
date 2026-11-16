@@ -45,6 +45,8 @@ jobs:
           node --test tests/admin/gateway.test.mjs
           node --test tests/privacy/consent.test.mjs tests/privacy/discovery.test.mjs tests/security/auth.test.mjs tests/security/domain.test.mjs
           node --test tests/admin/spreadsheets.test.mjs
+          node tests/performance/public-read-cache.test.mjs
+          node tests/seo/google-tags.test.mjs
           node tests/quote.test.js
           node --test tests/server.test.js
           python tests/test_skf_data.py
@@ -57,6 +59,10 @@ jobs:
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
         run: npm run build:pages -- --base="/${{ github.event.repository.name }}/"
+      - name: Verify crawlable page renderer
+        run: |
+          node -e "require('node:fs').copyFileSync('dist/index.html','api/site-shell.html')"
+          node tests/seo/server.test.mjs
       - name: Upload the built site
         uses: actions/upload-pages-artifact@v3
         with:

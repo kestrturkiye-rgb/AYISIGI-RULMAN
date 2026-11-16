@@ -18,3 +18,5 @@ __pycache__/
 *.rtbackup
 *.dump
 *.sql.gz
+
+/api/site-shell.html
