@@ -37,7 +37,7 @@ Site içi ziyaretçi analizi korunur. Google Analytics ve Ads ölçümü için a
 
 ## Üyelik e-postası — bekleyen yapılandırma
 
-Posta kutusunun hazır olduğu kullanıcı tarafından doğrulandı. Canlı Supabase'te özel SMTP henüz yapılandırılmamış, e-posta doğrulama açıktır. Natro'nun gerçek SMTP sunucusu/port/TLS bilgisi bekleniyor; sunucu adresi tahmin edilmez.
+Posta kutusunun hazır olduğu kullanıcı tarafından doğrulandı. Canlı Supabase'te özel SMTP henüz yapılandırılmamış, e-posta doğrulama açıktır. Natro sağlayıcı yanıtıyla `mail.kurumsaleposta.com:465` SSL/TLS doğrulandı; 587 bağlantısında STARTTLS kapalı olduğu için kullanılmaz. Posta kutusu parolası güvenli giriş bekliyor; ayrıntı `docs/email/natro-smtp.md`.
 
 Supabase → proje `lptosaejlowasrbcyqnu` → Authentication → Emails/SMTP bölümünde sağlayıcı bilgileri girilebilir. Parola sohbetten veya istemci ayarından gönderilmez. Alternatif sunucu tarafı yardımcı: `scripts/security/configure-smtp.py`; kuru çalıştırma yalnız durum gösterir. `.env.example` gerekli `RT_SMTP_*` isimlerini listeler; değerler yalnız gizli sunucu ortamına girilir.
 
