@@ -23,6 +23,16 @@ $$;
 revoke all on function private.product_url_part(text),private.canonical_product_slug(text,text) from public,anon,authenticated;
 -- Reserve existing hand-written addresses first. Do not alter any product row.
 insert into private.product_urls(product_id,slug) select id,slug from public.products where slug !~ '-p-[a-f0-9]{12,}$';
+-- Allocate the non-conflicting majority in one set operation; loop only over collisions.
+with codes as(select p.id,p.sort_order,private.product_url_part(p.sku) code_slug,
+ case when b.name is null or b.name='Belirtilmemiş' then '' else private.product_url_part(b.name) end brand_slug,
+ count(*) over(partition by private.product_url_part(p.sku)) code_count
+ from public.products p left join public.brands b on b.id=p.brand_id where p.slug ~ '-p-[a-f0-9]{12,}$'),
+candidates as(select *,rtrim(left(code_slug||case when code_count>1 and brand_slug<>'' then '-'||brand_slug else '' end,270),'-') candidate from codes where code_slug<>''),
+winners as(select distinct on(candidate) id,candidate from candidates order by candidate,sort_order,id)
+insert into private.product_urls(product_id,slug) select id,candidate from winners w
+ where not exists(select 1 from private.product_urls u where u.slug=w.candidate)
+ and not exists(select 1 from public.products p where p.slug=w.candidate and p.id<>w.id);
 do $$declare item record;candidate text;base text;option_no int;begin
  for item in
   with codes as(select p.id,p.sort_order,private.product_url_part(p.sku) code_slug,
@@ -31,7 +41,7 @@ do $$declare item record;candidate text;base text;option_no int;begin
    count(*) over(partition by private.product_url_part(p.sku)) code_count
    from public.products p left join public.brands b on b.id=p.brand_id join public.categories c on c.id=p.category_id
    where p.slug ~ '-p-[a-f0-9]{12,}$')
-  select * from codes order by sort_order,id
+  select * from codes where not exists(select 1 from private.product_urls u where u.product_id=codes.id) order by sort_order,id
  loop
   if item.code_slug='' then continue;end if;
   base:=rtrim(left(item.code_slug||case when item.code_count>1 and item.brand_slug<>'' then '-'||item.brand_slug else '' end,270),'-');

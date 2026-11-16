@@ -9,8 +9,8 @@
     "RLS ve private izinleri anonim erişimi sınırlandırıyor"
   ],
   "productCount": 111952,
-  "migrationMs": 21012,
+  "migrationMs": 7391,
   "growthBytes": 14024704,
-  "migrationSha256": "e1b7d031b1afb4d60c0663d9c4def462f4bc12260a2d17f9c99bf5f7ee4a5ea9",
+  "migrationSha256": "ab5009173dc6c02b70156e2a400bbe3549f9e7f06a7d6caab9b33722d50e699c",
   "localOnly": true
 }
