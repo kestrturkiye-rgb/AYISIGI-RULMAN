@@ -4,6 +4,7 @@ import { MessageCircle, Download, ArrowUpRight, Send, LoaderCircle, CircleCheck 
 import { createQuoteRequest, makeWhatsAppUrl } from './quote';
 import { api, quoteServiceStatus } from './api';
 import {getSupabaseClient} from './supabase/client';
+import {publicServiceUrl} from './security/policy.mjs';
 
 export default function QuoteRequest({ lines, details, onChange, onDownload, onOpenCart, compact = false, busy=false }) {
  const site=useSite();const {company}=site;
@@ -26,7 +27,7 @@ export default function QuoteRequest({ lines, details, onChange, onDownload, onO
    if(!details.customer.trim()||!details.email.trim()){setError('Teklif göndermek için ad / firma ve e-posta adresinizi girin.');return}
    requestRef.current ||= {key:crypto.randomUUID(),signature};
    submitting.current=true;setPending(true);setError('');
-   try{let result;const body={requestKey:requestRef.current.key,items:lines.map(p=>({id:String(p.id),qty:p.qty})),details,website:event.currentTarget.elements.website.value};if(site.remote){const session=(await getSupabaseClient().auth.getSession()).data.session;const response=await fetch('https://rulman-teklif-admin.vercel.app/api/quote',{method:'POST',headers:{'Content-Type':'application/json',...(session?{Authorization:'Bearer '+session.access_token}:{})},body:JSON.stringify(body),signal:AbortSignal.timeout(30000)});result=await response.json();if(!response.ok)throw Error(result.error||'Talep gönderilemedi.');}else result=await api('/quotes',{method:'POST',body:JSON.stringify(body)});setReceipt(result)}catch(error){setError(error.message)}finally{submitting.current=false;setPending(false)}
+   try{let result;const body={requestKey:requestRef.current.key,items:lines.map(p=>({id:String(p.id),qty:p.qty})),details,website:event.currentTarget.elements.website.value};if(site.remote){const session=(await getSupabaseClient().auth.getSession()).data.session;const response=await fetch(publicServiceUrl('/api/quote'),{method:'POST',headers:{'Content-Type':'application/json',...(session?{Authorization:'Bearer '+session.access_token}:{})},body:JSON.stringify(body),signal:AbortSignal.timeout(30000)});result=await response.json();if(!response.ok)throw Error(result.error||'Talep gönderilemedi.');}else result=await api('/quotes',{method:'POST',body:JSON.stringify(body)});setReceipt(result)}catch(error){setError(error.message)}finally{submitting.current=false;setPending(false)}
    return;
   }
   const request = createQuoteRequest(lines, details, company);

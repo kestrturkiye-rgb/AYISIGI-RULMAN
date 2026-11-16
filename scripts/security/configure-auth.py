@@ -17,8 +17,8 @@ def request(method='GET',data=None):
     except Exception:raise SystemExit('Auth yapılandırma işlemi başarısız. Gizli değerler gösterilmedi.') from None
 before=request()
 redirects=set(filter(None,str(before.get('uri_allow_list','')).split(',')))
-base='https://rulman-teklif-admin.vercel.app'
-redirects.update([base+'/',base+'/admin/',base+'/?auth_action=member_signup',base+'/?auth_action=member_recovery',base+'/admin/?auth_action=recovery',base+'/admin/?auth_action=invite'])
+for base in ['https://rulman-teklif-admin.vercel.app','https://rulmanteklif.com','https://www.rulmanteklif.com']:
+    redirects.update([base+'/',base+'/admin/',base+'/?auth_action=member_signup',base+'/?auth_action=member_recovery',base+'/admin/?auth_action=recovery',base+'/admin/?auth_action=invite'])
 patch={'password_min_length':12,'uri_allow_list':','.join(sorted(redirects))}
 report={'project':REF,'applied':False,'currentMinimum':before.get('password_min_length'),'targetMinimum':12,'canonicalRedirectsPlanned':True,'sharedSiteUrlChanged':False}
 if '--apply' in args:

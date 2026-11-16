@@ -1,6 +1,7 @@
 import {createHmac,randomUUID} from 'node:crypto';import {isIP} from 'node:net';
+import {AUTH_ORIGINS} from '../src/security/policy.mjs';
 class InputError extends Error{}
-const origins=new Set(['https://kestrturkiye-rgb.github.io','https://rulman-teklif-admin.vercel.app']);
+const origins=new Set(['https://kestrturkiye-rgb.github.io',...AUTH_ORIGINS]);
 export function ipMask(ip){if(ip.startsWith('::ffff:')&&isIP(ip.slice(7))===4)ip=ip.slice(7);if(isIP(ip)===4)return ip.split('.').slice(0,3).join('.')+'.0/24';if(isIP(ip)===6){const [left,right='']=ip.toLowerCase().split('::'),a=left?left.split(':'):[],b=right?right.split(':'):[],all=ip.includes('::')?[...a,...Array(8-a.length-b.length).fill('0'),...b]:a;return all.slice(0,3).map(v=>v||'0').join(':')+'::/48';}return 'Bilinmiyor';}
 export function visitorMetadata(headers,secret,now=new Date()){
  const raw=String(headers['x-forwarded-for']||'').split(',')[0].trim();const ip=isIP(raw)?raw:'unknown';const hash=value=>createHmac('sha256',secret).update(value).digest('hex');const day=now.toISOString().slice(0,10),short=value=>{try{return decodeURIComponent(String(value||'')).slice(0,120);}catch{return '';}};

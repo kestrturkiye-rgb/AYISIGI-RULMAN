@@ -1,6 +1,7 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {useSite} from '../data/SiteContext';
 import {CONSENT_KEY,CONSENT_EVENT,readConsent,saveConsent,privacyRequested,analyticsConsent} from '../privacy/consent';
+import {publicServiceUrl} from '../security/policy.mjs';
 let enabled=false;const inFlight=new Set();
 function stopTracking(){for(const controller of inFlight)controller.abort();inFlight.clear();try{sessionStorage.removeItem('rt-analysis-session');}catch{}}
 export function trackEvent(kind,product){
@@ -10,7 +11,7 @@ export function trackEvent(kind,product){
  const path=location.hash.slice(1).split('?')[0]||'/';if(path.startsWith('/admin'))return;
  const body={id:crypto.randomUUID(),consent:true,sessionId:session,kind,path,productId:product?String(product.id):null,productName:product?.name||product?.code||null,referrer,device:/Mobi/i.test(navigator.userAgent)?'mobile':/Tablet|iPad/i.test(navigator.userAgent)?'tablet':'desktop'};
  const controller=new AbortController();inFlight.add(controller);
- fetch('https://rulman-teklif-admin.vercel.app/api/collect',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),credentials:'omit',keepalive:true,signal:controller.signal}).catch(()=>{}).finally(()=>inFlight.delete(controller));
+ fetch(publicServiceUrl('/api/collect'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),credentials:'omit',keepalive:true,signal:controller.signal}).catch(()=>{}).finally(()=>inFlight.delete(controller));
 }
 export default function Analytics(){
  const site=useSite(),active=site.settings.analytics?.enabled===true,blocked=privacyRequested();

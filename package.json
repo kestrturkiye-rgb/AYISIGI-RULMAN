@@ -36,7 +36,7 @@
     "build:complete": "node scripts/build-complete.mjs",
     "test:workspace": "node --test --test-concurrency=1 tests/admin/workspace-db.test.mjs tests/admin/gateway.test.mjs tests/admin/spreadsheets.test.mjs",
     "dev:auth": "node --env-file-if-exists=.env.local server/auth-dev.mjs",
-    "test:security": "node --test --test-concurrency=1 tests/security/auth.test.mjs tests/security/erasure-db.test.mjs tests/security/backup.test.mjs",
+    "test:security": "node --test --test-concurrency=1 tests/security/auth.test.mjs tests/security/domain.test.mjs tests/security/erasure-db.test.mjs tests/security/backup.test.mjs",
     "test:security:browser": "node tests/security/browser.mjs",
     "security:backup": "node --env-file-if-exists=.env.local scripts/security/backup.mjs",
     "test:privacy": "node --test --test-concurrency=1 tests/privacy/consent.test.mjs tests/privacy/discovery.test.mjs tests/privacy/discovery-db.test.mjs",
