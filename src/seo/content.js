@@ -1,3 +1,4 @@
+import {reservedProductSlugs} from './urls.js';
 import project from '../../apps/admin/src/project-config.json' with {type:'json'};
 import {translate,technicalText,localePath} from '../i18n/core.js';
 import {guides,articleGroups} from './category-guides.js';
@@ -10,7 +11,7 @@ export function groupsFor(site){
  const records=site.categories||[];
  return records.filter(c=>!c.parent_id).map(root=>({id:root.id.startsWith('group-')?root.id.slice(6):root.slug,dbId:root.id,name:root.name,description:root.description,categoryRecords:records.filter(c=>{const visited=new Set();let next=c;while(next?.parent_id&&!visited.has(next.id)){visited.add(next.id);if(next.parent_id===root.id)return true;next=records.find(p=>p.id===next.parent_id);}return false;})}));
 }
-export function productGroup(product,site){return groupsFor(site).find(g=>g.dbId===(product.categoryId||product.category_id)||g.categoryRecords?.some(c=>c.id===(product.categoryId||product.category_id))||g.categories?.includes(product.category));}
+export function productGroup(product,site){return groupsFor(site).find(g=>Boolean(product.categoryId||product.category_id)&&(g.dbId===(product.categoryId||product.category_id)||g.categoryRecords?.some(c=>c.id===(product.categoryId||product.category_id)))||g.categories?.includes(product.category));}
 export function productContent(product,{language='tr',siteName='Rulman Teklif',entries}={}){
  const tx=value=>technicalText(translate(value,language,entries),language),code=text(product.code||product.sku),brand=brandName(product.brand),category=tx(product.category||''),name=tx(product.name||code),seo=product.seo||{};
  const dimensions=product.dimensions||{inner:product.inner_mm,outer:product.outer_mm,width:product.width_mm};
@@ -38,9 +39,14 @@ export function productCategoryPath(product,site){
  if(group&&id===group.dbId)return '/urunler/'+group.id;
  return (group?'/urunler/'+group.id:'/urunler')+'?kategori='+encodeURIComponent(id?'category:'+id:product.category||'');
 }
+export function canonicalProductPath(product,site){
+ const slug=product.slug||product.id;
+ const bearing=productGroup(product,site)?.id==='bearings'&&!reservedProductSlugs.has(slug);
+ return bearing?'/'+encodeURIComponent(slug)+'/rulman':'/urun/'+encodeURIComponent(slug);
+}
 export function productStructuredData(product,site,language='tr'){
  const entries=site.settings?.localization?.entries;
- const content=productContent(product,{language,entries,siteName:site.company?.name||site.settings?.identity?.name||'Rulman Teklif'}),url=ROOT+localePath('/urun/'+encodeURIComponent(product.slug),language),brand=brandName(product.brand);
+ const content=productContent(product,{language,entries,siteName:site.company?.name||site.settings?.identity?.name||'Rulman Teklif'}),url=ROOT+localePath(canonicalProductPath(product,site),language),brand=brandName(product.brand);
  const crumbs=[{name:language==='en'?'Products':'Ürünler',url:ROOT+localePath('/urunler',language)},...(product.category?[{name:translate(product.category,language,entries),url:ROOT+localePath(productCategoryPath(product,site),language)}]:[]),{name:product.code||product.sku,url}];
  const image=product.image||(product.media?.url?.startsWith('https://kestrturkiye-rgb.github.io/AYISIGI-RULMAN/')?product.media.url:null)|| (product.media?.bucket==='media-published'&&product.media.path&&!product.media.path.split('/').includes('..')?project.url+'/storage/v1/object/public/media-published/'+product.media.path.split('/').map(encodeURIComponent).join('/'):null);
  return {'@context':'https://schema.org','@graph':[{'@type':'Product','@id':url+'#product',name:content.name,sku:product.code||product.sku,...((product.manufacturerCode||product.manufacturer_code)?{mpn:product.manufacturerCode||product.manufacturer_code}:{}),url,description:content.description,...(brand?{brand:{'@type':'Brand',name:brand}}:{}),...(image?{image:[image]}:{}),...(product.category?{category:translate(product.category,language,entries)}:{}),additionalProperty:content.measurements.map(value=>({'@type':'PropertyValue',name:value.split(': ')[0],value:value.split(': ')[1]}))},{'@type':'BreadcrumbList',itemListElement:crumbs.map((c,index)=>({'@type':'ListItem',position:index+1,name:c.name,item:c.url}))}]};

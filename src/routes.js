@@ -1,5 +1,5 @@
 import {stripLanguage,localePath} from './i18n/core.js';
-import {cleanHost,publicHref} from './seo/urls.js';
+import {cleanHost,publicHref,bearingSlugFromPath} from './seo/urls.js';
 import { useEffect, useState } from 'react';
 import { productGroups } from './catalog-groups';
 
@@ -20,7 +20,8 @@ export function readRoute() {
  // Existing bookmarks keep working after the section-to-page migration.
  const legacy = {hakkimizda:'/hakkimizda',markalar:'/markalar',iletisim:'/iletisim',teklif:'/teklif',urunler:'/urunler','technical-title':'/teknik-arama'};
  const url = new URL(clean||(hash.startsWith('/') ? hash : legacy[hash] || '/'), 'https://local.invalid');
- return {path:stripLanguage(url.pathname.replace(/\/$/,'') || '/'), params:url.searchParams, key:url.pathname+url.search};
+ const publicPath=stripLanguage(url.pathname.replace(/\/$/,'') || '/'),bearing=bearingSlugFromPath(publicPath);
+ return {path:bearing?'/urun/'+bearing:publicPath,publicPath,params:url.searchParams,key:url.pathname+url.search};
 }
 export function usePageRoute() {
  const [route,setRoute] = useState(readRoute);

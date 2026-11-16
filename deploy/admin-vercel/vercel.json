@@ -87,7 +87,7 @@
       "dest": "/api/public.mjs?path=/$1"
     },
     {
-      "src": "/(en(?:/.*)?|urun/[^/]+|urunler(?:/[^/]+)?|akademi(?:/[^/]+)?|[^/.]+)/?",
+      "src": "/(en(?:/.*)?|urun/[^/]+|[^/]+/rulman|urunler(?:/[^/]+)?|akademi(?:/[^/]+)?|[^/.]+)/?",
       "dest": "/api/public.mjs?path=/$1"
     }
   ],

@@ -2,7 +2,7 @@
 import {chromium,request} from 'playwright';
 import assert from 'node:assert/strict';
 import {writeFile} from 'node:fs/promises';
-const origin='https://rulmanteklif.com',productPath='/urun/6001';
+const origin='https://rulmanteklif.com',productPath='/6001/rulman';
 let proxy;const raw=process.env.HTTPS_PROXY||process.env.https_proxy;if(raw){const u=new URL(raw);proxy={server:u.origin,...(u.username?{username:decodeURIComponent(u.username),password:decodeURIComponent(u.password)}:{})};}
 const api=await request.newContext({...(proxy?{proxy}:{}),timeout:45000}),browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox'],...(proxy?{proxy}:{})}),context=await browser.newContext(),p=await context.newPage(),checks=[],errors=[];
 p.on('pageerror',e=>errors.push(e.message));

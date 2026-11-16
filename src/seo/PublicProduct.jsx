@@ -10,34 +10,38 @@ import {productPath,publicHref,SITE_ORIGIN,replaceProductAddress} from './urls.j
 import './product-page.css';
 import {getLanguage} from '../i18n/core.js';
 import {cleanHost} from './urls.js';
-import {productContent,productStructuredData,productCategoryPath} from './content.js';
+import {productContent,productStructuredData,productCategoryPath,canonicalProductPath} from './content.js';
 import {RelatedResources} from './CatalogGuide';
 
-export default function PublicProduct({slug,onAdd}){
+export default function PublicProduct({slug,onAdd,routeKey}){
  const site=useSite();
  const [product,setProduct]=useState(null),[error,setError]=useState(''),[attempt,setAttempt]=useState(0);
  const [selectedImage,setSelectedImage]=useState(null),[copyStatus,setCopyStatus]=useState('');
  useEffect(()=>{
   let active=true;setProduct(null);setError('');setSelectedImage(null);setCopyStatus('');
   if(!slug){setError('Ürün adresi geçersiz.');return;}
-  setSeo({title:t('Ürün bilgileri')+' | '+site.company.name,description:'',path:productPath(slug),noindex:!cleanHost()});
+  setSeo({title:t('Ürün bilgileri')+' | '+site.company.name,description:'',path:productPath(slug),noindex:!cleanHost()||Boolean(routeKey?.includes('?'))});
   site.repository.productBySlug(slug).then(p=>{
    if(!active)return;
    if(!p){setError('Ürün bulunamadı veya yayında değil.');setSeo({title:t('Ürün bulunamadı veya yayında değil.'),description:'',path:productPath(slug),noindex:true});return;}
-   if(p.slug!==slug){replaceProductAddress(p.slug);return;}
+   const canonical=canonicalProductPath(p,site);
+   if(p.slug!==slug){replaceProductAddress(p.slug,canonical);return;}
+   const current=cleanHost()?location.pathname:location.hash.slice(1).split('?')[0];
+   const target=publicHref(canonical).replace(/^#/, '');
+   if(current!==target){replaceProductAddress(p.slug,canonical);return;}
    setProduct(p);trackEvent('product_view',p);
    const language=getLanguage(),copy=productContent(p,{language,siteName:site.company.name,entries:site.settings.localization?.entries});
-   setSeo({title:copy.title,description:copy.description,path:productPath(slug),image:p.image,noindex:!cleanHost(),structuredData:productStructuredData(p,site,language)});
+   setSeo({title:copy.title,description:copy.description,path:canonical,image:p.image,noindex:!cleanHost()||Boolean(routeKey?.includes('?')),structuredData:productStructuredData(p,site,language)});
   }).catch(()=>{if(active){setError('Ürün bilgileri yüklenemedi. Lütfen sayfayı yeniden deneyin.');setSeo({title:t('Ürün bilgileri')+' | '+site.company.name,description:'',path:productPath(slug),noindex:true});}});
   return()=>{active=false;};
- },[slug,site.revision,site.language,attempt,site.repository]);
+ },[slug,site.revision,site.language,attempt,site.repository,routeKey]);
 
  if(error)return <section className="container standalone-page product-page"><div role="alert"><h1>{t(error)}</h1><button className="outline" onClick={()=>setAttempt(n=>n+1)}>{t('Tekrar dene')}</button> <a href={publicHref('/urunler')}>{t('Ürünlere dön')}</a></div></section>;
  if(!product)return <section className="container standalone-page product-page"><p role="status">{t('Ürün bilgileri yükleniyor…')}</p></section>;
 
  const images=[product.remoteImage,...(product.gallery||[])].filter((image,index,all)=>image&&all.findIndex(other=>other?.src===image.src)===index);
  const displayProduct=selectedImage?{...product,image:selectedImage.src,remoteImage:selectedImage}:product;
- const href=publicHref(productPath(product.slug));
+ const href=publicHref(canonicalProductPath(product,site));
  const shareUrl=SITE_ORIGIN+(href.startsWith('#')?href.slice(1):href);
  const categoryHref=publicHref(productCategoryPath(product,site));
  const copy=productContent(product,{language:site.language,siteName:site.company.name,entries:site.settings.localization?.entries});

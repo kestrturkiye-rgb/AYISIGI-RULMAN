@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {productContent,categoryContent,groupsFor,productGroup,relatedResources,productStructuredData,serializeStructuredData} from '../../src/seo/content.js';
+import {productContent,categoryContent,canonicalProductPath,groupsFor,productGroup,relatedResources,productStructuredData,serializeStructuredData} from '../../src/seo/content.js';
 import {guides} from '../../src/seo/category-guides.js';
 const site={categories:[{id:'group-bearings',slug:'bearings',name:'Rulmanlar'},{id:'ball',parent_id:'group-bearings',name:'Bilyalı rulmanlar'},{id:'deep',parent_id:'ball',name:'Sabit bilyalı rulmanlar'}],settings:{identity:{name:'Rulman Teklif'}},articles:[{slug:'rulman-secimi-yuk-hiz-ve-omur',title:'Rulman seçiminde yük, hız ve ömür nasıl birlikte değerlendirilir?'},{slug:'lineer-kizak-secimi-hassasiyet-ve-montaj',title:'Lineer kızak sistemlerinde doğru seçim, hassasiyet ve montaj'}]};
 const product={sku:'6001',slug:'6001',name:'6001 · Bilyalı rulmanlar',category:'Bilyalı rulmanlar',category_id:'deep',brand:'Belirtilmemiş',inner_mm:12,outer_mm:28,width_mm:8};
@@ -18,7 +18,7 @@ test('English output keeps codes and real measurements while translating catalog
 });
 test('product schema includes factual data and breadcrumbs without fabricated offers, ratings or reviews',()=>{
  const schema=productStructuredData(product,site),item=schema['@graph'][0];assert.equal(item.sku,'6001');assert.equal(item.additionalProperty.length,3);for(const key of ['brand','offers','aggregateRating','review'])assert.equal(Object.hasOwn(item,key),false);assert.equal(schema['@graph'][1].itemListElement[1].item,'https://rulmanteklif.com/urunler/bearings?kategori=category%3Adeep');
- const english=productStructuredData({...product,brand:'FAG',manufacturer_code:'6001-2RS'},site,'en');assert.equal(english['@graph'][0].brand.name,'FAG');assert.equal(english['@graph'][0].mpn,'6001-2RS');assert.ok(english['@graph'][0].url.includes('/en/urun/'));
+ const english=productStructuredData({...product,brand:'FAG',manufacturer_code:'6001-2RS'},site,'en');assert.equal(english['@graph'][0].brand.name,'FAG');assert.equal(english['@graph'][0].mpn,'6001-2RS');assert.ok(english['@graph'][0].url.includes('/en/6001/rulman'));
 });
 test('JSON-LD safely escapes script terminators without changing the parsed product data',()=>{
  const raw={name:'</script><script>alert(1)</script>&\u2028'},encoded=serializeStructuredData(raw);assert.ok(!encoded.includes('</script>'));assert.deepEqual(JSON.parse(encoded),raw);
@@ -35,3 +35,7 @@ test('all twelve catalog guides have Turkish and English selection guidance and 
 });
 
 test('managed English category translations apply equally to metadata and structured data',()=>{const entries=[{source:'Bilyalı rulmanlar',translation:'Custom bearing category'}],copy=productContent(product,{language:'en',entries});assert.ok(copy.title.includes('Custom bearing category'));const schema=productStructuredData(product,{...site,settings:{...site.settings,localization:{entries}}},'en');assert.equal(schema['@graph'][0].category,'Custom bearing category');});
+
+test('bearing URLs use full model code before /rulman while other product families and reserved names keep their routes',()=>{for(const slug of ['6001','6001-2rs','6001-2rs-rbe'])assert.equal(canonicalProductPath({...product,slug},site),'/'+slug+'/rulman');assert.equal(canonicalProductPath({...product,category_id:'unknown',slug:'drill'},site),'/urun/drill');assert.equal(canonicalProductPath({...product,slug:'en'},site),'/urun/en');});
+
+test('static products without category IDs are classified by their actual category name',()=>{const staticSite={groups:[{id:'bearings',categories:['Bilyalı rulmanlar']},{id:'transmission',categories:['Kayışlar']}]};assert.equal(canonicalProductPath({slug:'at5',category:'Kayışlar'},staticSite),'/urun/at5');assert.equal(canonicalProductPath({slug:'6001',category:'Bilyalı rulmanlar'},staticSite),'/6001/rulman');});

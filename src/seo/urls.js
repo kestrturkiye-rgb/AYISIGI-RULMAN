@@ -7,8 +7,12 @@ export function canonicalPath(route){return route.path==='/'?'/':route.path.repl
 
 export function decodePathSegment(value){try{return decodeURIComponent(value)}catch{return null}}
 
-export function replaceProductAddress(slug){
- const target=publicHref(productPath(slug));
+export function replaceProductAddress(slug,path=productPath(slug)){
+ const search=cleanHost()?location.search:location.hash.includes('?')?'?'+location.hash.split('?').slice(1).join('?'):'';
+ const target=publicHref(path+search);
  history.replaceState(history.state,'',cleanHost()?target:location.pathname+location.search+target);
  window.dispatchEvent(cleanHost()?new PopStateEvent('popstate'):new HashChangeEvent('hashchange'));
 }
+
+export const reservedProductSlugs=new Set(['en','admin','api','assets','fonts','brand','urun','urunler','akademi']);
+export function bearingSlugFromPath(path){const match=path.match(/^\/([^/]+)\/rulman$/);return match&&!reservedProductSlugs.has(match[1])?match[1]:null;}
