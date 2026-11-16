@@ -29,7 +29,7 @@ export function adaptProduct(row,url){
   seo:row.seo,shortDescription:row.short_description,baseCode:row.base_code,manufacturerCode:row.manufacturer_code,codeAliases:row.manufacturer_code?[row.manufacturer_code]:[],normalizedCode:normalizeCode(row.sku),
   imageStatus:!image&&row.is_new?'pending':null,stockStatus:row.stock_status,priceMode:row.price_mode,price:row.price||null,remote:true,
   specs:row.specifications?.map(s=>[s.name,[s.value,s.unit].filter(v=>v!==null&&v!==undefined&&v!=='').join(' ')]),warning:row.technical_warning||null,longDescription:row.long_description,origin:row.origin,
-  gallery:row.gallery?.map(media=>adaptMedia(media,url)).filter(Boolean)};
+  gallery:row.gallery?.filter(media=>media.mime?.startsWith('image/')).map(media=>adaptMedia(media,url)).filter(Boolean)};
 }
 export function adaptSite(raw,media,url){
  const settings=raw.settings||{};const records=raw.categories||[];const roots=records.filter(c=>!c.parent_id);

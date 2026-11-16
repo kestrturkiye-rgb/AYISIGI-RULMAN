@@ -1,5 +1,15 @@
 // Reviewed English UI copy. Product codes, brand names, customer input and dimensions are not translated.
 export const messages={
+'Marka':'Brand','Kategori':'Category',
+'Sayfa yolu':'Breadcrumb',
+'Ürün görselleri':'Product images',
+'Ürün görseli':'Product image',
+'Bağlantıyı kopyala':'Copy link',
+'Bağlantı kopyalandı.':'Link copied.',
+'Bağlantıyı aşağıdaki alandan kopyalayabilirsiniz.':'You can copy the link from the field below.',
+'Ürün sayfası bağlantısı':'Product page link',
+'Ürün bilgileri':'Product information',
+
 'Doğrulama e-postası gönderilemedi. Lütfen daha sonra tekrar deneyin veya bizimle iletişime geçin.':'The verification email could not be sent. Please try again later or contact us.',
 'Parola yenileme e-postası gönderilemedi. Lütfen daha sonra tekrar deneyin veya bizimle iletişime geçin.':'The password reset email could not be sent. Please try again later or contact us.',
 
