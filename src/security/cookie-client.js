@@ -1,3 +1,4 @@
+import {languageFromLocation} from '../i18n/core.js';
 import {createClient} from '@supabase/supabase-js';
 import {canonicalAuthTarget} from './policy.mjs';
 const headerName='x-rt-csrf';
@@ -22,8 +23,8 @@ export function createCookieAuth({fetcher=globalThis.fetch,location=globalThis.l
   getAccessToken:async()=>(await load())?.access_token||null,
   onAuthStateChange(fn){listeners.add(fn);queueMicrotask(()=>{void load().then(s=>fn('INITIAL_SESSION',s)).catch(()=>fn('INITIAL_SESSION',null));});return {data:{subscription:{unsubscribe(){listeners.delete(fn);}}}};},
   signInWithPassword:credentials=>result(()=>receive('login',credentials)),
-  signUp:({email,password,options})=>result(()=>receive('signup',{email,password,name:options?.data?.full_name||''})),
-  resetPasswordForEmail:(email,options)=>result(()=>receive('recover',{email,admin:String(options?.redirectTo||'').includes('/admin/')})),
+  signUp:({email,password,options})=>result(()=>receive('signup',{email,password,name:options?.data?.full_name||'',lang:languageFromLocation(location)})),
+  resetPasswordForEmail:(email,options)=>result(()=>receive('recover',{email,lang:languageFromLocation(location),admin:String(options?.redirectTo||'').includes('/admin/')})),
   updateUser:attributes=>result(()=>receive('password',{password:attributes.password,current_password:attributes.current_password})),
   exchangeCodeForSession:code=>result(()=>receive('callback',{code})),
   verifyOtp:values=>result(()=>receive('callback',values)),

@@ -1,3 +1,4 @@
+import {getLanguage,translate as t} from './i18n/core.js';
 export const appBase = import.meta.env?.BASE_URL || '/';
 export function publicAssetPath(path, base = appBase) {
  if(/^https:\/\//.test(path))return path;
@@ -5,7 +6,7 @@ export function publicAssetPath(path, base = appBase) {
 }
 
 export const sourceNames = { skf: 'SKF', sts: 'STS Rulman', rt: 'Rulman Toptancısı',eteknik:'Eteknik Hırdavat',teknikyapi:'Teknik Yapı Hırdavat',tarimgaraj:'Tarım Garaj',hirdavat:'Hirdavat.com',tarimdeposu:'Tarım Deposu' };
-export const formatCount = value => value.toLocaleString('tr-TR');
+export const formatCount = value => value.toLocaleString(getLanguage()==='en'?'en-GB':'tr-TR');
 export function formatDimensions(dimensions) {
  const format=n=>n.toLocaleString('tr-TR',{maximumFractionDigits:4});
  const {inner,outer,width}=dimensions;

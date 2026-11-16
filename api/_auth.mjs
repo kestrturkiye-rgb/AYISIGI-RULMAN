@@ -21,7 +21,7 @@ async function guard(req,action,email=''){
  const key=process.env.RT_GATEWAY_HMAC_SECRET;if(!key)throw Error('gateway_configuration');const metadata=visitorMetadata(req.headers,key);const account=email?createHmac('sha256',key).update('auth-account:'+email).digest('hex'):null;
  const result=await callOperations({action:'auth_guard',scope:action,ipHash:metadata.ip_hash,accountHash:account});if(result.status!==200||result.data.allowed!==true)throw new AuthError('Çok fazla deneme yapıldı. Bir süre sonra tekrar deneyin.',result.status===503?503:429);
 }
-function callbackTarget(origin,kind,admin){return origin+(admin?'/admin/':'/')+'?auth_action='+(kind==='recovery'?(admin?'recovery':'member_recovery'):'member_signup');}
+function callbackTarget(origin,kind,admin,language){return origin+(admin?'/admin/':language==='en'?'/en/':'/')+'?auth_action='+(kind==='recovery'?(admin?'recovery':'member_recovery'):'member_signup');}
 export function makeAuthHandler(){return async(req,res)=>{
  const dev=localMode(req),origin=dev?'http://'+req.headers.host:requestAuthOrigin(req.headers.host);const names=authCookieNames(dev);const id=randomUUID();
  for(const [key,value]of Object.entries({'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store, private','Vary':'Cookie','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'}))res.setHeader(key,value);
@@ -50,7 +50,7 @@ export function makeAuthHandler(){return async(req,res)=>{
   if(action==='signup'||action==='recover'){
    const email=requireEmail(body.email);await guard(req,action,email);if(action==='signup')requirePassword(body.password,true);
    const verifier=randomBytes(32).toString('base64url'),challenge=createHash('sha256').update(verifier).digest('base64url');const pkce={verifier,intent:action==='recover'?'recovery':'signup'};
-   const started=Date.now();const data=await provider((action==='signup'?'signup':'recover')+'?redirect_to='+encodeURIComponent(callbackTarget(origin,pkce.intent,body.admin===true)),{email,...(action==='signup'?{password:body.password,data:{full_name:String(body.name||'').trim().slice(0,160)}}:{}),code_challenge:challenge,code_challenge_method:'s256'});
+   const started=Date.now();const data=await provider((action==='signup'?'signup':'recover')+'?redirect_to='+encodeURIComponent(callbackTarget(origin,pkce.intent,body.admin===true,body.lang)),{email,...(action==='signup'?{password:body.password,data:{full_name:String(body.name||'').trim().slice(0,160)}}:{}),code_challenge:challenge,code_challenge_method:'s256'});
    if(action==='signup')pkce.ownedUserId=genuineSignup(data,started);storeVerifier(res,pkce,dev);if(data.access_token&&data.refresh_token){const user=await provider('user',undefined,{token:data.access_token});if(pkce.ownedUserId===user.id)await registerOwned(data.access_token);await checkMembership(data.access_token);return reply({session:publicSession(storeSession(res,data,{dev}),user)});}return reply({session:null,verificationRequired:true});
   }
   if(action==='callback'){

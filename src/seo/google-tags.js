@@ -1,3 +1,4 @@
+import {stripLanguage} from '../i18n/core.js';
 export function googleConfig(value={}){return {analyticsId:/^G-[A-Z0-9]{4,20}$/.test(value.analyticsId||'')?value.analyticsId:'',adsId:/^AW-\d{5,20}$/.test(value.adsId||'')?value.adsId:'',adsLeadLabel:/^[A-Za-z0-9_-]{3,100}$/.test(value.adsLeadLabel||'')?value.adsLeadLabel:''};}
 export function createGoogleTags({window,document}){
  let config={},analytics=false,ads=false,script=null;const configured=new Set(),leads=new Set();
@@ -14,7 +15,7 @@ export function createGoogleTags({window,document}){
    if(!canAnalytics&&!canAds)removeCookies();
    for(const [id,allowed]of [[config.analyticsId,canAnalytics],[config.adsId,canAds]])if(id&&allowed&&!configured.has(id)){command('config',id,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false});configured.add(id);}
   },
-  page(path,title){if(!analytics||!config.analyticsId||/^\/(hesabim|teklif|admin)(\/|$)/.test(path))return;command('event','page_view',{send_to:config.analyticsId,page_location:'https://rulmanteklif.com'+path.split('?')[0],page_referrer:'',page_title:title});},
+  page(path,title){if(!analytics||!config.analyticsId||/^\/(hesabim|teklif|admin)(\/|$)/.test(stripLanguage(path)))return;command('event','page_view',{send_to:config.analyticsId,page_location:'https://rulmanteklif.com'+path.split('?')[0],page_referrer:'',page_title:title});},
   lead(id){if(!/^[A-Za-z0-9-]{1,100}$/.test(String(id))||leads.has(id))return;leads.add(id);if(leads.size>100)leads.delete(leads.values().next().value);if(analytics&&config.analyticsId)command('event','generate_lead',{send_to:config.analyticsId});if(ads&&config.adsId&&config.adsLeadLabel)command('event','conversion',{send_to:config.adsId+'/'+config.adsLeadLabel,transaction_id:id});},
  };
 }

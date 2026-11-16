@@ -18,7 +18,7 @@ def request(method='GET',data=None):
 before=request()
 redirects=set(filter(None,str(before.get('uri_allow_list','')).split(',')))
 for base in ['https://rulman-teklif-admin.vercel.app','https://rulmanteklif.com','https://www.rulmanteklif.com']:
-    redirects.update([base+'/',base+'/admin/',base+'/?auth_action=member_signup',base+'/?auth_action=member_recovery',base+'/admin/?auth_action=recovery',base+'/admin/?auth_action=invite'])
+    redirects.update([base+'/en/',base+'/en/?auth_action=member_signup',base+'/en/?auth_action=member_recovery',base+'/',base+'/admin/',base+'/?auth_action=member_signup',base+'/?auth_action=member_recovery',base+'/admin/?auth_action=recovery',base+'/admin/?auth_action=invite'])
 patch={'password_min_length':12,'uri_allow_list':','.join(sorted(redirects))}
 report={'project':REF,'applied':False,'currentMinimum':before.get('password_min_length'),'targetMinimum':12,'canonicalRedirectsPlanned':True,'sharedSiteUrlChanged':False}
 if '--apply' in args:

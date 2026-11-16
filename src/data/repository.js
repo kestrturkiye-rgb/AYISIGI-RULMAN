@@ -1,3 +1,4 @@
+import {localizeSearch} from '../i18n/core.js';
 import {publicHref} from '../seo/urls.js';
 import {createPublicReadCache} from './public-read-cache.js';
 import {formatDimensions} from '../catalog-utils.js';
@@ -63,7 +64,7 @@ const cache=createPublicReadCache();
    else if(filters.category&&filters.category!=='Tüm ürünler')category=site.groups.flatMap(g=>g.categoryRecords).find(c=>c.name===filters.category)?.id;
    const brand=filters.brand==='Tüm markalar'?null:site.stats.brands.find(b=>b.name===filters.brand||b.id===filters.brand)?.id;
    if((filters.category!=='Tüm ürünler'&&!category)||(filters.brand!=='Tüm markalar'&&!brand))return {products:[],totalCount:0,page,pageSize};
-   const q=filters.technicalQuery||{};const args={p_query:filters.search||'',p_code:q.code||null,p_inner:q.inner??null,p_outer:q.outer??null,p_width:q.width??null,p_category:category,p_brand:brand,p_page:page,p_page_size:pageSize};let result;if(filters.search?.trim()){try{result=await rpc('search_public_catalog_page',args)}catch(error){if(!['PGRST202','42883'].includes(error.code))throw error;}}result??=await rpc('search_public_catalog',args);
+   const q=filters.technicalQuery||{};const args={p_query:localizeSearch(filters.search||''),p_code:q.code||null,p_inner:q.inner??null,p_outer:q.outer??null,p_width:q.width??null,p_category:category,p_brand:brand,p_page:page,p_page_size:pageSize};let result;if(filters.search?.trim()){try{result=await rpc('search_public_catalog_page',args)}catch(error){if(!['PGRST202','42883'].includes(error.code))throw error;}}result??=await rpc('search_public_catalog',args);
    return {products:result.items.map(row=>adaptProduct(row,projectUrl)),countExact:result.countExact!==false,hasMore:result.hasMore,totalCount:Number(result.totalCount),page:result.page,pageSize:result.pageSize};
   },
   async discovery(seed){

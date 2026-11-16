@@ -28,3 +28,5 @@ test('custom domains keep login, cookies and recovery on the exact request origi
  }
 });
 test('untrusted request hosts, port variants and domain lookalikes cannot reach auth provider',async()=>{seen=[];for(const host of ['attacker.example','rulmanteklif.com.attacker.example','rulmanteklif.com:444','RULMANTEKLIF.COM']){assert.equal((await call('login',{host,source:'https://'+host,body:{email:user.email,password:'test'}})).statusCode,403);}assert.equal(seen.length,0);});
+
+test('English member recovery returns to the English account path while staff recovery stays on admin',async()=>{seen=[];assert.equal((await call('recover',{body:{email:user.email,lang:'en'}})).statusCode,200);assert.equal(new URL(seen.find(r=>r.path.includes('/recover?')).path).searchParams.get('redirect_to'),origin+'/en/?auth_action=member_recovery');seen=[];await call('recover',{body:{email:user.email,lang:'en',admin:true}});assert.equal(new URL(seen.find(r=>r.path.includes('/recover?')).path).searchParams.get('redirect_to'),origin+'/admin/?auth_action=recovery');});

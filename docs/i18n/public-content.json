@@ -1,0 +1,2603 @@
+{
+  "home": [
+    {
+      "id": "technical-search",
+      "kind": "technical_search",
+      "content": {
+        "title": "TEKNİK ARAMA",
+        "subtitle": "KATALOGDA TAM KOD VEYA ÖLÇÜYE GÖRE SORGULAYIN",
+        "statistics": "derived-product-count"
+      },
+      "sort_order": 0
+    },
+    {
+      "id": "hero",
+      "kind": "hero",
+      "content": {
+        "tags": [
+          "Hassas mühendislik",
+          "Güvenilir çözümler"
+        ],
+        "image": "asset-6645538486627f05f7655f89c4fb1b659b050e13b99266e7521adac9c178fff2",
+        "title": "Güçlü hareket.",
+        "button": {
+          "href": "#/urunler",
+          "text": "Ürünleri keşfet"
+        },
+        "caption": "Yüksek hassasiyet. Güvenilir hareket.",
+        "eyebrow": "HAREKETİN OLDUĞU HER YERDE",
+        "imageAlt": "Oynak makaralı rulmanın iç yapısı",
+        "highlight": "Kesintisiz üretim.",
+        "description": "Rulmandan güç aktarımına, endüstrinizin ihtiyaç duyduğu çözümler tek bir adreste."
+      },
+      "sort_order": 1
+    },
+    {
+      "id": "benefits",
+      "kind": "benefits",
+      "content": {
+        "cards": [
+          [
+            "ShieldCheck",
+            "Güvenilir ürünler",
+            "Kalite odaklı ürün seçimi"
+          ],
+          [
+            "Truck",
+            "Türkiye geneli teslimat",
+            "İşinizin olduğu her yere"
+          ],
+          [
+            "Headphones",
+            "Teknik destek",
+            "Doğru ürün için yanınızdayız"
+          ],
+          [
+            "PackageCheck",
+            "Geniş ürün seçeneği",
+            "Endüstriye özel çözümler"
+          ]
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "id": "campaigns",
+      "kind": "campaigns",
+      "content": {
+        "title": "Kampanyalı ürünler",
+        "description": "Üyelere özel fırsatlar"
+      },
+      "sort_order": 3
+    },
+    {
+      "id": "catalog",
+      "kind": "catalog",
+      "content": {
+        "title": "Doğru ürün, güçlü çözüm.",
+        "eyebrow": "İŞİNİZE GÜÇ KATAN ÜRÜNLER"
+      },
+      "sort_order": 3
+    },
+    {
+      "id": "academy",
+      "kind": "academy",
+      "content": {
+        "title": "Rulman Akademisi",
+        "description": "Rulman, bakım ve hareket teknolojileri üzerine teknik makaleler.",
+        "featuredCount": 3
+      },
+      "sort_order": 4
+    }
+  ],
+  "menus": [
+    {
+      "id": "footer-group-bearings",
+      "href": "#/urunler/bearings",
+      "label": "Rulmanlar",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 0
+    },
+    {
+      "id": "header-group-bearings",
+      "href": "#/urunler/bearings",
+      "label": "Rulmanlar",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 0
+    },
+    {
+      "id": "footer-group-housings",
+      "href": "#/urunler/housings",
+      "label": "Yataklar ve üniteler",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 1
+    },
+    {
+      "id": "header-group-housings",
+      "href": "#/urunler/housings",
+      "label": "Yataklar ve üniteler",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 1
+    },
+    {
+      "id": "footer-group-linear",
+      "href": "#/urunler/linear",
+      "label": "Lineer hareket",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 2
+    },
+    {
+      "id": "header-group-linear",
+      "href": "#/urunler/linear",
+      "label": "Lineer hareket",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 2
+    },
+    {
+      "id": "footer-group-maintenance",
+      "href": "#/urunler/maintenance",
+      "label": "Bakım ve aksesuarlar",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 3
+    },
+    {
+      "id": "header-group-maintenance",
+      "href": "#/urunler/maintenance",
+      "label": "Bakım ve aksesuarlar",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 3
+    },
+    {
+      "id": "footer-group-transmission",
+      "href": "#/urunler/transmission",
+      "label": "Güç aktarım",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 4
+    },
+    {
+      "id": "header-markalar",
+      "href": "#/markalar",
+      "label": "Markalar",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 4
+    },
+    {
+      "id": "footer-group-seals",
+      "href": "#/urunler/seals",
+      "label": "Sızdırmazlık",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 5
+    },
+    {
+      "id": "header-hakkimizda",
+      "href": "#/hakkimizda",
+      "label": "Hakkımızda",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 5
+    },
+    {
+      "id": "footer-group-cutting-tools",
+      "href": "#/urunler/cutting-tools",
+      "label": "Kesici takımlar",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 6
+    },
+    {
+      "id": "header-iletisim",
+      "href": "#/iletisim",
+      "label": "İletişim",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 6
+    },
+    {
+      "id": "footer-group-workshop",
+      "href": "#/urunler/workshop",
+      "label": "Atölye ekipmanları",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 7
+    },
+    {
+      "id": "header-teklif",
+      "href": "#/teklif",
+      "label": "Teklif al",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 7
+    },
+    {
+      "id": "footer-group-power-tools",
+      "href": "#/urunler/power-tools",
+      "label": "Elektrikli el aletleri",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 8
+    },
+    {
+      "id": "header-akademi",
+      "href": "#/akademi",
+      "label": "Akademi",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 8
+    },
+    {
+      "id": "header-campaigns",
+      "href": "#/kampanyalar",
+      "label": "Kampanyalı ürünler",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 8
+    },
+    {
+      "id": "footer-group-agricultural-parts",
+      "href": "#/urunler/agricultural-parts",
+      "label": "Tarım yedek parçaları",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 9
+    },
+    {
+      "id": "header-account",
+      "href": "#/hesabim",
+      "label": "Üye girişi",
+      "menu_id": "header",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 9
+    },
+    {
+      "id": "footer-group-garden-machinery",
+      "href": "#/urunler/garden-machinery",
+      "label": "Bahçe ve yardımcı makineler",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 10
+    },
+    {
+      "id": "footer-group-other",
+      "href": "#/urunler/other",
+      "label": "Diğer ürünler",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 11
+    },
+    {
+      "id": "footer-markalar",
+      "href": "#/markalar",
+      "label": "Markalar",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 12
+    },
+    {
+      "id": "footer-hakkimizda",
+      "href": "#/hakkimizda",
+      "label": "Hakkımızda",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 13
+    },
+    {
+      "id": "footer-iletisim",
+      "href": "#/iletisim",
+      "label": "İletişim",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 14
+    },
+    {
+      "id": "footer-teklif",
+      "href": "#/teklif",
+      "label": "Teklif al",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 15
+    },
+    {
+      "id": "footer-akademi",
+      "href": "#/akademi",
+      "label": "Rulman Akademisi",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 16
+    },
+    {
+      "id": "footer-privacy",
+      "href": "#/gizlilik",
+      "label": "Gizlilik",
+      "menu_id": "footer",
+      "icon_key": null,
+      "parent_id": null,
+      "sort_order": 30
+    }
+  ],
+  "pages": [
+    {
+      "id": "hakkimizda",
+      "seo": {},
+      "body": {
+        "cta": "Teklif listemi hazırla",
+        "kind": "about",
+        "title": "Hareketin arkasındaki güvenilir çözüm ortağınız.",
+        "values": [
+          "İhtiyaca uygun ürün seçimi",
+          "Teknik danışmanlık",
+          "Çok markalı ürün seçenekleri",
+          "Toplu alım için teklif"
+        ],
+        "eyebrow": "DOLAPDERE’DEN TÜM TÜRKİYE’YE",
+        "paragraphs": [
+          "Rulman Teklif olarak İstanbul Dolapdere Sanayi Sitesi’nden Türkiye’nin dört bir yanına rulman ve endüstriyel güç aktarım ürünleri tedarik ediyoruz. Rulman, kayış, zincir, redüktör ve elektrik motoru ihtiyaçlarınız için ürün seçimini ve tedarik sürecini kolaylaştırıyoruz.",
+          "SKF, FAG, NSK, NTN, Timken, INA, Koyo, SNR, Gates ve ContiTech gibi markalara ait ürün seçenekleri için bize danışabilirsiniz. Rulman kodu veya ölçüleriyle arama yapabilir, seçtiğiniz ürünler için teknik destek ve fiyat teklifi isteyebilirsiniz."
+        ]
+      },
+      "slug": "hakkimizda",
+      "title": "Hakkımızda"
+    },
+    {
+      "id": "iletisim",
+      "seo": {},
+      "body": {
+        "kind": "contact",
+        "title": "Bir mesaj kadar yakınız.",
+        "contactKey": "contact"
+      },
+      "slug": "iletisim",
+      "title": "İletişim"
+    },
+    {
+      "id": "teklif",
+      "seo": {},
+      "body": {
+        "kind": "quote",
+        "steps": [
+          [
+            "Ürünü seçin",
+            "Kod, marka veya ölçüyle arayın."
+          ],
+          [
+            "Adedi belirleyin",
+            "Ürünleri teklif sepetinde bir araya getirin."
+          ],
+          [
+            "Talebinizi gönderin",
+            "Formla veya WhatsApp üzerinden iletin."
+          ]
+        ],
+        "title": "İhtiyacınızı paylaşın, birlikte doğru ürünü bulalım.",
+        "description": "Ürünleri teklif sepetinize ekleyin veya aradığınız kodu yazın. Teklif formunu gönderin veya WhatsApp üzerinden fiyat, stok ve teslimat bilgisi isteyin."
+      },
+      "slug": "teklif",
+      "title": "Teklif al"
+    },
+    {
+      "id": "gizlilik",
+      "seo": {},
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Üyelik ve teklif bilgileri, hesabınızı yönetmek ve taleplerinizi yanıtlamak amacıyla işlenir.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "İsteğe bağlı ziyaretçi analizi yalnızca analiz izni verdiğinizde çalışır. Görüntülediğiniz sayfa ve ürünler, yaklaşık şehir/ülke, cihaz türü ve maskelenmiş IP ağı raporlanır. Ham IP adresiniz analiz veritabanına kaydedilmez. Konum bilgisi kesin adres değildir.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Analiz kayıtları 90 gün saklanır. Alt bilgideki Analiz tercihleri bağlantısından izninizi değiştirebilirsiniz. Tarayıcıdaki Do Not Track / Global Privacy Control tercihleri dikkate alınır.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Hesap ve teklif bilgilerinizle ilgili talepleriniz için sitedeki iletişim adresinden bize ulaşabilirsiniz.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "slug": "gizlilik",
+      "title": "Gizlilik ve ziyaretçi analizi"
+    }
+  ],
+  "brands": [
+    {
+      "id": "brand-0",
+      "name": "Belirtilmemiş",
+      "slug": "belirtilmemis-0",
+      "count": 26564,
+      "logo_id": null,
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "brand-1",
+      "name": "SKF",
+      "slug": "skf-1",
+      "count": 79405,
+      "logo_id": null,
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "brand-2",
+      "name": "FAG",
+      "slug": "fag-2",
+      "count": 482,
+      "logo_id": null,
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "brand-3",
+      "name": "GRW",
+      "slug": "grw-3",
+      "count": 231,
+      "logo_id": null,
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "brand-4",
+      "name": "SNR",
+      "slug": "snr-4",
+      "count": 137,
+      "logo_id": null,
+      "sort_order": 4,
+      "description": ""
+    },
+    {
+      "id": "brand-5",
+      "name": "URB",
+      "slug": "urb-5",
+      "count": 640,
+      "logo_id": null,
+      "sort_order": 5,
+      "description": ""
+    },
+    {
+      "id": "brand-6",
+      "name": "BDR",
+      "slug": "bdr-6",
+      "count": 12,
+      "logo_id": null,
+      "sort_order": 6,
+      "description": ""
+    },
+    {
+      "id": "brand-7",
+      "name": "TIMKEN",
+      "slug": "timken-7",
+      "count": 120,
+      "logo_id": null,
+      "sort_order": 7,
+      "description": ""
+    },
+    {
+      "id": "brand-8",
+      "name": "ORS",
+      "slug": "ors-8",
+      "count": 127,
+      "logo_id": null,
+      "sort_order": 8,
+      "description": ""
+    },
+    {
+      "id": "brand-9",
+      "name": "CSK",
+      "slug": "csk-9",
+      "count": 144,
+      "logo_id": null,
+      "sort_order": 9,
+      "description": ""
+    },
+    {
+      "id": "brand-10",
+      "name": "ZKL",
+      "slug": "zkl-10",
+      "count": 117,
+      "logo_id": null,
+      "sort_order": 10,
+      "description": ""
+    },
+    {
+      "id": "brand-11",
+      "name": "NSK",
+      "slug": "nsk-11",
+      "count": 161,
+      "logo_id": null,
+      "sort_order": 11,
+      "description": ""
+    },
+    {
+      "id": "brand-12",
+      "name": "NACHI",
+      "slug": "nachi-12",
+      "count": 124,
+      "logo_id": null,
+      "sort_order": 12,
+      "description": ""
+    },
+    {
+      "id": "brand-13",
+      "name": "SONG",
+      "slug": "song-13",
+      "count": 100,
+      "logo_id": null,
+      "sort_order": 13,
+      "description": ""
+    },
+    {
+      "id": "brand-14",
+      "name": "NTN",
+      "slug": "ntn-14",
+      "count": 7,
+      "logo_id": null,
+      "sort_order": 14,
+      "description": ""
+    },
+    {
+      "id": "brand-15",
+      "name": "NMB",
+      "slug": "nmb-15",
+      "count": 3,
+      "logo_id": null,
+      "sort_order": 15,
+      "description": ""
+    },
+    {
+      "id": "brand-16",
+      "name": "EZO",
+      "slug": "ezo-16",
+      "count": 37,
+      "logo_id": null,
+      "sort_order": 16,
+      "description": ""
+    },
+    {
+      "id": "brand-17",
+      "name": "KREX",
+      "slug": "krex-17",
+      "count": 31,
+      "logo_id": null,
+      "sort_order": 17,
+      "description": ""
+    },
+    {
+      "id": "brand-18",
+      "name": "ZEN",
+      "slug": "zen-18",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 18,
+      "description": ""
+    },
+    {
+      "id": "brand-19",
+      "name": "CMSA",
+      "slug": "cmsa-19",
+      "count": 342,
+      "logo_id": null,
+      "sort_order": 19,
+      "description": ""
+    },
+    {
+      "id": "brand-20",
+      "name": "NSC",
+      "slug": "nsc-20",
+      "count": 109,
+      "logo_id": null,
+      "sort_order": 20,
+      "description": ""
+    },
+    {
+      "id": "brand-21",
+      "name": "INA",
+      "slug": "ina-21",
+      "count": 76,
+      "logo_id": null,
+      "sort_order": 21,
+      "description": ""
+    },
+    {
+      "id": "brand-22",
+      "name": "KOLBEN",
+      "slug": "kolben-22",
+      "count": 239,
+      "logo_id": null,
+      "sort_order": 22,
+      "description": ""
+    },
+    {
+      "id": "brand-23",
+      "name": "FYH",
+      "slug": "fyh-23",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 23,
+      "description": ""
+    },
+    {
+      "id": "brand-24",
+      "name": "KWC",
+      "slug": "kwc-24",
+      "count": 13,
+      "logo_id": null,
+      "sort_order": 24,
+      "description": ""
+    },
+    {
+      "id": "brand-25",
+      "name": "RLX",
+      "slug": "rlx-25",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 25,
+      "description": ""
+    },
+    {
+      "id": "brand-26",
+      "name": "ASAHI",
+      "slug": "asahi-26",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 26,
+      "description": ""
+    },
+    {
+      "id": "brand-27",
+      "name": "CNR",
+      "slug": "cnr-27",
+      "count": 156,
+      "logo_id": null,
+      "sort_order": 27,
+      "description": ""
+    },
+    {
+      "id": "brand-28",
+      "name": "HIWIN",
+      "slug": "hiwin-28",
+      "count": 28,
+      "logo_id": null,
+      "sort_order": 28,
+      "description": ""
+    },
+    {
+      "id": "brand-29",
+      "name": "‎DW 40 DEWIN PAS SÖKÜCÜ /400 ML",
+      "slug": "dw-40-dewin-pas-sokucu-400-ml-29",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 29,
+      "description": ""
+    },
+    {
+      "id": "brand-30",
+      "name": "THK",
+      "slug": "thk-30",
+      "count": 6,
+      "logo_id": null,
+      "sort_order": 30,
+      "description": ""
+    },
+    {
+      "id": "brand-31",
+      "name": "‎WD-40",
+      "slug": "wd-40-31",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 31,
+      "description": ""
+    },
+    {
+      "id": "brand-32",
+      "name": "Arm",
+      "slug": "arm-32",
+      "count": 32,
+      "logo_id": null,
+      "sort_order": 32,
+      "description": ""
+    },
+    {
+      "id": "brand-33",
+      "name": "Bosch",
+      "slug": "bosch-33",
+      "count": 14,
+      "logo_id": null,
+      "sort_order": 33,
+      "description": ""
+    },
+    {
+      "id": "brand-34",
+      "name": "Catpower",
+      "slug": "catpower-34",
+      "count": 79,
+      "logo_id": null,
+      "sort_order": 34,
+      "description": ""
+    },
+    {
+      "id": "brand-35",
+      "name": "DAFLONG",
+      "slug": "daflong-35",
+      "count": 32,
+      "logo_id": null,
+      "sort_order": 35,
+      "description": ""
+    },
+    {
+      "id": "brand-36",
+      "name": "Dawreek",
+      "slug": "dawreek-36",
+      "count": 24,
+      "logo_id": null,
+      "sort_order": 36,
+      "description": ""
+    },
+    {
+      "id": "brand-37",
+      "name": "GRAVON",
+      "slug": "gravon-37",
+      "count": 14,
+      "logo_id": null,
+      "sort_order": 37,
+      "description": ""
+    },
+    {
+      "id": "brand-38",
+      "name": "HAKTAŞ",
+      "slug": "haktas-38",
+      "count": 41,
+      "logo_id": null,
+      "sort_order": 38,
+      "description": ""
+    },
+    {
+      "id": "brand-39",
+      "name": "İngco",
+      "slug": "ingco-39",
+      "count": 37,
+      "logo_id": null,
+      "sort_order": 39,
+      "description": ""
+    },
+    {
+      "id": "brand-40",
+      "name": "Makita",
+      "slug": "makita-40",
+      "count": 27,
+      "logo_id": null,
+      "sort_order": 40,
+      "description": ""
+    },
+    {
+      "id": "brand-41",
+      "name": "Maxx Pro",
+      "slug": "maxx-pro-41",
+      "count": 25,
+      "logo_id": null,
+      "sort_order": 41,
+      "description": ""
+    },
+    {
+      "id": "brand-42",
+      "name": "Murcell",
+      "slug": "murcell-42",
+      "count": 57,
+      "logo_id": null,
+      "sort_order": 42,
+      "description": ""
+    },
+    {
+      "id": "brand-43",
+      "name": "ONON",
+      "slug": "onon-43",
+      "count": 37,
+      "logo_id": null,
+      "sort_order": 43,
+      "description": ""
+    },
+    {
+      "id": "brand-44",
+      "name": "PROTER",
+      "slug": "proter-44",
+      "count": 2,
+      "logo_id": null,
+      "sort_order": 44,
+      "description": ""
+    },
+    {
+      "id": "brand-45",
+      "name": "RİDEPRO",
+      "slug": "ridepro-45",
+      "count": 9,
+      "logo_id": null,
+      "sort_order": 45,
+      "description": ""
+    },
+    {
+      "id": "brand-46",
+      "name": "EKSCUT",
+      "slug": "ekscut-46",
+      "count": 553,
+      "logo_id": null,
+      "sort_order": 46,
+      "description": ""
+    },
+    {
+      "id": "brand-47",
+      "name": "EKSHOLD",
+      "slug": "ekshold-47",
+      "count": 102,
+      "logo_id": null,
+      "sort_order": 47,
+      "description": ""
+    },
+    {
+      "id": "brand-48",
+      "name": "GOOD KİNG",
+      "slug": "good-king-48",
+      "count": 7,
+      "logo_id": null,
+      "sort_order": 48,
+      "description": ""
+    },
+    {
+      "id": "brand-49",
+      "name": "Lieber German",
+      "slug": "lieber-german-49",
+      "count": 4,
+      "logo_id": null,
+      "sort_order": 49,
+      "description": ""
+    },
+    {
+      "id": "brand-50",
+      "name": "Aydemirler",
+      "slug": "aydemirler-50",
+      "count": 9,
+      "logo_id": null,
+      "sort_order": 50,
+      "description": ""
+    },
+    {
+      "id": "brand-51",
+      "name": "Gökmenler",
+      "slug": "gokmenler-51",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 51,
+      "description": ""
+    },
+    {
+      "id": "brand-52",
+      "name": "Pmg Taral",
+      "slug": "pmg-taral-52",
+      "count": 127,
+      "logo_id": null,
+      "sort_order": 52,
+      "description": ""
+    },
+    {
+      "id": "brand-53",
+      "name": "Tarım Garaj",
+      "slug": "tarim-garaj-53",
+      "count": 362,
+      "logo_id": null,
+      "sort_order": 53,
+      "description": ""
+    },
+    {
+      "id": "brand-54",
+      "name": "Özenirler",
+      "slug": "ozenirler-54",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 54,
+      "description": ""
+    },
+    {
+      "id": "brand-55",
+      "name": "4Bahar Tarım",
+      "slug": "4bahar-tarim-55",
+      "count": 11,
+      "logo_id": null,
+      "sort_order": 55,
+      "description": ""
+    },
+    {
+      "id": "brand-56",
+      "name": "Antrac",
+      "slug": "antrac-56",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 56,
+      "description": ""
+    },
+    {
+      "id": "brand-57",
+      "name": "Coşkunsan",
+      "slug": "coskunsan-57",
+      "count": 8,
+      "logo_id": null,
+      "sort_order": 57,
+      "description": ""
+    },
+    {
+      "id": "brand-58",
+      "name": "Egesan",
+      "slug": "egesan-58",
+      "count": 2,
+      "logo_id": null,
+      "sort_order": 58,
+      "description": ""
+    },
+    {
+      "id": "brand-59",
+      "name": "Honda",
+      "slug": "honda-59",
+      "count": 3,
+      "logo_id": null,
+      "sort_order": 59,
+      "description": ""
+    },
+    {
+      "id": "brand-60",
+      "name": "Yaytek",
+      "slug": "yaytek-60",
+      "count": 3,
+      "logo_id": null,
+      "sort_order": 60,
+      "description": ""
+    },
+    {
+      "id": "brand-61",
+      "name": "Çayırova",
+      "slug": "cayirova-61",
+      "count": 10,
+      "logo_id": null,
+      "sort_order": 61,
+      "description": ""
+    },
+    {
+      "id": "brand-62",
+      "name": "Pense Tarım",
+      "slug": "pense-tarim-62",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 62,
+      "description": ""
+    },
+    {
+      "id": "brand-63",
+      "name": "Türkay",
+      "slug": "turkay-63",
+      "count": 25,
+      "logo_id": null,
+      "sort_order": 63,
+      "description": ""
+    },
+    {
+      "id": "brand-64",
+      "name": "Dremel",
+      "slug": "dremel-64",
+      "count": 6,
+      "logo_id": null,
+      "sort_order": 64,
+      "description": ""
+    },
+    {
+      "id": "brand-65",
+      "name": "osaka",
+      "slug": "osaka-65",
+      "count": 2,
+      "logo_id": null,
+      "sort_order": 65,
+      "description": ""
+    },
+    {
+      "id": "brand-66",
+      "name": "STANLEY",
+      "slug": "stanley-66",
+      "count": 7,
+      "logo_id": null,
+      "sort_order": 66,
+      "description": ""
+    },
+    {
+      "id": "brand-67",
+      "name": "Knipex",
+      "slug": "knipex-67",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 67,
+      "description": ""
+    },
+    {
+      "id": "brand-68",
+      "name": "AUHMA",
+      "slug": "auhma-68",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 68,
+      "description": ""
+    },
+    {
+      "id": "brand-69",
+      "name": "BAHCO",
+      "slug": "bahco-69",
+      "count": 21,
+      "logo_id": null,
+      "sort_order": 69,
+      "description": ""
+    },
+    {
+      "id": "brand-70",
+      "name": "Agrohasat",
+      "slug": "agrohasat-70",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 70,
+      "description": ""
+    },
+    {
+      "id": "brand-71",
+      "name": "Dönder",
+      "slug": "donder-71",
+      "count": 23,
+      "logo_id": null,
+      "sort_order": 71,
+      "description": ""
+    },
+    {
+      "id": "brand-72",
+      "name": "BORDIGNON",
+      "slug": "bordignon-72",
+      "count": 221,
+      "logo_id": null,
+      "sort_order": 72,
+      "description": ""
+    },
+    {
+      "id": "brand-73",
+      "name": "EİNHELL",
+      "slug": "einhell-73",
+      "count": 2,
+      "logo_id": null,
+      "sort_order": 73,
+      "description": ""
+    },
+    {
+      "id": "brand-74",
+      "name": "KL PRO",
+      "slug": "kl-pro-74",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 74,
+      "description": ""
+    },
+    {
+      "id": "brand-75",
+      "name": "ÖZTEMSAN",
+      "slug": "oztemsan-75",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 75,
+      "description": ""
+    },
+    {
+      "id": "brand-76",
+      "name": "Antor",
+      "slug": "antor-76",
+      "count": 146,
+      "logo_id": null,
+      "sort_order": 76,
+      "description": ""
+    },
+    {
+      "id": "brand-77",
+      "name": "Alpler",
+      "slug": "alpler-77",
+      "count": 85,
+      "logo_id": null,
+      "sort_order": 77,
+      "description": ""
+    },
+    {
+      "id": "brand-78",
+      "name": "Andız",
+      "slug": "andiz-78",
+      "count": 3,
+      "logo_id": null,
+      "sort_order": 78,
+      "description": ""
+    },
+    {
+      "id": "brand-79",
+      "name": "Coşkun",
+      "slug": "coskun-79",
+      "count": 3,
+      "logo_id": null,
+      "sort_order": 79,
+      "description": ""
+    },
+    {
+      "id": "brand-80",
+      "name": "Doğan Mühendislik",
+      "slug": "dogan-muhendislik-80",
+      "count": 19,
+      "logo_id": null,
+      "sort_order": 80,
+      "description": ""
+    },
+    {
+      "id": "brand-81",
+      "name": "Eurozappa",
+      "slug": "eurozappa-81",
+      "count": 3,
+      "logo_id": null,
+      "sort_order": 81,
+      "description": ""
+    },
+    {
+      "id": "brand-82",
+      "name": "İkiler",
+      "slug": "ikiler-82",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 82,
+      "description": ""
+    },
+    {
+      "id": "brand-83",
+      "name": "Sert Çelik",
+      "slug": "sert-celik-83",
+      "count": 3,
+      "logo_id": null,
+      "sort_order": 83,
+      "description": ""
+    },
+    {
+      "id": "brand-84",
+      "name": "Turan",
+      "slug": "turan-84",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 84,
+      "description": ""
+    },
+    {
+      "id": "brand-85",
+      "name": "Ünlü Pulluk",
+      "slug": "unlu-pulluk-85",
+      "count": 9,
+      "logo_id": null,
+      "sort_order": 85,
+      "description": ""
+    },
+    {
+      "id": "brand-86",
+      "name": "Sezer",
+      "slug": "sezer-86",
+      "count": 56,
+      "logo_id": null,
+      "sort_order": 86,
+      "description": ""
+    },
+    {
+      "id": "brand-87",
+      "name": "Sincontrol",
+      "slug": "sincontrol-87",
+      "count": 5,
+      "logo_id": null,
+      "sort_order": 87,
+      "description": ""
+    },
+    {
+      "id": "brand-88",
+      "name": "Doğsan",
+      "slug": "dogsan-88",
+      "count": 5,
+      "logo_id": null,
+      "sort_order": 88,
+      "description": ""
+    },
+    {
+      "id": "brand-89",
+      "name": "Falconi",
+      "slug": "falconi-89",
+      "count": 2,
+      "logo_id": null,
+      "sort_order": 89,
+      "description": ""
+    },
+    {
+      "id": "brand-90",
+      "name": "Hisarlar",
+      "slug": "hisarlar-90",
+      "count": 16,
+      "logo_id": null,
+      "sort_order": 90,
+      "description": ""
+    },
+    {
+      "id": "brand-91",
+      "name": "Köylü",
+      "slug": "koylu-91",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 91,
+      "description": ""
+    },
+    {
+      "id": "brand-92",
+      "name": "SPT Şaft",
+      "slug": "spt-saft-92",
+      "count": 2,
+      "logo_id": null,
+      "sort_order": 92,
+      "description": ""
+    },
+    {
+      "id": "brand-93",
+      "name": "Acco-Massey Ferguson",
+      "slug": "acco-massey-ferguson-93",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 93,
+      "description": ""
+    },
+    {
+      "id": "brand-94",
+      "name": "Anadolu Hidrolik",
+      "slug": "anadolu-hidrolik-94",
+      "count": 2,
+      "logo_id": null,
+      "sort_order": 94,
+      "description": ""
+    },
+    {
+      "id": "brand-95",
+      "name": "CMC",
+      "slug": "cmc-95",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 95,
+      "description": ""
+    },
+    {
+      "id": "brand-96",
+      "name": "Führer",
+      "slug": "fuhrer-96",
+      "count": 2,
+      "logo_id": null,
+      "sort_order": 96,
+      "description": ""
+    },
+    {
+      "id": "brand-97",
+      "name": "Massey Ferguson",
+      "slug": "massey-ferguson-97",
+      "count": 20,
+      "logo_id": null,
+      "sort_order": 97,
+      "description": ""
+    },
+    {
+      "id": "brand-98",
+      "name": "Maxstar",
+      "slug": "maxstar-98",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 98,
+      "description": ""
+    },
+    {
+      "id": "brand-99",
+      "name": "Global Taral",
+      "slug": "global-taral-99",
+      "count": 123,
+      "logo_id": null,
+      "sort_order": 99,
+      "description": ""
+    },
+    {
+      "id": "brand-100",
+      "name": "Plant Mate",
+      "slug": "plant-mate-100",
+      "count": 1,
+      "logo_id": null,
+      "sort_order": 100,
+      "description": ""
+    },
+    {
+      "id": "brand-101",
+      "name": "TG İlaçlama Aparatları",
+      "slug": "tg-ilaclama-aparatlari-101",
+      "count": 32,
+      "logo_id": null,
+      "sort_order": 101,
+      "description": ""
+    },
+    {
+      "id": "brand-102",
+      "name": "TG Pompa",
+      "slug": "tg-pompa-102",
+      "count": 45,
+      "logo_id": null,
+      "sort_order": 102,
+      "description": ""
+    }
+  ],
+  "uiTexts": {
+    "text-01e567c749d90f4fb5f32101": "TEKNİK MAKALE ·",
+    "text-01f8efb019304c5ff6c43eed": "Marka adı arayın…",
+    "text-02d45f61700e7b2fffd64f99": "Site yükleniyor…",
+    "text-02f5f64e70c7e8187656ffab": "Tüm ürünleri görüntüle",
+    "text-0499ada3020cdcf868f99321": "WhatsApp ile iletişim",
+    "text-05d35230f10b5a07da25ff5d": "Rulman Teklif teknik rehberidir; hakemli akademik yayın değildir. Hesap ve seçimlerde güncel standartların tam metni ile ilgili ürünün üretici verileri esas alınmalıdır.",
+    "text-076449769e5b54f475a7bbd2": "Aradığınız ürün kodunu veya talebinizi yazın.",
+    "text-0a79b0ca699d37228d3affd3": "©",
+    "text-0aaccbc4f79daa267b1f81b6": "Doğru ürün için yanınızdayız",
+    "text-0ce9380b07f80a888bd07d78": "Tekrar dene",
+    "text-0d064dc51c17d19eb0ad2b80": "Seçim yaparken",
+    "text-0f201b2cf5c2bea9bbe3fb35": "Ürün bilgileri yenilenemedi. Lütfen tekrar deneyin.",
+    "text-0f47aed252a735904e80b9ca": "Tüm ürünler",
+    "text-10212c6bdf332cdaf82dbc06": "kayıtlı ürün şu anda yayında değil. Diğer ürünleriniz korunuyor.",
+    "text-111066211ad8319339a1fb68": "Ürünleri keşfet",
+    "text-124016f89914e7e0278a46bc": "Teklif talebinizi oluşturun",
+    "text-12faa3f2e44addc774aa65e2": "Rulman Akademisi’ne dön",
+    "text-14c14659d0e40bec3180cf29": "Katalogda bulamadığınız bir ürün için de yazabilirsiniz.",
+    "text-17233932ffda349352b115f2": "Ara",
+    "text-183898896fe5f2161914848c": "Standartlar ve ileri okuma",
+    "text-192621fcfe0913a740ff33ed": "ÜRÜN KATALOĞU",
+    "text-1a6eb5cc7477408783b8fcda": "HAKKIMIZDA",
+    "text-1b534a471b2d1e105eadfa0d": "İŞİNİZE GÜÇ KATAN ÜRÜNLER",
+    "text-1d1efc464bcbede569f2f3ad": "İçeriğe geç",
+    "text-1e3e302409ddcef804357ad6": "Özellikleri incele",
+    "text-20c47f39498bb061f786e8fd": "İletişim bilgileri",
+    "text-213ed9ec7a5b19e2e07c55a4": "Yüksek hassasiyet. Güvenilir hareket.",
+    "text-21fb725937b1014339189ab4": "ürün bulundu",
+    "text-224dd5d1d982a024a2dd7aea": "İLETİŞİM",
+    "text-245c572ec2eae8653cf140c5": "Lütfen bekleyin…",
+    "text-2476e89967a6891d7350a5da": "Ürün aileleri",
+    "text-24c3d81b4beefc11220c4b7c": "Oynak makaralı rulmanın iç yapısı",
+    "text-24ec8f72b5eac4594cf44012": "İstanbul",
+    "text-26573d92d1f6995f61d39444": "WhatsApp ile teklif iste",
+    "text-275c6ddbb351b57c9f0536f3": "Hakkımızda",
+    "text-2824e5864a62776e30b61ffe": "Teknik bilgiler yüklenemedi. Lütfen tekrar deneyin.",
+    "text-28818392ae5eeea4e436081d": "Teklifinizi birlikte hazırlayalım.",
+    "text-28aca34af3e96753282f2999": "ÖLÇÜLERİYLE ARAMA",
+    "text-2a3e7e058addeb43a95f04ea": "Teknik aramaya geç",
+    "text-2ac4fb28f5a6faaecfbc7a46": "Ürüne özel fotoğraf henüz eklenmedi.",
+    "text-2b44dccbf52b240664629447": "Ürün bilgisi",
+    "text-2bfe54ee771e6d4fd8d279a1": "Tam ürün kodu veya ölçüyle katalogda arayın; teknik bilgilerinizle teklif isteyin.",
+    "text-2cdbcdda5c8a7d6be8c824c4": "Markaya göre filtrele",
+    "text-2da65d4a8976f8b1c0b96850": "Kalite odaklı ürün seçimi",
+    "text-2f3cfd53600c9a53c2f25339": "Teklif sepetim",
+    "text-3165be96f5833ae07a93e8ba": "RT",
+    "text-31ed06cbf3331531987350ea": "Rulman Akademisi",
+    "text-32ebb1abcc1c601ceb9c4e3c": "(",
+    "text-3397f959ae5cf4203e8cf6d3": "Hassas mühendislik",
+    "text-34bfc5cf6e9e236927711eba": "Ölçüler",
+    "text-3692c040a8609d9f6d7c32c0": "Keşfedin",
+    "text-37d2973377cbb6cf05131d9c": "Ürün grupları",
+    "text-3826973d3e2a2f2812d02e48": "D (DIŞ)",
+    "text-3a1ef590c41330d35d1f8347": "güvenilir çözüm ortağınız.",
+    "text-3a46248ff5f0ac0fca6a662b": "WhatsApp destek",
+    "text-3c65bcf6028efe34fc70a6f0": "Sipariş öncesinde teknik uygunluk doğrulanmalıdır.",
+    "text-3d3b8b6cc69cfb55984ef62e": "Makale bulunamadı",
+    "text-3f07b404770bb3245cf0aa3c": "Teknik arama",
+    "text-3f64c3920e080f71b8dd0cf1": "BİLGİYLE DOĞRU SEÇİM",
+    "text-40f7a0746073d088095fa5ec": "En (mm)",
+    "text-4516507a5a6d01b5dec63042": "Teknik rulman arama",
+    "text-455dbd30f41599f0cb3a32ce": "Güçlü hareket.",
+    "text-460444301013f9b48481e76c": "Sepeti kapat",
+    "text-468d9f680caa3c287f6d82ba": "Filtreleri temizle",
+    "text-4ad3b4f75bcf159cb2e367e7": "Teklif listesini indir",
+    "text-4c68362c332e73a1e39e88f1": "Sonraki sayfa",
+    "text-4d0ae0c4e321b9b1b8cfda75": "Teklif al",
+    "text-4f251b7ad5e72725b28f62fb": "Listeniz WhatsApp bağlantısı için çok uzun. Teklif dosyasını indirip görüşmeye dosya olarak ekleyin.",
+    "text-5041eaed7f7d66401d5b2c9e": "Ölçüler milimetre cinsindedir. Birden fazla alan doldurursanız tüm koşullar birlikte eşleştirilir.",
+    "text-510f159e0b1c31dc4beabd29": "birlikte doğru ürünü bulalım.",
+    "text-5206b8b8ebc275408044867d": "Tüm makaleler",
+    "text-53769d6568874808cab6336b": "WhatsApp’ı aç",
+    "text-53e4cac51f5f5f0c3b1bf33d": "Ürünlerinizi seçin, adetlerini belirleyin.",
+    "text-54862c4b8a11fca611f9d934": "Sayfa bulunamadı",
+    "text-5a652954afb9ef0e896cd9a6": "dk okuma",
+    "text-5ac71c6ddff3720639fbd4f2": "Adınız veya firma adınız",
+    "text-5bf84bf4fcce7362cb992af3": "Yönetim paneli",
+    "text-5cf0366fc6c971ccf037d9b6": "Talep numaranız:",
+    "text-5d57535190763f2e8d7cfc01": "TEKLİF LİSTESİ OLUŞTURUN",
+    "text-5d72d3ab4344da4f31292e8c": "Doğru marka. Doğru ürün.",
+    "text-5e948ad2e2df851508c1b167": "İletişim",
+    "text-5fd94567402021a12befe99d": "adet",
+    "text-5feceb66ffc86f38d952786c": "0",
+    "text-600b023409f1d87156c37cc0": "Dış çap (mm)",
+    "text-62fad07e44bff1f7c5cad4e3": "Web sitesi",
+    "text-630ae0e4e95fca32ccbf8767": "Dolapdere Sanayi Sitesi",
+    "text-667fc9d5ec3614903d8c9b4c": "Ürün ve teklif desteği",
+    "text-66e1d26bd0879f2baa279ebe": "teklif mesajına eklenecek.",
+    "text-6a815b77762a52f81c18da76": "Teklif aşamasında doğrulanır",
+    "text-6b2c64c33c7d122f22ad1a26": "Sayfa",
+    "text-6c7b9b3e3db9a044a4dad768": "İhtiyacınızı paylaşın,",
+    "text-6c882fa7b10cbcf25a8861ff": "E-POSTA GÖNDERİN",
+    "text-6d6e171825710d8cfba9731e": "Makaleyi oku",
+    "text-6dda4924dedd0926155ce073": "ARAMA",
+    "text-6fb30f7caf00901c6bddf9cd": "KATALOGDAKİ MARKALAR",
+    "text-706c65a4802ca1111b45ba58": "Teklif talebiniz alındı.",
+    "text-73822f6a1543861529721ee6": "Menüyü aç",
+    "text-744a909ce9de073b16db0fde": "Teklif göndermek için ad / firma ve e-posta adresinizi girin.",
+    "text-7580c87a1a4a75a7a6e71eb7": "Teknik aramayı temizle",
+    "text-767c777cf3239d1f5818fe9d": "Marka ara",
+    "text-77877a6e15b4b85d927a5360": "WHATSAPP",
+    "text-7914c16373008dcb84dee126": "E-posta adresiniz",
+    "text-7ad8e7a9f2e6c9e87bd79c30": "İÇ ÇAP, DIŞ ÇAP VE EN",
+    "text-7cc2ac8c8e773bf3b0250733": "Formla veya WhatsApp ile teklif isteyin.",
+    "text-7cc57692e6a57fd3e4530d0e": "ürün çeşidi ·",
+    "text-7d613ca988c124902cab546f": "Endüstriye özel çözümler",
+    "text-81310908e5cc55fc3f18f8cd": "Ad / Firma",
+    "text-8475638f696153bd5c638218": "Hareketin arkasındaki",
+    "text-863fbc5a348b148277390ea1": "Mesaj WhatsApp’ta açılır; kontrol edip siz gönderirsiniz.",
+    "text-8a578752fd1730fec9ea604e": "endüstriyel tedarik ve teknik destek.",
+    "text-8a5edab282632443219e051e": "/",
+    "text-8af9b4e95a10c8b155499cf9": "Sepet bu oturumda kullanılabilir; tarayıcı kalıcı kayda izin vermedi.",
+    "text-8b8115e50b4adfb2152344f9": "POPÜLER",
+    "text-8f90c1f536f30e5703a258c5": "ürün",
+    "text-8f937ac8e425dfa73a7456bb": "Fiyat ve stok bilgisi için teklif alın.",
+    "text-8fa1dddd53606ceb933c5c6a": "mm",
+    "text-8fa626dd22ffb2300b9a064a": "Ürünleri sepetinize ekleyin veya aradığınız kodu aşağıya yazın.",
+    "text-910c4f247b3dda1e50f9804f": "Yönetim sayfası yükleniyor…",
+    "text-9159c046383abda1012e32ee": "Ürün ara",
+    "text-9361267e2fc4759afd3353fc": "Sepeti incele",
+    "text-95240d6dc31965eb18e54e88": "markanın ürünlerini inceleyin, ihtiyacınıza uygun seçenekleri bulun.",
+    "text-98f0eb04e46ab221078cd51e": "Ölçü bilgisi bulunmayan ürünler ölçü aramasında eşleşmez.",
+    "text-990a9bfc5b97f342e1816790": "Teknik özellikler (",
+    "text-99750faf42ce90e740f4b67c": "KATALOG ÜRÜNÜ",
+    "text-9acb4d378b05c726515b6d97": "Ürün kategorileri",
+    "text-9d8d87eb47a1c8fe759a6bcd": "Yönetici girişi",
+    "text-9e107be97fb52727cabbe797": "Bu ürün şu anda yayında değil.",
+    "text-a137f17a19a09cbe511ba654": "·",
+    "text-a211f9bf6698cbc2d52a0544": "Ürün menüsünü kapat",
+    "text-a3c7b7d487180ab4a658b33c": "İşinizin olduğu her yere",
+    "text-a59d895dc3ec829095f9e7ab": "(formla gönderimde gerekli)",
+    "text-a5b5574b0f8cea7d1296ceb3": "Marka seçtiğinizde katalog filtrelenir. Marka adları ürünleri tanımlamak için kullanılır.",
+    "text-a67b0217ee70998949694d55": "Teknik bilgileri yeniden yükle",
+    "text-aae92d5974a0371a8fa0a4f5": "Teklif sepetine ekle",
+    "text-ab0c353f566a9cf9c918cd29": "d (İÇ)",
+    "text-abfd63bd1dfa8c21fd03d20b": "Türkiye geneli teslimat",
+    "text-ac90663caf6fc1f1d5cca0bb": "(isteğe bağlı)",
+    "text-ad9eca8a82e51608cbfe03d7": "Menşei:",
+    "text-b034a1b4e66b172d6525cc62": "Bildirimi kapat",
+    "text-b17d1b8caad74d3bcd073bac": "Rulman Teklif ·",
+    "text-b20d28461f6b8ff65d7552c8": "TAM RULMAN NO",
+    "text-b26f6fb256e16080c9db0826": "Güvenilir ürünler",
+    "text-b2766accc0a5675a43e0cf59": "Güvenilir çözümler",
+    "text-b30c2e1f410be19e959e33aa": "ÜRÜNÜNÜZÜ SEÇİN",
+    "text-b6aa363aa35d87c65b47e773": "katalog ürünü",
+    "text-b6f57d9ceb4c38778252f506": "KOD VE ÖLÇÜ İLE ARAMA",
+    "text-b74566b03eea783f2fff0d43": "Önceki sayfa",
+    "text-b7e69ed810303db3f95849bf": "Rulmandan güç aktarımına, endüstrinizin ihtiyaç duyduğu çözümler tek bir adreste.",
+    "text-b8a81100f8ed8150c67dd291": "Teknik destek",
+    "text-ba5ec51d07a4ac0e95160870": ")",
+    "text-ba7d8cdfcb5cbc4a60128ec8": "Ekibimiz talebinizi inceleyip sizinle iletişime geçecek.",
+    "text-bba28292b6daa7d6c69ad8cd": "BİZİ ARAYIN",
+    "text-bbd0ee782965386d182887e7": "WhatsApp destek hattını aç",
+    "text-bcca719b819b186da6829cf6": "Makale konuları",
+    "text-c48d675622bef468be9f9f7a": "HAREKETİN OLDUĞU HER YERDE",
+    "text-c4c520e76ffe3bc7f11e4412": "Geniş ürün seçeneği",
+    "text-cb46187c7f11b7a617c844db": "Kesintisiz üretim.",
+    "text-ccb47e728ffda30557a2deb4": "TEKLİF",
+    "text-ccbc38216345b81cd68e6fa5": "Fiyat için teklif alın",
+    "text-cce4827d6c617b1243ed2b8a": "TEKNİK",
+    "text-cee87de4ae6f796ef588ef2e": "Ürün kategorilerini aç",
+    "text-d37cadec6dae4ebc782383f7": "Uygulamanız için doğru ürünü bulalım.",
+    "text-d4f85d36757c12f0c6dab577": "–",
+    "text-dc1356403d5c2bb342291318": "Ana sayfaya dön",
+    "text-dd19010b0eecd629394f4e62": "TEKLİF ALIN",
+    "text-e1081b69d80ace5da2ce6de2": "E-posta",
+    "text-e23f0c121a5dd7c0945059e7": "RULMAN",
+    "text-e404df309362c8b66dea92b8": "Üretici kodu",
+    "text-e40bdea91f47d2b3848a4350": "Dolapdere’den Türkiye’ye",
+    "text-e43a00a0df3b42b59f1467db": "İç çap (mm)",
+    "text-e5521fe367697ee87f77efe2": "Tüm markalar",
+    "text-e59aa92eba9875ea6b8f9bb9": "Ürün gezinme",
+    "text-e5a5939bd51558c6034883cd": "kayıtlı ürün şu anda yayında değil. Kayıtlı listeniz korunuyor.",
+    "text-e629d2b03d3b1b69c9f38a55": "Telefon numaranız",
+    "text-eb4d9a1f2372373ed4115d9d": "SİSTEMDE SORGULA",
+    "text-f04d6a6d1a995680f7c0d1bf": "Diğer ürün grupları",
+    "text-f156eda9f41322f4523ef8a5": "Yayında olmayan kayıtları kaldır",
+    "text-f22208d6d4e51fb5c0066d3d": "Ürün kataloğu yüklenemedi. Bağlantınızı kontrol edip tekrar deneyin.",
+    "text-f2dc6da11521a2472281e1b4": "Ürün adı, marka veya ürün kodu arayın...",
+    "text-f33d44641aa700f3d7b4dd54": "Örn: 6204",
+    "text-f37c0fcdbb8126858612c3aa": "Bu isimde marka bulunamadı. Farklı bir ad deneyin veya WhatsApp’tan bize danışın.",
+    "text-f3dbec45ef070eb6f8dc6115": "Teknik bilgiler yükleniyor…",
+    "text-f463b54275f35ca474977067": "Ana sayfa",
+    "text-f7477a41f89cd63567aad84c": "RULMAN TEKLİF",
+    "text-f7dcb332cf6c28b85c65a369": "TÜM ÜRÜNLER",
+    "text-f87af8dd2ec2295de8a739d8": "Markalar",
+    "text-f99b9f227c857a156c311ded": "Grubun tüm ürünleri",
+    "text-fa6906d76ee94d4e8d05a242": "Telefon",
+    "text-fbb8a63fbf49d7951600b3ba": "Ürün detayını kapat",
+    "text-fc45a4dad49d17b8f79e03e0": "Giriş bağlantısı doğrulanıyor",
+    "text-fd4ec9730a7f3c24499f88d1": "B (EN)",
+    "text-fee1626c8ecd243a8d34d034": "Fiyat / stok"
+  },
+  "articles": [
+    {
+      "id": "article-rulman-secimi-yuk-hiz-ve-omur",
+      "seo": {},
+      "slug": "rulman-secimi-yuk-hiz-ve-omur",
+      "title": "Rulman seçiminde yük, hız ve ömür nasıl birlikte değerlendirilir?",
+      "topic": "Rulman seçimi",
+      "summary": "Dinamik yük kapasitesi, devir ve çalışma koşulları arasındaki ilişkiyi anlayın; aynı ölçüdeki rulmanları doğru kriterlerle karşılaştırın.",
+      "cover_id": "asset-e249d05e8753436967b8b6ec36293a554f1e369dac89cae5799b73eeb31bfc1e",
+      "cover_alt": "Bilyalı rulmanın iç yapısını gösteren kesit",
+      "reading_minutes": 5
+    },
+    {
+      "id": "article-haddehane-rulmanlari-sicaklik-ve-sok-yuk",
+      "seo": {},
+      "slug": "haddehane-rulmanlari-sicaklik-ve-sok-yuk",
+      "title": "Haddehane rulmanlarında yüksek sıcaklık ve şok yük yönetimi",
+      "topic": "Bakım ve uygulama",
+      "summary": "Ağır hizmet koşullarında yağlama, sızdırmazlık ve montajın rulman performansına etkisi; bakım için uygulanabilir kontrol adımları.",
+      "cover_id": "asset-6645538486627f05f7655f89c4fb1b659b050e13b99266e7521adac9c178fff2",
+      "cover_alt": "Oynak makaralı rulmanın kesit görünümü",
+      "reading_minutes": 5
+    },
+    {
+      "id": "article-lineer-kizak-secimi-hassasiyet-ve-montaj",
+      "seo": {},
+      "slug": "lineer-kizak-secimi-hassasiyet-ve-montaj",
+      "title": "Lineer kızak sistemlerinde doğru seçim, hassasiyet ve montaj",
+      "topic": "Lineer hareket",
+      "summary": "Yük ve momentten ön yüke, ray paralelliğinden yağlamaya: lineer hareket sistemi seçerken göz önünde bulundurmanız gerekenler.",
+      "cover_id": "asset-5aca0145831a3da28b3894b8da9a699ab2b8b3374a228cbab6812c426cd302e9",
+      "cover_alt": "Lineer kızak arabası",
+      "reading_minutes": 4
+    },
+    {
+      "id": "article-rulman-yaglama-gres-secimi",
+      "seo": {},
+      "slug": "rulman-yaglama-gres-secimi",
+      "title": "Rulman yağlamasında gres seçimi ve yeniden yağlama aralığı",
+      "topic": "Bakım ve uygulama",
+      "summary": "Baz yağ viskozitesi, sıcaklık ve kirlenmenin yağlamaya etkisi; fazla gresin neden her zaman daha iyi olmadığı.",
+      "cover_id": "asset-06d49e426ed6c2584413772608a4d1ac2466a3b8403e6dc9f4ff9a0bcdef61db",
+      "cover_alt": "Silindirik makaralı rulmanın iç yapısı",
+      "reading_minutes": 4
+    },
+    {
+      "id": "article-2rs-zz-acik-rulman-farklari",
+      "seo": {},
+      "slug": "2rs-zz-acik-rulman-farklari",
+      "title": "Açık, ZZ ve 2RS rulmanlar: sızdırmazlık tipleri nasıl seçilir?",
+      "topic": "Rulman seçimi",
+      "summary": "Metal kapak ve elastomer conta seçeneklerini kirlenme, sürtünme, hız ve bakım ihtiyacı açısından karşılaştırın.",
+      "cover_id": "asset-e249d05e8753436967b8b6ec36293a554f1e369dac89cae5799b73eeb31bfc1e",
+      "cover_alt": "Contalı derin oluklu bilyalı rulmanın kesiti",
+      "reading_minutes": 4
+    },
+    {
+      "id": "article-c3-ic-bosluk-ne-anlama-gelir",
+      "seo": {},
+      "slug": "c3-ic-bosluk-ne-anlama-gelir",
+      "title": "C3 iç boşluk ne demektir? Çalışma boşluğu ve geçmeler",
+      "topic": "Rulman seçimi",
+      "summary": "İç boşluk sınıfı, sıkı geçme ve sıcaklık farkının ilişkisi; neden C3 tek başına bir kalite göstergesi değildir?",
+      "cover_id": "asset-6645538486627f05f7655f89c4fb1b659b050e13b99266e7521adac9c178fff2",
+      "cover_alt": "Oynak makaralı rulmanda bilezik ve makaraların görünümü",
+      "reading_minutes": 4
+    },
+    {
+      "id": "article-rulman-montajinda-sik-yapilan-hatalar",
+      "seo": {},
+      "slug": "rulman-montajinda-sik-yapilan-hatalar",
+      "title": "Rulman montajında sık yapılan hatalar ve doğru kuvvet yolu",
+      "topic": "Montaj ve servis",
+      "summary": "Montaj kuvveti, temiz çalışma, kontrollü ısıtma ve ilk çalıştırma kontrolü için pratik bir teknik rehber.",
+      "cover_id": "asset-257dfad35c232412901e30e7da8b41934eb0f820fff7f9f3addfba14e7c471bc",
+      "cover_alt": "Konik makaralı rulmanın kesit görünümü",
+      "reading_minutes": 4
+    },
+    {
+      "id": "article-rulman-titresim-sicaklik-durum-izleme",
+      "seo": {},
+      "slug": "rulman-titresim-sicaklik-durum-izleme",
+      "title": "Titreşim ve sıcaklık verileriyle rulman durumunu izlemek",
+      "topic": "Durum izleme",
+      "summary": "Tek bir alarm değerine güvenmeden eğilim, ölçüm noktası ve çalışma koşullarını birlikte değerlendirin.",
+      "cover_id": "asset-e249d05e8753436967b8b6ec36293a554f1e369dac89cae5799b73eeb31bfc1e",
+      "cover_alt": "Bilyalı rulmanın yuvarlanma elemanları ve bilezikleri",
+      "reading_minutes": 4
+    },
+    {
+      "id": "article-rulman-hasarlari-kok-neden-analizi",
+      "seo": {},
+      "slug": "rulman-hasarlari-kok-neden-analizi",
+      "title": "Rulman hasarlarında izden kök nedene: nasıl inceleme yapılır?",
+      "topic": "Durum izleme",
+      "summary": "Yorulma, aşınma, korozyon ve elektriksel hasarı ayırırken fotoğrafları çalışma kayıtlarıyla birlikte değerlendirin.",
+      "cover_id": "asset-06d49e426ed6c2584413772608a4d1ac2466a3b8403e6dc9f4ff9a0bcdef61db",
+      "cover_alt": "Makaralı rulmanda temas yüzeylerinin kesit görünümü",
+      "reading_minutes": 4
+    },
+    {
+      "id": "article-rulman-depolama-ve-tedarik-kontrolu",
+      "seo": {},
+      "slug": "rulman-depolama-ve-tedarik-kontrolu",
+      "title": "Rulmanların depolanması ve tedarikte izlenebilirlik kontrolü",
+      "topic": "Tedarik ve depolama",
+      "summary": "Ambalaj, nem, titreşim ve kayıt düzeni; satın alma ve depolamada ürünün durumunu koruyan temel adımlar.",
+      "cover_id": "asset-257dfad35c232412901e30e7da8b41934eb0f820fff7f9f3addfba14e7c471bc",
+      "cover_alt": "Konik makaralı rulmanın bilezik ve makaraları",
+      "reading_minutes": 4
+    }
+  ],
+  "revision": 497,
+  "settings": {
+    "seo": {
+      "adsId": "",
+      "tagId": "",
+      "title": "Rulman Teklif | Gücün Kesintisiz Hali",
+      "analyticsId": "",
+      "description": "Rulman Teklif: rulman ve endüstriyel güç aktarım ürünleri. Ürünleri keşfedin, teklif listenizi oluşturun.",
+      "adsLeadLabel": "",
+      "searchConsoleVerification": ""
+    },
+    "theme": {
+      "dark": "#26332d",
+      "font": "Noto Sans",
+      "primary": "#00893d",
+      "currency": "TRY"
+    },
+    "footer": {
+      "cta": "Teklif sepetimi aç",
+      "ctaTitle": "Birlikte başlayalım.",
+      "disclaimer": "Fiyat, stok ve teslimat bilgileri teklif aşamasında teyit edilir.",
+      "description": "Dolapdere’den Türkiye’ye endüstriyel tedarik ve teknik destek."
+    },
+    "search": {
+      "pageSize": 24,
+      "shuffleHome": true,
+      "popularCodes": [
+        "6204",
+        "6205",
+        "30206",
+        "6306",
+        "22210",
+        "6001"
+      ],
+      "exactTechnicalSearch": true
+    },
+    "contact": {
+      "email": "info@rulmanteklif.com",
+      "phone": "0553 334 75 63",
+      "mapUrl": null,
+      "social": [],
+      "address": "İstanbul, Dolapdere Sanayi Sitesi",
+      "whatsapp": "905533347563",
+      "weekdayHours": "Pazartesi–Cuma 08:00–18:00",
+      "saturdayHours": "Cumartesi 09:00–14:00"
+    },
+    "privacy": {
+      "updatedOn": "14.11.2026",
+      "transferText": "",
+      "retentionText": "",
+      "controllerName": "",
+      "applicationEmail": "",
+      "registeredAddress": ""
+    },
+    "accounts": {
+      "enabled": true
+    },
+    "identity": {
+      "logo": "asset-d05ad6482909a9168dc1586788c23abc5c8b1343af8316c25b4048a628f34615",
+      "name": "Rulman Teklif",
+      "slogan": "ENDÜSTRİYEL ÇÖZÜM ORTAĞINIZ",
+      "topbar": "Sanayinin gücü, doğru rulmanla başlar.",
+      "favicon": "asset-d05ad6482909a9168dc1586788c23abc5c8b1343af8316c25b4048a628f34615"
+    },
+    "quote_ui": {
+      "downloadEnabled": true,
+      "whatsappEnabled": true,
+      "defaultPriceMode": "quote"
+    },
+    "analytics": {
+      "enabled": true
+    },
+    "maintenance": {
+      "enabled": false,
+      "message": "Sitemiz kısa süreli bakımda. Lütfen daha sonra tekrar deneyin."
+    },
+    "announcements": {
+      "href": null,
+      "text": "",
+      "enabled": false
+    }
+  },
+  "categories": [
+    {
+      "id": "category-0",
+      "name": "Bilyalı rulmanlar",
+      "slug": "bilyali-rulmanlar",
+      "image_id": null,
+      "parent_id": "group-bearings",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-12",
+      "name": "Diğer ürünler",
+      "slug": "diger-urunler",
+      "image_id": null,
+      "parent_id": "group-other",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-14",
+      "name": "Lineer kılavuzlar",
+      "slug": "lineer-kilavuzlar",
+      "image_id": null,
+      "parent_id": "group-linear",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-17",
+      "name": "Montaj ve demontaj",
+      "slug": "montaj-ve-demontaj",
+      "image_id": null,
+      "parent_id": "group-maintenance",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-19",
+      "name": "Kayışlar",
+      "slug": "kayislar",
+      "image_id": null,
+      "parent_id": "group-transmission",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-26",
+      "name": "Akülü el aletleri",
+      "slug": "akulu-el-aletleri",
+      "image_id": null,
+      "parent_id": "group-power-tools",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-31",
+      "name": "Budama ve hasat makineleri",
+      "slug": "budama-ve-hasat-makineleri",
+      "image_id": null,
+      "parent_id": "group-garden-machinery",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-4",
+      "name": "Yataklı rulmanlar",
+      "slug": "yatakli-rulmanlar",
+      "image_id": null,
+      "parent_id": "group-housings",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-54",
+      "name": "Pulluk parçaları",
+      "slug": "pulluk-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-58",
+      "name": "Takım tutucular",
+      "slug": "takim-tutucular",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-61",
+      "name": "Tornalama ve kanal uçları",
+      "slug": "tornalama-ve-kanal-uclari",
+      "image_id": null,
+      "parent_id": "group-cutting-tools",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "category-7",
+      "name": "Sızdırmazlık elemanları",
+      "slug": "sizdirmazlik-elemanlari",
+      "image_id": null,
+      "parent_id": "group-seals",
+      "sort_order": 0,
+      "description": ""
+    },
+    {
+      "id": "group-bearings",
+      "name": "Rulmanlar",
+      "slug": "bearings",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 0,
+      "description": "Bilyalı, makaralı, iğneli ve hassas rulmanlar"
+    },
+    {
+      "id": "category-1",
+      "name": "Makaralı rulmanlar",
+      "slug": "makarali-rulmanlar",
+      "image_id": null,
+      "parent_id": "group-bearings",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "category-18",
+      "name": "Kasnaklar",
+      "slug": "kasnaklar",
+      "image_id": null,
+      "parent_id": "group-transmission",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "category-21",
+      "name": "Yağlama",
+      "slug": "yaglama",
+      "image_id": null,
+      "parent_id": "group-maintenance",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "category-23",
+      "name": "Rulman yatakları",
+      "slug": "rulman-yataklari",
+      "image_id": null,
+      "parent_id": "group-housings",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "category-29",
+      "name": "Bahçe bakım makineleri",
+      "slug": "bahce-bakim-makineleri",
+      "image_id": null,
+      "parent_id": "group-garden-machinery",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "category-40",
+      "name": "Elektrikli el aletleri",
+      "slug": "elektrikli-el-aletleri",
+      "image_id": null,
+      "parent_id": "group-power-tools",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "category-42",
+      "name": "Frezeleme uçları",
+      "slug": "frezeleme-uclari",
+      "image_id": null,
+      "parent_id": "group-cutting-tools",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "category-5",
+      "name": "Lineer rulmanlar",
+      "slug": "lineer-rulmanlar",
+      "image_id": null,
+      "parent_id": "group-linear",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "category-52",
+      "name": "Mengeneler ve bağlama",
+      "slug": "mengeneler-ve-baglama",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "category-60",
+      "name": "Toprak işleme parçaları",
+      "slug": "toprak-isleme-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 1,
+      "description": ""
+    },
+    {
+      "id": "group-housings",
+      "name": "Yataklar ve üniteler",
+      "slug": "housings",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 1,
+      "description": "Yataklı rulmanlar, yataklar ve mafsallı çözümler"
+    },
+    {
+      "id": "category-10",
+      "name": "Vidalı miller",
+      "slug": "vidali-miller",
+      "image_id": null,
+      "parent_id": "group-linear",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "category-15",
+      "name": "Zincirler",
+      "slug": "zincirler",
+      "image_id": null,
+      "parent_id": "group-transmission",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "category-2",
+      "name": "İğneli rulmanlar",
+      "slug": "igneli-rulmanlar",
+      "image_id": null,
+      "parent_id": "group-bearings",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "category-22",
+      "name": "Durum izleme",
+      "slug": "durum-izleme",
+      "image_id": null,
+      "parent_id": "group-maintenance",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "category-30",
+      "name": "Biçme ve hasat parçaları",
+      "slug": "bicme-ve-hasat-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "category-34",
+      "name": "Diş açma takımları",
+      "slug": "dis-acma-takimlari",
+      "image_id": null,
+      "parent_id": "group-cutting-tools",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "category-37",
+      "name": "El aleti setleri",
+      "slug": "el-aleti-setleri",
+      "image_id": null,
+      "parent_id": "group-power-tools",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "category-67",
+      "name": "Ölçüm aletleri",
+      "slug": "olcum-aletleri",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "category-68",
+      "name": "İlaçlama makineleri",
+      "slug": "ilaclama-makineleri",
+      "image_id": null,
+      "parent_id": "group-garden-machinery",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "category-8",
+      "name": "Mafsallı yataklar",
+      "slug": "mafsalli-yataklar",
+      "image_id": null,
+      "parent_id": "group-housings",
+      "sort_order": 2,
+      "description": ""
+    },
+    {
+      "id": "group-linear",
+      "name": "Lineer hareket",
+      "slug": "linear",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 2,
+      "description": "Doğrusal hareket ve hassas konumlandırma"
+    },
+    {
+      "id": "category-11",
+      "name": "Aksesuarlar",
+      "slug": "aksesuarlar",
+      "image_id": null,
+      "parent_id": "group-maintenance",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "category-16",
+      "name": "Dişliler",
+      "slug": "disliler",
+      "image_id": null,
+      "parent_id": "group-transmission",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "category-24",
+      "name": "Mil tutucular",
+      "slug": "mil-tutucular",
+      "image_id": null,
+      "parent_id": "group-linear",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "category-3",
+      "name": "Eksenel rulmanlar",
+      "slug": "eksenel-rulmanlar",
+      "image_id": null,
+      "parent_id": "group-bearings",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "category-35",
+      "name": "Ekim makinesi parçaları",
+      "slug": "ekim-makinesi-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "category-46",
+      "name": "Kalıp yayları",
+      "slug": "kalip-yaylari",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "category-47",
+      "name": "Karbür frezeler",
+      "slug": "karbur-frezeler",
+      "image_id": null,
+      "parent_id": "group-cutting-tools",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "category-50",
+      "name": "Kesme ve taşlama makineleri",
+      "slug": "kesme-ve-taslama-makineleri",
+      "image_id": null,
+      "parent_id": "group-power-tools",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "category-57",
+      "name": "Su ve hava pompaları",
+      "slug": "su-ve-hava-pompalari",
+      "image_id": null,
+      "parent_id": "group-garden-machinery",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "category-9",
+      "name": "Burçlar",
+      "slug": "burclar",
+      "image_id": null,
+      "parent_id": "group-housings",
+      "sort_order": 3,
+      "description": ""
+    },
+    {
+      "id": "group-maintenance",
+      "name": "Bakım ve aksesuarlar",
+      "slug": "maintenance",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 3,
+      "description": "Montaj, yağlama ve durum izleme çözümleri"
+    },
+    {
+      "id": "category-13",
+      "name": "Kaplinler",
+      "slug": "kaplinler",
+      "image_id": null,
+      "parent_id": "group-transmission",
+      "sort_order": 4,
+      "description": ""
+    },
+    {
+      "id": "category-25",
+      "name": "Hassas rulmanlar",
+      "slug": "hassas-rulmanlar",
+      "image_id": null,
+      "parent_id": "group-bearings",
+      "sort_order": 4,
+      "description": ""
+    },
+    {
+      "id": "category-32",
+      "name": "Delik işleme takımları",
+      "slug": "delik-isleme-takimlari",
+      "image_id": null,
+      "parent_id": "group-cutting-tools",
+      "sort_order": 4,
+      "description": ""
+    },
+    {
+      "id": "category-41",
+      "name": "Eğeler ve testereler",
+      "slug": "egeler-ve-testereler",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 4,
+      "description": ""
+    },
+    {
+      "id": "category-65",
+      "name": "Yıkama ve temizlik makineleri",
+      "slug": "yikama-ve-temizlik-makineleri",
+      "image_id": null,
+      "parent_id": "group-garden-machinery",
+      "sort_order": 4,
+      "description": ""
+    },
+    {
+      "id": "category-69",
+      "name": "İlaçlama parçaları",
+      "slug": "ilaclama-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 4,
+      "description": ""
+    },
+    {
+      "id": "group-transmission",
+      "name": "Güç aktarım",
+      "slug": "transmission",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 4,
+      "description": "Kayış, kasnak, zincir, dişli ve kaplin ürünleri"
+    },
+    {
+      "id": "category-20",
+      "name": "Güç aktarım",
+      "slug": "guc-aktarim",
+      "image_id": null,
+      "parent_id": "group-transmission",
+      "sort_order": 5,
+      "description": ""
+    },
+    {
+      "id": "category-38",
+      "name": "El aleti takımları",
+      "slug": "el-aleti-takimlari",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 5,
+      "description": ""
+    },
+    {
+      "id": "category-43",
+      "name": "Gübreleme parçaları",
+      "slug": "gubreleme-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 5,
+      "description": ""
+    },
+    {
+      "id": "category-49",
+      "name": "Kaynak makineleri",
+      "slug": "kaynak-makineleri",
+      "image_id": null,
+      "parent_id": "group-garden-machinery",
+      "sort_order": 5,
+      "description": ""
+    },
+    {
+      "id": "category-51",
+      "name": "Matkap ve keski uçları",
+      "slug": "matkap-ve-keski-uclari",
+      "image_id": null,
+      "parent_id": "group-cutting-tools",
+      "sort_order": 5,
+      "description": ""
+    },
+    {
+      "id": "category-6",
+      "name": "Özel rulmanlar",
+      "slug": "ozel-rulmanlar",
+      "image_id": null,
+      "parent_id": "group-bearings",
+      "sort_order": 5,
+      "description": ""
+    },
+    {
+      "id": "group-seals",
+      "name": "Sızdırmazlık",
+      "slug": "seals",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 5,
+      "description": "Endüstriyel sızdırmazlık çözümleri"
+    },
+    {
+      "id": "category-39",
+      "name": "El aletleri",
+      "slug": "el-aletleri",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 6,
+      "description": ""
+    },
+    {
+      "id": "category-62",
+      "name": "Traktör parçaları",
+      "slug": "traktor-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 6,
+      "description": ""
+    },
+    {
+      "id": "category-63",
+      "name": "Yardımcı makineler",
+      "slug": "yardimci-makineler",
+      "image_id": null,
+      "parent_id": "group-garden-machinery",
+      "sort_order": 6,
+      "description": ""
+    },
+    {
+      "id": "category-66",
+      "name": "Çapak alma frezeleri",
+      "slug": "capak-alma-frezeleri",
+      "image_id": null,
+      "parent_id": "group-cutting-tools",
+      "sort_order": 6,
+      "description": ""
+    },
+    {
+      "id": "group-cutting-tools",
+      "name": "Kesici takımlar",
+      "slug": "cutting-tools",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 6,
+      "description": "Tornalama, frezeleme ve delik işleme takımları"
+    },
+    {
+      "id": "category-48",
+      "name": "Karbür çubuklar",
+      "slug": "karbur-cubuklar",
+      "image_id": null,
+      "parent_id": "group-cutting-tools",
+      "sort_order": 7,
+      "description": ""
+    },
+    {
+      "id": "category-53",
+      "name": "Motor yedek parçaları",
+      "slug": "motor-yedek-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 7,
+      "description": ""
+    },
+    {
+      "id": "category-70",
+      "name": "İş güvenliği ekipmanları",
+      "slug": "is-guvenligi-ekipmanlari",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 7,
+      "description": ""
+    },
+    {
+      "id": "group-workshop",
+      "name": "Atölye ekipmanları",
+      "slug": "workshop",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 7,
+      "description": "Bağlama, ölçüm, kalıp ve el aleti çözümleri"
+    },
+    {
+      "id": "category-45",
+      "name": "Kaldırma ve taşıma ekipmanları",
+      "slug": "kaldirma-ve-tasima-ekipmanlari",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 8,
+      "description": ""
+    },
+    {
+      "id": "category-59",
+      "name": "Tarım bağlantı elemanları",
+      "slug": "tarim-baglanti-elemanlari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 8,
+      "description": ""
+    },
+    {
+      "id": "group-power-tools",
+      "name": "Elektrikli el aletleri",
+      "slug": "power-tools",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 8,
+      "description": "Akülü, elektrikli, kesme ve taşlama aletleri"
+    },
+    {
+      "id": "category-36",
+      "name": "El aleti aksesuarları",
+      "slug": "el-aleti-aksesuarlari",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 9,
+      "description": ""
+    },
+    {
+      "id": "category-64",
+      "name": "Yem hazırlama parçaları",
+      "slug": "yem-hazirlama-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 9,
+      "description": ""
+    },
+    {
+      "id": "group-agricultural-parts",
+      "name": "Tarım yedek parçaları",
+      "slug": "agricultural-parts",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 9,
+      "description": "Toprak işleme, ekim, hasat ve ilaçlama parçaları"
+    },
+    {
+      "id": "category-44",
+      "name": "Havalı el aletleri",
+      "slug": "havali-el-aletleri",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 10,
+      "description": ""
+    },
+    {
+      "id": "category-55",
+      "name": "Sağım ve hayvancılık parçaları",
+      "slug": "sagim-ve-hayvancilik-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 10,
+      "description": ""
+    },
+    {
+      "id": "group-garden-machinery",
+      "name": "Bahçe ve yardımcı makineler",
+      "slug": "garden-machinery",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 10,
+      "description": "Budama, pompa, temizlik ve yardımcı makineler"
+    },
+    {
+      "id": "category-28",
+      "name": "Atölye tezgâhları",
+      "slug": "atolye-tezgahlari",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 11,
+      "description": ""
+    },
+    {
+      "id": "category-33",
+      "name": "Diğer tarım yedek parçaları",
+      "slug": "diger-tarim-yedek-parcalari",
+      "image_id": null,
+      "parent_id": "group-agricultural-parts",
+      "sort_order": 11,
+      "description": ""
+    },
+    {
+      "id": "group-other",
+      "name": "Diğer ürünler",
+      "slug": "other",
+      "image_id": null,
+      "parent_id": null,
+      "sort_order": 11,
+      "description": "Kaynak kataloglardaki diğer ürünler"
+    },
+    {
+      "id": "category-56",
+      "name": "Seramik kesme ekipmanları",
+      "slug": "seramik-kesme-ekipmanlari",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 12,
+      "description": ""
+    },
+    {
+      "id": "category-27",
+      "name": "Atölye aksesuarları",
+      "slug": "atolye-aksesuarlari",
+      "image_id": null,
+      "parent_id": "group-workshop",
+      "sort_order": 13,
+      "description": ""
+    }
+  ],
+  "totalProducts": 111952,
+  "categoryCounts": {
+    "category-0": 14780,
+    "category-1": 13440,
+    "category-2": 1645,
+    "category-3": 2795,
+    "category-4": 6388,
+    "category-5": 122,
+    "category-6": 2816,
+    "category-7": 22293,
+    "category-8": 1229,
+    "category-9": 2586,
+    "category-10": 348,
+    "category-11": 4069,
+    "category-12": 2667,
+    "category-13": 685,
+    "category-14": 573,
+    "category-15": 1397,
+    "category-16": 3822,
+    "category-17": 995,
+    "category-18": 3680,
+    "category-19": 12856,
+    "category-20": 8,
+    "category-21": 388,
+    "category-22": 117,
+    "category-23": 3175,
+    "category-24": 51,
+    "category-25": 6492,
+    "category-26": 108,
+    "category-27": 52,
+    "category-28": 2,
+    "category-29": 9,
+    "category-30": 46,
+    "category-31": 24,
+    "category-32": 5,
+    "category-33": 179,
+    "category-34": 68,
+    "category-35": 153,
+    "category-36": 8,
+    "category-37": 56,
+    "category-38": 9,
+    "category-39": 5,
+    "category-40": 54,
+    "category-41": 25,
+    "category-42": 26,
+    "category-43": 31,
+    "category-44": 3,
+    "category-45": 3,
+    "category-46": 221,
+    "category-47": 39,
+    "category-48": 31,
+    "category-49": 8,
+    "category-50": 70,
+    "category-51": 23,
+    "category-52": 21,
+    "category-53": 146,
+    "category-54": 107,
+    "category-55": 56,
+    "category-56": 14,
+    "category-57": 28,
+    "category-58": 43,
+    "category-59": 23,
+    "category-60": 163,
+    "category-61": 198,
+    "category-62": 31,
+    "category-63": 3,
+    "category-64": 6,
+    "category-65": 13,
+    "category-66": 132,
+    "category-67": 56,
+    "category-68": 3,
+    "category-69": 230,
+    "category-70": 4
+  }
+}

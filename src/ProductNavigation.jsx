@@ -1,3 +1,4 @@
+import {translate as t} from './i18n/core.js';
 import React, {useState, useEffect, useRef, useMemo} from 'react';
 import {Menu, ChevronDown, ArrowRight, X, CircleDot, MoveHorizontal, Wrench, Cog, Layers} from 'lucide-react';
 import {productGroups} from './catalog-groups';
@@ -31,23 +32,23 @@ export default function ProductNavigation({stats,open,onToggle,onSelect,selected
  const groups=allOpen?productGroups:productGroups.filter(g=>g.id===active);
  const hasPanel=allOpen||active;
  return <div className="product-navigation" ref={root}>
-  <nav aria-label="Ürün gezinme"><div className="container product-nav-bar">
-   <div className="nav-all"><a href="#/urunler" aria-current={path==='/urunler'?'page':undefined}>TÜM ÜRÜNLER</a><button ref={el=>buttons.current.all=el} className={'all-categories '+(allOpen?'is-open':'')} onClick={()=>{setActive(null);onToggle(!allOpen)}} aria-label="Ürün kategorilerini aç" aria-expanded={Boolean(allOpen)} aria-controls="product-navigation-panel"><ChevronDown size={14}/></button></div>
-   <div className="desktop-product-links">{headerGroups.map(group=><div className="nav-product-group" key={group.id}><a href={pageHref(groupPath(group.id))} aria-current={path===groupPath(group.id)?'page':undefined}>{group.name}</a><button ref={el=>buttons.current[group.id]=el} onClick={()=>{onToggle(false);setActive(active===group.id?null:group.id)}} aria-label={`${group.name} alt kategorileri`} aria-expanded={active===group.id} aria-controls="product-navigation-panel"><ChevronDown size={12}/></button></div>)}</div>
-   <div className="company-nav-links">{links.map(([target,label])=><a key={target} href={target} aria-current={'#'+path===target?'page':undefined} onClick={()=>{setActive(null);onToggle(false)}}>{label}</a>)}</div>
-   <a href="#/teknik-arama" className="technical-nav-link" aria-current={path==='/teknik-arama'?'page':undefined} onClick={()=>{setActive(null);onToggle(false)}}>Teknik arama</a>
+  <nav aria-label={t("Ürün gezinme")}><div className="container product-nav-bar">
+   <div className="nav-all"><a href="#/urunler" aria-current={path==='/urunler'?'page':undefined}>{t("TÜM ÜRÜNLER")}</a><button ref={el=>buttons.current.all=el} className={'all-categories '+(allOpen?'is-open':'')} onClick={()=>{setActive(null);onToggle(!allOpen)}} aria-label={t("Ürün kategorilerini aç")} aria-expanded={Boolean(allOpen)} aria-controls="product-navigation-panel"><ChevronDown size={14}/></button></div>
+   <div className="desktop-product-links">{t(headerGroups.map(group=><div className="nav-product-group" key={group.id}><a href={pageHref(groupPath(group.id))} aria-current={path===groupPath(group.id)?'page':undefined}>{t(group.name)}</a><button ref={el=>buttons.current[group.id]=el} onClick={()=>{onToggle(false);setActive(active===group.id?null:group.id)}} aria-label={t(`${group.name} alt kategorileri`)} aria-expanded={active===group.id} aria-controls="product-navigation-panel"><ChevronDown size={12}/></button></div>))}</div>
+   <div className="company-nav-links">{t(links.map(([target,label])=><a key={target} href={target} aria-current={target===pageHref(path)||target==='#'+path?'page':undefined} onClick={()=>{setActive(null);onToggle(false)}}>{t(label)}</a>))}</div>
+   <a href="#/teknik-arama" className="technical-nav-link" aria-current={path==='/teknik-arama'?'page':undefined} onClick={()=>{setActive(null);onToggle(false)}}>{t("Teknik arama")}</a>
   </div></nav>
-  {secondaryGroups.length>0&&<nav className="secondary-product-navigation" aria-label="Diğer ürün grupları"><div className="container secondary-product-links" ref={secondaryRef}>{secondaryGroups.map(group=><a key={group.id} href={pageHref(groupPath(group.id))} aria-current={path===groupPath(group.id)?'page':undefined} onClick={()=>{setActive(null);onToggle(false)}}>{group.name}<ArrowRight size={13}/></a>)}</div></nav>}
-  {hasPanel&&<div className="container product-megamenu" id="product-navigation-panel">
-   <div className="mega-heading"><div><span>ÜRÜN KATALOĞU</span><h2>{allOpen?'Ürün gruplarını keşfedin':groups[0]?.name}</h2></div><button aria-label="Ürün menüsünü kapat" onClick={()=>{setActive(null);onToggle(false)}}><X size={20}/></button></div>
-   <div className="mega-company-links">{links.map(([target,label])=><a href={target} key={target} onClick={()=>{setActive(null);onToggle(false)}}>{label}</a>)}</div>
-   {allOpen&&<button className="mega-all" onClick={()=>select('Tüm ürünler')}>Tüm ürünleri görüntüle <span>{formatCount(productCount)} ürün</span><ArrowRight size={16}/></button>}
-   <div className={'mega-groups '+(!allOpen?'single-group':'')}>{groups.map(group=>{const Icon=icons[group.id]||Layers;const count=group.categories.reduce((sum,category)=>sum+(counts[category]||0),0);return <section key={group.id}>
-    <div className="mega-group-title"><Icon size={21}/><h3>{group.name}</h3></div><p>{group.description}</p>
-    <button className="mega-group-all" onClick={()=>select(`group:${group.id}`)}>Grubun tüm ürünleri <ArrowRight size={14}/></button>
-    <div className="mega-category-links">{group.categories.map(category=><button key={category} onClick={()=>select(site.remote?`category:${group.categoryRecords.find(c=>c.name===category)?.id}`:category)}>{category}<ArrowRight size={13}/></button>)}</div>
-    <small>{count?`${formatCount(count)} ürün`:'Ürün verileri henüz eklenmedi'}</small>
-   </section>})}</div>
-  </div>}
+  {t(secondaryGroups.length>0&&<nav className="secondary-product-navigation" aria-label={t("Diğer ürün grupları")}><div className="container secondary-product-links" ref={secondaryRef}>{t(secondaryGroups.map(group=><a key={group.id} href={pageHref(groupPath(group.id))} aria-current={path===groupPath(group.id)?'page':undefined} onClick={()=>{setActive(null);onToggle(false)}}>{t(group.name)}<ArrowRight size={13}/></a>))}</div></nav>)}
+  {t(hasPanel&&<div className="container product-megamenu" id="product-navigation-panel">
+   <div className="mega-heading"><div><span>{t("ÜRÜN KATALOĞU")}</span><h2>{t(allOpen?'Ürün gruplarını keşfedin':groups[0]?.name)}</h2></div><button aria-label={t("Ürün menüsünü kapat")} onClick={()=>{setActive(null);onToggle(false)}}><X size={20}/></button></div>
+   <div className="mega-company-links">{t(links.map(([target,label])=><a href={target} key={target} onClick={()=>{setActive(null);onToggle(false)}}>{t(label)}</a>))}</div>
+   {t(allOpen&&<button className="mega-all" onClick={()=>select('Tüm ürünler')}>{t("Tüm ürünleri görüntüle ")}<span>{t(formatCount(productCount))}{t(" ürün")}</span><ArrowRight size={16}/></button>)}
+   <div className={'mega-groups '+(!allOpen?'single-group':'')}>{t(groups.map(group=>{const Icon=icons[group.id]||Layers;const count=group.categories.reduce((sum,category)=>sum+(counts[category]||0),0);return <section key={group.id}>
+    <div className="mega-group-title"><Icon size={21}/><h3>{t(group.name)}</h3></div><p>{t(group.description)}</p>
+    <button className="mega-group-all" onClick={()=>select(`group:${group.id}`)}>{t("Grubun tüm ürünleri ")}<ArrowRight size={14}/></button>
+    <div className="mega-category-links">{t(group.categories.map(category=><button key={category} onClick={()=>select(site.remote?`category:${group.categoryRecords.find(c=>c.name===category)?.id}`:category)}>{t(category)}<ArrowRight size={13}/></button>))}</div>
+    <small>{t(count?`${formatCount(count)} ürün`:'Ürün verileri henüz eklenmedi')}</small>
+   </section>}))}</div>
+  </div>)}
  </div>;
 }

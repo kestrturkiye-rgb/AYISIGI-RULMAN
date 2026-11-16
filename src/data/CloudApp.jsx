@@ -1,3 +1,4 @@
+import {translate as t} from '../i18n/core.js';
 import React,{useEffect,useMemo,useState,useCallback,useRef} from 'react';
 import {getPublicRepository} from './client';
 import {SiteProvider} from './SiteContext';
@@ -31,7 +32,7 @@ export default function CloudApp({App}){
  const idsKey=cartIds.join('|');
  useEffect(()=>{if(!repository)return;let active=true;setCartLoading(true);setCartError('');repository.products(cartIds).then(rows=>{if(active)setSaved(rows)}).catch(e=>{if(active){setSaved([]);setCartError(e.message)}}).finally(()=>{if(active)setCartLoading(false)});return()=>{active=false}},[repository,idsKey,site?.revision]);
  const index=useMemo(()=>new Map([...(result?.key===queryKey?result.products:[]),...saved].map(p=>[p.id,p])),[saved,result,queryKey]);
- if(!site)return <main className="container catalog-status" role={error?'alert':'status'}><h1>Rulman Teklif</h1><p>{error||'Site bilgileri yükleniyor…'}</p>{error&&<button className="primary" onClick={refresh}>Tekrar dene</button>}<a href="#/admin">Yönetim paneli</a></main>;
+ if(!site)return <main className="container catalog-status" role={error?'alert':'status'}><h1>{t("Rulman Teklif")}</h1><p>{t(error||'Site bilgileri yükleniyor…')}</p>{t(error&&<button className="primary" onClick={refresh}>{t("Tekrar dene")}</button>)}<a href="#/admin">{t("Yönetim paneli")}</a></main>;
  const current=result?.key===queryKey?result:null;
  return <SiteProvider value={site}><App products={current?.products||[]} manifest={{totalProducts:site.totalProducts}} productIndex={index} stats={site.stats} catalogLoading={needed&&!current&&!searchError} catalogError={needed?searchError:''} retryCatalog={refresh} requestCatalog={()=>{}} remoteCatalog={{products:[],totalCount:0,pageSize:24,...current,page,onPage:next=>navigate(updateCatalogParams(route,{sayfa:next===1?null:next}))}} cartLoading={cartLoading} cartError={cartError} onCartChange={items=>setCartIds(items.map(p=>p.id))}/></SiteProvider>;
 }

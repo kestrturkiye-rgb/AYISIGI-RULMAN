@@ -1,8 +1,10 @@
+import {getLanguage} from '../i18n/core.js';
+import {englishPolicy} from '../i18n/policies-en.js';
 export const legalPages=[{slug:'kvkk',title:'KVKK Aydınlatma Metni'},{slug:'gizlilik',title:'Gizlilik Politikası'},{slug:'cerez-politikasi',title:'Çerez Politikası'}];
 export function legalSlug(path){const slug=path.replace(/^\//,'');return ({'gizlilik-politikasi':'gizlilik','aydinlatma-metni':'kvkk',cerezler:'cerez-politikasi'})[slug]||legalPages.find(p=>p.slug===slug)?.slug||null;}
 export function controllerDetails(settings={},company={}){const value=settings.privacy||{};return {name:value.controllerName?.trim()||'',address:value.registeredAddress?.trim()||'',email:value.applicationEmail?.trim()||company.email||'',brand:company.name||'Rulman Teklif',retention:value.retentionText?.trim()||'',transfers:value.transferText?.trim()||'',updated:value.updatedOn||'14.11.2026'};}
 const paragraph=text=>({type:'paragraph',content:[{type:'text',text}]});
-export function policyDocument(slug,details){const d=details,controller=d.name||`${d.brand} markası altında hizmet sunan işletme (tam ticari unvan bilgisi henüz tamamlanmamıştır)`;
+export function policyDocument(slug,details){if(getLanguage()==='en')return englishPolicy(slug,details);const d=details,controller=d.name||`${d.brand} markası altında hizmet sunan işletme (tam ticari unvan bilgisi henüz tamamlanmamıştır)`;
  const contact=`Veri sorumlusu: ${controller}. Başvuru adresi: ${d.address||'Tam başvuru adresi henüz tamamlanmamıştır.'} E-posta: ${d.email||'İletişim sayfasından bilgi isteyebilirsiniz.'}`;
  const retention=d.retention||'Üyelik ve teklif kayıtları işleme amacının, sözleşmesel ilişkinin ve ilgili mevzuattan doğan yükümlülüklerin gerektirdiği süre boyunca tutulur. Süre sona erdiğinde silme veya anonimleştirme uygulanır. Kategori bazında saklama sürelerini başvuru kanalı üzerinden sorabilirsiniz.';
  const transfer=d.transfers||'Sitenin barındırma ve dağıtımı için GitHub Pages ve Vercel; veri, kimlik doğrulama ve dosya saklama için Supabase kullanılır. Bu hizmetlerin yapısına göre kişisel veriler yurt dışında işlenebilir. Yurt dışı aktarımlarda KVKK madde 9 kapsamındaki uygun hukuki mekanizmanın ayrıca belirlenmesi ve uygulanması gerekir; çerez izni bu mekanizmanın yerine geçmez. Aktarımın kapsamı ve güvenceleri hakkında başvuru kanalından bilgi istenebilir.';
@@ -24,6 +26,7 @@ export function policyDocument(slug,details){const d=details,controller=d.name||
  return {type:'doc',content:sections.flatMap(([heading,text])=>[{type:'heading',attrs:{level:2},content:[{type:'text',text:heading}]},paragraph(text)])};
 }
 export const storageInventory=[
+ ['rt-language','localStorage · işlevsel','Seçtiğiniz site dili','Siz veya tarayıcı temizleyene kadar'],
  ['_ga, _ga_*','Çerez · isteğe bağlı Google Analytics','GA4 etkin ve analiz izni verilmişse ölçüm','Google yapılandırmasına göre, en fazla 2 yıl'],
  ['_gcl_*','Çerez · isteğe bağlı Google Ads','Ads etkin ve reklam ölçümü izni verilmişse dönüşüm ilişkilendirme','Google yapılandırmasına göre, tipik olarak 90 gün'],
  ['__Host-rt-session','Çerez · zorunlu','Şifreli oturum; HttpOnly/Secure','En fazla 12 saat'],

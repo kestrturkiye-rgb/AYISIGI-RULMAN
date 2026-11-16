@@ -47,6 +47,7 @@ jobs:
           node --test tests/admin/spreadsheets.test.mjs
           node tests/performance/public-read-cache.test.mjs
           node tests/seo/google-tags.test.mjs
+          node tests/i18n/core.test.mjs
           node tests/quote.test.js
           node --test tests/server.test.js
           python tests/test_skf_data.py
