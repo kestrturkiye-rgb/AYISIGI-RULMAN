@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "rulmanteklif.com.tr: marka, logo, tanıtım, footer, ortak e-posta ve canonical",
+    "rulmanteklif.com.tr: ürün bağlantısı, sepet, İngilizce ve dil değişimi",
+    "rulmanteklif.com.tr: 360px mobil görünüm",
+    "rulmanteknik.com.tr: marka, logo, tanıtım, footer, ortak e-posta ve canonical",
+    "rulmanteknik.com.tr: ürün bağlantısı, sepet, İngilizce ve dil değişimi",
+    "rulmanteknik.com.tr: 360px mobil görünüm",
+    "rulmanasistan.com.tr: marka, logo, tanıtım, footer, ortak e-posta ve canonical",
+    "rulmanasistan.com.tr: ürün bağlantısı, sepet, İngilizce ve dil değişimi",
+    "rulmanasistan.com.tr: 360px mobil görünüm",
+    "rulmankodu.com.tr: marka, logo, tanıtım, footer, ortak e-posta ve canonical",
+    "rulmankodu.com.tr: ürün bağlantısı, sepet, İngilizce ve dil değişimi",
+    "rulmankodu.com.tr: 360px mobil görünüm",
+    "rulmansecim.com: marka, logo, tanıtım, footer, ortak e-posta ve canonical",
+    "rulmansecim.com: ürün bağlantısı, sepet, İngilizce ve dil değişimi",
+    "rulmansecim.com: 360px mobil görünüm",
+    "www alt alan adı doğru marka ve ana SEO adresini kullanıyor"
+  ],
+  "errors": [],
+  "liveRecordsWritten": false
+}

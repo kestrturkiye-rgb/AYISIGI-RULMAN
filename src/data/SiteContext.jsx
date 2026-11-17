@@ -1,6 +1,7 @@
+import {brandSite} from '../branding/site.js';
 import {getSnapshot,subscribe,configureMessages} from '../i18n/core.js';
 import defaults from './text-defaults.json';
-import React,{createContext,useContext,useEffect,useSyncExternalStore} from 'react';
+import React,{createContext,useContext,useEffect,useMemo,useSyncExternalStore} from 'react';
 import {company} from '../company';import {productGroups} from '../catalog-groups';import {articles} from '../academy-data';
 export const staticSite={remote:false,company,groups:productGroups,articles,pages:[],home:[],menus:[],settings:{},identity:{},media:new Map(),uiTexts:{}};
 const Context=createContext(staticSite);
@@ -8,6 +9,7 @@ export const useSite=()=>useContext(Context);
 const darken=(color,factor)=>'#'+color.slice(1).match(/../g).map(v=>Math.round(parseInt(v,16)*factor).toString(16).padStart(2,'0')).join('');
 export function SiteProvider({value,children}){
  const locale=useSyncExternalStore(subscribe,getSnapshot,getSnapshot);
+ value=useMemo(()=>brandSite(value,globalThis.location,locale.language),[value,locale.language]);
  useEffect(()=>{configureMessages(value.settings.localization?.entries||[],value.uiTexts,defaults)},[value.settings.localization,value.uiTexts]);
  useEffect(()=>{
   if(!value.remote)return;

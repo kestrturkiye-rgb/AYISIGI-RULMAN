@@ -168,3 +168,8 @@ HttpOnly/Secure oturum, CSRF, CSP, üyelik silme ve şifreli yedek/geri yükleme
 ## Karışık ana sayfa seçkisi ve gizlilik taslakları
 
 Her açılışta farklı ürün seçkisi, korunan ziyaretçi analizi, yasal metin taslakları ve Google görünürlüğü değerlendirmesi için [çalışma notları](docs/privacy-discovery/README.md) belgesine bakın. Testler: `npm run test:privacy`, `npm run test:privacy:browser`. Yeni SQL 023 ve önceki güvenlik kurulumları canlıya ayrıca uygulanmalıdır.
+
+
+### Domainlere göre marka görünümü
+
+Beş marka ve dokuz ek domain için ortak katalog, marka kimliği, aynı markada tek canonical adres, güvenli üyelik dönüşleri ve Natro DNS kayıtları: [kurulum ve test adımları](docs/domain-brands/README.md).

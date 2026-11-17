@@ -1,3 +1,4 @@
+import {PUBLIC_HOSTS} from '../../src/branding/domains.js';
 import test from 'node:test';import assert from 'node:assert/strict';import {createHmac} from 'node:crypto';
 import {makeAuthHandler} from '../../api/_auth.mjs';import {seal,unseal,storeSession,sessionFromCookie,sameValue} from '../../api/_auth-cookies.mjs';
 import {createCookieAuth} from '../../src/security/cookie-client.js';
@@ -20,7 +21,7 @@ test('cookie client keeps tokens in memory, removes old storage, and posts CSRF 
 test('recovery PKCE verifier stays HttpOnly and only the sealed server intent enables a password reset',async()=>{const recovered=await call('recover',{body:{email:user.email,admin:true}});assert.equal(recovered.statusCode,200);const pkceLine=recovered.headers['Set-Cookie'].find(x=>x.startsWith('__Host-rt-pkce='));assert.ok(pkceLine.includes('HttpOnly'));assert.ok(pkceLine.includes('Secure'));assert.ok(!JSON.stringify(recovered.data).includes('verifier'));assert.equal((await call('callback',{body:{code:'one-time-code'}})).statusCode,400);const callback=await call('callback',{cookies:cookie+'; '+pkceLine.split(';')[0],body:{code:'one-time-code'}});assert.equal(callback.statusCode,200);assert.equal(callback.data.session.recovery,true);const resetCookie=callback.headers['Set-Cookie'].find(x=>x.startsWith('__Host-rt-session=')).split(';')[0];const reset=await call('password',{cookies:cookie+'; '+resetCookie,body:{password:'recovered-password-12'}});assert.equal(reset.statusCode,200);assert.equal(reset.data.session.recovery,false);});
 
 test('custom domains keep login, cookies and recovery on the exact request origin',async()=>{
- for(const host of ['rulmanteklif.com','www.rulmanteklif.com']){
+ for(const host of PUBLIC_HOSTS){
   const source='https://'+host;seen=[];
   const login=await call('login',{host,source,body:{email:user.email,password:'existing-password'}});assert.equal(login.statusCode,200);assert.ok(login.headers['Set-Cookie'].some(s=>s.startsWith('__Host-rt-session=')&&s.includes('HttpOnly')&&s.includes('Secure')&&!s.includes('Domain=')));
   const recover=await call('recover',{host,source,body:{email:user.email,admin:true}});assert.equal(recover.statusCode,200);const providerCall=seen.find(r=>r.path.includes('/recover?'));assert.equal(new URL(providerCall.path).searchParams.get('redirect_to'),source+'/admin/?auth_action=recovery');

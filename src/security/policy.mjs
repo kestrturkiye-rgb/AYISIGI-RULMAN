@@ -1,6 +1,7 @@
+import {PUBLIC_HOSTS} from '../branding/domains.js';
 export const AUTH_ORIGIN='https://rulman-teklif-admin.vercel.app';
 export const CUSTOM_ORIGIN='https://rulmanteklif.com';
-export const AUTH_ORIGINS=Object.freeze([AUTH_ORIGIN,CUSTOM_ORIGIN,'https://www.rulmanteklif.com']);
+export const AUTH_ORIGINS=Object.freeze([AUTH_ORIGIN,...PUBLIC_HOSTS.map(host=>'https://'+host)]);
 export function requestAuthOrigin(host){return AUTH_ORIGINS.find(origin=>new URL(origin).host===host)||null;}
 export function publicServiceUrl(path,location=globalThis.location){
  const origin=AUTH_ORIGINS.includes(location?.origin)?location.origin:AUTH_ORIGIN;

@@ -1,0 +1,12 @@
+{
+  "projectRef": "lptosaejlowasrbcyqnu",
+  "migration": "202611170032_domain_brand_profiles.sql",
+  "sha256": "1f7ccdd822680140d1ff5efb39d096df74974e8d4fc03a5531005d0374f459da",
+  "result": [
+    {
+      "products": 111952
+    }
+  ],
+  "productRowsUpdated": false,
+  "applied": true
+}

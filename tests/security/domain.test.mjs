@@ -1,3 +1,4 @@
+import {PUBLIC_HOSTS} from '../../src/branding/domains.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {AUTH_ORIGIN,AUTH_ORIGINS,requestAuthOrigin,publicServiceUrl,canonicalAuthTarget} from '../../src/security/policy.mjs';
@@ -25,17 +26,17 @@ test('quote and analysis gateways allow custom domains and reject similar foreig
   await makeHandler(kind)({method:'POST',headers:{origin},body},res);return res;
  };
  try{
-  for(const origin of ['https://rulmanteklif.com','https://www.rulmanteklif.com']){
+  for(const origin of PUBLIC_HOSTS.map(host=>'https://'+host)){
    const quote=await invoke('quote',origin,{details:{customer:'Test'},items:[],website:''});
    assert.equal(quote.statusCode,202);assert.equal(quote.headers['Access-Control-Allow-Origin'],origin);
    const event=await invoke('collect',origin,{consent:true,kind:'page_view',path:'/',sessionId:'test-session-12345678'});
    assert.equal(event.statusCode,202);assert.equal(event.headers['Access-Control-Allow-Origin'],origin);
   }
-  assert.equal(calls,4);
+  assert.equal(calls,PUBLIC_HOSTS.length*2);
   for(const origin of ['https://rulmanteklif.com.attacker.example','http://rulmanteklif.com','https://rulmanteklif.com:444']){
    assert.equal((await invoke('quote',origin,{})).statusCode,403);
   }
-  assert.equal(calls,4);
+  assert.equal(calls,PUBLIC_HOSTS.length*2);
  }finally{
   globalThis.fetch=nativeFetch;
   for(const [k,v]of [['RT_GATEWAY_HMAC_SECRET',previous.key],['RT_OPS_URL',previous.url]]){if(v===undefined)delete process.env[k];else process.env[k]=v;}

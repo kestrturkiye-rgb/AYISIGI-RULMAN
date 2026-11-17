@@ -6,8 +6,8 @@ export function makeWhatsAppUrl(message, contact=company) {
  return `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(message)}`;
 }
 
-export function createQuoteText(lines, details = {}, language = 'tr') {
- const en=language==='en';const text = [en?'RULMAN TEKLİF — QUOTE REQUEST':'RULMAN TEKLİF — TEKLİF TALEBİ', '', lines.length
+export function createQuoteText(lines, details = {}, language = 'tr', siteName = company.name) {
+ const en=language==='en';const text = [siteName.toLocaleUpperCase(en?'en-US':'tr-TR')+(en?' — QUOTE REQUEST':' — TEKLİF TALEBİ'), '', lines.length
   ? (en?'Hello, please quote price, availability and delivery for the following products.':'Merhaba, aşağıdaki ürünler için fiyat, stok ve teslimat bilgisi rica ediyorum.')
   : (en?'Hello, I would like product and price information.':'Merhaba, ürün ve fiyat bilgisi almak istiyorum.')];
  if (lines.length) {
@@ -29,7 +29,7 @@ export function createQuoteText(lines, details = {}, language = 'tr') {
 }
 
 export function createQuoteRequest(lines, details = {}, contact=company, language='tr') {
- const text = createQuoteText(lines, details,language);
+ const text = createQuoteText(lines, details,language,contact.name||company.name);
  const url = makeWhatsAppUrl(text,contact);
  return { text, url, tooLong: url.length > MAX_WHATSAPP_URL_LENGTH };
 }

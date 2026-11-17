@@ -1,0 +1,21 @@
+Domain,Tür,Ad,Değer,TTL
+rulmansecim.com,A,@,216.198.79.1,Auto / 3600
+rulmansecim.com,CNAME,www,b47b254bab90fc36.vercel-dns-017.com,Auto / 3600
+rulmankodu.com.tr,A,@,216.198.79.1,Auto / 3600
+rulmankodu.com.tr,CNAME,www,b47b254bab90fc36.vercel-dns-017.com,Auto / 3600
+rulmankodu.com,A,@,216.198.79.1,Auto / 3600
+rulmankodu.com,CNAME,www,b47b254bab90fc36.vercel-dns-017.com,Auto / 3600
+rulmanasistan.com.tr,A,@,216.198.79.1,Auto / 3600
+rulmanasistan.com.tr,CNAME,www,b47b254bab90fc36.vercel-dns-017.com,Auto / 3600
+rulmanasistan.com,A,@,216.198.79.1,Auto / 3600
+rulmanasistan.com,CNAME,www,b47b254bab90fc36.vercel-dns-017.com,Auto / 3600
+rulmanteknik.com.tr,A,@,216.198.79.1,Auto / 3600
+rulmanteknik.com.tr,CNAME,www,b47b254bab90fc36.vercel-dns-017.com,Auto / 3600
+rulmanteknik.com,A,@,216.198.79.1,Auto / 3600
+rulmanteknik.com,CNAME,www,b47b254bab90fc36.vercel-dns-017.com,Auto / 3600
+rulmanteklif.online,A,@,216.198.79.1,Auto / 3600
+rulmanteklif.online,CNAME,www,b47b254bab90fc36.vercel-dns-017.com,Auto / 3600
+rulmanteklif.com.tr,A,@,216.198.79.1,Auto / 3600
+rulmanteklif.com.tr,CNAME,www,b47b254bab90fc36.vercel-dns-017.com,Auto / 3600
+rulmanteknik.com,TXT,_vercel,"vc-domain-verify=www.rulmanteknik.com,11414e760b4888e38e2c",Auto / 3600
+rulmanteknik.com,TXT,_vercel,"vc-domain-verify=rulmanteknik.com,346254fdb5379d2a3144",Auto / 3600

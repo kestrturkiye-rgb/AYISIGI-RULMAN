@@ -1,0 +1,721 @@
+{
+  "projectId": "prj_LNMcFN1YPhsnCLVCpiqCJo455nKD",
+  "hosts": [
+    "rulmanteklif.com",
+    "www.rulmanteklif.com",
+    "rulmanteklif.com.tr",
+    "www.rulmanteklif.com.tr",
+    "rulmanteklif.online",
+    "www.rulmanteklif.online",
+    "rulmanteknik.com",
+    "www.rulmanteknik.com",
+    "rulmanteknik.com.tr",
+    "www.rulmanteknik.com.tr",
+    "rulmanasistan.com",
+    "www.rulmanasistan.com",
+    "rulmanasistan.com.tr",
+    "www.rulmanasistan.com.tr",
+    "rulmankodu.com",
+    "www.rulmankodu.com",
+    "rulmankodu.com.tr",
+    "www.rulmankodu.com.tr",
+    "rulmansecim.com",
+    "www.rulmansecim.com"
+  ],
+  "registeredNow": [],
+  "applied": true,
+  "dnsChanged": false,
+  "mailRecordsChanged": false,
+  "otherProjectsChanged": false,
+  "checkedAtUtc": "2026-11-17T14:08:47.457192+00:00",
+  "authRedirectsAdded": 20,
+  "equivalentOwnedRedirectsConsolidated": 18,
+  "sharedAuthSettingsPreserved": true,
+  "previousRedirects": [
+    "https://kestrturkiye-rgb.github.io/AYISIGI-RULMAN/**",
+    "https://rulman-teklif-admin.vercel.app/",
+    "https://rulman-teklif-admin.vercel.app/**",
+    "https://rulman-teklif-admin.vercel.app/?auth_action=member_recovery",
+    "https://rulman-teklif-admin.vercel.app/?auth_action=member_signup",
+    "https://rulman-teklif-admin.vercel.app/admin/",
+    "https://rulman-teklif-admin.vercel.app/admin/?auth_action=invite",
+    "https://rulman-teklif-admin.vercel.app/admin/?auth_action=recovery",
+    "https://rulman-teklif-admin.vercel.app/en/",
+    "https://rulman-teklif-admin.vercel.app/en/?auth_action=member_recovery",
+    "https://rulman-teklif-admin.vercel.app/en/?auth_action=member_signup",
+    "https://rulmanteklif.com/",
+    "https://rulmanteklif.com/?auth_action=member_recovery",
+    "https://rulmanteklif.com/?auth_action=member_signup",
+    "https://rulmanteklif.com/admin/",
+    "https://rulmanteklif.com/admin/?auth_action=invite",
+    "https://rulmanteklif.com/admin/?auth_action=recovery",
+    "https://rulmanteklif.com/en/",
+    "https://rulmanteklif.com/en/?auth_action=member_recovery",
+    "https://rulmanteklif.com/en/?auth_action=member_signup",
+    "https://www.rulmanteklif.com/",
+    "https://www.rulmanteklif.com/?auth_action=member_recovery",
+    "https://www.rulmanteklif.com/?auth_action=member_signup",
+    "https://www.rulmanteklif.com/admin/",
+    "https://www.rulmanteklif.com/admin/?auth_action=invite",
+    "https://www.rulmanteklif.com/admin/?auth_action=recovery",
+    "https://www.rulmanteklif.com/en/",
+    "https://www.rulmanteklif.com/en/?auth_action=member_recovery",
+    "https://www.rulmanteklif.com/en/?auth_action=member_signup"
+  ],
+  "domains": [
+    {
+      "name": "www.rulmansecim.com",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "rulmansecim.com",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "www.rulmankodu.com.tr",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "rulmankodu.com.tr",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "www.rulmankodu.com",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "rulmankodu.com",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "www.rulmanasistan.com.tr",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "rulmanasistan.com.tr",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "www.rulmanasistan.com",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "rulmanasistan.com",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "www.rulmanteknik.com.tr",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "rulmanteknik.com.tr",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "www.rulmanteknik.com",
+      "verified": false,
+      "verification": [
+        {
+          "type": "TXT",
+          "domain": "_vercel.rulmanteknik.com",
+          "value": "vc-domain-verify=www.rulmanteknik.com,11414e760b4888e38e2c",
+          "reason": "pending_domain_verification"
+        }
+      ],
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "rulmanteknik.com",
+      "verified": false,
+      "verification": [
+        {
+          "type": "TXT",
+          "domain": "_vercel.rulmanteknik.com",
+          "value": "vc-domain-verify=rulmanteknik.com,346254fdb5379d2a3144",
+          "reason": "pending_domain_verification"
+        }
+      ],
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "www.rulmanteklif.online",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "rulmanteklif.online",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "www.rulmanteklif.com.tr",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "rulmanteklif.com.tr",
+      "verified": true,
+      "verification": null,
+      "misconfigured": true,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": null
+    },
+    {
+      "name": "www.rulmanteklif.com",
+      "verified": true,
+      "verification": null,
+      "misconfigured": false,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": "CNAME"
+    },
+    {
+      "name": "rulmanteklif.com",
+      "verified": true,
+      "verification": null,
+      "misconfigured": false,
+      "recommendedIPv4": [
+        {
+          "rank": 1,
+          "value": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ]
+        },
+        {
+          "rank": 2,
+          "value": [
+            "76.76.21.21"
+          ]
+        }
+      ],
+      "recommendedCNAME": [
+        {
+          "rank": 1,
+          "value": "b47b254bab90fc36.vercel-dns-017.com."
+        },
+        {
+          "rank": 2,
+          "value": "cname.vercel-dns.com."
+        }
+      ],
+      "configuredBy": "A"
+    }
+  ]
+}

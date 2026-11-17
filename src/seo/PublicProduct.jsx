@@ -6,7 +6,7 @@ import ProductImage from '../ProductImage';
 import ProductSpecs from '../ProductSpecs';
 import {trackEvent} from '../members/Analytics';
 import {setSeo} from './Seo';
-import {productPath,publicHref,SITE_ORIGIN,replaceProductAddress} from './urls.js';
+import {productPath,publicHref,canonicalOrigin,replaceProductAddress} from './urls.js';
 import './product-page.css';
 import {getLanguage} from '../i18n/core.js';
 import {cleanHost} from './urls.js';
@@ -42,7 +42,7 @@ export default function PublicProduct({slug,onAdd,routeKey}){
  const images=[product.remoteImage,...(product.gallery||[])].filter((image,index,all)=>image&&all.findIndex(other=>other?.src===image.src)===index);
  const displayProduct=selectedImage?{...product,image:selectedImage.src,remoteImage:selectedImage}:product;
  const href=publicHref(canonicalProductPath(product,site));
- const shareUrl=SITE_ORIGIN+(href.startsWith('#')?href.slice(1):href);
+ const shareUrl=canonicalOrigin()+(href.startsWith('#')?href.slice(1):href);
  const categoryHref=publicHref(productCategoryPath(product,site));
  const copy=productContent(product,{language:site.language,siteName:site.company.name,entries:site.settings.localization?.entries});
  async function copyLink(){
