@@ -49,7 +49,6 @@ jobs:
           node tests/seo/google-tags.test.mjs
           node tests/i18n/core.test.mjs
           node tests/branding/domains.test.mjs
-          node tests/branding/server.test.mjs
           python tests/security/test_smtp.py
           node tests/quote.test.js
           node --test tests/server.test.js
@@ -67,6 +66,7 @@ jobs:
         run: |
           node -e "require('node:fs').copyFileSync('dist/index.html','api/site-shell.html')"
           node tests/seo/server.test.mjs
+          node tests/branding/server.test.mjs
       - name: Upload the built site
         uses: actions/upload-pages-artifact@v3
         with:
