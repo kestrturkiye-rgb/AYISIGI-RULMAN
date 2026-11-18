@@ -30,6 +30,7 @@ jobs:
       - run: npm run test:supabase:read
       - run: npm run test:admin
       - run: npm run test:admin:db
+      - run: node tests/analytics/domain-db.test.mjs
       - run: npm run test:supabase:db
       - run: npm run test:catalog:additions
       - run: python tests/test_catalog_additions.py

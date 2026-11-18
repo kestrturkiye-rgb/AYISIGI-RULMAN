@@ -173,3 +173,8 @@ Her açılışta farklı ürün seçkisi, korunan ziyaretçi analizi, yasal meti
 ### Domainlere göre marka görünümü
 
 Beş marka ve dokuz ek domain için ortak katalog, marka kimliği, aynı markada tek canonical adres, güvenli üyelik dönüşleri ve Natro DNS kayıtları: [kurulum ve test adımları](docs/domain-brands/README.md).
+
+
+### Ortak ziyaretçi raporunda site ayrımı
+
+Yönetim paneli `/admin/#/ziyaretciler` sayfasında **Site / domain** filtresi, domain sütunu ve siteye göre oturum geçmişi bulunur. Yalnız analiz izni veren ziyaretçilerin sayfa/ürün görüntülemeleri kaydedilir. Ham IP saklanmaz. Güncellemeden önceki kayıtların domaini tahmin edilmez. [Kurulum ve doğrulama](docs/domain-analytics/README.md).

@@ -2,6 +2,11 @@ import {createHmac,randomUUID} from 'node:crypto';import {isIP} from 'node:net';
 import {AUTH_ORIGINS} from '../src/security/policy.mjs';
 class InputError extends Error{}
 const origins=new Set(['https://kestrturkiye-rgb.github.io',...AUTH_ORIGINS]);
+// Attribution comes from the request's approved browser Origin, never a JSON field.
+export function analyticsSiteHost(headers={}){
+ const origin=origins.has(headers.origin)?headers.origin:AUTH_ORIGINS.find(value=>new URL(value).host===headers.host);
+ return origin?new URL(origin).hostname.replace(/^www\./,''):null;
+}
 export function ipMask(ip){if(ip.startsWith('::ffff:')&&isIP(ip.slice(7))===4)ip=ip.slice(7);if(isIP(ip)===4)return ip.split('.').slice(0,3).join('.')+'.0/24';if(isIP(ip)===6){const [left,right='']=ip.toLowerCase().split('::'),a=left?left.split(':'):[],b=right?right.split(':'):[],all=ip.includes('::')?[...a,...Array(8-a.length-b.length).fill('0'),...b]:a;return all.slice(0,3).map(v=>v||'0').join(':')+'::/48';}return 'Bilinmiyor';}
 export function visitorMetadata(headers,secret,now=new Date()){
  const raw=String(headers['x-forwarded-for']||'').split(',')[0].trim();const ip=isIP(raw)?raw:'unknown';const hash=value=>createHmac('sha256',secret).update(value).digest('hex');const day=now.toISOString().slice(0,10),short=value=>{try{return decodeURIComponent(String(value||'')).slice(0,120);}catch{return '';}};
@@ -15,7 +20,7 @@ export function makeHandler(kind){return async(req,res)=>{
  if(kind==='collect'){
   if(data.consent!==true||!['page_view','product_view'].includes(data.kind)||typeof data.sessionId!=='string'||! /^[a-zA-Z0-9-]{16,80}$/.test(data.sessionId)||typeof data.path!=='string'||!data.path.startsWith('/')||data.path.length>500)throw new InputError('Ziyaret olayı geçersiz.');
   const path=data.path.split('?')[0].split('#')[0],ref=typeof data.referrer==='string'?data.referrer.slice(0,200):'';
-  payload={action:'collect',event:{id:/^[0-9a-f-]{36}$/i.test(data.id||'')?data.id:randomUUID(),consent:true,session_hash:meta.hashSession(data.sessionId),ip_hash:meta.ip_hash,ip_mask:meta.ip_mask,country:meta.country,region:meta.region,city:meta.city,kind:data.kind,path,product_id:data.kind==='product_view'?String(data.productId||'').slice(0,160):null,product_name:data.kind==='product_view'?String(data.productName||'').slice(0,500):null,referrer_host:ref,device:['mobile','tablet','desktop'].includes(data.device)?data.device:'unknown'}};
+  payload={action:'collect',event:{id:/^[0-9a-f-]{36}$/i.test(data.id||'')?data.id:randomUUID(),consent:true,session_hash:meta.hashSession(data.sessionId),ip_hash:meta.ip_hash,ip_mask:meta.ip_mask,country:meta.country,region:meta.region,city:meta.city,kind:data.kind,site_host:analyticsSiteHost(req.headers),path,product_id:data.kind==='product_view'?String(data.productId||'').slice(0,160):null,product_name:data.kind==='product_view'?String(data.productName||'').slice(0,500):null,referrer_host:ref,device:['mobile','tablet','desktop'].includes(data.device)?data.device:'unknown'}};
  }else{
   if(!data.details||!Array.isArray(data.items)||data.items.length>100||String(data.website||'')!=='')throw new InputError('Teklif formunu kontrol edin.');
   payload={action:'quote',quote:{requestKey:data.requestKey,details:data.details,items:data.items.map(p=>({id:String(p.id),qty:p.qty})),website:''},ipHash:meta.ip_hash,memberToken:req.headers.authorization?.replace(/^Bearer /,'')||null};

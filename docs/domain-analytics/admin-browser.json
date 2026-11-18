@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "Tek panelde tüm siteler, domain seçenekleri ve eski kayıt seçeneği",
+    "Domain filtresi tabloyu, sayıları ve en çok bakılan ürünü aynı siteye göre sınırlar",
+    "Geçmişi gör seçilen sitenin oturumunda kalır; site değiştirince eski oturum filtresi temizlenir",
+    "Eski kayıtlar uydurma domainle etiketlenmeden ayrı incelenir",
+    "Domain filtresi sayfalamayla çalışır; domain değişince ilk sayfaya döner",
+    "320px ve 390px mobil panelde sayfa taşması yok"
+  ],
+  "errors": [],
+  "localOnly": true,
+  "productionRecordsWritten": false
+}
