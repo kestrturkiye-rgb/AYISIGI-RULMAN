@@ -1,4 +1,4 @@
-import {requestBrand,trustedRequestOrigin} from '../src/branding/domains.js';
+import {requestBrand,trustedRequestOrigin,SEO_ORIGIN} from '../src/branding/domains.js';
 import {brandSite} from '../src/branding/site.js';
 import {bearingSlugFromPath} from '../src/seo/urls.js';
 import {productContent,categoryContent,canonicalProductPath,groupsFor,relatedResources,productStructuredData,serializeStructuredData} from '../src/seo/content.js';
@@ -9,7 +9,7 @@ const SITEMAP_PAGE_SIZE=1000;let template;
 
 export default async function handler(req,res){
  if(req.method!=='GET'&&req.method!=='HEAD'){res.statusCode=405;res.end();return;}
- const host=req.headers?.host,brand=requestBrand(host),ROOT=brand.origin,requestOrigin=trustedRequestOrigin(host);
+ const host=req.headers?.host,brand=requestBrand(host),ROOT=SEO_ORIGIN,requestOrigin=trustedRequestOrigin(host);
  const url=new URL(req.url,ROOT),originalPath=String(req.query?.path||url.pathname).replace(/\/$/,'')||'/',language=originalPath==='/en'||originalPath.startsWith('/en/')?'en':'tr',path=stripLanguage(originalPath);
  let entries=[];const tx=value=>translate(value,language,entries),x=value=>e(tx(value));const link=(target,label)=>`<a href="${e(localePath(target,language))}">${x(label)}</a>`;
  const rich=doc=>(doc?.content||[]).map(n=>n.type==='heading'?'<h2>'+x(textFromRich(n))+'</h2>':n.type==='paragraph'?'<p>'+x(textFromRich(n))+'</p>':rich(n)).join('');url.searchParams.delete('path');res.setHeader('X-Content-Type-Options','nosniff');

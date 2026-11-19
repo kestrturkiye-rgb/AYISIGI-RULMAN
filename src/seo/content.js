@@ -2,7 +2,7 @@ import {reservedProductSlugs} from './urls.js';
 import project from '../../apps/admin/src/project-config.json' with {type:'json'};
 import {translate,technicalText,localePath} from '../i18n/core.js';
 import {guides,articleGroups} from './category-guides.js';
-import {canonicalOrigin} from '../branding/domains.js';
+import {SEO_ORIGIN} from '../branding/domains.js';
 const text=value=>typeof value==='string'?value.trim():'';
 const brandName=value=>value&&!['Belirtilmemiş','Not specified'].includes(value)?value:'';
 const sentence=value=>value?value.replace(/[.\s]+$/,'')+'.':'';
@@ -45,7 +45,7 @@ export function canonicalProductPath(product,site){
  return bearing?'/'+encodeURIComponent(slug)+'/rulman':'/urun/'+encodeURIComponent(slug);
 }
 export function productStructuredData(product,site,language='tr'){
- const ROOT=site.brand?.origin||canonicalOrigin();
+ const ROOT=SEO_ORIGIN;
  const entries=site.settings?.localization?.entries;
  const content=productContent(product,{language,entries,siteName:site.company?.name||site.settings?.identity?.name||'Rulman Teklif'}),url=ROOT+localePath(canonicalProductPath(product,site),language),brand=brandName(product.brand);
  const crumbs=[{name:language==='en'?'Products':'Ürünler',url:ROOT+localePath('/urunler',language)},...(product.category?[{name:translate(product.category,language,entries),url:ROOT+localePath(productCategoryPath(product,site),language)}]:[]),{name:product.code||product.sku,url}];

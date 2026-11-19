@@ -6,6 +6,8 @@ export const DOMAIN_BRANDS=Object.freeze([
  {key:'kodu',name:'Rulman Kodu',primary:'rulmankodu.com',aliases:['rulmankodu.com.tr']},
  {key:'secim',name:'Rulman Seçim',primary:'rulmansecim.com',aliases:[]},
 ].map(brand=>Object.freeze({...brand,aliases:Object.freeze(brand.aliases),origin:'https://'+brand.primary})));
+// Arama motorlarına gösterilen tek asıl adres. Marka siteleri açık kalır, canonical/sitemap buraya işaret eder.
+export const SEO_ORIGIN=DOMAIN_BRANDS[0].origin;
 export const PUBLIC_HOSTS=Object.freeze(DOMAIN_BRANDS.flatMap(b=>[b.primary,...b.aliases].flatMap(host=>[host,'www.'+host])));
 const byHost=new Map(DOMAIN_BRANDS.flatMap(b=>[b.primary,...b.aliases].flatMap(host=>[[host,b],['www.'+host,b]])));
 export function knownBrand(hostname){return typeof hostname==='string'?byHost.get(hostname.toLowerCase()):undefined;}

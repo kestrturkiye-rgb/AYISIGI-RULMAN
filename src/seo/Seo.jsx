@@ -1,8 +1,8 @@
 import {translate as t,getLanguage,localePath} from '../i18n/core.js';
-import {useEffect} from 'react';import {canonicalOrigin,canonicalPath,cleanHost} from './urls.js';
+import {useEffect} from 'react';import {canonicalPath,cleanHost} from './urls.js';import {SEO_ORIGIN} from '../branding/domains.js';
 import {categoryContent,serializeStructuredData} from './content.js';
 export function setSeo({title,description,path='/',image,noindex=false,verification,structuredData}){
- const SITE_ORIGIN=canonicalOrigin(),lang=getLanguage();path=localePath(path,lang);title=t(title);description=t(description);document.title=title;document.documentElement.lang=lang;const meta=(name,content,property=false)=>{const key=property?'property':'name';let el=document.head.querySelector(`meta[${key}="${name}"]`);if(!el){el=document.createElement('meta');el.setAttribute(key,name);document.head.append(el);}el.content=content||'';};
+ const SITE_ORIGIN=SEO_ORIGIN,lang=getLanguage();path=localePath(path,lang);title=t(title);description=t(description);document.title=title;document.documentElement.lang=lang;const meta=(name,content,property=false)=>{const key=property?'property':'name';let el=document.head.querySelector(`meta[${key}="${name}"]`);if(!el){el=document.createElement('meta');el.setAttribute(key,name);document.head.append(el);}el.content=content||'';};
  meta('description',description);meta('robots',noindex?'noindex,follow':'index,follow');meta('og:title',title,true);meta('og:description',description,true);meta('og:url',SITE_ORIGIN+path,true);meta('og:type','website',true);meta('og:image',image||SITE_ORIGIN+'/brand/rulman-teklif.webp',true);meta('twitter:card','summary_large_image');
  if(verification&&/^[A-Za-z0-9_-]{10,200}$/.test(verification))meta('google-site-verification',verification);
  let schema=document.getElementById('rt-structured-data');if(structuredData){if(!schema){schema=document.createElement('script');schema.id='rt-structured-data';schema.type='application/ld+json';document.head.append(schema);}schema.textContent=serializeStructuredData(structuredData);}else schema?.remove();
