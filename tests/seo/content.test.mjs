@@ -39,3 +39,17 @@ test('managed English category translations apply equally to metadata and struct
 test('bearing URLs use full model code before /rulman while other product families and reserved names keep their routes',()=>{for(const slug of ['6001','6001-2rs','6001-2rs-rbe'])assert.equal(canonicalProductPath({...product,slug},site),'/'+slug+'/rulman');assert.equal(canonicalProductPath({...product,category_id:'unknown',slug:'drill'},site),'/urun/drill');assert.equal(canonicalProductPath({...product,slug:'en'},site),'/urun/en');});
 
 test('static products without category IDs are classified by their actual category name',()=>{const staticSite={groups:[{id:'bearings',categories:['Bilyalı rulmanlar']},{id:'transmission',categories:['Kayışlar']}]};assert.equal(canonicalProductPath({slug:'at5',category:'Kayışlar'},staticSite),'/urun/at5');assert.equal(canonicalProductPath({slug:'6001',category:'Bilyalı rulmanlar'},staticSite),'/6001/rulman');});
+test('bearing suffixes become readable, variant-specific copy without unsupported claims',async()=>{
+ const {bearingFeatures}=await import('../../src/seo/content.js');const cat='Bilyalı rulmanlar';
+ const shorts=code=>bearingFeatures(code,cat).map(f=>f.short);
+ assert.deepEqual(shorts('6205-2RS C3'),['iki tarafı kauçuk contalı','C3 iç boşluk']);
+ assert.deepEqual(shorts('6205ZZ'),['iki tarafı metal kapaklı']);
+ assert.deepEqual(shorts('6205DDU'),['iki tarafı kauçuk contalı']);
+ assert.deepEqual(shorts('6205-2RS NR'),['iki tarafı kauçuk contalı','segman kanallı ve segmanlı']);
+ assert.deepEqual(shorts('1205 EKTN9'),['konik delikli','poliamid kafesli']);
+ assert.deepEqual(shorts('6001'),[]);assert.equal(bearingFeatures('6001',cat).standard,true);
+ assert.equal(bearingFeatures('16 5M 15F','Kasnaklar').length,0);assert.equal(bearingFeatures('LMF 40 LUU','Lineer rulmanlar').length,0);
+ const sealed=productContent({sku:'6205-2RS C3',name:'6205-2RS C3',category:cat,brand:'Belirtilmemiş',inner_mm:25,outer_mm:52,width_mm:15}),open=productContent({sku:'6205',name:'6205',category:cat,brand:'Belirtilmemiş',inner_mm:25,outer_mm:52,width_mm:15});
+ assert.notEqual(sealed.description,open.description);assert.ok(sealed.summary.includes('C3'));assert.ok(!sealed.summary.includes('Belirtilmemiş'));assert.ok(!/stokta|ücretsiz kargo|en ucuz/i.test(sealed.summary+sealed.description));
+ const english=productContent({sku:'6205-2RS',name:'6205-2RS',category:cat,brand:'SKF'},{language:'en'});assert.ok(english.summary.includes('rubber seals'));assert.ok(!english.summary.includes('teklif'));
+});
